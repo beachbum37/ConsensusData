@@ -9,7 +9,8 @@
       "arc": "core",
       "depth": "medium",
       "industries": ["public-sector"],
-      "lands_because": "Invites the guest to explain the statutory and procedural machinery behind an apparent absurdity. It is the single most clarifying question you can ask a civil servant.",
+      "voice_exempt": ["why don't you just"],
+      "lands_because": "Invites the guest to explain the statutory and procedural machinery behind an apparent absurdity. It is the single most clarifying question you can ask a civil servant. The phrase is quoted here as the public's dismissal, not aimed at the guest - the question exists to let them answer it.",
       "followups": ["Who would have to change what for it to work differently?"],
       "tags": ["constraints", "flagship", "clarifying"]
     },

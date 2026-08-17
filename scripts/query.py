@@ -224,11 +224,39 @@ def cmd_arc(corpus: Corpus, args) -> int:
     print(WRAP.fill(arc["goal"]) if not md else f"**Goal.** {arc['goal']}\n")
     print()
 
+    series = corpus.series
+    if series:
+        print(("**The promise.** " + series["promise"]) if md
+              else "THE PROMISE\n" + WRAP.fill(series["promise"]))
+        print()
+        print("## Voice" if md else "VOICE")
+        print()
+        for label, key in (("Invite", "invites"), ("Avoid", "avoids")):
+            for line in series["voice"][key]:
+                text = f"{label}: {line}"
+                print(("- " + text) if md else WRAP.fill("- " + text))
+        print()
+
     print("## House rules" if md else "HOUSE RULES")
     print()
     for rule in arc["house_rules"]:
         print(("- " + rule) if md else WRAP.fill("- " + rule))
     print()
+
+    if corpus.spine:
+        print("## The spine - every episode touches these" if md
+              else "THE SPINE - every episode touches these")
+        print()
+        for theme in corpus.spine:
+            beats = [b["title"] for b in arc["beats"] if theme["theme"] in b.get("covers", [])]
+            head = f"{theme['name']} -> {', '.join(beats)}"
+            print(("- **" + theme["name"] + "** - " + theme["reframe"]) if md
+                  else WRAP.fill("- " + head))
+            if md:
+                print(f"  Beats: {', '.join(beats)}")
+            else:
+                print(WRAP.fill(f"  {theme['reframe']}"))
+        print()
 
     if pick:
         note = arc["anchoring"][pick]
@@ -253,6 +281,10 @@ def cmd_arc(corpus: Corpus, args) -> int:
         print(f"### {title}" if md else f"{title}  [{beat['beat']} / {beat['theme']}]")
         if md:
             print(f"`{beat['beat']}` · {beat['theme']}\n")
+
+        if beat.get("covers"):
+            tag = "spine: " + ", ".join(beat["covers"])
+            print((f"*{tag}*") if md else WRAP.fill(f"[{tag}]"))
 
         if pick:
             ask = fill(beat["flavors"][pick])

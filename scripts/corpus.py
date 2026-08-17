@@ -32,6 +32,12 @@ class Corpus:
     industries: dict
     packs: dict[str, str] = field(default_factory=dict)
     arcs: dict[str, dict] = field(default_factory=dict)
+    series: dict = field(default_factory=dict)
+
+    @property
+    def spine(self) -> list[dict]:
+        """Themes every episode is required to touch."""
+        return self.series.get("spine", [])
 
     @property
     def profiles(self) -> dict[str, dict]:
@@ -70,8 +76,11 @@ def load() -> Corpus:
             blob = _read_json(path)
             arcs[blob["arc"]] = blob
 
+    series_path = DATA_DIR / "series.json"
+    series = _read_json(series_path) if series_path.exists() else {}
+
     return Corpus(questions=questions, taxonomy=taxonomy, industries=industries,
-                  packs=packs, arcs=arcs)
+                  packs=packs, arcs=arcs, series=series)
 
 
 def slots_in(text: str) -> set[str]:

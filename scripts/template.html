@@ -429,12 +429,40 @@
 
   .beat .eyebrow {
     grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .375rem;
     font-family: var(--font-mono);
     font-size: .6875rem;
     text-transform: uppercase;
     letter-spacing: .06em;
     color: var(--ink-3);
   }
+
+  /* Spine beats are what the series requires of every episode. The rest are
+     the ones to drop when the recording runs long. */
+  .beat.is-spine { --tone: var(--accent); }
+
+  .spine-chip {
+    padding: .0625rem .375rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    color: var(--accent);
+    letter-spacing: .04em;
+  }
+
+  .profile dd.promise {
+    font-family: var(--font-read);
+    font-size: var(--step-2);
+    line-height: 1.45;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+
+  .profile .avoid b { color: var(--accent); }
+  .profile li b { font-weight: 640; }
+  .profile li i { color: var(--ink-3); font-style: normal; font-size: .8125rem; }
 
   .beat .title {
     grid-column: 2;
@@ -779,8 +807,15 @@
   function beatCard(beat, index, profile) {
     const node = el("article", { className: "card beat" });
     node.append(el("span", { className: "seq", textContent: String(index).padStart(2, "0") }));
-    node.append(el("p", { className: "eyebrow", textContent: `${beat.beat} · ${beat.theme}` }));
+    const eyebrow = el("p", { className: "eyebrow", textContent: `${beat.beat} · ${beat.theme}` });
+    // A beat carrying a spine theme is one the series requires; the rest are
+    // the ones to drop when the episode runs long.
+    for (const theme of beat.covers || []) {
+      eyebrow.append(el("span", { className: "spine-chip", textContent: theme }));
+    }
+    node.append(eyebrow);
     node.append(el("h3", { className: "title", textContent: beat.title }));
+    if ((beat.covers || []).length) node.classList.add("is-spine");
 
     const flavors = el("div", { className: "flavors" });
     const levels = state.anchoring ? [state.anchoring] : ANCHORING;
@@ -817,11 +852,43 @@
   }
 
   function arcPanel(arc) {
+    const series = DATA.series || {};
     const panel = el("section", { className: "profile" });
     panel.append(el("h2", { textContent: arc.title }));
     const dl = el("dl");
+    if (series.promise) {
+      dl.append(el("dt", { textContent: "The promise to the listener" }));
+      dl.append(el("dd", { className: "promise", textContent: series.promise }));
+    }
     dl.append(el("dt", { textContent: "Goal" }));
     dl.append(el("dd", { textContent: arc.goal }));
+    if (series.voice) {
+      dl.append(el("dt", { textContent: "Voice" }));
+      const voice = el("dd", { className: "landmines" });
+      const list = el("ul");
+      series.voice.invites.forEach(v =>
+        list.append(el("li", {}, [el("b", { textContent: "Invite. " }), v])));
+      series.voice.avoids.forEach(v =>
+        list.append(el("li", { className: "avoid" }, [el("b", { textContent: "Avoid. " }), v])));
+      voice.append(list);
+      dl.append(voice);
+    }
+    if ((series.spine || []).length) {
+      dl.append(el("dt", { textContent: "The spine - every episode touches these" }));
+      const spine = el("dd", { className: "landmines" });
+      const list = el("ul");
+      for (const theme of series.spine) {
+        const beats = arc.beats.filter(b => (b.covers || []).includes(theme.theme))
+          .map(b => b.title).join(", ");
+        list.append(el("li", {}, [
+          el("b", { textContent: theme.name + ". " }),
+          theme.reframe + " ",
+          el("i", { textContent: "Beats: " + beats })
+        ]));
+      }
+      spine.append(list);
+      dl.append(spine);
+    }
     dl.append(el("dt", { textContent: "House rules" }));
     dl.append(el("dd", { className: "landmines" }, [
       el("ul", {}, arc.house_rules.map(r => el("li", { textContent: r })))

@@ -39,6 +39,7 @@ def payload() -> dict:
         ],
         "profiles": corpus.industries["profiles"],
         "arcs": list(corpus.arcs.values()),
+        "series": {k: v for k, v in corpus.series.items() if not k.startswith("$")},
         "taxonomy": {
             section: {k: v for k, v in corpus.taxonomy[section].items() if not k.startswith("$")}
             for section in ("arc", "depth", "theme", "industries", "roles")

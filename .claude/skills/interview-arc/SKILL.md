@@ -12,6 +12,39 @@ contact with a real conversation: a guest whose situation turned out to be
 different from the booking email, an answer that goes somewhere better than
 planned, a stretch that dies and needs rescuing.
 
+## Read the series bible first
+
+`data/series.json` holds the show's promise, its register, and its spine. Read
+it before writing a single question — it is the thing that makes episodes sound
+like one show rather than a stack of interviews.
+
+**The promise.** The listener is a manager whose judgment has been exercised
+constantly and solicited rarely. The claim the show makes to them is that the
+tacit knowledge of how the work actually goes — never written down, never asked
+for — is the scarce input, because the models are close to commodity and that
+judgment is not. Every question should be consistent with that claim.
+
+It only works because it's true. Do not inflate it. The listener has a working
+detector for flattery and using it costs more than it buys.
+
+**The spine.** Three themes every episode touches:
+`natural-language-os`, `architecting-the-department`,
+`customization-as-superpower`. Each arc beat declares what it `covers`, and
+`validate.py` **fails** an arc that cannot deliver one of them. When you build a
+prep sheet, confirm all three are represented before you hand it over.
+
+**The register.** Warmth belongs in the *premise* of a question, never in its
+content. "How did you decide where to draw that line" assumes they drew it —
+that is inviting. "How can managers introduce this so teams feel supported"
+contains its own answer — that is leading, and no amount of warmth rescues it.
+The two are easy to confuse; the test is whether the guest could disagree with
+the premise and still have something to say.
+
+`series.json` carries `voice.avoid_patterns`, and `validate.py` warns on any
+question text containing one. If a question quotes a phrase in order to
+criticise it, declare `voice_exempt` on that question so the exception is
+visible in the data.
+
 ## The core idea: anchoring
 
 A question breaks not because its topic is wrong but because it **presupposes
@@ -75,11 +108,14 @@ python3 scripts/query.py find --tag workflow --format md
 1. **If the situation changes** - one short block naming what to do if the
    premise is wrong. This goes first because it is the thing they need at
    minute two, not minute forty.
-2. **The guest's world** - status axis, what earns trust, landmines, from the
+2. **The promise and the voice** - a compressed version of the series register,
+   so the host holds the tone in their head while reading.
+3. **The guest's world** - status axis, what earns trust, landmines, from the
    industry profile.
-3. **The running order** - beats in sequence, each with its flavors, purpose,
-   what the listener takes away, follow-ups, and the rescue prompt.
-4. **Pivots** - kept visible, for when an answer dies.
+4. **The running order** - beats in sequence, each with its flavors, purpose,
+   what the listener takes away, follow-ups, and the rescue prompt. Mark which
+   beats carry a spine theme; those are the ones that cannot be cut for time.
+5. **Pivots** - kept visible, for when an answer dies.
 
 **6. Offer to publish it as an artifact** so the host can open it on a phone
 or second screen during the recording.

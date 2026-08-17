@@ -113,6 +113,40 @@ def main() -> int:
         if slug != "universal" and slug not in profiled:
             errors.append(f"taxonomy lists industry '{slug}' with no profile in industries.json")
 
+    # -------------------------------------------------- series voice and spine
+    spine_themes = {t["theme"] for t in corpus.spine}
+    avoid = {k: v for k, v in corpus.series.get("voice", {})
+             .get("avoid_patterns", {}).items() if not k.startswith("$")}
+
+    def lint_voice(text: str, where: str, exempt=()) -> None:
+        """Flag deficit framing. The register is a house rule, so it is checked
+        like one rather than left to memory.
+
+        A question may quote a phrase in order to criticise it, which is the
+        opposite of using it. Those declare `voice_exempt` so the exception is
+        visible in the data rather than hidden in the linter.
+        """
+        low = text.lower()
+        for pattern, reason in avoid.items():
+            if pattern in low and pattern not in exempt:
+                warnings.append(f"{where}: voice - '{pattern}'. {reason}")
+
+    for q in corpus.questions:
+        where = f"{q.get('source_file', '?')}:{q.get('id')}"
+        exempt = [p.lower() for p in q.get("voice_exempt", [])]
+        lint_voice(q.get("text", ""), where, exempt)
+        for pattern in exempt:
+            if pattern not in q.get("text", "").lower():
+                warnings.append(f"{where}: voice_exempt lists '{pattern}', which is not in the text")
+
+    for theme in spine_themes:
+        tagged = [q for q in corpus.questions if theme in q.get("tags", [])]
+        if not tagged:
+            warnings.append(
+                f"spine theme '{theme}' has no questions tagged with it - it will only "
+                "be reachable through an arc"
+            )
+
     # ------------------------------------------------------------------ arcs
     known_slots_or_prompt = known_slots | {"phrase"}
     for name, arc in corpus.arcs.items():
@@ -126,6 +160,14 @@ def main() -> int:
                 f"arc '{name}': anchoring levels {sorted(declared)} "
                 f"do not match {sorted(ANCHORING)}"
             )
+
+        # Every episode is supposed to touch the spine, so an arc that cannot
+        # deliver one of its themes is a defect in the arc, not a preference.
+        covered = {t for beat in arc.get("beats", []) for t in beat.get("covers", [])}
+        for theme in sorted(spine_themes - covered):
+            errors.append(f"arc '{name}': no beat covers spine theme '{theme}'")
+        for theme in sorted(covered - spine_themes):
+            errors.append(f"arc '{name}': beat covers unknown spine theme '{theme}'")
 
         seen_beats: set[str] = set()
         for beat in arc.get("beats", []):
@@ -155,6 +197,7 @@ def main() -> int:
                     errors.append(f"{where}: unknown anchoring level '{level}'")
                 if not str(text).strip():
                     errors.append(f"{where}: empty '{level}' flavor")
+                lint_voice(str(text), f"{where} [{level}]")
                 for slot in slots_in(str(text)):
                     if slot not in known_slots_or_prompt:
                         warnings.append(f"{where}: slot '{{{slot}}}' has no profile value")

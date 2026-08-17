@@ -214,6 +214,66 @@ class TestArcs(unittest.TestCase):
                     self.assertNotIn("{", fill_slots(text, profile), f"{slug}/{beat['beat']}")
 
 
+class TestSeries(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.corpus = load()
+
+    def test_series_loads_with_a_spine(self):
+        self.assertTrue(self.corpus.series.get("promise"))
+        self.assertEqual(len(self.corpus.spine), 3)
+
+    def test_every_arc_covers_every_spine_theme(self):
+        # The series requires that every episode touches these, so an arc that
+        # cannot deliver one is broken rather than merely different.
+        themes = {t["theme"] for t in self.corpus.spine}
+        for name, arc in self.corpus.arcs.items():
+            covered = {t for beat in arc["beats"] for t in beat.get("covers", [])}
+            self.assertEqual(themes - covered, set(), f"arc {name} misses a spine theme")
+
+    def test_beats_only_claim_real_spine_themes(self):
+        themes = {t["theme"] for t in self.corpus.spine}
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                for theme in beat.get("covers", []):
+                    self.assertIn(theme, themes, f"arc {name}, beat {beat['beat']}")
+
+    def test_every_spine_theme_is_reachable_from_the_corpus(self):
+        # Not every interview runs the arc, so the themes need standalone
+        # questions too or a brief would never touch them.
+        for theme in self.corpus.spine:
+            tagged = [q for q in self.corpus.questions if theme["theme"] in q.get("tags", [])]
+            self.assertTrue(tagged, f"no questions tagged {theme['theme']}")
+
+    def test_no_question_uses_deficit_framing(self):
+        avoid = [p for p in self.corpus.series["voice"]["avoid_patterns"]
+                 if not p.startswith("$")]
+        for q in self.corpus.questions:
+            exempt = [p.lower() for p in q.get("voice_exempt", [])]
+            text = q["text"].lower()
+            for pattern in avoid:
+                if pattern in exempt:
+                    continue
+                self.assertNotIn(pattern, text, f"{q['id']} uses deficit framing")
+
+    def test_no_arc_flavor_uses_deficit_framing(self):
+        avoid = [p for p in self.corpus.series["voice"]["avoid_patterns"]
+                 if not p.startswith("$")]
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                for level, text in beat["flavors"].items():
+                    for pattern in avoid:
+                        self.assertNotIn(pattern, text.lower(),
+                                         f"arc {name}, beat {beat['beat']} [{level}]")
+
+    def test_voice_exemptions_are_real(self):
+        # An exemption that does not match anything is stale and hides nothing.
+        for q in self.corpus.questions:
+            for pattern in q.get("voice_exempt", []):
+                self.assertIn(pattern.lower(), q["text"].lower(),
+                              f"{q['id']} exempts a phrase it does not contain")
+
+
 class TestBuildBrief(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

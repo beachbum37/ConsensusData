@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**263 questions.** 83 in the universal core, 120 across 20 industry packs, and 60
+**275 questions.** 83 in the universal core, 120 across 20 industry packs, and 72
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, and the senior contributors now directing agents. Every
 question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -21,6 +21,36 @@ questions with the vocabulary already substituted in.
 Or open `docs/index.html` in a browser for the searchable version.
 
 ---
+
+## The show
+
+`data/series.json` is the bible: the promise, the register, and the spine.
+
+**The promise to the listener.** They're a manager whose judgment has been
+exercised constantly and solicited rarely. The claim the show makes is that the
+tacit knowledge of how the work actually goes — never written down, never asked
+for — is the scarce input, because the models are close to commodity and that
+judgment is not. It works because it's true; inflating it past that costs more
+than it buys.
+
+**The spine.** Three themes every episode touches:
+
+| Theme | The reframe |
+| --- | --- |
+| `natural-language-os` | Describing work precisely is now the act of configuring it. They've been writing specs for years and calling it explaining things to the new person. |
+| `architecting-the-department` | Not using a tool — standing up specialised workers and teaching them the micro-judgments that live only in their head. |
+| `customization-as-superpower` | Turnkey was never turnkey. Every workaround the team built is now a specification. |
+
+Every arc beat declares what it `covers`, and **`validate.py` fails an arc that
+can't deliver one of the three.** The requirement is enforced, not remembered.
+
+**The register.** Warmth belongs in the *premise* of a question, never in its
+content — that distinction is what separates an inviting question from a leading
+one. `series.json` lists the invites and the avoids, and the avoids are
+machine-checked: `validate.py` warns on any question containing deficit framing
+("struggling with", "falling behind", "why haven't you"). A question that quotes
+such a phrase in order to criticise it declares `voice_exempt`, so the exception
+is visible in the data rather than hidden in the linter.
 
 ## The idea
 
@@ -65,9 +95,9 @@ out of the running order.
 
 | Role | Questions | Packs |
 | --- | --- | --- |
-| `middle-manager` | 48 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager |
+| `middle-manager` | 60 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine |
 | `ai-leader` | 21 | AI Leaders & Adoption Owners, plus the workflow and agent packs |
-| `individual-contributor` | 7 | Everyone Becomes a Manager |
+| `individual-contributor` | 12 | Everyone Becomes a Manager, The Spine |
 
 ## Arcs: themes with flavors
 
@@ -208,10 +238,11 @@ as a follow-on, never as an opener.
 .claude/skills/
   interview-arc/SKILL.md the skill: prep an interview end to end
 data/
+  series.json            the bible: promise, register, spine
   taxonomy.json          controlled vocabularies for arc, depth, theme, industries, roles
   industries.json        20 profiles: vocabulary, status axis, trust signals, landmines
   arcs/
-    ai-workflow-partner.json   10 beats, four flavors each
+    ai-workflow-partner.json   14 beats, four flavors each, 8 carrying spine themes
   questions/
     00-openers.json      universal core, one file per pack
     …

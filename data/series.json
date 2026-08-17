@@ -1,0 +1,68 @@
+{
+  "$comment": "The show bible. Two jobs: (1) hold the register, so question language stays inviting rather than diminishing, and (2) declare the spine - themes every episode must touch. validate.py enforces the spine against every arc and lints question language against the avoid list.",
+  "promise": "The thing you hold - an accumulated sense of how the work actually goes, exercised dozens of times a day and written down nowhere - is the scarce input that makes any of this work. You are the natural architect of it, not its subject.",
+  "listener": {
+    "who": "A manager or senior practitioner in any field, responsible for delivery, holding a team below and executives above.",
+    "what_they_have_lived": "Their judgment has been exercised constantly and solicited rarely. They have watched decisions get made badly by people who did not ask them. They have been handed software configured by someone who has never done the job, and been told to adapt to it.",
+    "the_turn": "The bottleneck on useful AI in an organization is not the model. It is the tacit knowledge of how the work actually goes - the exceptions, the escalations, the 'we always check X before Y'. That knowledge lives in the middle. It has never been written down and nobody has ever asked for it. Now it is the input.",
+    "honesty_check": "This only works because it is true. The models are close to commodity; the judgment is not. Do not inflate it beyond that - the listener has a working detector for flattery, and using it costs more than it buys."
+  },
+  "voice": {
+    "$comment": "Warmth belongs in the premise of a question, never in its content. A question that smuggles in the answer is a leading question no matter how kindly it is phrased - see 'invites' rule 1 against 'avoids' rule 6.",
+    "invites": [
+      "Assume competence in the premise. 'How did you decide where to draw that line' assumes they drew it. 'Have you thought about where to draw the line' assumes they have not.",
+      "Ask them to teach, not to justify. On this subject they are the expert in the room, and the questions should be shaped that way.",
+      "Put the agency in the verb. 'What would you build' rather than 'what will happen to you'. The listener is the subject of every sentence, never the object.",
+      "Use their vocabulary and ask them to define it. Never test whether they know yours.",
+      "Treat every workaround as a design decision made under constraint, because that is what it was.",
+      "State the case for their expertise once, plainly, early - then stop saying it and let the questions carry it."
+    ],
+    "avoids": [
+      "Deficit framing. Struggling, behind, resistant, not started yet. The listener has heard enough of that from their own leadership.",
+      "Catch-up urgency. Urgency is the register of a vendor, not of a colleague.",
+      "Any construction implying the bar has been lowered for them - 'even you can', 'you do not need to be technical' said as reassurance rather than as fact.",
+      "Tech as the hero. The tool is not the protagonist of this show. The person configuring it is.",
+      "Passive constructions that make them the object. 'How is AI changing your job' happens to them; 'what have you changed' does not.",
+      "Flattery that is not load-bearing. Empowerment comes from an accurate account of what they hold, not from being told that they matter."
+    ],
+    "avoid_patterns": {
+      "$comment": "Case-insensitive substrings that validate.py flags in question text. Deliberately narrow - each one is deficit framing aimed at the guest rather than at a tool or a system.",
+      "struggling with": "Deficit framing. Ask what they decided, not what defeats them.",
+      "you struggle": "Deficit framing. Ask what they decided, not what defeats them.",
+      "falling behind": "Catch-up urgency. Not the register of this show.",
+      "behind the curve": "Catch-up urgency. Not the register of this show.",
+      "why haven't you": "Puts them on the defensive. Ask what they did instead.",
+      "why don't you just": "Implies the answer is obvious and they missed it.",
+      "do you even": "Condescending in every context.",
+      "resistant to": "Casts the guest or their team as the obstacle.",
+      "still doing it manually": "Implies they are late. They may simply be right.",
+      "failed to": "Ask what happened, not what they failed at."
+    }
+  },
+  "spine": [
+    {
+      "theme": "natural-language-os",
+      "name": "The natural language operating system",
+      "reframe": "The interface to computing has become plain language, which means describing work precisely is now the act of configuring it. Managers have been writing specifications their whole careers and calling it explaining things to the new person.",
+      "why_it_empowers": "It converts a skill they already have and do not count as a skill into the core technical competence.",
+      "say": ["describe", "explain", "the way you would tell a new person", "the rule you say out loud"],
+      "do_not_say": ["prompt engineering", "prompting", "query", "syntax"]
+    },
+    {
+      "theme": "architecting-the-department",
+      "name": "Architecting an AI department",
+      "reframe": "The work is not using a tool. It is standing up a set of specialised workers and teaching them the micro-judgments that currently live only in the guest's head - what good enough means here, which exceptions matter, when to stop and come find a person.",
+      "why_it_empowers": "It casts them as the architect and the curriculum rather than the user. Designing roles and supervision is a competence they already have.",
+      "say": ["staffing", "teaching", "supervision", "escalation", "the rule nobody wrote down"],
+      "do_not_say": ["automate", "replace", "deploy", "headcount reduction"]
+    },
+    {
+      "theme": "customization-as-superpower",
+      "name": "Customization is the superpower",
+      "reframe": "Turnkey software was never turnkey. It demanded that users learn its vocabulary and bend their process around it, and that adaptation was unpaid and invisible. The direction has reversed, which means every workaround the team ever built is now a specification.",
+      "why_it_empowers": "It retroactively dignifies years of accommodation work and hands them the pen.",
+      "say": ["shape it to you", "the workaround", "bend", "the way your team actually does it"],
+      "do_not_say": ["power user", "best practice", "out of the box", "adoption curve"]
+    }
+  ]
+}
