@@ -464,6 +464,8 @@
   <div class="controls">
     <label class="count" for="industry">Guest works in</label>
     <select id="industry"></select>
+    <label class="count" for="role">as</label>
+    <select id="role"></select>
     <div class="modes" role="group" aria-label="View">
       <button class="btn" type="button" id="mode-browse" aria-pressed="true">Browse</button>
       <button class="btn" type="button" id="mode-brief" aria-pressed="false">Brief</button>
@@ -516,6 +518,7 @@
 
   const state = {
     industry: "",
+    role: "",
     mode: "browse",
     search: "",
     depth: new Set(),
@@ -560,6 +563,12 @@
       } else if (state.industryOnly) {
         return false;
       }
+      // Role behaves like industry: picking one narrows to that role plus the
+      // unscoped questions; picking none constrains nothing.
+      if (state.role) {
+        const roles = q.roles || [];
+        if (!roles.includes(state.role) && roles.length) return false;
+      }
       if (state.depth.size && !state.depth.has(q.depth)) return false;
       if (state.arc.size && !state.arc.has(q.arc)) return false;
       if (state.theme.size && !state.theme.has(q.theme)) return false;
@@ -586,16 +595,20 @@
   }
 
   function buildBrief() {
-    const seed = [...state.industry].reduce((a, c) => a + c.charCodeAt(0), 7);
+    const seed = [...(state.industry + state.role)].reduce((a, c) => a + c.charCodeAt(0), 7);
     const picked = [];
     for (const [arc, want] of BRIEF_SHAPE) {
-      const pool = kind => seededShuffle(
-        DATA.questions.filter(q => q.arc === arc &&
-          (kind === "own" ? q.industries.includes(state.industry) : q.industries.includes("universal"))),
-        seed + arc.length
-      );
-      const picks = pool("own").slice(0, Math.max(1, want >> 1));
-      for (const q of pool("universal")) {
+      // Written for this guest: their industry, or their role in any industry.
+      const specific = seededShuffle(DATA.questions.filter(q => q.arc === arc &&
+        (q.industries.includes(state.industry) ||
+         (state.role && (q.roles || []).includes(state.role)))), seed + arc.length);
+      // The unscoped core. Questions aimed at some other role are excluded -
+      // an AI-leader question does not belong in a manager's brief.
+      const generic = seededShuffle(DATA.questions.filter(q => q.arc === arc &&
+        q.industries.includes("universal") && !(q.roles || []).length), seed + arc.length);
+
+      const picks = specific.slice(0, Math.max(1, want >> 1));
+      for (const q of generic.concat(specific)) {
         if (picks.length >= want) break;
         if (!picks.includes(q)) picks.push(q);
       }
@@ -627,6 +640,9 @@
     meta.append(el("span", { textContent: q.theme }));
     if (state.industry && q.industries.includes(state.industry)) {
       meta.append(el("span", { textContent: "· industry pack" }));
+    }
+    if (state.role && (q.roles || []).includes(state.role)) {
+      meta.append(el("span", { textContent: "· role pack" }));
     }
     meta.append(el("span", { textContent: q.id }));
     node.append(meta);
@@ -707,12 +723,15 @@
     results.replaceChildren();
 
     if (state.mode === "brief") {
-      if (!profile) {
-        results.append(el("p", { className: "empty", textContent: "Pick the guest's industry to build a brief." }));
+      if (!profile && !state.role) {
+        results.append(el("p", {
+          className: "empty",
+          textContent: "Pick the guest's industry or role to build a brief."
+        }));
         setCount("");
         return;
       }
-      results.append(profilePanel(profile));
+      if (profile) results.append(profilePanel(profile));
       const order = buildBrief();
       let n = 0;
       for (const arcName of ARC_ORDER) {
@@ -806,6 +825,15 @@
       select.append(el("option", { value: p.slug, textContent: p.label }));
     }
     select.addEventListener("change", () => { state.industry = select.value; render(); });
+
+    const roleSelect = document.getElementById("role");
+    roleSelect.append(el("option", { value: "", textContent: "Any role" }));
+    for (const [slug, description] of Object.entries(DATA.taxonomy.roles)) {
+      const option = el("option", { value: slug, textContent: slug.replace(/-/g, " ") });
+      option.title = description;
+      roleSelect.append(option);
+    }
+    roleSelect.addEventListener("change", () => { state.role = roleSelect.value; render(); });
 
     const vocabOf = section => Object.keys(DATA.taxonomy[section]).filter(k => !k.startsWith("$"));
     chipGroup("facet-depth", "depth", vocabOf("depth"), "depth");

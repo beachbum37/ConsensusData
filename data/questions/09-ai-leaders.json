@@ -1,0 +1,167 @@
+{
+  "pack": "AI Leaders & Adoption Owners",
+  "description": "For the AI director, head of enablement, or transformation lead. Important asymmetry: this guest is not a neutral observer of middle managers - they are frequently the source of the pressure managers feel, and they have a professional stake in adoption going well. Questions that ask them to advise managers in the abstract get consulting answers. Questions that ask about their own rollouts, metrics, and reversals get real ones.",
+  "questions": [
+    {
+      "id": "ail-01",
+      "text": "What do managers ask you when there is no executive in the room?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Asks for observed reality rather than advice, and the framing quietly acknowledges that people say different things in different rooms. Almost always produces something specific.",
+      "followups": [
+        "What do they ask when an executive is in the room?",
+        "Which question do you find hardest to answer honestly?"
+      ],
+      "tags": ["ai", "observation", "flagship", "high-yield"]
+    },
+    {
+      "id": "ail-02",
+      "text": "What is your adoption metric, and what behavior does it produce that you do not want?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Every adoption program has a number, and every number is gamed. Asking the owner of the metric to name its distortion is a real test of how honestly they hold their own program.",
+      "followups": [
+        "What would you measure instead if you could?",
+        "Does anyone above you want the honest number?"
+      ],
+      "tags": ["ai", "metrics", "incentives", "flagship"]
+    },
+    {
+      "id": "ail-03",
+      "text": "Tell me about a rollout that failed. Was it the tool or the organization?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Concrete and past-tense, so it is safe to answer, and the either/or forces a diagnosis rather than a vague lesson-learned. Most honest answers are 'the organization', which opens everything else.",
+      "followups": [
+        "What did you do differently the next time?",
+        "Did anyone tell you it would fail beforehand?"
+      ],
+      "tags": ["ai", "failure", "diagnosis", "flagship"]
+    },
+    {
+      "id": "ail-04",
+      "text": "Where are you the source of the pressure managers feel, rather than the relief from it?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Names the asymmetry that most interviews with AI leaders politely skip. Asked without hostility it is a serious question about their role, and a guest with self-awareness will meet it.",
+      "followups": ["What have you changed because of that?"],
+      "avoid_if": "You have not yet established that you take their work seriously - cold, it reads as an accusation rather than a question.",
+      "tags": ["ai", "asymmetry", "flagship", "trust-required"]
+    },
+    {
+      "id": "ail-05",
+      "text": "What can you not promise them?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Six words. It goes at the honesty of the whole adoption pitch - job security, quality, time savings - and there is no comfortable way to give a non-answer.",
+      "followups": ["Do you say that part out loud in the town hall?"],
+      "tags": ["ai", "short", "honesty", "flagship"]
+    },
+    {
+      "id": "ail-06",
+      "text": "Who in the organization loses if this works exactly as you intend?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Success, not failure, is the interesting case. It forces the guest to describe the intended consequences of their own program, which the optimistic framing usually leaves unsaid.",
+      "followups": ["Is that being planned for, or just allowed to happen?"],
+      "tags": ["ai", "consequences", "sharp", "high-yield"]
+    },
+    {
+      "id": "ail-07",
+      "text": "What did you believe about this eighteen months ago that you no longer believe?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Updating publicly is high-status among serious practitioners and impossible for a hype merchant, so the answer tells you immediately which kind of guest you have.",
+      "followups": ["What changed your mind - a result, or a person?"],
+      "tags": ["ai", "calibration", "guest-test", "flagship"]
+    },
+    {
+      "id": "ail-08",
+      "text": "What do you tell a manager whose team's AI-assisted work is genuinely faster and genuinely worse?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "A specific, common, and uncomfortable case. Granting that both halves are true removes the escape route of disputing the premise.",
+      "followups": ["Who gets to decide that the tradeoff is not worth it?"],
+      "tags": ["ai", "quality", "concrete", "high-yield"]
+    },
+    {
+      "id": "ail-09",
+      "text": "Tell me about a team that came out of a rollout more capable, and one that came out more afraid. What was actually different between them?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "The paired structure is doing the work. Asking only about the good case invites a best-practices answer; requiring both forces a comparison grounded in two real teams.",
+      "followups": [
+        "Was the difference the manager, or something above the manager?",
+        "Could you tell in advance which it would be?"
+      ],
+      "tags": ["ai", "paired", "flagship", "high-yield"]
+    },
+    {
+      "id": "ail-10",
+      "text": "What is a manager now expected to be good at that was not part of the job three years ago?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Asks for an observed shift in the role rather than a recommended skill, which routes around the generic 'prompting and AI literacy' answer that the advice framing always produces.",
+      "followups": [
+        "Is anyone actually training them in that?",
+        "What did the job stop requiring?"
+      ],
+      "tags": ["ai", "role-shift", "anti-platitude", "flagship"]
+    },
+    {
+      "id": "ail-11",
+      "text": "What are you personally uncertain about that your position makes it hard to say publicly?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Acknowledges the institutional constraint on the guest instead of pretending it is not there, which is often exactly what lets them set it aside for a moment.",
+      "followups": [],
+      "avoid_if": "The guest is a vendor or is being media-trained for a launch. Save it for someone who has already been candid once.",
+      "tags": ["ai", "constraint", "deep", "handle-with-care"]
+    },
+    {
+      "id": "ail-12",
+      "text": "How much of your job is the technology, and how much is managing people's fear?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["ai-leader"],
+      "lands_because": "Most people in these roles will say the split surprised them, and it reframes the whole conversation as being about organizations rather than tools.",
+      "followups": ["Were you prepared for that part? Who trains you for it?"],
+      "tags": ["ai", "emotional-labor", "reframe"]
+    }
+  ]
+}

@@ -35,6 +35,7 @@ def main() -> int:
     valid_arcs = set(vocab(corpus.taxonomy["arc"]))
     valid_depths = set(vocab(corpus.taxonomy["depth"]))
     valid_industries = set(vocab(corpus.taxonomy["industries"]))
+    valid_roles = set(vocab(corpus.taxonomy["roles"]))
     known_slots = set(corpus.industries["$slots"])
     profiled = set(corpus.profiles)
 
@@ -73,6 +74,18 @@ def main() -> int:
             elif slug != "universal" and slug not in profiled:
                 errors.append(f"{where}: industry '{slug}' has no profile in industries.json")
 
+        for slug in q.get("roles", []):
+            if slug not in valid_roles:
+                errors.append(f"{where}: unknown role '{slug}'")
+
+        # A role-scoped question is for that role in any field, so it should
+        # not also be pinned to one industry.
+        if q.get("roles") and "universal" not in q.get("industries", []):
+            warnings.append(
+                f"{where}: scoped to role {q['roles']} and to industries "
+                f"{q['industries']} - narrow enough that it will rarely surface"
+            )
+
         for slot in slots_in(q.get("text", "")):
             if slot not in known_slots and slot != "phrase":
                 warnings.append(
@@ -96,7 +109,19 @@ def main() -> int:
         if per_industry[slug] == 0:
             warnings.append(f"industry '{slug}' has a profile but no specific questions")
 
+    per_role: Counter[str] = Counter()
+    for q in corpus.questions:
+        for slug in q.get("roles", []):
+            per_role[slug] += 1
+    for slug in sorted(valid_roles):
+        if per_role[slug] == 0:
+            warnings.append(f"role '{slug}' is defined in the taxonomy but has no questions")
+
     universal = per_industry["universal"]
+    # A brief for a guest with no role only draws on the unscoped core, so that
+    # is the number worth reporting per industry.
+    unscoped = sum(1 for q in corpus.questions
+                   if "universal" in q["industries"] and not q.get("roles"))
     by_arc: Counter[str] = Counter(q["arc"] for q in corpus.questions)
     by_depth: Counter[str] = Counter(q["depth"] for q in corpus.questions)
     by_theme: defaultdict[str, int] = defaultdict(int)
@@ -104,14 +129,19 @@ def main() -> int:
         by_theme[q["theme"]] += 1
 
     print(f"{len(corpus.questions)} questions across {len(corpus.packs)} packs")
-    print(f"  universal: {universal}   industry-specific: {len(corpus.questions) - universal}")
+    print(f"  unscoped core: {unscoped}   role-scoped: {universal - unscoped}"
+          f"   industry-specific: {len(corpus.questions) - universal}")
     print("  arc:   " + "  ".join(f"{k}={by_arc[k]}" for k in vocab(corpus.taxonomy["arc"])))
     print("  depth: " + "  ".join(f"{k}={by_depth[k]}" for k in vocab(corpus.taxonomy["depth"])))
     print("  theme: " + "  ".join(f"{k}={by_theme[k]}" for k in sorted(by_theme)))
     print()
-    print("Per industry (own questions + universal core available):")
+    print("Per role (role-scoped questions):")
+    for slug in sorted(valid_roles):
+        print(f"  {slug:<20} {per_role[slug]:>3}")
+    print()
+    print("Per industry (own questions + unscoped core available):")
     for slug in sorted(profiled):
-        print(f"  {slug:<20} {per_industry[slug]:>3} + {universal}")
+        print(f"  {slug:<20} {per_industry[slug]:>3} + {unscoped}")
     print()
 
     for w in warnings:

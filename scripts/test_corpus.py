@@ -114,6 +114,37 @@ class TestCorpus(unittest.TestCase):
             own = filter_questions(self.corpus, industry=slug, universal=False)
             self.assertTrue(own, f"{slug} has no industry-specific questions")
 
+    def test_roles_come_from_the_taxonomy(self):
+        valid = {k for k in self.corpus.taxonomy["roles"] if not k.startswith("$")}
+        for q in self.corpus.questions:
+            for role in q.get("roles", []):
+                self.assertIn(role, valid, f"{q['id']} uses undeclared role {role!r}")
+
+    def test_role_filter_never_admits_another_role(self):
+        for role in ("middle-manager", "ai-leader"):
+            for q in filter_questions(self.corpus, role=role):
+                roles = q.get("roles", [])
+                self.assertTrue(
+                    role in roles or not roles,
+                    f"{q['id']} ({roles}) surfaced under role {role!r}",
+                )
+
+    def test_role_filter_includes_unscoped_questions_by_default(self):
+        got = filter_questions(self.corpus, role="middle-manager")
+        self.assertTrue(any(not q.get("roles") for q in got))
+
+    def test_role_filter_can_exclude_unscoped_questions(self):
+        got = filter_questions(self.corpus, role="ai-leader", general=False)
+        self.assertTrue(got)
+        self.assertTrue(all("ai-leader" in q.get("roles", []) for q in got))
+
+    def test_role_scoped_questions_are_not_pinned_to_one_industry(self):
+        # A role exists in every field, so these must stay industry-universal
+        # or they will never surface for most guests.
+        for q in self.corpus.questions:
+            if q.get("roles"):
+                self.assertIn("universal", q["industries"], f"{q['id']} is scoped twice over")
+
     def test_every_arc_stage_has_universal_coverage(self):
         # A brief must be buildable for any industry from the universal core
         # alone, so every stage needs universal questions in it.

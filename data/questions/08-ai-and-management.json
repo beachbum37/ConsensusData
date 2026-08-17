@@ -1,0 +1,249 @@
+{
+  "pack": "AI & the Person in the Middle",
+  "description": "For managers in any field. The structural fact underneath every question here: the manager is asked to champion a technology that is also cited as the reason there will be fewer managers, while absorbing an adoption mandate from above and a fear conversation from below. Most AI-and-work interviews ask about tools. These ask about the position.",
+  "questions": [
+    {
+      "id": "aim-01",
+      "text": "When someone on your team uses AI on a {work_unit}, do you know? Is there a norm, or has everyone quietly decided for themselves?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Disclosure norms are mostly unwritten, and the honest answer is usually 'I don't really know', which is a far more interesting starting point than any policy discussion.",
+      "followups": [
+        "Do you want to know, or is it better for you if you do not?",
+        "Has anyone told you after the fact?"
+      ],
+      "tags": ["ai", "disclosure", "flagship", "slotted"]
+    },
+    {
+      "id": "aim-02",
+      "text": "Who on your team can now produce more than you can meaningfully review?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Names the review bottleneck, which is the most concrete and least discussed operational change AI has made to management. Output scaled; verification did not.",
+      "followups": [
+        "What do you do about it - trust, sample, or slow them down?",
+        "Has something gotten through that should not have?"
+      ],
+      "tags": ["ai", "review-bottleneck", "flagship", "underasked"]
+    },
+    {
+      "id": "aim-03",
+      "text": "The work you used to hand a junior so they would learn from it - how much of that is gone, and what are you giving them instead?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "The apprenticeship pipeline ran on exactly the tasks AI now absorbs. Every thoughtful manager has noticed this and very few have been asked about it, so the answer tends to be unrehearsed.",
+      "followups": [
+        "How will someone become senior without that ladder?",
+        "Is anyone above you thinking about this, or is it landing entirely on you?"
+      ],
+      "tags": ["ai", "apprenticeship", "flagship", "high-yield"]
+    },
+    {
+      "id": "aim-04",
+      "text": "What was the first thing you stopped doing yourself?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Small, concrete, and easy to answer honestly. The thing a manager handed over first says a lot about what they considered beneath their judgment - and sometimes they regret it.",
+      "followups": ["Do you miss it? Did you lose anything by handing it over?"],
+      "tags": ["ai", "concrete", "easy"]
+    },
+    {
+      "id": "aim-05",
+      "text": "Have you used AI to write a performance review, or part of one? Where is your line?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "The sharpest live ethical question in management right now. It puts a real, specific decision in front of the guest rather than a policy abstraction, and there is no consensus answer to hide behind.",
+      "followups": [
+        "Would you tell the person you had?",
+        "Where else does that line sit - a reference, a layoff note, a condolence?"
+      ],
+      "avoid_if": "The guest is currently in an HR dispute, or is speaking on behalf of an employer with a stated policy they would have to defend.",
+      "tags": ["ai", "ethics", "flagship", "high-yield"]
+    },
+    {
+      "id": "aim-06",
+      "text": "When AI-assisted work turns out to be wrong, who is accountable - the person who shipped it, you, or nobody?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Accountability has not been renegotiated even though the work has changed. The 'or nobody' option is what makes the question honest, and guests often pause on it.",
+      "followups": [
+        "Has that actually happened to you?",
+        "Did the answer hold up when it did?"
+      ],
+      "tags": ["ai", "accountability", "high-yield"]
+    },
+    {
+      "id": "aim-07",
+      "text": "What are you now expected to deliver faster because someone above you saw a demo?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Names the expectation gap between executive demo and daily reality, which is the most consistently felt pressure in the middle. Guests recognize themselves immediately.",
+      "followups": [
+        "How do you manage that upward?",
+        "What did the demo leave out?"
+      ],
+      "tags": ["ai", "expectation-gap", "flagship"]
+    },
+    {
+      "id": "aim-08",
+      "text": "Are you measured on AI adoption? What does that number make you do that you would not otherwise?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Adoption metrics create theater - seats filled, tools opened, usage logged - and the second clause invites the guest to describe the theater without having to denounce anyone.",
+      "followups": ["Does the metric track anything you actually care about?"],
+      "tags": ["ai", "incentives", "metrics", "high-yield"]
+    },
+    {
+      "id": "aim-09",
+      "text": "What did you have to stop doing to make room for the rollout work nobody budgeted for?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Evaluation, training, policy interpretation, and hand-holding all landed on managers as unfunded work. Naming it as a tradeoff rather than a complaint gets a specific answer.",
+      "followups": ["Who noticed that you stopped?"],
+      "tags": ["ai", "invisible-labor", "unfunded"]
+    },
+    {
+      "id": "aim-10",
+      "text": "Has anyone on your team asked you directly whether their job is safe? What did you say, and what were you actually thinking?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "The two-part ending is the whole question. It separates what the manager was permitted to say from what they believed, which is the exact position of being in the middle.",
+      "followups": ["Were you able to tell them the truth?"],
+      "avoid_if": "The guest's organization is mid-layoff or has announced one. Ask it in the past tense about a previous role instead.",
+      "tags": ["ai", "emotional-labor", "flagship", "silence-after"]
+    },
+    {
+      "id": "aim-11",
+      "text": "You are being asked to champion the thing most often named as the reason there will be fewer managers. How do you hold both of those at once?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "States the central contradiction of the role out loud. Ask it plainly and late; it produces either the most honest answer of the episode or a deflection that is itself revealing.",
+      "followups": ["Do you believe the flattening argument?"],
+      "avoid_if": "Early in the interview, or with a guest who has stayed in corporate-communications mode - you will get a talking point and spend the question for nothing.",
+      "tags": ["ai", "contradiction", "flagship", "handle-with-care"]
+    },
+    {
+      "id": "aim-12",
+      "text": "What can you no longer estimate?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Five words, and it goes straight at a real breakage: generation got faster while review, integration, and correction did not, so the old estimates stopped working.",
+      "followups": [
+        "What do you tell people when they ask how long it will take?",
+        "Have you been badly wrong yet?"
+      ],
+      "tags": ["ai", "estimation", "short", "flagship"]
+    },
+    {
+      "id": "aim-13",
+      "text": "How do you evaluate someone whose output is leveraged? Is the work theirs?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Performance management has not caught up with leveraged output, and managers are improvising an answer privately. Asking makes them articulate a standard they have never written down.",
+      "followups": [
+        "Has that created a fairness problem between two people on your team?",
+        "What are you actually rewarding now?"
+      ],
+      "tags": ["ai", "evaluation", "fairness", "high-yield"]
+    },
+    {
+      "id": "aim-14",
+      "text": "What has AI made worse in a way nobody wants to say out loud in a meeting?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "The 'in a meeting' clause gives explicit permission for the unsanctioned answer, which is what gets past the official optimism most organizations require.",
+      "followups": ["What happens to the person who does say it?"],
+      "tags": ["ai", "candid", "permission-giving", "high-yield"]
+    },
+    {
+      "id": "aim-15",
+      "text": "What does your team bring to you now that they used to solve themselves? Or is it the other way around?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Escalation patterns are a sensitive instrument for what has actually changed in a team's confidence and autonomy, and the two-way framing avoids assuming the direction.",
+      "followups": ["What does that tell you about how they are using it?"],
+      "tags": ["ai", "autonomy", "diagnostic"]
+    },
+    {
+      "id": "aim-16",
+      "text": "Where has this made your job more human rather than less?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "A genuine question, not a softener - if administrative load actually dropped, the freed time went somewhere, and where it went is worth knowing. It also keeps the episode from being one-note.",
+      "followups": ["Did that time really go to your people, or did it get filled?"],
+      "tags": ["ai", "balance", "sincere"]
+    },
+    {
+      "id": "aim-17",
+      "text": "What are you protecting your team from that they do not know about?",
+      "theme": "invisible",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "The buffering function is the least visible and most defining part of being in the middle, and almost nobody asks about it directly.",
+      "followups": ["What does it cost you to absorb that?"],
+      "tags": ["ai", "buffering", "the-middle", "flagship"]
+    },
+    {
+      "id": "aim-18",
+      "text": "In five years, is there still a job that looks like yours?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Direct, personal, and unanswerable with a platitude. A strong closer because it asks the guest to apply everything they have just said to themselves.",
+      "followups": ["What would you tell someone about to take their first management job?"],
+      "tags": ["ai", "closer", "personal"]
+    }
+  ]
+}

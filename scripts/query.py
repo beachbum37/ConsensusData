@@ -121,12 +121,14 @@ def cmd_find(corpus: Corpus, args) -> int:
     questions = filter_questions(
         corpus,
         industry=args.industry,
+        role=args.role,
         theme=args.theme,
         arc=args.arc,
         depth=args.depth,
         tag=args.tag,
         search=args.search,
         universal=not args.no_universal,
+        general=not args.no_general,
     )
     if args.limit:
         questions = questions[: args.limit]
@@ -143,22 +145,33 @@ def cmd_brief(corpus: Corpus, args) -> int:
     profile = resolve_industry(corpus, args.industry)
     rng = random.Random(args.seed)
 
-    def pool(arc: str, industry_only: bool) -> list[dict]:
-        qs = [
-            q
-            for q in corpus.questions
-            if q["arc"] == arc
-            and (args.industry in q["industries"] if industry_only else "universal" in q["industries"])
-        ]
+    role = args.role
+    if role and role not in corpus.taxonomy["roles"]:
+        die(f"unknown role '{role}'. Try: python3 scripts/query.py list roles")
+
+    def specific(arc: str) -> list[dict]:
+        """Questions written for this guest's industry or role."""
+        qs = [q for q in corpus.questions if q["arc"] == arc
+              and (args.industry in q["industries"]
+                   or (role and role in q.get("roles", [])))]
+        rng.shuffle(qs)
+        return qs
+
+    def generic(arc: str) -> list[dict]:
+        """The unscoped core. Questions aimed at some other role are excluded -
+        an AI-leader question does not belong in a manager's brief."""
+        qs = [q for q in corpus.questions if q["arc"] == arc
+              and "universal" in q["industries"] and not q.get("roles")]
         rng.shuffle(qs)
         return qs
 
     selected: list[dict] = []
     for arc, want in BRIEF_SHAPE:
-        # Industry-specific questions first - they are what makes the interview
-        # sound like it was written for this guest - then top up from the core.
-        picks = pool(arc, industry_only=True)[: max(1, want // 2)]
-        for q in pool(arc, industry_only=False):
+        # Specific questions first - they are what makes the interview sound
+        # like it was written for this guest - then top up from the core.
+        ranked = specific(arc)
+        picks = ranked[: max(1, want // 2)]
+        for q in generic(arc) + ranked:
             if len(picks) >= want:
                 break
             if q not in picks:
@@ -171,12 +184,15 @@ def cmd_brief(corpus: Corpus, args) -> int:
     pivots = [q for q in corpus.questions if q["arc"] == "pivot"]
 
     title = f"Interview brief: {profile['label']}"
+    if role:
+        title += f" / {role}"
     if args.guest:
         title += f" - {args.guest}"
 
     if args.format == "json":
         print(json.dumps({
             "industry": args.industry,
+            "role": role,
             "guest": args.guest,
             "profile": profile,
             "running_order": [dict(q, text=fill_slots(q["text"], profile)) for q in selected],
@@ -205,9 +221,13 @@ def cmd_profile(corpus: Corpus, args) -> int:
 
 
 def cmd_list(corpus: Corpus, args) -> int:
-    if args.what == "industries":
-        for slug, desc in corpus.taxonomy["industries"].items():
-            print(f"  {slug:<20} {desc}")
+    if args.what in ("industries", "roles"):
+        for slug, desc in corpus.taxonomy[args.what].items():
+            if slug.startswith("$"):
+                continue
+            n = sum(1 for q in corpus.questions
+                    if slug in (q["industries"] if args.what == "industries" else q.get("roles", [])))
+            print(f"  {slug:<20} {n:>3}  {desc}")
     elif args.what == "tags":
         tags = sorted({t for q in corpus.questions for t in q.get("tags", [])})
         for t in tags:
@@ -240,6 +260,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     f = sub.add_parser("find", parents=[common], help="filter the corpus")
     f.add_argument("--industry")
+    f.add_argument("--role", help="middle-manager, ai-leader")
     f.add_argument("--theme")
     f.add_argument("--arc")
     f.add_argument("--depth")
@@ -248,10 +269,13 @@ def build_parser() -> argparse.ArgumentParser:
     f.add_argument("--limit", type=int)
     f.add_argument("--no-universal", action="store_true",
                    help="with --industry, exclude the universal core")
+    f.add_argument("--no-general", action="store_true",
+                   help="with --role, exclude the role-agnostic questions")
     f.set_defaults(func=cmd_find)
 
     b = sub.add_parser("brief", parents=[common], help="build a running order for one interview")
     b.add_argument("industry")
+    b.add_argument("--role", help="middle-manager, ai-leader")
     b.add_argument("--guest")
     b.add_argument("--seed", type=int, default=0, help="change for a different draw")
     b.add_argument("--no-probing", action="store_true",
@@ -263,7 +287,7 @@ def build_parser() -> argparse.ArgumentParser:
     pr.set_defaults(func=cmd_profile)
 
     ls = sub.add_parser("list", help="list the controlled vocabularies")
-    ls.add_argument("what", choices=["industries", "themes", "arcs", "depths", "tags", "packs"])
+    ls.add_argument("what", choices=["industries", "roles", "themes", "arcs", "depths", "tags", "packs"])
     ls.set_defaults(func=cmd_list)
 
     return p

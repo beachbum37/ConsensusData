@@ -4,12 +4,13 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**203 questions.** 83 in the universal core, 120 across 20 industry packs. Every
-question is tagged by theme, interview stage, and depth, carries a note on *why*
-it works, and comes with follow-ups.
+**233 questions.** 83 in the universal core, 120 across 20 industry packs, and 30
+scoped to a *role* rather than a field — 18 for middle managers and 12 for the AI
+leaders driving adoption at them. Every question is tagged by theme, interview
+stage, and depth, carries a note on *why* it works, and comes with follow-ups.
 
 ```
-python3 scripts/query.py brief hospitality --guest "Dana Reyes"
+python3 scripts/query.py brief hospitality --role middle-manager
 ```
 
 That prints a full interview brief: what earns status in that world, what makes
@@ -43,6 +44,22 @@ user"*, not *"a outage"*.
 The industry profiles carry the rest: the status axis, what signals you did the
 homework, and the landmines that make a guest close up.
 
+### Two scoping axes
+
+Industry is one axis. **Role** is the other, and it runs perpendicular: a middle
+manager in a hospital and one in a warehouse face the same structure — a team
+below, executives above, authority over the work but not over the constraints.
+Questions scoped to a role stay industry-universal, so a brief can blend all
+three sources at once:
+
+```
+python3 scripts/query.py brief healthcare --role middle-manager
+```
+
+That draws healthcare-specific questions, middle-manager questions, and the
+unscoped core into one running order. Role scoping is exclusive in the way that
+matters — an AI-leader question never appears in a manager's brief.
+
 ## Using it
 
 Everything is Python 3 standard library. No install, no dependencies.
@@ -51,6 +68,7 @@ Everything is Python 3 standard library. No install, no dependencies.
 
 ```bash
 python3 scripts/query.py brief healthcare
+python3 scripts/query.py brief logistics --role middle-manager
 python3 scripts/query.py brief skilled-trades --guest "Dana Reyes" --format md
 python3 scripts/query.py brief finance --no-probing     # guarded or first-time guest
 python3 scripts/query.py brief law --seed 3             # a different draw
@@ -65,7 +83,9 @@ universal core. Pivots print at the end; keep them in view during the recording.
 ```bash
 python3 scripts/query.py find --theme money --depth probing
 python3 scripts/query.py find --industry law --search billable
+python3 scripts/query.py find --role ai-leader --no-general         # role pack only
 python3 scripts/query.py find --industry logistics --no-universal   # industry pack only
+python3 scripts/query.py find --tag ai --depth probing
 python3 scripts/query.py find --tag flagship --bare
 ```
 
@@ -117,6 +137,7 @@ Claude Artifact.
 | `depth` | `light` (a sentence), `medium` (needs a story), `probing` (touches ego, money, or blame) |
 | `theme` | `origin`, `craft`, `judgment`, `failure`, `people`, `money`, `change`, `ethics`, `myths`, `invisible`, `future`, `personal` |
 | `industries` | `["universal"]` or specific slugs |
+| `roles` | Optional. `middle-manager`, `ai-leader`. Absent means role-agnostic |
 | `lands_because` | Why it works — read this when deciding whether to use it |
 | `avoid_if` | When it will backfire |
 
@@ -139,6 +160,8 @@ data/
   questions/
     00-openers.json      universal core, one file per pack
     …
+    08-ai-and-management.json    AI and the person in the middle
+    09-ai-leaders.json           for adoption owners and AI directors
     industry/            one file per industry
 scripts/
   corpus.py              loading, filtering, slot substitution
@@ -179,6 +202,13 @@ question you wish people asked you about your work?" — and `u-open-08` — "Wh
 you meet someone else who does what you do, what do you ask them?" Whatever a
 guest names in answer to those is, by definition, a question that lands on that
 profession. Add it.
+
+## Adding a role
+
+1. Add the slug and description to `roles` in `data/taxonomy.json`.
+2. Add a pack file whose questions carry `"roles": ["<slug>"]` and keep
+   `"industries": ["universal"]` — a role exists in every field, and the
+   validator warns if you scope a question on both axes at once.
 
 ## Adding an industry
 

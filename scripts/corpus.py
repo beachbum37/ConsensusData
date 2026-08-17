@@ -110,13 +110,25 @@ def fill_slots(text: str, profile: dict | None) -> str:
     return SLOT_RE.sub(lambda m: vocab.get(m.group(1), m.group(0)), text)
 
 
-def matches(question: dict, *, industry=None, theme=None, arc=None,
-            depth=None, tag=None, search=None, universal=True) -> bool:
-    """Apply the filters that `query.py` exposes. None means 'no constraint'."""
+def matches(question: dict, *, industry=None, role=None, theme=None, arc=None,
+            depth=None, tag=None, search=None, universal=True, general=True) -> bool:
+    """Apply the filters that `query.py` exposes. None means 'no constraint'.
+
+    Industry and role are the two scoping axes and behave the same way: a
+    filter admits questions scoped to that value, plus the unscoped ones
+    (`universal` industries, or no `roles` at all) unless told not to.
+    """
     if industry:
         applies = industry in question["industries"]
         if universal:
             applies = applies or "universal" in question["industries"]
+        if not applies:
+            return False
+    if role:
+        roles = question.get("roles", [])
+        applies = role in roles
+        if general:
+            applies = applies or not roles
         if not applies:
             return False
     if theme and question["theme"] != theme:
