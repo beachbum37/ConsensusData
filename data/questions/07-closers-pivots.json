@@ -1,0 +1,128 @@
+{
+  "pack": "Closers & Pivots",
+  "description": "Two tools that operate outside the normal running order. Closers widen the aperture and leave the guest with a good last taste. Pivots are emergency equipment - keep them visible on the page and reach for one the moment a guest slips into talking points or an answer dies.",
+  "questions": [
+    {
+      "id": "u-close-01",
+      "text": "What is a question you wish people asked you about your work?",
+      "theme": "craft",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Hands the guest the microphone and frequently produces the best two minutes of the episode. It also stocks your database - whatever they name, add it.",
+      "followups": ["So answer it."],
+      "tags": ["question-mining", "flagship", "database-feeder"]
+    },
+    {
+      "id": "u-close-02",
+      "text": "If you could change one thing about your field, what would it be?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Standard but effective. It works better if you follow immediately with the constraint question, which is what turns an easy wish into a real analysis.",
+      "followups": ["What is actually stopping that?"],
+      "tags": ["reform", "standard", "needs-followup"]
+    },
+    {
+      "id": "u-close-03",
+      "text": "What are you still trying to get better at?",
+      "theme": "craft",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Works on the most senior guest in any field, and the answer is almost always more specific and more humble than expected.",
+      "followups": ["How do you practice that?"],
+      "tags": ["humility", "warm", "always-works"]
+    },
+    {
+      "id": "u-close-04",
+      "text": "Who should I talk to next, and what should I ask them?",
+      "theme": "craft",
+      "arc": "closer",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "Books your next guest and writes the first question for that episode. The second clause is the valuable half - do not drop it.",
+      "followups": [],
+      "tags": ["booking", "operational", "database-feeder"]
+    },
+    {
+      "id": "u-close-05",
+      "text": "What should someone who wants your job know that nobody tells them?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Directs the guest's expertise at a real audience member rather than at the abstract public, which tends to make the advice concrete instead of inspirational.",
+      "followups": ["What would you tell them not to worry about?"],
+      "tags": ["advice", "concrete", "audience-gift"]
+    },
+    {
+      "id": "u-piv-01",
+      "text": "Let me ask that a different way - give me one specific instance.",
+      "theme": "craft",
+      "arc": "pivot",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "The workhorse pivot. Abstraction is where evasion lives; a demand for one instance dissolves it without any confrontation.",
+      "followups": ["When was that? Who else was in the room?"],
+      "tags": ["pivot", "specificity", "essential"]
+    },
+    {
+      "id": "u-piv-02",
+      "text": "That is the answer you would give publicly. What is the more complicated one?",
+      "theme": "craft",
+      "arc": "pivot",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Names the talking point without accusing the guest of dishonesty, and offers complexity as a flattering alternative. Delivered warmly, it usually works.",
+      "followups": [],
+      "avoid_if": "You have used it once already in the episode, or the guest is genuinely constrained by legal or regulatory limits rather than being evasive.",
+      "tags": ["pivot", "unsticks", "use-once", "tone-dependent"]
+    },
+    {
+      "id": "u-piv-03",
+      "text": "Who would disagree with what you just said, and what is their best argument?",
+      "theme": "judgment",
+      "arc": "pivot",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Introduces conflict without you having to supply it, and asking for the opponent's *best* argument produces a much better answer than asking for the disagreement alone.",
+      "followups": ["Where do they have a point?"],
+      "tags": ["pivot", "steelman", "conflict"]
+    },
+    {
+      "id": "u-piv-04",
+      "text": "Can you put a number on that?",
+      "theme": "craft",
+      "arc": "pivot",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "Converts vague scale claims - a lot, very fast, huge - into something the audience can hold. Five words and it sharpens any answer.",
+      "followups": ["Is that typical, or was that an unusual one?"],
+      "tags": ["pivot", "quantify", "essential"]
+    },
+    {
+      "id": "u-piv-05",
+      "text": "You said {phrase} - what does that actually look like on a Tuesday?",
+      "theme": "craft",
+      "arc": "pivot",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "Takes jargon the guest used without noticing and grounds it in observable behavior. Fill the slot with their own words - the echo is what makes it land.",
+      "followups": [],
+      "tags": ["pivot", "jargon", "slotted", "essential"]
+    },
+    {
+      "id": "u-piv-06",
+      "text": "What am I not asking about that I should be?",
+      "theme": "craft",
+      "arc": "pivot",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Works as a mid-episode reset when a line of questioning is not producing, and often redirects to the thing the guest actually came to talk about.",
+      "followups": ["Take me into that."],
+      "tags": ["pivot", "reset", "question-mining"]
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "pack": "Judgment & Failure",
+  "description": "Decisions made without enough information, and what the field does with its errors. This pack carries the most risk and the most reward. Order matters: ask the judgment questions first, because they establish that you understand the job is hard, which is what makes the failure questions feel like curiosity rather than prosecution.",
+  "questions": [
+    {
+      "id": "u-judg-01",
+      "text": "Tell me about a call you had to make without enough information.",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Universal condition of professional work, and it lets the guest look competent while being honest about uncertainty. A reliable story generator.",
+      "followups": [
+        "What would you have needed to know to be sure?",
+        "Did you ever find out whether you were right?"
+      ],
+      "tags": ["uncertainty", "story-generator", "flagship"]
+    },
+    {
+      "id": "u-judg-02",
+      "text": "What is a tradeoff you make constantly that would alarm an outsider?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Every field rations something - time, attention, risk, care - and practitioners normalize it. Naming it out loud is genuinely revealing and often the clip that travels.",
+      "followups": ["Is that the right tradeoff? What would it take to change it?"],
+      "avoid_if": "You have not yet established that you understand the constraints they work under. Without that, the answer becomes a confession they will regret.",
+      "tags": ["rationing", "high-yield", "trust-required"]
+    },
+    {
+      "id": "u-judg-03",
+      "text": "What is more dangerous in your work - moving too fast or moving too slow? Has your answer changed over your career?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Forces a real position rather than a both-sides answer, and the career-arc half invites reflection instead of defensiveness.",
+      "followups": ["What changed your mind?"],
+      "tags": ["tempo", "forces-position"]
+    },
+    {
+      "id": "u-judg-04",
+      "text": "What does your gut tell you that you have learned to override? And what have you learned to trust?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Intuition calibration is the interior experience of getting good at something, and the two-part structure keeps it from becoming a platitude about trusting yourself.",
+      "followups": ["What taught you the difference?"],
+      "tags": ["intuition", "calibration"]
+    },
+    {
+      "id": "u-judg-05",
+      "text": "Who do you call when you are stuck?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "Small, easy, and it maps the informal expertise network that every profession runs on and no org chart shows.",
+      "followups": ["What do they have that you do not?"],
+      "tags": ["networks", "easy", "warm"]
+    },
+    {
+      "id": "u-fail-01",
+      "text": "What is a mistake you made early that you now watch for in other people?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "The safest possible entry into failure. It is framed as mentorship, it is safely in the past, and it almost always yields a real story rather than a sanitized one.",
+      "followups": ["What did it cost at the time?"],
+      "tags": ["failure-entry", "safe", "always-works"]
+    },
+    {
+      "id": "u-fail-02",
+      "text": "How does your field handle error? Is there a formal process, or does it just get absorbed?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Structural rather than personal, so it is easy to answer honestly - and the answers vary enormously. Aviation and medicine have formal review; most fields absorb error silently, and that contrast is itself the story.",
+      "followups": [
+        "Does the process work?",
+        "What happens to the person who made the error?"
+      ],
+      "tags": ["systems", "structural", "comparative"]
+    },
+    {
+      "id": "u-fail-03",
+      "text": "Tell me about a near-miss - something that almost went badly and did not.",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Near-misses carry the dramatic weight of failure without the shame of it, so guests tell them freely. Often the best story in the episode.",
+      "followups": [
+        "What caught it?",
+        "Did anything change afterward, or did everyone just move on?"
+      ],
+      "tags": ["story-generator", "drama", "safe"]
+    },
+    {
+      "id": "u-fail-04",
+      "text": "When something goes wrong in your work, who finds out and who does not?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Goes at disclosure norms rather than at the guest personally. Reveals the accountability structure of an entire industry in one answer.",
+      "followups": ["Should that be different?"],
+      "tags": ["disclosure", "accountability", "structural"]
+    },
+    {
+      "id": "u-fail-05",
+      "text": "What is the cost of being wrong in your job, and who actually pays it?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "The second clause is the sharp one. In some fields the practitioner pays; in others a patient, a client, a homeowner, or a taxpayer does. It surfaces the moral weight of the work directly.",
+      "followups": ["Does that asymmetry change how carefully you work?"],
+      "avoid_if": "The guest is currently facing litigation, an investigation, or a public incident.",
+      "tags": ["stakes", "moral-weight", "high-yield"]
+    },
+    {
+      "id": "u-fail-06",
+      "text": "Is there one you are still carrying?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Short, quiet, and unguarded. It works only as a follow-on, after the guest has already told you a failure story and found that you handled it well.",
+      "followups": [],
+      "avoid_if": "Never open with this, and never ask it of a guest who has stayed guarded. If they deflect, let it go on the first deflection - pushing here costs you the rest of the interview.",
+      "tags": ["deep", "one-shot", "handle-with-care"]
+    }
+  ]
+}

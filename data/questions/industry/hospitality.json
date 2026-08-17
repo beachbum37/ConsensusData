@@ -1,0 +1,72 @@
+{
+  "pack": "Hospitality & Food Service",
+  "description": "Thin margins, brutal labor math, and a media narrative that flatters chefs and ignores everyone else. Ask about volume, consistency, and the economics, and skip anything resembling a question about passion for food.",
+  "questions": [
+    {
+      "id": "hos-01",
+      "text": "Anyone can execute one perfect plate. What does it take to do four hundred without a miss?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["hospitality"],
+      "lands_because": "Names consistency under volume as the real skill, which is the industry's own definition of excellence and the opposite of the television version.",
+      "followups": ["Where does it break down first when it breaks down?"],
+      "tags": ["consistency", "flagship", "signals-homework"]
+    },
+    {
+      "id": "hos-02",
+      "text": "Take me through the ten minutes when a service starts going wrong.",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["hospitality"],
+      "lands_because": "Time-bounded, high-adrenaline, and vivid on audio. Everyone in the industry has lived it and can narrate it beat by beat.",
+      "followups": ["Who pulls it back - and is it always the same person?"],
+      "tags": ["drama", "story-generator", "audio-friendly"]
+    },
+    {
+      "id": "hos-03",
+      "text": "A full dining room does not mean a profitable one. Where does the money actually go?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["hospitality"],
+      "lands_because": "Leading with the correction proves you understand the economics, and operators are eager to explain food cost, labor, and rent to someone who will listen.",
+      "followups": ["What is the decision you make purely for margin that you wish you did not?"],
+      "tags": ["economics", "signals-homework", "flagship"]
+    },
+    {
+      "id": "hos-04",
+      "text": "What is the relationship between front of house and back of house really like?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["hospitality"],
+      "lands_because": "The central social divide of a restaurant, including the pay asymmetry between tipped and non-tipped staff. Asking about both halves signals you know there are two.",
+      "followups": ["Does the tipping structure make that worse?"],
+      "tags": ["org-dynamics", "tipping", "structural"]
+    },
+    {
+      "id": "hos-05",
+      "text": "What has changed about staffing since 2020, and what did the industry learn or refuse to learn?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["hospitality"],
+      "lands_because": "Labor is the live issue in the industry, and the 'refuse to learn' clause invites a real assessment instead of a defensive one.",
+      "followups": ["What are you doing differently as an employer?"],
+      "tags": ["labor", "current", "candid"]
+    },
+    {
+      "id": "hos-06",
+      "text": "What is the guest behavior that never makes it into the review but shapes the whole night?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["hospitality"],
+      "lands_because": "Flips the review-driven power dynamic and lets the guest speak from the other side of it, which is both cathartic and genuinely informative.",
+      "followups": ["What does a genuinely good guest do?"],
+      "tags": ["power-flip", "cathartic", "audience-gift"]
+    }
+  ]
+}

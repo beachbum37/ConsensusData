@@ -1,0 +1,73 @@
+{
+  "pack": "Sports & Athletics",
+  "description": "Ask about preparation, film, and the boring repetition rather than the highlight. Career-length anxiety and the business side are real and under-covered; a defining public failure is not something to spring on someone.",
+  "questions": [
+    {
+      "id": "spt-01",
+      "text": "What does the work look like on a Tuesday in the off-season?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["sports"],
+      "lands_because": "Moves straight past the game to the repetition that actually constitutes the profession, which is what athletes and coaches mostly do and rarely get asked about.",
+      "followups": ["What is the most tedious part that matters most?"],
+      "tags": ["preparation", "anti-highlight", "flagship"]
+    },
+    {
+      "id": "spt-02",
+      "text": "What do you see on film that a knowledgeable fan watching the same play would miss?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["sports"],
+      "lands_because": "Specifying a knowledgeable fan raises the bar and produces genuine technical detail rather than a generic answer about hard work.",
+      "followups": ["Teach me what to look for next time I watch."],
+      "tags": ["technical", "audience-gift", "flagship"]
+    },
+    {
+      "id": "spt-03",
+      "text": "How do you manage knowing the career has a fixed end?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["sports"],
+      "lands_because": "Career brevity shapes everything - money, injury decisions, identity - and athletes think about it constantly while mostly being asked about the next game.",
+      "followups": ["What are you building for after?"],
+      "tags": ["career-length", "identity", "high-yield"]
+    },
+    {
+      "id": "spt-04",
+      "text": "What is the injury decision you have made that you would make differently now?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["sports"],
+      "lands_because": "Playing through injury sits at the intersection of pressure, money, and medical advice. It is honest and concrete without requiring the guest to blame anyone.",
+      "followups": ["Who was in your ear at the time?"],
+      "avoid_if": "The guest is currently in a contract negotiation or dealing with an active injury.",
+      "tags": ["injury", "pressure", "candid"]
+    },
+    {
+      "id": "spt-05",
+      "text": "What does the locker room know about a teammate that the coaching staff does not?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["sports"],
+      "lands_because": "Information asymmetry inside a team is real and fascinating, and it can be answered in general terms without betraying anyone.",
+      "followups": ["Should the staff know?"],
+      "tags": ["team-dynamics", "insider"]
+    },
+    {
+      "id": "spt-06",
+      "text": "What do you understand about the business of this sport now that you did not at the start?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["sports"],
+      "lands_because": "Contracts, agents, media obligations, and revenue structures are a genuine education athletes acquire the hard way, and it moves the interview off the field.",
+      "followups": ["What do you tell younger players about it?"],
+      "tags": ["business", "candid"]
+    }
+  ]
+}

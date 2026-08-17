@@ -1,0 +1,72 @@
+{
+  "pack": "Energy & Utilities",
+  "description": "An industry where an uneventful career is the mark of excellence, which makes it hard to interview. Ask about restoration, permitting, and the specific engineering rather than making the guest a proxy for climate politics.",
+  "questions": [
+    {
+      "id": "eng-01",
+      "text": "Walk me through a storm restoration from the moment the lights go out.",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["energy"],
+      "lands_because": "Mutual aid, crew logistics, prioritization, and public pressure all in one operational story. It is the most vivid material this industry has.",
+      "followups": ["How do you decide whose power comes back first?"],
+      "tags": ["operations", "story-generator", "vivid"]
+    },
+    {
+      "id": "eng-02",
+      "text": "How much of a project is engineering, and how much is permitting and interconnection?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["energy"],
+      "lands_because": "Permitting and interconnection queues dominate project timelines and are invisible to the public. Naming them proves you know where the bottleneck actually is.",
+      "followups": ["What would it take to shorten that?"],
+      "tags": ["permitting", "signals-homework", "flagship"]
+    },
+    {
+      "id": "eng-03",
+      "text": "What does the public misunderstand about how the grid actually stays balanced?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["energy"],
+      "lands_because": "Grid operators genuinely enjoy explaining this, and second-by-second balancing is a great piece of audience education.",
+      "followups": ["What is the scariest hour you have watched on the board?"],
+      "tags": ["education", "myth-correction"]
+    },
+    {
+      "id": "eng-04",
+      "text": "You cannot simply build what you think is best - who has to approve it, and how does that change the engineering?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["energy"],
+      "lands_because": "Acknowledges regulatory constraint up front, which frees the guest to describe how rate cases and commissions actually shape technical decisions.",
+      "followups": ["What would you build if the constraint disappeared?"],
+      "tags": ["regulation", "signals-homework"]
+    },
+    {
+      "id": "eng-05",
+      "text": "In a field where success is nothing happening, how do you know when you have done well?",
+      "theme": "craft",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["energy"],
+      "lands_because": "Names the central psychological oddity of reliability work. It is a distinctive question that yields something genuinely reflective.",
+      "followups": ["Does anyone outside ever notice?"],
+      "tags": ["reliability", "distinctive", "reflective"]
+    },
+    {
+      "id": "eng-06",
+      "text": "What does the energy transition look like from inside operations, as opposed to from a conference stage?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["energy"],
+      "lands_because": "Invites the operational reality - interconnection, materials, workforce, dispatchability - without asking the guest to take a political position.",
+      "followups": ["What is harder than people think? What is easier?"],
+      "tags": ["transition", "operational", "depoliticized"]
+    }
+  ]
+}

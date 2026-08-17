@@ -1,0 +1,151 @@
+{
+  "pack": "Myths, Invisible Work & Personal Cost",
+  "description": "What outsiders get wrong, what the job actually consists of, and what it takes out of the person doing it. The myth questions are safe and fun; the personal-cost questions belong late in the episode and only with a guest who has warmed up.",
+  "questions": [
+    {
+      "id": "u-myth-01",
+      "text": "What do outsiders get most wrong about your work?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "The most dependable question in the database. Every professional has this answer loaded and slightly irritated, and irritation makes for good audio.",
+      "followups": ["Where do you think that idea came from?"],
+      "tags": ["dependable", "easy", "always-works"]
+    },
+    {
+      "id": "u-myth-02",
+      "text": "What does the film or television version of your job get wrong?",
+      "theme": "myths",
+      "arc": "warmup",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "Fun, low-stakes, and reliably specific. Also works as a warmup before the harder version - what the field gets wrong about itself.",
+      "followups": ["Is there one that gets it right?"],
+      "tags": ["fun", "warmup", "pop-culture"]
+    },
+    {
+      "id": "u-myth-03",
+      "text": "What does your own field tell the public about itself that is not quite true?",
+      "theme": "myths",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "The hard version of the myth question, aimed inward instead of outward. Ask it right after the television version, while the guest is already in a debunking posture.",
+      "followups": ["Why does the field need that story?"],
+      "avoid_if": "The guest holds a public-facing or communications role for their industry - they cannot answer it honestly and will resent being asked.",
+      "tags": ["self-critique", "high-yield", "sequenced"]
+    },
+    {
+      "id": "u-myth-04",
+      "text": "What question do you get constantly that tells you the person does not understand your job?",
+      "theme": "myths",
+      "arc": "warmup",
+      "depth": "light",
+      "industries": ["universal"],
+      "lands_because": "Doubles as reconnaissance - it tells you exactly which questions to avoid for the rest of the interview, and guests appreciate being asked by someone who clearly does not want to be that person.",
+      "followups": ["What is the question they should be asking instead?"],
+      "tags": ["reconnaissance", "meta", "host-favorite"]
+    },
+    {
+      "id": "u-myth-05",
+      "text": "What is a compliment you get that is not really a compliment?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Sharp and specific. 'You must be so patient', 'you must have a gift', 'it must be so rewarding' - each one carries a misconception the guest can unpack.",
+      "followups": ["What would an actual compliment be?"],
+      "tags": ["sharp", "underasked"]
+    },
+    {
+      "id": "u-inv-01",
+      "text": "What share of your time is the thing people think your job is?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Asking for a number forces precision, and the number is usually shockingly low. What fills the remainder is the actual subject of the episode.",
+      "followups": ["What fills the rest?"],
+      "tags": ["quantified", "invisible-labor", "flagship"]
+    },
+    {
+      "id": "u-inv-02",
+      "text": "What is the unglamorous work that determines whether everything else succeeds?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Preparation, maintenance, documentation, and follow-through are the hidden load-bearing structure of every profession, and practitioners are gratified when someone asks about them.",
+      "followups": ["Does anyone measure or reward it?"],
+      "tags": ["maintenance", "invisible-labor"]
+    },
+    {
+      "id": "u-inv-03",
+      "text": "What is in your job that is not in your job description?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Catches the emotional labor, the mediation, the improvised social work that has crept into teaching, nursing, service, retail, and public-facing roles everywhere.",
+      "followups": ["When did that become part of the job?"],
+      "tags": ["scope-creep", "emotional-labor"]
+    },
+    {
+      "id": "u-pers-01",
+      "text": "What does this work cost you?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Direct, quiet, and unavoidable. Works only late, and works best when you then say nothing and let the pause run.",
+      "followups": ["Is it worth it? Ask yourself honestly."],
+      "avoid_if": "The guest has stayed formal throughout. A guarded guest will give you a platitude and you will have spent the question.",
+      "tags": ["deep", "silence-after", "handle-with-care"]
+    },
+    {
+      "id": "u-pers-02",
+      "text": "Can a person do this job for thirty years? What happens to the ones who try?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "The displacement onto 'the ones who try' lets the guest speak honestly about attrition, injury, and burnout without being asked to confess their own state.",
+      "followups": ["What do the ones who last do differently?"],
+      "tags": ["sustainability", "displaced", "safe-framing"]
+    },
+    {
+      "id": "u-pers-03",
+      "text": "How do you come down after a hard day?",
+      "theme": "personal",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Humane, easy, and it reveals the intensity of the work indirectly - the elaborateness of the ritual tells you what they are decompressing from.",
+      "followups": ["Did anyone teach you that, or did you work it out?"],
+      "tags": ["warm", "easy", "humane"]
+    },
+    {
+      "id": "u-pers-04",
+      "text": "Would you want your kid to do this?",
+      "theme": "personal",
+      "arc": "closer",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Compresses an entire assessment of a profession's future, dignity, and cost into one answer, and guests cannot give a talking point to it.",
+      "followups": ["What would you want them to know first?"],
+      "tags": ["compressed", "revealing", "closer"]
+    },
+    {
+      "id": "u-pers-05",
+      "text": "When did you last finish a day and feel genuinely good about it?",
+      "theme": "personal",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Ends on something true and positive without being saccharine, and the specificity of the answer often summarizes everything the guest values about the work.",
+      "followups": ["What made that one different?"],
+      "tags": ["warm", "closer", "summarizing"]
+    }
+  ]
+}

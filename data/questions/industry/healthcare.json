@@ -1,0 +1,73 @@
+{
+  "pack": "Healthcare & Medicine",
+  "description": "Clinicians live between what medicine can do and what the system permits. The questions that land separate those two, and never ask them to be the spokesperson for all of healthcare.",
+  "questions": [
+    {
+      "id": "hc-01",
+      "text": "How much of your day is medicine, and how much is documentation, coding, and prior authorization?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["healthcare"],
+      "lands_because": "Names the administrative load without editorializing. It signals immediately that you know the clinical work is not the whole job, which is what most interviewers miss.",
+      "followups": ["What would you do with that time back?"],
+      "tags": ["administrative-burden", "signals-homework"]
+    },
+    {
+      "id": "hc-02",
+      "text": "What do you know within thirty seconds of walking into a room that you would struggle to justify on the chart?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["healthcare"],
+      "lands_because": "Clinical gestalt is real, taught informally, and hard to document. Asking about the gap between knowing and charting is deeply insider.",
+      "followups": ["Has it ever been wrong in a way that mattered?"],
+      "tags": ["gestalt", "tacit-knowledge", "flagship"]
+    },
+    {
+      "id": "hc-03",
+      "text": "How does your institution handle it when something goes wrong - and what is the difference between the formal process and what actually happens?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["healthcare"],
+      "lands_because": "Morbidity and mortality review is one of the few genuinely institutionalized error cultures in professional life, and the gap between its form and its practice is the interesting part.",
+      "followups": ["Who supports the clinician afterward?"],
+      "avoid_if": "The guest has a pending case or is speaking on behalf of an employer.",
+      "tags": ["error-culture", "structural", "second-victim"]
+    },
+    {
+      "id": "hc-04",
+      "text": "When a patient's insurance dictates a course you disagree with, what actually happens next?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["healthcare"],
+      "lands_because": "Concrete and procedural rather than a broad political question about healthcare, so it produces a real story instead of a position statement.",
+      "followups": ["How often do you win those?"],
+      "tags": ["payer-conflict", "concrete", "high-yield"]
+    },
+    {
+      "id": "hc-05",
+      "text": "What do you tell patients that is true but incomplete, and how do you decide where to stop?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["healthcare"],
+      "lands_because": "Communication calibration is a genuine daily ethical practice, not a scandal, and framing it that way gets an honest answer rather than a defensive one.",
+      "followups": ["Who taught you how to do that? Anyone?"],
+      "tags": ["disclosure", "communication", "nuanced"]
+    },
+    {
+      "id": "hc-06",
+      "text": "Who on the care team knows the most about what is actually happening with a patient?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["healthcare"],
+      "lands_because": "The answer is usually the bedside nurse or a tech, and the hierarchy question underneath it is one clinicians enjoy being asked honestly.",
+      "followups": ["Does the structure make it easy for them to say so?"],
+      "tags": ["hierarchy", "nursing", "credit"]
+    }
+  ]
+}

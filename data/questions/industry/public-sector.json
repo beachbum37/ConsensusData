@@ -1,0 +1,72 @@
+{
+  "pack": "Public Sector & Government",
+  "description": "Career staff work under statutory constraints they did not choose and often cannot comment on politics at all. Ask how the machine actually works and they will tell you things nobody has ever asked them.",
+  "questions": [
+    {
+      "id": "gov-01",
+      "text": "When someone says 'why don't you just' about your agency, what is the actual answer?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["public-sector"],
+      "lands_because": "Invites the guest to explain the statutory and procedural machinery behind an apparent absurdity. It is the single most clarifying question you can ask a civil servant.",
+      "followups": ["Who would have to change what for it to work differently?"],
+      "tags": ["constraints", "flagship", "clarifying"]
+    },
+    {
+      "id": "gov-02",
+      "text": "What discretion do you actually have, and where does it run out?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["public-sector"],
+      "lands_because": "Street-level discretion is where policy meets a person, and mapping its boundary is both fascinating and rarely solicited.",
+      "followups": ["When did you use it in a way you are proud of?"],
+      "tags": ["discretion", "distinctive"]
+    },
+    {
+      "id": "gov-03",
+      "text": "What survives changes in administration, and what gets undone every few years?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["public-sector"],
+      "lands_because": "Lets career staff speak to institutional continuity without commenting on any party, which is exactly the space they can legitimately occupy.",
+      "followups": ["What is the cost of that cycle?"],
+      "tags": ["continuity", "nonpartisan-safe", "high-yield"]
+    },
+    {
+      "id": "gov-04",
+      "text": "What does the public experience of your agency feel like, and how much of that is by design?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["public-sector"],
+      "lands_because": "Administrative burden - forms, waits, proof requirements - is sometimes deliberate policy and sometimes accumulated neglect. Distinguishing them is genuinely revealing.",
+      "followups": ["What would you simplify first?"],
+      "tags": ["administrative-burden", "structural", "high-yield"]
+    },
+    {
+      "id": "gov-05",
+      "text": "What is the failure the public never hears about because the process worked?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["public-sector"],
+      "lands_because": "Prevention is invisible by nature and public service is largely prevention. It gives the guest a rare chance to describe a success no one witnessed.",
+      "followups": ["How do you defend the budget for something that succeeds silently?"],
+      "tags": ["prevention", "invisible-labor"]
+    },
+    {
+      "id": "gov-06",
+      "text": "Why did you stay in public service?",
+      "theme": "personal",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["public-sector"],
+      "lands_because": "Career civil servants have absorbed years of public contempt for their work. Asking sincerely, at the end, usually produces something genuinely moving.",
+      "followups": ["What would it take for you to leave?"],
+      "tags": ["closer", "sincere", "warm"]
+    }
+  ]
+}

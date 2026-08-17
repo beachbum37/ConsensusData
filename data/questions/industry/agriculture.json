@@ -1,0 +1,72 @@
+{
+  "pack": "Agriculture & Food Production",
+  "description": "Farmers are price takers running a capital-intensive, weather-exposed, highly technical business on generational timescales. Ask about risk, debt, and decisions, not about the romance of the land.",
+  "questions": [
+    {
+      "id": "ag-01",
+      "text": "What decision do you make each year that you will not know the result of for months?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["agriculture"],
+      "lands_because": "Captures the extraordinary feedback delay of agricultural decisions, which is what makes the judgment so hard and so different from most professions.",
+      "followups": ["What do you look at when you make that call?"],
+      "tags": ["long-feedback", "flagship", "decision-making"]
+    },
+    {
+      "id": "ag-02",
+      "text": "You do not set your price. What does that do to how you run the operation?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["agriculture"],
+      "lands_because": "Stating the price-taker reality up front proves you understand the economics, and it opens directly into hedging, contracts, and cost control.",
+      "followups": ["How much of your risk management is marketing versus growing?"],
+      "tags": ["economics", "signals-homework", "flagship"]
+    },
+    {
+      "id": "ag-03",
+      "text": "What technology on your operation would surprise people who think farming has not changed?",
+      "theme": "change",
+      "arc": "warmup",
+      "depth": "light",
+      "industries": ["agriculture"],
+      "lands_because": "Guidance systems, variable-rate application, moisture sensing, and genetics are all standard and all invisible to the public. Guests enjoy correcting the record.",
+      "followups": ["What has it actually changed about your yields or your hours?"],
+      "tags": ["myth-correction", "easy", "warmup"]
+    },
+    {
+      "id": "ag-04",
+      "text": "What year nearly ended it, and what got you through?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["agriculture"],
+      "lands_because": "Nearly every multi-generation operation has one, and it carries drought, debt, markets, and family in a single story.",
+      "followups": ["Who did not make it through that year?"],
+      "tags": ["survival", "story-generator", "emotional"]
+    },
+    {
+      "id": "ag-05",
+      "text": "How do you make a decision whose payoff lands after you are gone?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["agriculture"],
+      "lands_because": "Soil, orchards, herd genetics, and succession all operate on generational time. This is a genuinely distinctive form of judgment worth a whole segment.",
+      "followups": ["Is there a next generation? Do you want there to be?"],
+      "tags": ["generational", "succession", "distinctive"]
+    },
+    {
+      "id": "ag-06",
+      "text": "What do people who write about food get wrong about how it is grown?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["agriculture"],
+      "lands_because": "Invites correction of the food-media narrative from someone with standing to do it, without you having to take a side on any of it.",
+      "followups": ["Is there a criticism of your industry you think is fair?"],
+      "tags": ["myth-correction", "balanced"]
+    }
+  ]
+}

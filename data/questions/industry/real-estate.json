@@ -1,0 +1,73 @@
+{
+  "pack": "Real Estate & Development",
+  "description": "Most of the work is managing a chain of parties who can each kill the deal, and entitlement takes longer than construction. Do not make market predictions the centerpiece.",
+  "questions": [
+    {
+      "id": "re-01",
+      "text": "How many people can kill a deal, and which one usually does?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["real-estate"],
+      "lands_because": "Frames the job as chain management rather than salesmanship, which is accurate and immediately signals you understand the work.",
+      "followups": ["Tell me about one that died at the eleventh hour."],
+      "tags": ["deal-mechanics", "flagship", "story-generator"]
+    },
+    {
+      "id": "re-02",
+      "text": "How long does the paperwork take compared to the building?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["real-estate"],
+      "lands_because": "Entitlement, zoning, financing, and approvals routinely dwarf construction timelines, and almost nobody outside the industry knows that.",
+      "followups": ["What is the single longest thing you have waited on?"],
+      "tags": ["entitlement", "signals-homework"]
+    },
+    {
+      "id": "re-03",
+      "text": "What do you know about a property in the first five minutes that the listing will never say?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["real-estate"],
+      "lands_because": "Rapid assessment is real expertise here - drainage, orientation, deferred maintenance, the neighbors - and it makes great concrete audio.",
+      "followups": ["What do buyers fixate on that does not matter?"],
+      "tags": ["assessment", "vivid", "audience-gift"]
+    },
+    {
+      "id": "re-04",
+      "text": "Whose interests are you actually representing, and does the client understand that?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["real-estate"],
+      "lands_because": "Agency, dual agency, and commission incentives are structurally confusing to consumers, and a straight answer here is a real public service.",
+      "followups": ["How does the commission structure pull on that?"],
+      "tags": ["agency", "incentives", "high-yield"]
+    },
+    {
+      "id": "re-05",
+      "text": "What have you built or sold that you would not want to live in or next to?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["real-estate"],
+      "lands_because": "Personal-stake framing gets past the standard defense of the product. It is sharp, so save it for a guest who has been genuinely candid.",
+      "followups": ["What would you have changed if the numbers had allowed?"],
+      "avoid_if": "The guest is currently marketing that specific project.",
+      "tags": ["sharp", "candor-required", "quality"]
+    },
+    {
+      "id": "re-06",
+      "text": "What do people blame developers for that is actually a zoning or financing constraint?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["real-estate"],
+      "lands_because": "Lets a developer redirect blame toward structure rather than defend themselves, which produces a far more informative answer about how housing actually gets built.",
+      "followups": ["And what do developers actually deserve blame for?"],
+      "tags": ["myth-correction", "balanced", "housing"]
+    }
+  ]
+}

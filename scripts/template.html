@@ -1,0 +1,860 @@
+<title>Ask Anyone</title>
+<style>
+  /* Light is the base palette; both dark paths redefine tokens only. */
+  :root {
+    --bg: #F1F3F4;
+    --surface: #FFFFFF;
+    --surface-2: #E6EAEB;
+    --ink: #151F1E;
+    --ink-2: #47585A;
+    --ink-3: #77898C;
+    --rule: #D2DADC;
+    --accent: #BE3A1C;
+    --accent-soft: #F9E7E2;
+    --d-light: #6B7B7E;
+    --d-medium: #16645F;
+    --d-probing: #BE3A1C;
+    --shadow: 0 1px 2px rgba(21, 31, 30, .06), 0 8px 24px -16px rgba(21, 31, 30, .3);
+
+    --font-ui: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-read: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    --step-0: .875rem;
+    --step-1: 1rem;
+    --step-2: 1.1875rem;
+    --step-3: 1.5rem;
+    --step-4: 2rem;
+    --rail: 16.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101817;
+      --surface: #172120;
+      --surface-2: #1F2C2B;
+      --ink: #E8EDEC;
+      --ink-2: #A6B6B5;
+      --ink-3: #718281;
+      --rule: #2A3837;
+      --accent: #F2765A;
+      --accent-soft: #331A14;
+      --d-light: #8A9A9C;
+      --d-medium: #4FB5AC;
+      --d-probing: #F2765A;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #101817;
+    --surface: #172120;
+    --surface-2: #1F2C2B;
+    --ink: #E8EDEC;
+    --ink-2: #A6B6B5;
+    --ink-3: #718281;
+    --rule: #2A3837;
+    --accent: #F2765A;
+    --accent-soft: #331A14;
+    --d-light: #8A9A9C;
+    --d-medium: #4FB5AC;
+    --d-probing: #F2765A;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -16px rgba(0, 0, 0, .8);
+  }
+
+  * { box-sizing: border-box; }
+
+  /* Components below set display, which would otherwise beat the [hidden]
+     attribute's own display:none. */
+  [hidden] { display: none !important; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: var(--step-1);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* ---------------------------------------------------------- masthead */
+
+  .masthead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .5rem 1.25rem;
+    padding: .875rem clamp(1rem, 3vw, 2rem);
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .wordmark {
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+    font-size: var(--step-2);
+    font-weight: 620;
+    letter-spacing: -.015em;
+    margin: 0;
+  }
+
+  /* The on-air lamp: the one decorative element, and it earns its place by
+     doubling as the live result count. */
+  .lamp {
+    align-self: center;
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+
+  .masthead .tagline {
+    font-size: var(--step-0);
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  /* Controls travel as one group so they never orphan onto their own line. */
+  .masthead .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem .75rem;
+    margin-left: auto;
+  }
+
+  .count {
+    font-family: var(--font-mono);
+    font-size: var(--step-0);
+    color: var(--ink-2);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  /* ------------------------------------------------------------ controls */
+
+  select, input[type="search"], button {
+    font: inherit;
+    font-size: var(--step-0);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    padding: .375rem .625rem;
+  }
+
+  select { cursor: pointer; }
+
+  input[type="search"] { width: 100%; }
+
+  .btn {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    white-space: nowrap;
+  }
+
+  .btn:hover { background: var(--surface-2); }
+
+  .btn[aria-pressed="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--surface);
+  }
+
+  .modes { display: flex; gap: .25rem; }
+
+  /* ------------------------------------------------------------- layout */
+
+  .shell {
+    display: grid;
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+    gap: clamp(1rem, 3vw, 2.5rem);
+    max-width: 78rem;
+    margin: 0 auto;
+    padding: 1.5rem clamp(1rem, 3vw, 2rem) 5rem;
+    align-items: start;
+  }
+
+  /* Brief mode drops the filter rail, so the reading column reclaims the width. */
+  .shell.no-rail {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 60rem;
+  }
+
+  .rail {
+    position: sticky;
+    top: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding-right: .25rem;
+  }
+
+  .facet { display: flex; flex-direction: column; gap: .5rem; }
+
+  .facet h2 {
+    font-size: .6875rem;
+    font-weight: 640;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--ink-3);
+    margin: 0;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: .3125rem; }
+
+  .chip {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    padding: .1875rem .5rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-2);
+  }
+
+  .chip:hover { border-color: var(--ink-3); }
+
+  .chip[aria-pressed="true"] {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--surface);
+  }
+
+  /* Depth is the field that changes how you use a question, so it carries
+     color everywhere it appears. */
+  .chip.depth[aria-pressed="true"] { background: var(--tone); border-color: var(--tone); }
+  .chip.depth { --tone: var(--d-light); }
+  .chip.depth[data-value="medium"] { --tone: var(--d-medium); }
+  .chip.depth[data-value="probing"] { --tone: var(--d-probing); }
+
+  /* -------------------------------------------------------------- cards */
+
+  .results { display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
+
+  .stage { display: flex; flex-direction: column; gap: .625rem; }
+
+  .stage > header {
+    display: flex;
+    align-items: baseline;
+    gap: .625rem;
+    padding-bottom: .375rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .stage h2 {
+    margin: 0;
+    font-size: var(--step-0);
+    font-weight: 640;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+
+  .stage .hint {
+    font-size: .75rem;
+    color: var(--ink-3);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1.75rem minmax(0, 1fr) auto;
+    gap: .25rem .625rem;
+    padding: .875rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--tone);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    --tone: var(--d-light);
+  }
+
+  .card[data-depth="medium"] { --tone: var(--d-medium); }
+  .card[data-depth="probing"] { --tone: var(--d-probing); }
+
+  .card .seq {
+    grid-row: 1 / span 3;
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+    padding-top: .1875rem;
+  }
+
+  .card .q {
+    font-family: var(--font-read);
+    font-size: var(--step-2);
+    line-height: 1.4;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  .card .meta {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .375rem .625rem;
+    font-family: var(--font-mono);
+    font-size: .6875rem;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  .card .meta .depth { color: var(--tone); font-weight: 600; }
+
+  .card .notes {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+    margin-top: .25rem;
+    font-size: var(--step-0);
+    color: var(--ink-2);
+  }
+
+  .card .why { margin: 0; }
+
+  .card ul { margin: 0; padding-left: 1.125rem; display: flex; flex-direction: column; gap: .1875rem; }
+  .card li { margin: 0; }
+  .card li::marker { color: var(--ink-3); }
+
+  .warn {
+    display: flex;
+    gap: .5rem;
+    padding: .4375rem .625rem;
+    background: var(--accent-soft);
+    border-radius: 5px;
+    color: var(--ink);
+    font-size: var(--step-0);
+  }
+
+  .warn b { color: var(--accent); font-weight: 640; }
+
+  .copy {
+    grid-row: 1;
+    grid-column: 3;
+    align-self: start;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: .1875rem .375rem;
+    font-family: var(--font-mono);
+    font-size: .6875rem;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+
+  .copy:hover { color: var(--accent); }
+
+  /* ------------------------------------------------------------ profile */
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    gap: .875rem;
+    padding: 1.125rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+  }
+
+  .profile h2 {
+    margin: 0;
+    font-size: var(--step-3);
+    letter-spacing: -.015em;
+    text-wrap: balance;
+  }
+
+  .profile dl { margin: 0; display: flex; flex-direction: column; gap: .75rem; }
+
+  .profile dt {
+    font-size: .6875rem;
+    font-weight: 640;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--ink-3);
+    margin-bottom: .1875rem;
+  }
+
+  .profile dd { margin: 0; font-size: var(--step-0); color: var(--ink-2); }
+
+  .profile dd.landmines { color: var(--ink); }
+
+  /* Two classes, so this beats the `.profile dl` flex-column rule above. */
+  .profile .vocab {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: .25rem .875rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: .75rem;
+  }
+
+  .profile .vocab dt {
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--accent);
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .profile .vocab dd { color: var(--ink-2); }
+
+  .empty {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--ink-3);
+    font-size: var(--step-0);
+  }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    padding: .5rem 1rem;
+    background: var(--ink);
+    color: var(--bg);
+    border-radius: 999px;
+    font-size: var(--step-0);
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease;
+  }
+
+  .toast.show { opacity: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @media (max-width: 60rem) {
+    .shell { grid-template-columns: minmax(0, 1fr); }
+    .rail { position: static; max-height: none; }
+  }
+</style>
+
+<header class="masthead">
+  <h1 class="wordmark"><span class="lamp" aria-hidden="true"></span> Ask Anyone</h1>
+  <p class="tagline">Interview questions that land on any profession</p>
+  <div class="controls">
+    <label class="count" for="industry">Guest works in</label>
+    <select id="industry"></select>
+    <div class="modes" role="group" aria-label="View">
+      <button class="btn" type="button" id="mode-browse" aria-pressed="true">Browse</button>
+      <button class="btn" type="button" id="mode-brief" aria-pressed="false">Brief</button>
+    </div>
+    <button class="btn" type="button" id="copy-all">Copy Markdown</button>
+    <span class="count" id="count"></span>
+  </div>
+</header>
+
+<div class="shell">
+  <aside class="rail" id="rail">
+    <div class="facet">
+      <h2><label for="search">Search</label></h2>
+      <input type="search" id="search" placeholder="money, failure, tacit…" autocomplete="off">
+    </div>
+    <div class="facet">
+      <h2>Depth</h2>
+      <div class="chips" id="facet-depth"></div>
+    </div>
+    <div class="facet">
+      <h2>Stage</h2>
+      <div class="chips" id="facet-arc"></div>
+    </div>
+    <div class="facet">
+      <h2>Theme</h2>
+      <div class="chips" id="facet-theme"></div>
+    </div>
+    <div class="facet">
+      <h2>Scope</h2>
+      <div class="chips">
+        <button class="chip" type="button" id="only-industry" aria-pressed="false">Industry-specific only</button>
+        <button class="chip" type="button" id="reset">Clear filters</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="results" id="results"></main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+  const DATA = __DATA__;
+
+  const ARC_ORDER = ["opener", "warmup", "core", "deep", "closer", "pivot"];
+  // Target count per stage when assembling a brief.
+  const BRIEF_SHAPE = [["opener", 2], ["warmup", 2], ["core", 8], ["deep", 5], ["closer", 3]];
+
+  const profiles = Object.fromEntries(DATA.profiles.map(p => [p.slug, p]));
+
+  const state = {
+    industry: "",
+    mode: "browse",
+    search: "",
+    depth: new Set(),
+    arc: new Set(),
+    theme: new Set(),
+    industryOnly: false
+  };
+
+  /* ---------------------------------------------------------- slot filling */
+
+  const CONSONANT_SOUNDED_VOWEL = /^(?:u(?:n[ei]|se|ti|ni)|eu|one\b)/i;
+  const VOWEL_SOUNDED_CONSONANT = /^(?:hour|honest|honou?r|heir)/i;
+
+  function articleFor(word) {
+    if (VOWEL_SOUNDED_CONSONANT.test(word)) return "an";
+    if (CONSONANT_SOUNDED_VOWEL.test(word)) return "a";
+    return /^[aeiou]/i.test(word) ? "an" : "a";
+  }
+
+  function fillSlots(text, profile) {
+    if (!profile) return text;
+    const vocab = profile.vocabulary || {};
+    return text
+      .replace(/\b(a|A)\s+\{(\w+)\}/g, (whole, article, slot) => {
+        const word = vocab[slot];
+        if (!word) return whole;
+        if (/^(a|an|the)\b/i.test(word)) return word;
+        const chosen = articleFor(word);
+        return (article === "A" ? chosen[0].toUpperCase() + chosen.slice(1) : chosen) + " " + word;
+      })
+      .replace(/\{(\w+)\}/g, (whole, slot) => vocab[slot] || whole);
+  }
+
+  /* -------------------------------------------------------------- filtering */
+
+  function visible() {
+    const needle = state.search.trim().toLowerCase();
+    return DATA.questions.filter(q => {
+      if (state.industry) {
+        const own = q.industries.includes(state.industry);
+        if (state.industryOnly ? !own : !(own || q.industries.includes("universal"))) return false;
+      } else if (state.industryOnly) {
+        return false;
+      }
+      if (state.depth.size && !state.depth.has(q.depth)) return false;
+      if (state.arc.size && !state.arc.has(q.arc)) return false;
+      if (state.theme.size && !state.theme.has(q.theme)) return false;
+      if (needle) {
+        const hay = [q.text, q.lands_because || "", (q.followups || []).join(" "), (q.tags || []).join(" ")]
+          .join(" ").toLowerCase();
+        if (!hay.includes(needle)) return false;
+      }
+      return true;
+    });
+  }
+
+  /* Deterministic shuffle so a brief is stable across reloads - you can print
+     it, close the tab, and get the same running order back. */
+  function seededShuffle(items, seed) {
+    let s = seed >>> 0;
+    const out = items.slice();
+    for (let i = out.length - 1; i > 0; i--) {
+      s = (s * 1664525 + 1013904223) >>> 0;
+      const j = s % (i + 1);
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out;
+  }
+
+  function buildBrief() {
+    const seed = [...state.industry].reduce((a, c) => a + c.charCodeAt(0), 7);
+    const picked = [];
+    for (const [arc, want] of BRIEF_SHAPE) {
+      const pool = kind => seededShuffle(
+        DATA.questions.filter(q => q.arc === arc &&
+          (kind === "own" ? q.industries.includes(state.industry) : q.industries.includes("universal"))),
+        seed + arc.length
+      );
+      const picks = pool("own").slice(0, Math.max(1, want >> 1));
+      for (const q of pool("universal")) {
+        if (picks.length >= want) break;
+        if (!picks.includes(q)) picks.push(q);
+      }
+      picked.push(...picks);
+    }
+    return picked;
+  }
+
+  /* -------------------------------------------------------------- rendering */
+
+  const el = (tag, props = {}, kids = []) => {
+    const node = Object.assign(document.createElement(tag), props);
+    for (const kid of [].concat(kids)) {
+      if (kid) node.append(kid);
+    }
+    return node;
+  };
+
+  function card(q, index, profile) {
+    const node = el("article", { className: "card" });
+    node.dataset.depth = q.depth;
+
+    node.append(el("span", { className: "seq", textContent: String(index).padStart(2, "0") }));
+    node.append(el("p", { className: "q", textContent: fillSlots(q.text, profile) }));
+
+    const meta = el("div", { className: "meta" });
+    meta.append(el("span", { className: "depth", textContent: q.depth }));
+    meta.append(el("span", { textContent: q.arc }));
+    meta.append(el("span", { textContent: q.theme }));
+    if (state.industry && q.industries.includes(state.industry)) {
+      meta.append(el("span", { textContent: "· industry pack" }));
+    }
+    meta.append(el("span", { textContent: q.id }));
+    node.append(meta);
+
+    const notes = el("div", { className: "notes" });
+    if (q.lands_because) notes.append(el("p", { className: "why", textContent: q.lands_because }));
+    if (q.followups && q.followups.length) {
+      notes.append(el("ul", {}, q.followups.map(f =>
+        el("li", { textContent: fillSlots(f, profile) }))));
+    }
+    if (q.avoid_if) {
+      const warn = el("div", { className: "warn" });
+      warn.append(el("b", { textContent: "Careful" }));
+      warn.append(el("span", { textContent: q.avoid_if }));
+      notes.append(warn);
+    }
+    if (notes.childElementCount) node.append(notes);
+
+    const copy = el("button", { className: "copy", type: "button", textContent: "copy" });
+    copy.title = "Copy this question";
+    copy.addEventListener("click", () => {
+      navigator.clipboard.writeText(fillSlots(q.text, profile)).then(
+        () => toast("Question copied"),
+        () => toast("Could not reach the clipboard")
+      );
+    });
+    node.append(copy);
+    return node;
+  }
+
+  function profilePanel(profile) {
+    const panel = el("section", { className: "profile" });
+    panel.append(el("h2", { textContent: profile.label }));
+
+    const dl = el("dl");
+    const row = (term, value, cls) => {
+      dl.append(el("dt", { textContent: term }));
+      dl.append(el("dd", { className: cls || "", textContent: value }));
+    };
+    row("Status is earned by", profile.status_axis);
+    row("You sound prepared when you", profile.earns_trust);
+
+    dl.append(el("dt", { textContent: "Landmines" }));
+    dl.append(el("dd", { className: "landmines" }, [
+      el("ul", {}, profile.landmines.map(l => el("li", { textContent: l })))
+    ]));
+    panel.append(dl);
+
+    const vocab = el("dl", { className: "vocab" });
+    for (const [slot, word] of Object.entries(profile.vocabulary)) {
+      vocab.append(el("dt", { textContent: "{" + slot + "}" }));
+      vocab.append(el("dd", { textContent: word }));
+    }
+    panel.append(vocab);
+
+    if (profile.also_called && profile.also_called.length) {
+      const also = el("dl");
+      also.append(el("dt", { textContent: "Other native terms" }));
+      also.append(el("dd", { textContent: profile.also_called.join(" · ") }));
+      panel.append(also);
+    }
+    return panel;
+  }
+
+  function stage(name, hint, questions, profile, offset) {
+    const section = el("section", { className: "stage" });
+    const head = el("header");
+    head.append(el("h2", { textContent: name }));
+    head.append(el("span", { className: "hint", textContent: hint }));
+    section.append(head);
+    questions.forEach((q, i) => section.append(card(q, offset + i + 1, profile)));
+    return section;
+  }
+
+  function render() {
+    const results = document.getElementById("results");
+    const profile = profiles[state.industry] || null;
+    results.replaceChildren();
+
+    if (state.mode === "brief") {
+      if (!profile) {
+        results.append(el("p", { className: "empty", textContent: "Pick the guest's industry to build a brief." }));
+        setCount("");
+        return;
+      }
+      results.append(profilePanel(profile));
+      const order = buildBrief();
+      let n = 0;
+      for (const arcName of ARC_ORDER) {
+        const group = order.filter(q => q.arc === arcName);
+        if (!group.length) continue;
+        results.append(stage(arcName, DATA.taxonomy.arc[arcName], group, profile, n));
+        n += group.length;
+      }
+      const pivots = DATA.questions.filter(q => q.arc === "pivot");
+      results.append(stage("pivot", DATA.taxonomy.arc.pivot, pivots, profile, n));
+      setCount(order.length + pivots.length + " in this brief");
+      return;
+    }
+
+    const matched = visible();
+    setCount(matched.length + " of " + DATA.questions.length);
+    if (!matched.length) {
+      results.append(el("p", { className: "empty", textContent: "Nothing matches those filters." }));
+      return;
+    }
+    let n = 0;
+    for (const arcName of ARC_ORDER) {
+      const group = matched.filter(q => q.arc === arcName);
+      if (!group.length) continue;
+      results.append(stage(arcName, DATA.taxonomy.arc[arcName], group, profile, n));
+      n += group.length;
+    }
+  }
+
+  function setCount(text) {
+    document.getElementById("count").textContent = text;
+  }
+
+  let toastTimer;
+  function toast(message) {
+    const node = document.getElementById("toast");
+    node.textContent = message;
+    node.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => node.classList.remove("show"), 1800);
+  }
+
+  function asMarkdown() {
+    const profile = profiles[state.industry] || null;
+    const list = state.mode === "brief" ? buildBrief() : visible();
+    const title = state.mode === "brief" && profile
+      ? "# Interview brief: " + profile.label
+      : "# Questions";
+    const lines = [title, ""];
+    if (state.mode === "brief" && profile) {
+      lines.push("**Status is earned by:** " + profile.status_axis, "");
+      lines.push("**You sound prepared when you:** " + profile.earns_trust, "");
+      lines.push("**Landmines:**");
+      profile.landmines.forEach(l => lines.push("- " + l));
+      lines.push("");
+    }
+    list.forEach((q, i) => {
+      lines.push((i + 1) + ". **" + fillSlots(q.text, profile) + "**");
+      lines.push("   `" + q.id + "` · " + q.arc + " · " + q.depth + " · " + q.theme);
+      if (q.lands_because) lines.push("   *Why:* " + q.lands_because);
+      (q.followups || []).forEach(f => lines.push("   - ↳ " + fillSlots(f, profile)));
+      if (q.avoid_if) lines.push("   - ⚠ " + q.avoid_if);
+      lines.push("");
+    });
+    return lines.join("\n");
+  }
+
+  /* ----------------------------------------------------------------- wiring */
+
+  function chipGroup(containerId, field, values, extraClass) {
+    const box = document.getElementById(containerId);
+    for (const value of values) {
+      const chip = el("button", { className: "chip " + (extraClass || ""), type: "button", textContent: value });
+      chip.setAttribute("aria-pressed", "false");
+      chip.dataset.value = value;
+      chip.addEventListener("click", () => {
+        const set = state[field];
+        const on = set.has(value);
+        on ? set.delete(value) : set.add(value);
+        chip.setAttribute("aria-pressed", String(!on));
+        render();
+      });
+      box.append(chip);
+    }
+  }
+
+  function init() {
+    const select = document.getElementById("industry");
+    select.append(el("option", { value: "", textContent: "Any industry" }));
+    for (const p of DATA.profiles) {
+      select.append(el("option", { value: p.slug, textContent: p.label }));
+    }
+    select.addEventListener("change", () => { state.industry = select.value; render(); });
+
+    const vocabOf = section => Object.keys(DATA.taxonomy[section]).filter(k => !k.startsWith("$"));
+    chipGroup("facet-depth", "depth", vocabOf("depth"), "depth");
+    chipGroup("facet-arc", "arc", vocabOf("arc"));
+    chipGroup("facet-theme", "theme", vocabOf("theme"));
+
+    document.getElementById("search").addEventListener("input", e => {
+      state.search = e.target.value;
+      render();
+    });
+
+    const only = document.getElementById("only-industry");
+    only.addEventListener("click", () => {
+      state.industryOnly = !state.industryOnly;
+      only.setAttribute("aria-pressed", String(state.industryOnly));
+      render();
+    });
+
+    document.getElementById("reset").addEventListener("click", () => {
+      state.depth.clear(); state.arc.clear(); state.theme.clear();
+      state.search = ""; state.industryOnly = false;
+      document.getElementById("search").value = "";
+      only.setAttribute("aria-pressed", "false");
+      document.querySelectorAll(".chip[aria-pressed='true']").forEach(c => c.setAttribute("aria-pressed", "false"));
+      render();
+    });
+
+    const browse = document.getElementById("mode-browse");
+    const brief = document.getElementById("mode-brief");
+    const setMode = mode => {
+      state.mode = mode;
+      browse.setAttribute("aria-pressed", String(mode === "browse"));
+      brief.setAttribute("aria-pressed", String(mode === "brief"));
+      document.getElementById("rail").hidden = mode === "brief";
+      document.querySelector(".shell").classList.toggle("no-rail", mode === "brief");
+      render();
+    };
+    browse.addEventListener("click", () => setMode("browse"));
+    brief.addEventListener("click", () => setMode("brief"));
+
+    document.getElementById("copy-all").addEventListener("click", () => {
+      navigator.clipboard.writeText(asMarkdown()).then(
+        () => toast("Copied as Markdown"),
+        () => toast("Could not reach the clipboard")
+      );
+    });
+
+    render();
+  }
+
+  init();
+</script>

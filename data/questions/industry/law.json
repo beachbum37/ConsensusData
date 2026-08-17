@@ -1,0 +1,73 @@
+{
+  "pack": "Law",
+  "description": "Lawyers are trained to be careful on the record and are bound by privilege. Ask about process, judgment, and the profession rather than about matters, and they open up considerably.",
+  "questions": [
+    {
+      "id": "law-01",
+      "text": "How much of your work is arguing, and how much is predicting what the other side will do?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["law"],
+      "lands_because": "Corrects the courtroom-drama frame from inside. Most legal work is anticipation and risk allocation, and lawyers appreciate an interviewer who already suspects that.",
+      "followups": ["When did you get good at the predicting part?"],
+      "tags": ["myth-correction", "signals-homework"]
+    },
+    {
+      "id": "law-02",
+      "text": "What do you know about a case in the first meeting that the client does not want to hear yet?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["law"],
+      "lands_because": "Early case assessment is a real skill, and the tension between honest evaluation and client management is the daily texture of practice.",
+      "followups": ["How do you eventually tell them?"],
+      "tags": ["client-management", "assessment"]
+    },
+    {
+      "id": "law-03",
+      "text": "What does the billable hour do to how you work?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["law"],
+      "lands_because": "The central economic distortion of private practice, felt by everyone in it, and rarely discussed with an outsider who understands it is a structural question rather than an accusation.",
+      "followups": ["Have you worked under a different model? Was it better?"],
+      "avoid_if": "The guest is a public defender, judge, or in-house counsel - use a workload or caseload question instead.",
+      "tags": ["incentives", "billable-hour", "high-yield"]
+    },
+    {
+      "id": "law-04",
+      "text": "What is the most common misconception your clients arrive with about how the law works?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "light",
+      "industries": ["law"],
+      "lands_because": "Easy, generous, and it lets the guest be useful to the audience. Also surfaces the gap between legal reality and public understanding, which is the point of the episode.",
+      "followups": ["Where does that idea come from?"],
+      "tags": ["easy", "audience-gift"]
+    },
+    {
+      "id": "law-05",
+      "text": "Where is the line between zealous advocacy and something you would not do?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["law"],
+      "lands_because": "Uses the profession's own language, which signals you know the duty is real and not a loophole. That framing gets a considered answer instead of a defensive one.",
+      "followups": ["Have you watched someone cross it?"],
+      "tags": ["ethics", "native-vocabulary", "flagship"]
+    },
+    {
+      "id": "law-06",
+      "text": "What does the system do well that critics miss, and what do the critics get right?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["law"],
+      "lands_because": "The two-sided structure lets a lawyer defend the institution and criticize it in the same answer, which is where their actual view usually lives.",
+      "followups": ["What reform would you actually support?"],
+      "tags": ["balanced", "reform", "nuance"]
+    }
+  ]
+}

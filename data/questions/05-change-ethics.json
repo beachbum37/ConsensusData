@@ -1,0 +1,135 @@
+{
+  "pack": "Change & Ethics",
+  "description": "How the field is moving and where its lines are. The change questions are safe and produce forward-looking material; the ethics questions are the sharpest in the database. Never lead with the ethics half - it reads as an accusation from a stranger and as curiosity from someone who has already demonstrated they understand the work.",
+  "questions": [
+    {
+      "id": "u-chg-01",
+      "text": "What has changed in your field in the last five years that people outside have not noticed at all?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Rewards insider knowledge and produces genuinely new information for the audience. The 'not noticed' clause pushes past the obvious headline change.",
+      "followups": ["Was it an improvement?"],
+      "tags": ["insider", "news-value", "flagship"]
+    },
+    {
+      "id": "u-chg-02",
+      "text": "What arrived in your field with enormous noise and turned out not to matter? And what arrived quietly and changed everything?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "The two-part structure produces a real assessment rather than hype or dismissal, and it works in any field with a technology or methodology cycle - which is all of them.",
+      "followups": ["What is being loud right now, and which category is it in?"],
+      "tags": ["hype-cycle", "assessment", "flagship"]
+    },
+    {
+      "id": "u-chg-03",
+      "text": "Is the work itself getting better or worse to do? Separate that from whether it pays better.",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "The instruction to separate the two is what makes it good. Autonomy, pace, surveillance, and documentation load have moved independently of compensation in most fields, and guests feel that acutely.",
+      "followups": ["What specifically made it worse? Or better?"],
+      "tags": ["autonomy", "quality-of-work", "high-yield"]
+    },
+    {
+      "id": "u-chg-04",
+      "text": "What is a rule, standard, or regulation that quietly reshaped your daily work?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Regulation is invisible from outside and enormous from inside - a building code revision, a documentation requirement, a safety standard, a disclosure rule. Asking about it signals you know work has a legal substrate.",
+      "followups": ["Was it a good rule badly implemented, or just a bad rule?"],
+      "tags": ["regulation", "structural", "signals-seriousness"]
+    },
+    {
+      "id": "u-chg-05",
+      "text": "What will someone entering your field in ten years never have to learn?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Forward-looking and concrete rather than speculative. It also quietly surfaces what the guest thinks is being lost, without requiring nostalgia.",
+      "followups": ["Does it matter that they will not know it?"],
+      "tags": ["succession", "forward-looking"]
+    },
+    {
+      "id": "u-chg-06",
+      "text": "What is being lost as your field modernizes that is actually worth keeping?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Gives permission for a conservative answer without making the guest sound like a reactionary. Frequently the most heartfelt moment in a change conversation.",
+      "followups": ["Is anyone trying to keep it?"],
+      "avoid_if": "The guest is a reformer or technologist whose whole position is that the old way was bad - it will read as a setup.",
+      "tags": ["loss", "heartfelt", "nuance"]
+    },
+    {
+      "id": "u-eth-01",
+      "text": "Where is the gray zone in your work?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Open enough that the guest chooses the terrain, which makes it far more answerable than a specific accusation. Nearly every profession has one and can describe it if asked neutrally.",
+      "followups": [
+        "How do you decide, in the moment?",
+        "Do your colleagues draw the line in the same place?"
+      ],
+      "tags": ["ethics-entry", "open", "safe-framing"]
+    },
+    {
+      "id": "u-eth-02",
+      "text": "What pressure exists in your field to cut a corner, and what does the corner actually look like?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Asks about the structure of the pressure rather than the guest's compliance with it, so it can be answered without self-incrimination. The concrete second half prevents an abstract dodge.",
+      "followups": ["Who notices when someone does?"],
+      "avoid_if": "The guest is personally under scrutiny for exactly this.",
+      "tags": ["pressure", "structural", "high-yield"]
+    },
+    {
+      "id": "u-eth-03",
+      "text": "Have you ever refused to do something? What happened?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Casts the guest as the person with a line rather than the person being investigated, which is why it produces real answers where a direct ethics question produces none.",
+      "followups": ["What did it cost you?"],
+      "tags": ["integrity", "flattering-framing", "story-generator"]
+    },
+    {
+      "id": "u-eth-04",
+      "text": "Who checks you?",
+      "theme": "ethics",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Three words, and it maps the entire oversight structure of a profession - board, regulator, inspector, editor, peer review, or nobody at all. The 'nobody' answers are the interesting ones.",
+      "followups": [
+        "Is that enough?",
+        "When did that check last actually catch something?"
+      ],
+      "tags": ["oversight", "short", "flagship"]
+    },
+    {
+      "id": "u-eth-05",
+      "text": "What is entirely legal and standard in your field that you think should not be?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Invites reform-minded criticism rather than confession, so guests answer it willingly. Frequently generates the most quotable line of an episode.",
+      "followups": ["What stops it from changing?"],
+      "tags": ["reform", "quotable", "high-yield"]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "pack": "Finance & Insurance",
+  "description": "Compliance limits what these guests can say about positions and clients, so aim at process, calibration, and incentives. Never ask for a call on a specific security - it can be a regulatory problem rather than merely an awkward one.",
+  "questions": [
+    {
+      "id": "fin-01",
+      "text": "How do you tell the difference between being wrong and being early?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["finance"],
+      "lands_because": "The defining epistemics of the job, and a question anyone who takes risk has genuinely wrestled with. It gets past compliance because it is about method, not positioning.",
+      "followups": ["What is your actual rule for cutting a losing position?"],
+      "tags": ["calibration", "flagship", "compliance-safe"]
+    },
+    {
+      "id": "fin-02",
+      "text": "What does your model not capture, and how do you account for that?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["finance"],
+      "lands_because": "Every quantitative professional knows the boundary of their model, and describing it is the most honest form of expertise they can offer publicly.",
+      "followups": ["When did that gap last cost you?"],
+      "tags": ["models", "limits", "honest"]
+    },
+    {
+      "id": "fin-03",
+      "text": "Who bears the risk when you are wrong - you, the firm, or the client?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["finance"],
+      "lands_because": "Goes directly at the asymmetry that defines the industry's reputation, framed structurally so it can be answered without self-indictment.",
+      "followups": ["Should that be different?"],
+      "tags": ["risk-asymmetry", "structural", "high-yield"]
+    },
+    {
+      "id": "fin-04",
+      "text": "What is the most consequential thing you have to explain to clients that they consistently do not want to believe?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["finance"],
+      "lands_because": "Works for advisors, underwriters, and adjusters alike, and produces practical value for the audience without touching a specific recommendation.",
+      "followups": ["What actually gets through to them?"],
+      "tags": ["client-communication", "audience-gift"]
+    },
+    {
+      "id": "fin-05",
+      "text": "What behavior does your compensation structure produce that nobody would defend in the abstract?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["finance"],
+      "lands_because": "Everyone in finance has an answer - quarter-end behavior, gathering assets over serving them, volume over quality - and the abstract framing makes it safe to give.",
+      "followups": ["Has anyone tried to fix it?"],
+      "avoid_if": "The guest currently sets compensation policy at a named firm.",
+      "tags": ["incentives", "critique", "high-yield"]
+    },
+    {
+      "id": "fin-06",
+      "text": "What did 2008, or the closest equivalent in your corner of the industry, actually teach you - as opposed to what everyone says it taught them?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["finance"],
+      "lands_because": "The clause rejecting the received lesson is what makes it work. It forces past the rehearsed narrative into what the guest personally changed.",
+      "followups": ["What do you do differently now, concretely?"],
+      "tags": ["crisis", "anti-narrative"]
+    }
+  ]
+}

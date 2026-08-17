@@ -1,0 +1,73 @@
+{
+  "pack": "Media & Journalism",
+  "description": "Journalists are interviewers, which means they will recognize your technique. Be direct, never fish for sources, and remember that the collapse of the business model is not an abstraction to them.",
+  "questions": [
+    {
+      "id": "med-01",
+      "text": "How do you decide a story is solid enough to publish?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["media-journalism"],
+      "lands_because": "Verification standards are the profession's actual craft, and asking about the threshold rather than the scoop is a question they respect.",
+      "followups": ["When did you hold something you wanted to run?"],
+      "tags": ["verification", "craft", "flagship"]
+    },
+    {
+      "id": "med-02",
+      "text": "What is the story you could not get, and what stopped it?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["media-journalism"],
+      "lands_because": "Killed and unprovable stories are a genuine grief in the profession, and the reasons - sourcing, legal, resources, access - are individually revealing.",
+      "followups": ["Do you think it was true?"],
+      "avoid_if": "The story is still live or the answer would identify a source.",
+      "tags": ["killed-stories", "candid"]
+    },
+    {
+      "id": "med-03",
+      "text": "What does a source want from you, and how do you keep that from shaping the coverage?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["media-journalism"],
+      "lands_because": "The transactional reality of sourcing is well understood inside the profession and poorly understood outside. It respects the relationship without asking them to burn it.",
+      "followups": ["Have you ever been used? Did you know at the time?"],
+      "tags": ["sourcing", "ethics", "high-yield"]
+    },
+    {
+      "id": "med-04",
+      "text": "How much of what you do is reporting, and how much is now audience and distribution work?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["media-journalism"],
+      "lands_because": "The expansion of the job into promotion and metrics is universal and resented, and asking about it acknowledges a change nobody chose.",
+      "followups": ["Does the metric change what you pitch?"],
+      "tags": ["scope-creep", "metrics", "current"]
+    },
+    {
+      "id": "med-05",
+      "text": "What does the public misunderstand about how an article actually gets made?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["media-journalism"],
+      "lands_because": "Headlines they did not write, editors, legal review, and space constraints - useful audience education and a chance for the guest to correct a grievance fairly.",
+      "followups": ["What criticism of the press do you think is actually fair?"],
+      "tags": ["process", "myth-correction", "balanced"]
+    },
+    {
+      "id": "med-06",
+      "text": "Who is paying for journalism now, and what does that money want?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["media-journalism"],
+      "lands_because": "Subscriptions, philanthropy, events, and ownership each pull differently. Journalists analyze this constantly and are rarely asked to say it out loud.",
+      "followups": ["What kind of story does that model make harder to do?"],
+      "tags": ["business-model", "structural", "high-yield"]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "pack": "People, Power & Money",
+  "description": "Who holds power, who gets credit, who pays, and what the money does to the work. These are the questions that most reliably produce something the guest has never said on a microphone, because most interviewers stop at the craft and never ask about the economics underneath it.",
+  "questions": [
+    {
+      "id": "u-ppl-01",
+      "text": "Who actually holds power in your organization, versus who is on the org chart?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Every workplace has a shadow hierarchy - the scheduler, the senior tech, the office manager, the one partner everyone defers to. Naming it is insider knowledge that costs the guest nothing if kept general.",
+      "followups": ["How did they get that power?"],
+      "avoid_if": "The guest is a current executive at a named employer and the answer would identify a specific person.",
+      "tags": ["hierarchy", "shadow-power", "high-yield"]
+    },
+    {
+      "id": "u-ppl-02",
+      "text": "What earns respect from your peers that would mean nothing to an outsider?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Status systems are field-specific and invisible from outside. This is one of the fastest ways to make an audience feel like they understand a profession's internal culture.",
+      "followups": ["And what impresses outsiders that your peers would roll their eyes at?"],
+      "tags": ["status", "culture", "flagship"]
+    },
+    {
+      "id": "u-ppl-03",
+      "text": "Who is the person everyone relies on who has no title reflecting it?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Generous rather than critical - the guest gets to give credit publicly. Almost always produces a specific, vivid character.",
+      "followups": ["What happens the week they are out?"],
+      "tags": ["credit", "warm", "character"]
+    },
+    {
+      "id": "u-ppl-04",
+      "text": "What is the split in your field that nobody outside knows about?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Every profession has internal factions - methodological, generational, or regional - that are invisible externally and deeply felt internally. Guests enjoy explaining these.",
+      "followups": [
+        "Which side are you on?",
+        "What is the best argument for the other side?"
+      ],
+      "tags": ["factions", "insider", "debate"]
+    },
+    {
+      "id": "u-ppl-05",
+      "text": "Are the people who get promoted in your field the people who are best at the work?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Almost universally answered 'no', and the explanation of what promotion actually selects for is where the interesting material is.",
+      "followups": ["What does it select for instead? Is that entirely wrong?"],
+      "tags": ["advancement", "candid", "reliable-no"]
+    },
+    {
+      "id": "u-ppl-06",
+      "text": "What do you do when a {customer} wants something you believe is wrong for them?",
+      "theme": "ethics",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "The client-versus-judgment conflict exists for doctors, lawyers, contractors, designers, advisors, and agents alike. The slot makes it native to any of them.",
+      "followups": ["Who wins, usually? Has that changed as you got more senior?"],
+      "tags": ["slotted", "conflict", "always-works"]
+    },
+    {
+      "id": "u-ppl-07",
+      "text": "What did a mentor tell you that turned out to be wrong?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Lets the guest be independent-minded without disloyalty, and usually marks a real inflection point in how they think.",
+      "followups": ["Was it wrong then, or did the field change under it?"],
+      "tags": ["mentorship", "inflection"]
+    },
+    {
+      "id": "u-money-01",
+      "text": "Who pays for your work, and how does that shape it?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "The single most clarifying question you can ask about any profession. The payer determines the incentives, and the incentives determine the work - in insurance, philanthropy, journalism, medicine, and research alike.",
+      "followups": ["If a different party paid, what would change first?"],
+      "tags": ["incentives", "flagship", "clarifying"]
+    },
+    {
+      "id": "u-money-02",
+      "text": "What is the incentive in your field that produces the worst behavior?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "lands_because": "Structural framing lets a guest criticize their industry without naming a villain. Almost everyone has a ready answer they rarely get invited to give.",
+      "followups": [
+        "Does anyone benefit from keeping it that way?",
+        "Have you ever felt it pull on you?"
+      ],
+      "tags": ["incentives", "critique", "high-yield"]
+    },
+    {
+      "id": "u-money-03",
+      "text": "What do people in your job get paid for that is not actually the hard part?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Exposes the mismatch between billable, visible work and the work that actually requires skill. Surgeons, consultants, designers, and mechanics all feel this and describe it differently.",
+      "followups": ["What would it look like to pay for the hard part instead?"],
+      "tags": ["pricing", "mismatch", "underasked"]
+    },
+    {
+      "id": "u-money-04",
+      "text": "Is there part of your job that is economically irrational and you do it anyway?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Where professional identity and economics come apart. The answer is usually the part of the job the guest cares about most, which makes it a doorway to something sincere.",
+      "followups": ["What would have to change for you to stop?"],
+      "tags": ["values", "sincere", "identity"]
+    },
+    {
+      "id": "u-money-05",
+      "text": "What did you not understand about the money side of this when you started?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "lands_because": "Safe framing - past tense, self-directed - for a subject most guests are wary of. Works especially well with anyone who runs their own shop, practice, farm, or studio.",
+      "followups": ["Who explained it to you, in the end?"],
+      "tags": ["business-literacy", "safe-entry", "self-employed"]
+    }
+  ]
+}

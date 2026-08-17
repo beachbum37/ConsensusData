@@ -1,0 +1,73 @@
+{
+  "pack": "Manufacturing",
+  "description": "A live, automated, technical field that outsiders keep treating as a museum piece. Ask about the floor, the tolerances, and the gap between the process document and what actually runs.",
+  "questions": [
+    {
+      "id": "mfg-01",
+      "text": "What does the process document say, and what does the line actually do?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["manufacturing"],
+      "lands_because": "The gap between documented and actual process is where all the real knowledge lives, and everyone on a floor knows it exists.",
+      "followups": ["Who holds the undocumented version?"],
+      "tags": ["tacit-knowledge", "flagship"]
+    },
+    {
+      "id": "mfg-02",
+      "text": "Can you hear when something is wrong before the instruments say so?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["manufacturing"],
+      "lands_because": "Sensory expertise is real on a floor and delightful on audio. It also opens the broader question of what happens to that knowledge as sensors replace it.",
+      "followups": ["Is that being lost as the equipment gets smarter?"],
+      "tags": ["sensory", "vivid", "audio-friendly"]
+    },
+    {
+      "id": "mfg-03",
+      "text": "Tell me about a line-down. What actually happens in the first hour?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["manufacturing"],
+      "lands_because": "High-stakes, concrete, time-bounded, and expensive by the minute. Uses native vocabulary, which immediately establishes that you know the world.",
+      "followups": ["Who gets called, in what order?"],
+      "tags": ["native-vocabulary", "drama", "story-generator"]
+    },
+    {
+      "id": "mfg-04",
+      "text": "Where is the real tension between the floor and the office?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["manufacturing"],
+      "lands_because": "The defining social structure of a plant. Whichever side the guest sits on, they have a detailed and rarely solicited view of the other.",
+      "followups": ["When has the other side been right?"],
+      "tags": ["org-dynamics", "structural"]
+    },
+    {
+      "id": "mfg-05",
+      "text": "What automation has actually worked in your plant, and what got quietly rolled back?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["manufacturing"],
+      "lands_because": "The rollback half is the question nobody asks. Failed automation projects are common, instructive, and rarely discussed publicly.",
+      "followups": ["Why did it fail - the technology or the implementation?"],
+      "tags": ["automation", "failure", "underasked"]
+    },
+    {
+      "id": "mfg-06",
+      "text": "What quality problem have you seen shipped because the schedule won?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["manufacturing"],
+      "lands_because": "The core ethical pressure of production work, asked concretely enough to produce a real answer rather than a policy statement.",
+      "followups": ["What happened downstream?"],
+      "avoid_if": "The guest holds current quality authority at a named employer and the answer could create liability.",
+      "tags": ["quality", "pressure", "high-yield"]
+    }
+  ]
+}

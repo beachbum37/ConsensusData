@@ -1,0 +1,72 @@
+{
+  "pack": "Nonprofit & Social Impact",
+  "description": "The live wire is the gap between the people doing the work and the people holding the money. Take the professionalism seriously and never treat the community served as passive.",
+  "questions": [
+    {
+      "id": "npo-01",
+      "text": "How do funder priorities change what your programs actually do?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["nonprofit"],
+      "lands_because": "The central structural tension of the sector. Framing it as a systemic force rather than a personal compromise gets a real answer.",
+      "followups": ["What would you do differently with unrestricted money?"],
+      "tags": ["funding", "structural", "flagship"]
+    },
+    {
+      "id": "npo-02",
+      "text": "What are you required to measure, and what actually tells you the work is working?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["nonprofit"],
+      "lands_because": "Outputs versus outcomes is a genuine methodological problem here, not a dodge, and practitioners have thought hard about the gap.",
+      "followups": ["What is the signal you trust that would never make a grant report?"],
+      "tags": ["measurement", "impact", "high-yield"]
+    },
+    {
+      "id": "npo-03",
+      "text": "What does the community you serve ask for that funders will not pay for?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["nonprofit"],
+      "lands_because": "Centers the people served as agents with their own account of what they need, and exposes the mismatch without making the guest attack a funder by name.",
+      "followups": ["Have you ever funded it anyway?"],
+      "tags": ["participation", "mismatch", "high-yield"]
+    },
+    {
+      "id": "npo-04",
+      "text": "What happens in your organization when a grant cycle ends and the need does not?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["nonprofit"],
+      "lands_because": "Funding cliffs are the operational reality of the sector - staff losses, program shutdowns, relationships broken - and produce concrete stories.",
+      "followups": ["What does that do to the people you were serving?"],
+      "tags": ["funding-cliff", "operational", "concrete"]
+    },
+    {
+      "id": "npo-05",
+      "text": "How do you talk about the work to donors versus how you talk about it in the staff meeting?",
+      "theme": "myths",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["nonprofit"],
+      "lands_because": "Names the two-register communication everyone in the sector performs, in a way that is understanding rather than accusatory.",
+      "followups": ["Does the donor version ever start to distort the work itself?"],
+      "tags": ["narrative", "candid", "two-register"]
+    },
+    {
+      "id": "npo-06",
+      "text": "What would it look like if your organization succeeded so completely that it should close?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["nonprofit"],
+      "lands_because": "The institutional self-perpetuation question, asked as an aspiration rather than an accusation. It reliably produces something thoughtful.",
+      "followups": ["Is anything in the structure working against that?"],
+      "tags": ["mission", "closer", "provocative-but-kind"]
+    }
+  ]
+}

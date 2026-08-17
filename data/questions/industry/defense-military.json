@@ -1,0 +1,72 @@
+{
+  "pack": "Defense & Military",
+  "description": "Most of the military is logistics, maintenance, and administration. Ask about the job, the responsibility, and the transition - never about killing, and never let thank-you-for-your-service substitute for a real question.",
+  "questions": [
+    {
+      "id": "def-01",
+      "text": "What was your actual job, day to day?",
+      "theme": "craft",
+      "arc": "opener",
+      "depth": "light",
+      "industries": ["defense-military"],
+      "lands_because": "Almost nobody asks. It treats service as a profession with a specialty rather than as a single undifferentiated experience, and it opens the whole conversation correctly.",
+      "followups": ["What were you responsible for that would surprise a civilian?"],
+      "tags": ["opener", "respectful", "flagship"]
+    },
+    {
+      "id": "def-02",
+      "text": "What were you responsible for at an age when your civilian peers were not responsible for anything?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["defense-military"],
+      "lands_because": "The scale of early responsibility - equipment, budgets, people's lives - is one of the genuinely distinctive features of military service and is easy to speak about with pride.",
+      "followups": ["Were you ready? Who made sure you were?"],
+      "tags": ["responsibility", "distinctive"]
+    },
+    {
+      "id": "def-03",
+      "text": "How did you learn to lead people who did not choose you?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["defense-military"],
+      "lands_because": "Leadership under assigned authority is the military's deepest institutional expertise, and it transfers directly to a civilian audience.",
+      "followups": ["What did you get wrong at first?"],
+      "tags": ["leadership", "transferable", "audience-gift"]
+    },
+    {
+      "id": "def-04",
+      "text": "What broke down between the plan and the reality, and how did you handle it?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["defense-military"],
+      "lands_because": "Gets operational judgment and improvisation without asking about combat. The guest controls how close to the line they go.",
+      "followups": ["Who did you rely on when it did?"],
+      "tags": ["operations", "guest-controls-depth"]
+    },
+    {
+      "id": "def-05",
+      "text": "What did civilian employers completely fail to understand about what you had done?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["defense-military"],
+      "lands_because": "Translation failure in the transition is a widely shared and rarely aired frustration, and it is useful to a listening audience of hiring managers.",
+      "followups": ["What should they have asked you?"],
+      "tags": ["transition", "practical", "high-yield"]
+    },
+    {
+      "id": "def-06",
+      "text": "What do you miss, and what are you glad to be done with?",
+      "theme": "personal",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["defense-military"],
+      "lands_because": "The two-sided structure allows both the loss of cohesion and the relief of leaving, which is exactly the ambivalence most veterans actually feel.",
+      "followups": ["Have you found anything like it since?"],
+      "tags": ["closer", "ambivalence", "warm"]
+    }
+  ]
+}

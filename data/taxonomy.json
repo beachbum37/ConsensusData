@@ -1,0 +1,54 @@
+{
+  "$comment": "Controlled vocabularies. scripts/validate.py enforces that every question uses only these values.",
+  "arc": {
+    "$comment": "Where the question belongs in the shape of an interview.",
+    "opener": "First 5 minutes. Low stakes, high specificity. Gets the guest talking in concrete detail before they can retreat into talking points.",
+    "warmup": "Minutes 5-15. Establishes the world and its vocabulary for the audience. Still safe for the guest.",
+    "core": "The body of the episode. Substantive but not confrontational. Most questions live here.",
+    "deep": "Requires earned trust. Ask after the guest has relaxed and after you have demonstrated you understand their world.",
+    "pivot": "Redirects a stalled or evasive stretch. Use out of order, on demand.",
+    "closer": "Last 10 minutes. Wide aperture, forward-looking, or reflective. Gives the guest a good last taste."
+  },
+  "depth": {
+    "light": "Answerable in a sentence or two. Low risk of an evasive answer.",
+    "medium": "Needs a story or a worked example. The guest has to think.",
+    "probing": "Touches ego, money, blame, or professional consensus. Can go wrong. Ask deliberately."
+  },
+  "theme": {
+    "origin": "How they got here, the path in, the accident or intention of it.",
+    "craft": "The actual work. Skill, tools, taste, tacit knowledge, what mastery looks like from inside.",
+    "judgment": "Decision-making under uncertainty, tradeoffs, the calls that don't have a right answer.",
+    "failure": "Mistakes, near-misses, repair, and what the field does with its errors.",
+    "people": "Teams, hierarchy, mentorship, clients, status, who holds power and how.",
+    "money": "Compensation, incentives, business model, who pays and what that distorts.",
+    "change": "How the field is shifting - technology, regulation, demographics, expectations.",
+    "ethics": "The lines, the gray zones, the pressure to cross them.",
+    "myths": "What outsiders get wrong, what the field misrepresents about itself.",
+    "invisible": "The unglamorous, unrecorded, or unpaid labor the job actually consists of.",
+    "future": "Where it goes next, what the guest would change, advice and legacy.",
+    "personal": "Cost, identity, sustainability, the life around the work."
+  },
+  "industries": {
+    "universal": "Written to land on any professional. The backbone of the database.",
+    "healthcare": "Clinicians, nurses, hospital administrators, public health, allied health.",
+    "law": "Litigators, transactional lawyers, judges, public defenders, in-house counsel.",
+    "finance": "Banking, investing, accounting, insurance underwriting, financial advising.",
+    "technology": "Software, hardware, IT, security, data, product.",
+    "manufacturing": "Factory operations, industrial engineering, quality, plant management.",
+    "skilled-trades": "Electricians, plumbers, welders, machinists, construction, HVAC.",
+    "agriculture": "Farming, ranching, agronomy, fisheries, food production.",
+    "education": "K-12 teaching, higher ed, administration, training, curriculum.",
+    "hospitality": "Restaurants, hotels, bars, catering, events, tourism.",
+    "logistics": "Freight, warehousing, supply chain, procurement, last-mile delivery.",
+    "energy": "Oil and gas, utilities, renewables, grid operations, nuclear.",
+    "creative-arts": "Musicians, writers, designers, filmmakers, visual artists, performers.",
+    "media-journalism": "Reporters, editors, producers, publishers, broadcast.",
+    "nonprofit": "Direct service, philanthropy, advocacy, community organizing.",
+    "public-sector": "Civil service, policy, regulators, municipal government, emergency services.",
+    "retail-ecommerce": "Store operations, merchandising, buying, DTC brands, marketplaces.",
+    "real-estate": "Brokerage, development, property management, appraisal, construction finance.",
+    "science-research": "Academic and industrial research, labs, R&D, clinical trials.",
+    "sports": "Athletes, coaches, trainers, scouts, front office, officials.",
+    "defense-military": "Active and veteran service members, defense contracting, intelligence."
+  }
+}

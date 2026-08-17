@@ -1,0 +1,73 @@
+{
+  "pack": "Education",
+  "description": "Teachers are asked to speak for education policy constantly and asked about their actual craft almost never. Invert that and the interview transforms.",
+  "questions": [
+    {
+      "id": "edu-01",
+      "text": "What can you tell about a class in the first week that shapes the whole year?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["education"],
+      "lands_because": "Classroom read is a real and highly developed skill, and asking about it treats teaching as expertise rather than as vocation.",
+      "followups": ["What do you do differently once you know?"],
+      "tags": ["craft", "expertise", "flagship"]
+    },
+    {
+      "id": "edu-02",
+      "text": "What is the difference between a lesson that works and the same lesson falling flat?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["education"],
+      "lands_because": "Same material, different outcome - it isolates the teaching itself from the curriculum, which is exactly the thing that is hard to name and rarely credited.",
+      "followups": ["Can you feel it going wrong in real time? What do you do?"],
+      "tags": ["craft", "tacit-knowledge"]
+    },
+    {
+      "id": "edu-03",
+      "text": "How much of your job is teaching, and what is the rest?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["education"],
+      "lands_because": "Opens onto documentation, meetings, behavior management, counseling, and family communication - the parts that expanded without anyone deciding they should.",
+      "followups": ["When did the rest start growing?"],
+      "tags": ["scope-creep", "invisible-labor"]
+    },
+    {
+      "id": "edu-04",
+      "text": "What does a student learn from you that no test will ever pick up?",
+      "theme": "craft",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["education"],
+      "lands_because": "Lets a teacher speak about what they actually value, in direct contrast to the measurement regime they work under, without asking them to attack it.",
+      "followups": ["Does anyone in the building measure that?"],
+      "tags": ["values", "measurement", "safe-dissent"]
+    },
+    {
+      "id": "edu-05",
+      "text": "What reform arrived with a mandate and a training day and then quietly disappeared?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["education"],
+      "lands_because": "Teachers have watched a decade of these and are rarely asked to evaluate them. The answers are specific, funny, and often furious.",
+      "followups": ["Was any of it good? What should have survived?"],
+      "tags": ["reform-cycle", "candid", "high-yield"]
+    },
+    {
+      "id": "edu-06",
+      "text": "Which student do you still think about?",
+      "theme": "personal",
+      "arc": "closer",
+      "depth": "probing",
+      "industries": ["education"],
+      "lands_because": "Almost always produces the emotional center of the episode. Place it late, ask it quietly, and do not fill the silence.",
+      "followups": [],
+      "avoid_if": "Early in the interview, or with a guest who has stayed formal. It needs a warmed-up room.",
+      "tags": ["emotional", "closer", "silence-after"]
+    }
+  ]
+}

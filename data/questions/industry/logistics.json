@@ -1,0 +1,72 @@
+{
+  "pack": "Logistics & Supply Chain",
+  "description": "The job is exception handling, not planning, and the system runs on relationships more than on software. Ask about the failure modes and the phone calls.",
+  "questions": [
+    {
+      "id": "log-01",
+      "text": "How much of your job is executing the plan versus handling everything that breaks it?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["logistics"],
+      "lands_because": "Exception handling is the actual work, and framing it that way immediately separates you from interviewers who think supply chain is a spreadsheet.",
+      "followups": ["What broke this week?"],
+      "tags": ["exception-handling", "flagship", "signals-homework"]
+    },
+    {
+      "id": "log-02",
+      "text": "Where is the constraint in your network right now, and how did you know before the data showed it?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["logistics"],
+      "lands_because": "Constraint-spotting ahead of the reporting is exactly what expertise looks like in this field, and it is a satisfying thing for a practitioner to explain.",
+      "followups": ["Who told you? A person or a system?"],
+      "tags": ["expertise", "constraints"]
+    },
+    {
+      "id": "log-03",
+      "text": "How much of this industry still runs on personal relationships and a phone call?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["logistics"],
+      "lands_because": "The persistence of relationship-based capacity brokering inside a supposedly digitized industry is one of the best untold stories in logistics.",
+      "followups": ["What can you get with a call that no platform will get you?"],
+      "tags": ["relationships", "underasked", "flagship"]
+    },
+    {
+      "id": "log-04",
+      "text": "Tell me about a shipment that went wrong in a way you had never seen before.",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["logistics"],
+      "lands_because": "Logistics failures are concrete, geographically vivid, and often absurd. Reliable story generator with real systems insight underneath.",
+      "followups": ["What did you change afterward?"],
+      "tags": ["story-generator", "vivid"]
+    },
+    {
+      "id": "log-05",
+      "text": "What did the disruption years actually expose that was already fragile?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["logistics"],
+      "lands_because": "Reframes 2020-22 as revelation rather than cause, which is how people inside the industry think about it and how outsiders generally do not.",
+      "followups": ["Has any of it actually been fixed, or just re-priced?"],
+      "tags": ["resilience", "reframe", "high-yield"]
+    },
+    {
+      "id": "log-06",
+      "text": "Who in this chain absorbs the cost when something goes wrong?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["logistics"],
+      "lands_because": "Follows the risk down the chain to drivers, small carriers, and warehouse labor. Structural framing makes it answerable without indicting anyone by name.",
+      "followups": ["Is that where it should sit?"],
+      "tags": ["risk-asymmetry", "labor", "structural"]
+    }
+  ]
+}

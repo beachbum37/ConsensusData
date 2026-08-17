@@ -1,0 +1,75 @@
+{
+  "pack": "Technology",
+  "description": "Technologists are over-interviewed about the new and under-interviewed about the durable. Ask about maintenance, legacy systems, incidents, and judgment, and you will get material nobody else is getting.",
+  "questions": [
+    {
+      "id": "tech-01",
+      "text": "What is the oldest system you depend on, and what happens when it finally goes?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["technology"],
+      "lands_because": "Legacy dependency is the actual condition of the industry and almost never the subject of an interview. It produces both a great story and a real insight.",
+      "followups": ["Does anyone still understand it?"],
+      "tags": ["legacy", "underasked", "flagship"]
+    },
+    {
+      "id": "tech-02",
+      "text": "Walk me through an incident. Not the postmortem version - what the first twenty minutes actually felt like.",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["technology"],
+      "lands_because": "Rejecting the sanitized postmortem is what unlocks it. Incident response is genuinely dramatic and technologists rarely get asked for the experience rather than the writeup.",
+      "followups": [
+        "Who was in the channel, and who should have been?",
+        "What did the postmortem leave out?"
+      ],
+      "tags": ["incidents", "drama", "anti-narrative"]
+    },
+    {
+      "id": "tech-03",
+      "text": "What technical decision are you living with that you would make differently now?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["technology"],
+      "lands_because": "Technical debt as autobiography. Engineers are unusually honest about this because owning a bad call is high-status among peers.",
+      "followups": ["Was it wrong then, or only wrong later?"],
+      "tags": ["tech-debt", "honest", "reliable"]
+    },
+    {
+      "id": "tech-04",
+      "text": "What does your team spend time on that produces no visible output but would be catastrophic to stop?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["technology"],
+      "lands_because": "Names the maintenance and reliability work that never appears in a roadmap or a launch post, which is most of what keeps software alive.",
+      "followups": ["How do you justify that work upward?"],
+      "tags": ["maintenance", "invisible-labor"]
+    },
+    {
+      "id": "tech-05",
+      "text": "Where in your work does the current wave of AI tooling actually help, and where does it quietly create work?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["technology"],
+      "lands_because": "The two-sided framing gets past both boosterism and dismissal to a practitioner's real ledger, which is what listeners actually want.",
+      "followups": ["What has it changed about how you hire or train juniors?"],
+      "tags": ["ai", "balanced", "current"]
+    },
+    {
+      "id": "tech-06",
+      "text": "Who in your organization can veto an engineering decision, and should they be able to?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["technology"],
+      "lands_because": "Gets at the real authority structure between engineering, product, security, and legal - the source of most of the frustration and most of the interesting stories.",
+      "followups": ["Tell me about a time that veto was right."],
+      "tags": ["authority", "org-dynamics"]
+    }
+  ]
+}

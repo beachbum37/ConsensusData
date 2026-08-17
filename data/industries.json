@@ -1,0 +1,553 @@
+{
+  "$comment": "Industry profiles. Two jobs: (1) supply the vocabulary that fills {slots} in universal questions so they sound native, (2) tell you what earns trust and what makes you sound like a tourist. Read the profile before the interview; use the slots when reading a universal question aloud.",
+  "$slots": [
+    "craft",
+    "work_unit",
+    "peer",
+    "customer",
+    "bad_outcome",
+    "crunch"
+  ],
+  "profiles": [
+    {
+      "slug": "healthcare",
+      "label": "Healthcare & Medicine",
+      "vocabulary": {
+        "craft": "clinical practice",
+        "work_unit": "case",
+        "peer": "colleague",
+        "customer": "patient",
+        "bad_outcome": "adverse event",
+        "crunch": "bad night in the ED"
+      },
+      "status_axis": "Specialty prestige, procedural skill, and how calm you are in a code. Publishing matters in academic settings and almost nowhere else.",
+      "earns_trust": "Knowing that documentation and prior authorization eat more of the day than medicine does. Distinguishing what the clinician controls from what the system imposes.",
+      "landmines": [
+        "Asking for a specific patient story without noting that they should keep it de-identified.",
+        "Treating 'burnout' as a personal resilience failure rather than a workload and autonomy problem.",
+        "Assuming doctors set prices or control billing."
+      ],
+      "also_called": [
+        "encounter",
+        "consult",
+        "the unit",
+        "attending",
+        "resident"
+      ]
+    },
+    {
+      "slug": "law",
+      "label": "Law",
+      "vocabulary": {
+        "craft": "practice",
+        "work_unit": "matter",
+        "peer": "opposing counsel",
+        "customer": "client",
+        "bad_outcome": "adverse ruling",
+        "crunch": "week before trial"
+      },
+      "status_axis": "Firm tier and partnership track in private practice; trial record in litigation; clerkships early on. Public-interest lawyers run an entirely different status game.",
+      "earns_trust": "Understanding that most litigation never reaches trial and most transactional work is risk allocation, not argument. Knowing privilege limits what they can tell you.",
+      "landmines": [
+        "Asking them to comment on a live matter.",
+        "Conflating 'defended someone guilty' with a moral failure - it is the job and they have answered it a thousand times.",
+        "Assuming every lawyer goes to court."
+      ],
+      "also_called": [
+        "case",
+        "deal",
+        "the bench",
+        "associate",
+        "partner",
+        "discovery"
+      ]
+    },
+    {
+      "slug": "finance",
+      "label": "Finance & Insurance",
+      "vocabulary": {
+        "craft": "the book",
+        "work_unit": "deal",
+        "peer": "the desk",
+        "customer": "client",
+        "bad_outcome": "blowup",
+        "crunch": "quarter close"
+      },
+      "status_axis": "P&L attribution and proximity to risk-taking. Being right when consensus was wrong is the currency; being right with consensus counts for little.",
+      "earns_trust": "Asking about process rather than picks. Recognizing compliance constraints on what they can say about positions or clients.",
+      "landmines": [
+        "Asking for stock tips or current positioning - it can be a regulatory problem, not just a dodge.",
+        "Treating all of finance as one job. A claims adjuster, a quant, and a CFP share almost nothing.",
+        "Assuming high pay means the work is easy or the person is unserious."
+      ],
+      "also_called": [
+        "position",
+        "trade",
+        "mandate",
+        "counterparty",
+        "drawdown",
+        "market dislocation"
+      ]
+    },
+    {
+      "slug": "technology",
+      "label": "Technology",
+      "vocabulary": {
+        "craft": "engineering",
+        "work_unit": "project",
+        "peer": "teammate",
+        "customer": "user",
+        "bad_outcome": "outage",
+        "crunch": "launch week"
+      },
+      "status_axis": "Scope of systems owned and technical judgment respected by peers. Titles are noisy across companies and everyone knows it.",
+      "earns_trust": "Asking about maintenance, migration, and legacy systems rather than only about the new and shiny.",
+      "landmines": [
+        "Assuming everyone in tech is a startup founder or wants to be.",
+        "Asking 'how do I learn to code' as a substitute for a real question.",
+        "Treating the last eighteen months of AI news as the whole of the field."
+      ],
+      "also_called": [
+        "ticket",
+        "sprint",
+        "service",
+        "on-call",
+        "incident",
+        "postmortem"
+      ]
+    },
+    {
+      "slug": "manufacturing",
+      "label": "Manufacturing",
+      "vocabulary": {
+        "craft": "the process",
+        "work_unit": "run",
+        "peer": "operator",
+        "customer": "buyer",
+        "bad_outcome": "line-down",
+        "crunch": "changeover"
+      },
+      "status_axis": "Being the person who can actually fix the machine. Tenure on a specific line is real authority regardless of title.",
+      "earns_trust": "Knowing that yield, takt time, and scrap are the daily scoreboard, and that a plant runs on relationships between the floor and the office.",
+      "landmines": [
+        "Nostalgia framing - treating manufacturing as a museum piece rather than a live, automated, technical field.",
+        "Assuming offshoring is a simple cost decision.",
+        "Talking to a plant manager as if they set the product roadmap."
+      ],
+      "also_called": [
+        "lot",
+        "batch",
+        "the line",
+        "the OEM",
+        "recall",
+        "scrap",
+        "takt time",
+        "launch build"
+      ]
+    },
+    {
+      "slug": "skilled-trades",
+      "label": "Skilled Trades & Construction",
+      "vocabulary": {
+        "craft": "the trade",
+        "work_unit": "job",
+        "peer": "crew member",
+        "customer": "homeowner",
+        "bad_outcome": "callback",
+        "crunch": "hard deadline"
+      },
+      "status_axis": "Clean work that holds up, and the ability to solve a problem nobody else on site can. License level and years in matter; formal education does not.",
+      "earns_trust": "Asking about the parts of the job that are diagnosis rather than labor. Acknowledging the body cost and the business side of running a small shop.",
+      "landmines": [
+        "Framing the trades as a fallback for people who could not do college.",
+        "Assuming the work is unskilled repetition rather than constant improvisation against old buildings.",
+        "Asking for free advice about your own house instead of asking about their work."
+      ],
+      "also_called": [
+        "punch list",
+        "the crew",
+        "the GC",
+        "the inspector",
+        "rough-in",
+        "warranty call"
+      ]
+    },
+    {
+      "slug": "agriculture",
+      "label": "Agriculture & Food Production",
+      "vocabulary": {
+        "craft": "the operation",
+        "work_unit": "season",
+        "peer": "neighbor",
+        "customer": "buyer",
+        "bad_outcome": "lost crop",
+        "crunch": "harvest"
+      },
+      "status_axis": "Land stewardship over generations, and yields nobody had to bail you out for. Debt discipline is quietly the whole game.",
+      "earns_trust": "Understanding that they are price takers, not price setters, and that weather, commodity markets, and input costs are three separate risks.",
+      "landmines": [
+        "Casual moralizing about industrial versus organic without knowing their economics.",
+        "Assuming farming is low-technology.",
+        "Treating subsidies as a handout without asking how the program actually works."
+      ],
+      "also_called": [
+        "field",
+        "herd",
+        "the co-op",
+        "the processor",
+        "calving",
+        "planting window"
+      ]
+    },
+    {
+      "slug": "education",
+      "label": "Education",
+      "vocabulary": {
+        "craft": "teaching",
+        "work_unit": "unit",
+        "peer": "colleague",
+        "customer": "student",
+        "bad_outcome": "losing a kid",
+        "crunch": "testing season"
+      },
+      "status_axis": "Respect from other teachers, which is earned by classroom management and results with hard students - not by administration's metrics.",
+      "earns_trust": "Distinguishing the teaching from the paperwork, the policy, and the parenting the job now absorbs.",
+      "landmines": [
+        "'Those who can't do, teach' energy in any form.",
+        "Assuming test scores measure the thing they care about.",
+        "Asking a teacher to speak for all of education policy."
+      ],
+      "also_called": [
+        "lesson",
+        "semester",
+        "the department",
+        "families",
+        "IEP",
+        "the first three weeks"
+      ]
+    },
+    {
+      "slug": "hospitality",
+      "label": "Hospitality & Food Service",
+      "vocabulary": {
+        "craft": "service",
+        "work_unit": "service",
+        "peer": "line cook",
+        "customer": "guest",
+        "bad_outcome": "comped table",
+        "crunch": "a Saturday double"
+      },
+      "status_axis": "Consistency under volume. Anyone can cook one great plate; running four hundred covers without a miss is the flex.",
+      "earns_trust": "Knowing the margins are thin, the labor math is brutal, and the romantic chef narrative is mostly a media product.",
+      "landmines": [
+        "Asking about their 'passion for food' as an opener - it is the most exhausted question in the industry.",
+        "Ignoring the back-of-house, or ignoring the front-of-house.",
+        "Assuming a full restaurant means a profitable one."
+      ],
+      "also_called": [
+        "shift",
+        "cover",
+        "the pass",
+        "front of house",
+        "back of house",
+        "a full book"
+      ]
+    },
+    {
+      "slug": "logistics",
+      "label": "Logistics & Supply Chain",
+      "vocabulary": {
+        "craft": "the network",
+        "work_unit": "load",
+        "peer": "carrier",
+        "customer": "shipper",
+        "bad_outcome": "missed delivery window",
+        "crunch": "peak season"
+      },
+      "status_axis": "Knowing where the real constraint is before anyone else does, and having the relationships to get capacity when there is none.",
+      "earns_trust": "Understanding that the job is exception handling, not planning, and that most of the system runs on phone calls and trust.",
+      "landmines": [
+        "Assuming 2020-21 was the first time supply chains were hard.",
+        "Treating drivers as interchangeable labor when talking to anyone who has driven.",
+        "Believing software solved this."
+      ],
+      "also_called": [
+        "lane",
+        "shipment",
+        "the broker",
+        "the driver",
+        "dwell time",
+        "detention"
+      ]
+    },
+    {
+      "slug": "energy",
+      "label": "Energy & Utilities",
+      "vocabulary": {
+        "craft": "operations",
+        "work_unit": "project",
+        "peer": "lineman",
+        "customer": "ratepayer",
+        "bad_outcome": "unplanned outage",
+        "crunch": "storm restoration"
+      },
+      "status_axis": "Safety record and reliability. In this field, an uneventful career is the mark of excellence, which is hard to talk about on a podcast.",
+      "earns_trust": "Separating the engineering from the politics. Knowing that regulated utilities cannot simply choose what to build.",
+      "landmines": [
+        "Asking someone to defend or attack their entire sector as a proxy for climate politics.",
+        "Assuming the grid is a single thing rather than interconnections, markets, and regulators.",
+        "Underestimating how much of the job is permitting."
+      ],
+      "also_called": [
+        "outage",
+        "the control room",
+        "offtaker",
+        "interconnection queue",
+        "peak load day"
+      ]
+    },
+    {
+      "slug": "creative-arts",
+      "label": "Creative Arts",
+      "vocabulary": {
+        "craft": "the work",
+        "work_unit": "piece",
+        "peer": "collaborator",
+        "customer": "audience",
+        "bad_outcome": "a piece that died",
+        "crunch": "deadline"
+      },
+      "status_axis": "Peer respect and the ability to keep making work. Commercial success is real but sits uneasily next to it.",
+      "earns_trust": "Asking about process and revision rather than inspiration. Taking the business side seriously - rights, royalties, and who owns what.",
+      "landmines": [
+        "'Where do you get your ideas' in any phrasing.",
+        "Assuming they can live on the art alone, or assuming they cannot.",
+        "Asking them to explain the meaning of a specific work as if there is an answer key."
+      ],
+      "also_called": [
+        "record",
+        "project",
+        "commission",
+        "the client",
+        "the gallery",
+        "release week"
+      ]
+    },
+    {
+      "slug": "media-journalism",
+      "label": "Media & Journalism",
+      "vocabulary": {
+        "craft": "reporting",
+        "work_unit": "story",
+        "peer": "editor",
+        "customer": "reader",
+        "bad_outcome": "correction",
+        "crunch": "breaking news cycle"
+      },
+      "status_axis": "Scoops and sourcing. Being first and right. Beat expertise ages into authority.",
+      "earns_trust": "Understanding sourcing rules and why they will not burn one. Knowing the business model collapse is not an abstraction to them.",
+      "landmines": [
+        "Asking them to reveal a source, even hypothetically.",
+        "Treating 'the media' as a monolith with a single agenda.",
+        "Assuming reporters write their own headlines."
+      ],
+      "also_called": [
+        "piece",
+        "the desk",
+        "subscriber",
+        "source",
+        "the spike",
+        "close"
+      ]
+    },
+    {
+      "slug": "nonprofit",
+      "label": "Nonprofit & Social Impact",
+      "vocabulary": {
+        "craft": "the program",
+        "work_unit": "program year",
+        "peer": "partner organization",
+        "customer": "participant",
+        "bad_outcome": "a program that did not move the needle",
+        "crunch": "reporting deadline"
+      },
+      "status_axis": "Proximity to the actual work versus proximity to the money - and the tension between the two is a live wire worth pulling.",
+      "earns_trust": "Knowing that funder priorities distort programs, and that overhead ratios are a bad metric everyone is forced to perform.",
+      "landmines": [
+        "Assuming low pay means the work is not professionalized.",
+        "Framing beneficiaries as passive recipients.",
+        "Treating impact measurement as simple."
+      ],
+      "also_called": [
+        "grant cycle",
+        "the community served",
+        "the funder",
+        "the board",
+        "funding cliff"
+      ]
+    },
+    {
+      "slug": "public-sector",
+      "label": "Public Sector & Government",
+      "vocabulary": {
+        "craft": "administration",
+        "work_unit": "case",
+        "peer": "colleague",
+        "customer": "constituent",
+        "bad_outcome": "process failure",
+        "crunch": "end of fiscal year"
+      },
+      "status_axis": "Institutional memory and the ability to make the machine actually move. Career staff quietly outlast appointees and know it.",
+      "earns_trust": "Understanding that constraints are statutory, not chosen, and that 'why don't you just' has an answer that is usually a law.",
+      "landmines": [
+        "Lazy bureaucrat framing.",
+        "Asking a civil servant to comment on elected officials or partisan politics - many genuinely cannot.",
+        "Assuming they have discretion they do not have."
+      ],
+      "also_called": [
+        "permit",
+        "docket",
+        "the agency",
+        "the regulated party",
+        "legislative session"
+      ]
+    },
+    {
+      "slug": "retail-ecommerce",
+      "label": "Retail & E-commerce",
+      "vocabulary": {
+        "craft": "merchandising",
+        "work_unit": "season",
+        "peer": "store manager",
+        "customer": "shopper",
+        "bad_outcome": "dead inventory",
+        "crunch": "Q4"
+      },
+      "status_axis": "A buyer's instinct that turns into sell-through. In stores, the manager who can run a holiday weekend without drama.",
+      "earns_trust": "Knowing inventory is the whole business - cash converted into guesses about the future - and that returns and shrink quietly eat margin.",
+      "landmines": [
+        "Retail apocalypse framing.",
+        "Assuming store work is unskilled.",
+        "Talking about brand while ignoring unit economics, or the reverse."
+      ],
+      "also_called": [
+        "drop",
+        "assortment",
+        "the vendor",
+        "the buyer",
+        "stockout",
+        "shrink",
+        "sell-through"
+      ]
+    },
+    {
+      "slug": "real-estate",
+      "label": "Real Estate & Development",
+      "vocabulary": {
+        "craft": "the deal",
+        "work_unit": "transaction",
+        "peer": "broker",
+        "customer": "buyer",
+        "bad_outcome": "a deal that dies at closing",
+        "crunch": "closing"
+      },
+      "status_axis": "Deals closed and capital raised. In development, what you have actually built and whether it still stands up.",
+      "earns_trust": "Knowing that entitlement and financing take longer than construction, and that most of the work is managing a chain of people who can each kill the deal.",
+      "landmines": [
+        "Treating agents as glorified door openers.",
+        "Assuming developers control zoning or timelines.",
+        "Asking for market predictions as the main event."
+      ],
+      "also_called": [
+        "project",
+        "the asset",
+        "tenant",
+        "investor",
+        "entitlement",
+        "capital call"
+      ]
+    },
+    {
+      "slug": "science-research",
+      "label": "Science & Research",
+      "vocabulary": {
+        "craft": "the science",
+        "work_unit": "study",
+        "peer": "collaborator",
+        "customer": "the field",
+        "bad_outcome": "a result that will not replicate",
+        "crunch": "grant deadline"
+      },
+      "status_axis": "Publication venue and citation, plus a quieter reputation for whose data holds up. Grant funding is survival and everyone knows the ratio.",
+      "earns_trust": "Understanding that most of research is failed experiments and grant writing, and that the incentive structure is a known and painful topic.",
+      "landmines": [
+        "Asking for certainty they will not give.",
+        "Treating one preprint as settled science.",
+        "Assuming a PI still does bench work."
+      ],
+      "also_called": [
+        "experiment",
+        "paper",
+        "the lab",
+        "reviewer",
+        "the funder",
+        "submission window"
+      ]
+    },
+    {
+      "slug": "sports",
+      "label": "Sports & Athletics",
+      "vocabulary": {
+        "craft": "the game",
+        "work_unit": "season",
+        "peer": "teammate",
+        "customer": "the organization",
+        "bad_outcome": "injury",
+        "crunch": "the playoff run"
+      },
+      "status_axis": "Performance under scrutiny, and the locker-room read on whether you are a pro. Contracts are public and that shapes everything.",
+      "earns_trust": "Asking about preparation, film, and the boring repetition rather than only the highlight. Taking the labor and business side seriously.",
+      "landmines": [
+        "Asking an athlete to relive a career-defining failure without warning.",
+        "Treating the body as a machine and ignoring the career-length anxiety.",
+        "Assuming coaches control roster decisions."
+      ],
+      "also_called": [
+        "game",
+        "camp",
+        "the staff",
+        "the fans",
+        "film session",
+        "the trade deadline"
+      ]
+    },
+    {
+      "slug": "defense-military",
+      "label": "Defense & Military",
+      "vocabulary": {
+        "craft": "the mission",
+        "work_unit": "deployment",
+        "peer": "unit member",
+        "customer": "the command",
+        "bad_outcome": "mission failure",
+        "crunch": "deployment workup"
+      },
+      "status_axis": "Competence under load and what you did for the people next to you. Rank is formal authority; reputation in the unit is the real one.",
+      "earns_trust": "Knowing the difference between what is classified, what is sensitive, and what is simply not yours to ask. Asking about the job, not the war stories.",
+      "landmines": [
+        "'Did you ever kill anyone.' Never.",
+        "Thank-you-for-your-service framing as a substitute for a real question.",
+        "Assuming combat arms is the whole military - most of it is logistics, maintenance, and administration."
+      ],
+      "also_called": [
+        "operation",
+        "the unit",
+        "the taxpayer",
+        "casualty",
+        "rotation",
+        "field exercise"
+      ]
+    }
+  ],
+  "$slots_note": "Slot values are bare singular nouns so they can be dropped into sentences like 'a {work_unit}' or 'your {customer}'. Articles come from the question text; fill_slots() corrects a/an automatically. Richer secondary terms live in also_called and are for your own preparation, not for substitution."
+}

@@ -1,0 +1,72 @@
+{
+  "pack": "Creative Arts",
+  "description": "Ask about process, revision, and rights - not about inspiration. The business side is where the unasked questions are, and artists are usually relieved to talk about it.",
+  "questions": [
+    {
+      "id": "art-01",
+      "text": "What does the work look like on a bad day when you show up anyway?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["creative-arts"],
+      "lands_because": "Treats creative work as labor rather than as visitation, which is how working artists actually experience it and how interviewers rarely frame it.",
+      "followups": ["Is the work from those days distinguishable later?"],
+      "tags": ["process", "anti-romance", "flagship"]
+    },
+    {
+      "id": "art-02",
+      "text": "What did you cut from something you are proud of, and why?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["creative-arts"],
+      "lands_because": "Editorial judgment is the least discussed and most decisive part of making anything. It gets a specific answer where questions about intention get abstraction.",
+      "followups": ["Do you still have it? Do you look at it?"],
+      "tags": ["revision", "judgment", "specific"]
+    },
+    {
+      "id": "art-03",
+      "text": "Who owns what you made, and did you understand the deal when you signed it?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["creative-arts"],
+      "lands_because": "Rights and ownership determine an artist's entire economic life and almost never come up in interviews. Guests frequently have a hard-won story here.",
+      "followups": ["What do you tell people coming up about contracts?"],
+      "tags": ["rights", "business", "underasked", "high-yield"]
+    },
+    {
+      "id": "art-04",
+      "text": "What pays for the work? Be specific about the mix.",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["creative-arts"],
+      "lands_because": "Teaching, commissions, licensing, touring, day jobs, patronage - the real mix is far more interesting and useful than the myth of living off the art.",
+      "followups": ["Has the mix changed? Which part is disappearing?"],
+      "tags": ["economics", "honest", "audience-gift"]
+    },
+    {
+      "id": "art-05",
+      "text": "How do you tell the difference between criticism worth taking and criticism worth ignoring?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["creative-arts"],
+      "lands_because": "A real working problem with a real technique behind it, and it avoids both the fragile-artist and impervious-genius clichés.",
+      "followups": ["Whose note do you always take seriously?"],
+      "tags": ["criticism", "practical"]
+    },
+    {
+      "id": "art-06",
+      "text": "What has changed about reaching an audience, and what has that done to the work itself?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["creative-arts"],
+      "lands_because": "The second clause is the real question - platform incentives shaping form, length, and pacing is something artists feel keenly and discuss rarely.",
+      "followups": ["Have you made something differently because of it?"],
+      "tags": ["platforms", "incentives", "high-yield"]
+    }
+  ]
+}

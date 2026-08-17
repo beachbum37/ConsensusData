@@ -1,0 +1,73 @@
+{
+  "pack": "Science & Research",
+  "description": "Most of research is failed experiments and grant writing. Ask about the failures, the funding, and the incentive structure - all three are openly discussed inside the field and rarely outside it.",
+  "questions": [
+    {
+      "id": "sci-01",
+      "text": "What has not worked, and how long have you been at it?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["science-research"],
+      "lands_because": "Failure is the daily condition of research and asking about it directly is a relief rather than an insult. It also produces a real sense of scientific time.",
+      "followups": ["How do you decide when to abandon a line of work?"],
+      "tags": ["failure", "flagship", "honest"]
+    },
+    {
+      "id": "sci-02",
+      "text": "How much of your week is science, and how much is applying for the ability to do science?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["science-research"],
+      "lands_because": "The grant-writing load is enormous, universally resented, and rarely visible to the public. Naming it earns immediate credibility.",
+      "followups": ["What is your funding hit rate?"],
+      "tags": ["grants", "signals-homework", "high-yield"]
+    },
+    {
+      "id": "sci-03",
+      "text": "What does your field reward that is not the same as what is true?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["science-research"],
+      "lands_because": "Novelty over replication, positive results over null results, volume over care. Researchers discuss this constantly among themselves and welcome an outsider who already knows.",
+      "followups": ["Have you felt that pull on your own work?"],
+      "tags": ["incentives", "structural", "flagship"]
+    },
+    {
+      "id": "sci-04",
+      "text": "What is a result in your field that you privately doubt?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["science-research"],
+      "lands_because": "Gets at the informal reputational knowledge - whose data holds up - that never appears in the literature. Handle carefully; let them keep it general.",
+      "followups": ["What would it take to settle it?"],
+      "avoid_if": "The guest would have to name a specific rival or lab. Offer them the general version first.",
+      "tags": ["replication", "sharp", "handle-with-care"]
+    },
+    {
+      "id": "sci-05",
+      "text": "How do you talk about uncertainty to people who want a yes or a no?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["science-research"],
+      "lands_because": "Science communication under pressure is a skill scientists have had to develop recently and painfully. It is timely without being political.",
+      "followups": ["When did that go badly for you?"],
+      "tags": ["communication", "timely"]
+    },
+    {
+      "id": "sci-06",
+      "text": "What question in your field would you most want answered, even if someone else answered it?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["science-research"],
+      "lands_because": "The 'even if someone else' clause moves past career positioning to genuine curiosity, and closes the episode on what drew them in.",
+      "followups": ["What is standing in the way of it?"],
+      "tags": ["closer", "curiosity", "warm"]
+    }
+  ]
+}

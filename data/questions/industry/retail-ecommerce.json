@@ -1,0 +1,72 @@
+{
+  "pack": "Retail & E-commerce",
+  "description": "Inventory is cash converted into a guess about the future, and store work is far more skilled than outsiders assume. Avoid retail-apocalypse framing entirely.",
+  "questions": [
+    {
+      "id": "ret-01",
+      "text": "You are converting cash into a bet on what people will want months from now. How do you make that call?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["retail-ecommerce"],
+      "lands_because": "Frames buying as the forecasting problem it actually is. Buyers rarely get treated as the risk-takers they are and respond well to it.",
+      "followups": ["What did you get badly wrong, and what did you learn from it?"],
+      "tags": ["buying", "forecasting", "flagship"]
+    },
+    {
+      "id": "ret-02",
+      "text": "What happens to the inventory that does not sell?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["retail-ecommerce"],
+      "lands_because": "Markdowns, liquidation, returns processing, and destruction are the industry's least examined and most consequential machinery.",
+      "followups": ["How much of your margin does that quietly eat?"],
+      "tags": ["markdowns", "underasked"]
+    },
+    {
+      "id": "ret-03",
+      "text": "What does a great store manager do that would not show up in any report?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["retail-ecommerce"],
+      "lands_because": "Treats store operations as skilled work - scheduling, training, de-escalation, floor sense - which the industry's own corporate side often fails to do.",
+      "followups": ["Does the company know who those people are?"],
+      "tags": ["store-ops", "respect", "invisible-labor"]
+    },
+    {
+      "id": "ret-04",
+      "text": "What did you learn about your customers from returns that you never learned from sales?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["retail-ecommerce"],
+      "lands_because": "Returns are a rich and under-discussed data source, and the operational cost of them is a story in itself.",
+      "followups": ["What have you changed because of it?"],
+      "tags": ["returns", "underasked", "data"]
+    },
+    {
+      "id": "ret-05",
+      "text": "What does the platform you sell on take from you, and what do you get for it?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["retail-ecommerce"],
+      "lands_because": "Marketplace and ad-spend dependency is the defining economic condition for most sellers, and the honest accounting is rarely offered publicly.",
+      "followups": ["What happens to your business if those terms change?"],
+      "tags": ["platform-dependency", "economics", "high-yield"]
+    },
+    {
+      "id": "ret-06",
+      "text": "What have you watched customer behavior do in the last few years that surprised you?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["retail-ecommerce"],
+      "lands_because": "Frontline retail is a genuine sensor for economic and social change, and operators notice patterns long before they appear in the data.",
+      "followups": ["Do you think that is permanent?"],
+      "tags": ["consumer-behavior", "sensor"]
+    }
+  ]
+}

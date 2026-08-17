@@ -1,0 +1,72 @@
+{
+  "pack": "Skilled Trades & Construction",
+  "description": "The work is diagnosis and improvisation against buildings that were built wrong forty years ago. Treat it as the technical field it is, and take the small-business side seriously - most of these guests are running a company as well as swinging tools.",
+  "questions": [
+    {
+      "id": "trd-01",
+      "text": "How much of the job is the physical work, and how much is figuring out what is actually wrong?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["skilled-trades"],
+      "lands_because": "Reframes the trade as diagnostic work, which is how tradespeople see themselves and how outsiders almost never do. It changes the whole tenor of the interview.",
+      "followups": ["What is the hardest diagnosis you have made?"],
+      "tags": ["diagnosis", "reframe", "flagship"]
+    },
+    {
+      "id": "trd-02",
+      "text": "What is the worst thing you have opened up a wall and found?",
+      "theme": "craft",
+      "arc": "warmup",
+      "depth": "light",
+      "industries": ["skilled-trades"],
+      "lands_because": "Every tradesperson has this story and enjoys telling it. Perfect early-episode material, and it establishes the improvisation the job requires.",
+      "followups": ["Who did that, and were they licensed?"],
+      "tags": ["story-generator", "fun", "warmup"]
+    },
+    {
+      "id": "trd-03",
+      "text": "How do you price a job when you cannot know what you will find?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["skilled-trades"],
+      "lands_because": "Bidding under uncertainty is the central business risk of the trades, and it is a genuinely interesting decision problem that nobody asks about.",
+      "followups": ["When did you last eat a mistake on a bid?"],
+      "tags": ["pricing", "business", "underasked"]
+    },
+    {
+      "id": "trd-04",
+      "text": "What do you see on a job that tells you who worked on it before you, and what they were like?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["skilled-trades"],
+      "lands_because": "Reading another tradesperson's work is a form of connoisseurship, and hearing it described makes the audience see a building differently forever.",
+      "followups": ["What will the next person say about your work?"],
+      "tags": ["connoisseurship", "vivid", "flagship"]
+    },
+    {
+      "id": "trd-05",
+      "text": "What is the code requirement you follow that customers fight you on?",
+      "theme": "ethics",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["skilled-trades"],
+      "lands_because": "Puts the guest in the position of the professional defending a standard against pressure, which is both accurate and flattering.",
+      "followups": ["What happens when they go find someone who will?"],
+      "tags": ["standards", "pressure", "customer-conflict"]
+    },
+    {
+      "id": "trd-06",
+      "text": "What does this work do to a body over twenty years, and what are you doing about it?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["skilled-trades"],
+      "lands_because": "The physical cost is universal in the trades and rarely discussed with outsiders. The second clause keeps it from being pitying.",
+      "followups": ["Do the younger guys listen?"],
+      "tags": ["physical-cost", "candid", "sustainability"]
+    }
+  ]
+}

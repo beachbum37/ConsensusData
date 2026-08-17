@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Check the corpus for structural problems before you rely on it in a booking.
+
+Catches: missing fields, values outside the controlled vocabularies, duplicate
+ids, near-duplicate question text, slots with no definition, and industries
+with no profile. Also prints a coverage table so gaps are obvious.
+
+    python3 scripts/validate.py
+"""
+
+from __future__ import annotations
+
+import re
+import sys
+from collections import Counter, defaultdict
+
+from corpus import REQUIRED_FIELDS, load, slots_in
+
+
+def normalize(text: str) -> str:
+    return re.sub(r"[^a-z0-9 ]", "", text.lower()).strip()
+
+
+def vocab(section: dict) -> list[str]:
+    """Vocabulary terms in a taxonomy section, minus the $-prefixed notes."""
+    return [k for k in section if not k.startswith("$")]
+
+
+def main() -> int:
+    corpus = load()
+    errors: list[str] = []
+    warnings: list[str] = []
+
+    valid_themes = set(vocab(corpus.taxonomy["theme"]))
+    valid_arcs = set(vocab(corpus.taxonomy["arc"]))
+    valid_depths = set(vocab(corpus.taxonomy["depth"]))
+    valid_industries = set(vocab(corpus.taxonomy["industries"]))
+    known_slots = set(corpus.industries["$slots"])
+    profiled = set(corpus.profiles)
+
+    seen_ids: dict[str, str] = {}
+    seen_text: dict[str, str] = {}
+
+    for q in corpus.questions:
+        qid = q.get("id", "<no id>")
+        where = f"{q.get('source_file', '?')}:{qid}"
+
+        for field_name in REQUIRED_FIELDS:
+            if not q.get(field_name):
+                errors.append(f"{where}: missing required field '{field_name}'")
+
+        if qid in seen_ids:
+            errors.append(f"{where}: duplicate id, also in {seen_ids[qid]}")
+        else:
+            seen_ids[qid] = q.get("source_file", "?")
+
+        key = normalize(q.get("text", ""))
+        if key and key in seen_text:
+            warnings.append(f"{where}: text nearly identical to {seen_text[key]}")
+        elif key:
+            seen_text[key] = qid
+
+        if q.get("theme") not in valid_themes:
+            errors.append(f"{where}: unknown theme '{q.get('theme')}'")
+        if q.get("arc") not in valid_arcs:
+            errors.append(f"{where}: unknown arc '{q.get('arc')}'")
+        if q.get("depth") not in valid_depths:
+            errors.append(f"{where}: unknown depth '{q.get('depth')}'")
+
+        for slug in q.get("industries", []):
+            if slug not in valid_industries:
+                errors.append(f"{where}: unknown industry '{slug}'")
+            elif slug != "universal" and slug not in profiled:
+                errors.append(f"{where}: industry '{slug}' has no profile in industries.json")
+
+        for slot in slots_in(q.get("text", "")):
+            if slot not in known_slots and slot != "phrase":
+                warnings.append(
+                    f"{where}: slot '{{{slot}}}' is not in industries.json $slots, "
+                    "so no profile will fill it"
+                )
+
+        if not q.get("lands_because"):
+            warnings.append(f"{where}: no 'lands_because' - the note that tells you why to ask it")
+
+    for slug in valid_industries:
+        if slug != "universal" and slug not in profiled:
+            errors.append(f"taxonomy lists industry '{slug}' with no profile in industries.json")
+
+    # Coverage: every industry should have its own questions on top of the universal core.
+    per_industry: Counter[str] = Counter()
+    for q in corpus.questions:
+        for slug in q["industries"]:
+            per_industry[slug] += 1
+    for slug in sorted(profiled):
+        if per_industry[slug] == 0:
+            warnings.append(f"industry '{slug}' has a profile but no specific questions")
+
+    universal = per_industry["universal"]
+    by_arc: Counter[str] = Counter(q["arc"] for q in corpus.questions)
+    by_depth: Counter[str] = Counter(q["depth"] for q in corpus.questions)
+    by_theme: defaultdict[str, int] = defaultdict(int)
+    for q in corpus.questions:
+        by_theme[q["theme"]] += 1
+
+    print(f"{len(corpus.questions)} questions across {len(corpus.packs)} packs")
+    print(f"  universal: {universal}   industry-specific: {len(corpus.questions) - universal}")
+    print("  arc:   " + "  ".join(f"{k}={by_arc[k]}" for k in vocab(corpus.taxonomy["arc"])))
+    print("  depth: " + "  ".join(f"{k}={by_depth[k]}" for k in vocab(corpus.taxonomy["depth"])))
+    print("  theme: " + "  ".join(f"{k}={by_theme[k]}" for k in sorted(by_theme)))
+    print()
+    print("Per industry (own questions + universal core available):")
+    for slug in sorted(profiled):
+        print(f"  {slug:<20} {per_industry[slug]:>3} + {universal}")
+    print()
+
+    for w in warnings:
+        print(f"WARN  {w}")
+    for e in errors:
+        print(f"ERROR {e}")
+
+    if errors:
+        print(f"\n{len(errors)} error(s), {len(warnings)} warning(s)")
+        return 1
+    print(f"OK - no errors, {len(warnings)} warning(s)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
