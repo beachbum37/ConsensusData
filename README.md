@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**275 questions.** 83 in the universal core, 120 across 20 industry packs, and 72
+**287 questions.** 83 in the universal core, 120 across 20 industry packs, and 84
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, and the senior contributors now directing agents. Every
 question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -38,7 +38,7 @@ than it buys.
 | Theme | The reframe |
 | --- | --- |
 | `natural-language-os` | Describing work precisely is now the act of configuring it. They've been writing specs for years and calling it explaining things to the new person. |
-| `architecting-the-department` | Not using a tool — standing up specialised workers and teaching them the micro-judgments that live only in their head. |
+| `architecting-the-department` | Not using a tool — standing up specialised workers and teaching them the micro-judgments that live only in their head. Includes **control**: deterministic checks wrapped around the probabilistic part, reached through authorship rather than risk. |
 | `customization-as-superpower` | Turnkey was never turnkey. Every workaround the team built is now a specification. |
 
 Every arc beat declares what it `covers`, and **`validate.py` fails an arc that
@@ -95,9 +95,9 @@ out of the running order.
 
 | Role | Questions | Packs |
 | --- | --- | --- |
-| `middle-manager` | 60 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine |
-| `ai-leader` | 21 | AI Leaders & Adoption Owners, plus the workflow and agent packs |
-| `individual-contributor` | 12 | Everyone Becomes a Manager, The Spine |
+| `middle-manager` | 72 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine, Hard Boundaries |
+| `ai-leader` | 25 | AI Leaders & Adoption Owners, plus the workflow and agent packs |
+| `individual-contributor` | 16 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
 
 ## Arcs: themes with flavors
 
@@ -242,7 +242,7 @@ data/
   taxonomy.json          controlled vocabularies for arc, depth, theme, industries, roles
   industries.json        20 profiles: vocabulary, status axis, trust signals, landmines
   arcs/
-    ai-workflow-partner.json   14 beats, four flavors each, 8 carrying spine themes
+    ai-workflow-partner.json   15 beats, four flavors each, 9 carrying spine themes
   questions/
     00-openers.json      universal core, one file per pack
     …
@@ -250,6 +250,8 @@ data/
     09-ai-leaders.json           for adoption owners and AI directors
     10-chat-to-workflow.json     embedded AI and process redesign
     11-agent-managers.json       contributors directing agents
+    12-the-spine.json            the three required themes, standalone
+    13-hard-boundaries.json      control: deterministic checks around probabilistic systems
     industry/            one file per industry
 scripts/
   corpus.py              loading, filtering, slot substitution, brief assembly

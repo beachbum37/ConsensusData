@@ -102,6 +102,27 @@
       "if_it_stalls": "Think about the last system that arrived fully formed. Who decided how it would work?"
     },
     {
+      "beat": "the-rule-that-sounds-simple",
+      "title": "The rule that sounds simple",
+      "theme": "judgment",
+      "covers": ["architecting-the-department"],
+      "purpose": "Hard boundaries, arrived at from the direction of authorship rather than of risk. The difficulty in a control is never the engineering, it is stating the rule precisely enough to be enforced - and only someone who does the work can state it that precisely.",
+      "listener_payoff": "The realization that they are the only person in the building who can write the rule at the right altitude.",
+      "keep_it_approachable": "This subject curdles into a fear segment if you let it. Stay on authorship: rules written at a distance come out either too loose to help or so blunt they break the job, and the guest has lived both. Follow this beat straight into what cannot be undone - that is where the boundary actually belongs.",
+      "flavors": {
+        "current": "What is a rule in your world that sounds obvious until you try to write it down exactly?",
+        "experience": "What was a rule that sounded obvious until someone tried to write it down exactly?",
+        "observed": "What kinds of rules do you watch teams get handed that turn out to be unwritable as stated?",
+        "general": "Which rules in this kind of work sound simple and turn out to be very hard to state precisely?"
+      },
+      "followups": [
+        "What are the exceptions that make it hard?",
+        "Has your team ever been handed a rule that was followed exactly and still produced the wrong outcome?",
+        "What can your team do that cannot be undone? Is that protected by a system, or by someone remembering?"
+      ],
+      "if_it_stalls": "Take the last policy that came down from somewhere else. Where did it meet reality?"
+    },
+    {
       "beat": "how-technical-really",
       "title": "How technical do you actually have to be",
       "theme": "myths",

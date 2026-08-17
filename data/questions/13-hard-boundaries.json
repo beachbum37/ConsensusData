@@ -1,0 +1,193 @@
+{
+  "pack": "Hard Boundaries",
+  "description": "Control as a sub-topic of architecting the department. Traditional software is deterministic - same input, same output. Language models are probabilistic, so the same request produces slightly different results across runs. That variation is fine when the output is a draft email and serious when the output is a transaction. The architectural answer is deterministic controls wrapped around the probabilistic part: the agent proposes an action, and ordinary software verifies it against the rules before anything executes.",
+  "register_note": "This subject goes wrong if it becomes a fear segment. The empowering fact is that the hard part of a boundary is not the engineering, it is stating the rule precisely enough to be enforceable - and the only person who can state it that precisely is someone who does the work. A rule written by people at a distance is usually either too loose to help or so blunt it breaks the job. That is the same argument as 'who writes the rules', arriving from the other direction.",
+  "context_for_host": {
+    "$comment": "Two examples worth having in your head. Both come from the guest's own reading rather than from this repository - confirm the specifics before quoting them on air.",
+    "the_blunt_rule": "A company deploying an AI support agent was told by legal that it must never mention a particular competitor. The knowledge base was full of legitimate comparison articles that referenced that competitor, so the agent kept naming it while answering ordinary questions. When engineers tightened the control, the system started refusing valid questions altogether. The rule was not wrong, it was stated at the wrong altitude by people who did not answer the questions.",
+    "cascade": "Security researchers have demonstrated second-order prompt injection in multi-agent setups, where instructions introduced through one agent get passed along to others and can lead to actions nobody authorized. The general point survives the specifics: without checks at the handoffs, one bad instruction travels.",
+    "the_moving_target": "Conventional test suites assume stable behavior. A system that passes its tests today can behave differently tomorrow because the model updated, the prompt changed, or new data arrived."
+  },
+  "questions": [
+    {
+      "id": "ctl-01",
+      "text": "Where in your work is a slightly different answer each time completely fine - and where is it a serious problem?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "individual-contributor"],
+      "lands_because": "The whole subject rests on this one distinction, and a practitioner can draw it in their own domain immediately. A draft tolerates variation; a payment does not. Getting them to sort their own work into those two piles is the foundation for everything else.",
+      "followups": [
+        "What is the first thing on the second list?",
+        "Who decided which pile that belonged in?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "flagship"]
+    },
+    {
+      "id": "ctl-02",
+      "text": "What is a rule in your world that sounds obvious until you try to write it down exactly?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Stating a rule precisely enough to be enforced is the actual difficulty, and it is the part only someone who does the work can do. The answer doubles as proof of why they are the one who should be writing it.",
+      "followups": [
+        "What are the exceptions that make it hard?",
+        "Who would write that rule today if you did not?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "flagship", "high-yield"]
+    },
+    {
+      "id": "ctl-03",
+      "text": "Has anyone handed your team a rule that was followed exactly and still produced the wrong outcome?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Rules written at a distance are usually too loose or too blunt, and everyone doing the work has an example. Framing it as the rule's failure rather than the team's keeps it honest and keeps the guest comfortable.",
+      "followups": [
+        "What would the rule have said if you had written it?",
+        "Did anyone go back and change it?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "high-yield"]
+    },
+    {
+      "id": "ctl-04",
+      "text": "When a control is set too tight, what does your team actually do?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Over-tight controls do not stop work, they push it somewhere unobserved. Practitioners know exactly where it goes, and the answer is the strongest possible argument for involving them in writing the boundary.",
+      "followups": [
+        "Does the person who set the control know that happens?",
+        "Is the workaround safer or less safe than the thing the rule was protecting against?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "high-yield"]
+    },
+    {
+      "id": "ctl-05",
+      "text": "What can your team do that cannot be undone?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "individual-contributor"],
+      "lands_because": "Seven words, and it sorts every action by blast radius. Irreversibility is the cleanest test for where a hard boundary belongs, and it works identically for a refund, a discharge, a pour, a filing, or a send.",
+      "followups": [
+        "How is that protected today - a system, or a person remembering?",
+        "Has it ever gone wrong?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "short", "flagship"]
+    },
+    {
+      "id": "ctl-06",
+      "text": "What would you want checked before one of those goes out - and who should be the one writing that check?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "This is the validation layer described in their own terms: something proposes, something else verifies, and only then does it happen. The second clause turns a technical pattern into a question about authority.",
+      "followups": [
+        "Is that check written down anywhere, or is it in someone's head?",
+        "What would it take for you to be the one who defines it?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "flagship"]
+    },
+    {
+      "id": "ctl-07",
+      "text": "Where does work pass from one person or system to another without anyone looking at it in between?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Handoffs are where controls belong and where they are usually missing. Asking about people and systems together lets a non-technical guest answer precisely, and the answer maps directly onto where agent-to-agent checks would go.",
+      "followups": [
+        "Was that always unchecked, or did the check get dropped at some point?",
+        "What would you want looked at there?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "handoffs"]
+    },
+    {
+      "id": "ctl-08",
+      "text": "If something went wrong at the start of that chain, how far would it travel before someone noticed?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Cascade made concrete and countable. It follows naturally from the handoff question and produces a specific number of steps rather than a general anxiety about automation.",
+      "followups": [
+        "Who is the person who usually catches it?",
+        "What would you want to stop it earlier?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "cascade"]
+    },
+    {
+      "id": "ctl-09",
+      "text": "What does your team already do to catch a bad instruction before anyone acts on it?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "individual-contributor"],
+      "lands_because": "Every team already runs informal controls - the second signature, the read-back, the pause before sending. Naming them establishes that the guest is not being asked to invent something foreign, only to make explicit what they already enforce.",
+      "followups": [
+        "Where did that habit come from - a rule, or something that went wrong once?",
+        "Which of those would survive if the work got faster?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "existing-controls"]
+    },
+    {
+      "id": "ctl-10",
+      "text": "How would you know if the system started behaving differently this month than it did last month?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Conventional testing assumes stable behavior, and these systems are not stable - the model updates, the prompt changes, the data shifts underneath. In most organizations the detector is a person who notices something is off, and that person is usually the guest.",
+      "followups": [
+        "Would anyone tell you if the model underneath changed?",
+        "What was the last time you noticed something was off before anyone else did?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "drift", "high-yield"]
+    },
+    {
+      "id": "ctl-11",
+      "text": "What arrives from outside your organization that everyone treats as trustworthy?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Forms, emails, uploaded documents and supplier files are treated as neutral context and are the obvious way in for anything hostile. Asked plainly it is a boundary question, not a scare story, and the guest can answer it from their own inbox.",
+      "followups": [
+        "What happens to that document once it arrives?",
+        "Who checks it today, and what are they checking for?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "inputs"]
+    },
+    {
+      "id": "ctl-12",
+      "text": "If you were writing the rulebook for a system doing your team's work, what would the first three lines be?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "individual-contributor"],
+      "lands_because": "A closer that hands them the pen on exactly the thing the episode argued they should hold. Asking for three lines rather than a philosophy forces the specificity that makes a rule enforceable.",
+      "followups": [
+        "Which of those would be hardest to write precisely?",
+        "What is stopping you from writing them now?"
+      ],
+      "tags": ["ai", "architecting-the-department", "control-boundaries", "closer", "flagship"]
+    }
+  ]
+}

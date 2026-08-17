@@ -53,8 +53,11 @@
       "name": "Architecting an AI department",
       "reframe": "The work is not using a tool. It is standing up a set of specialised workers and teaching them the micro-judgments that currently live only in the guest's head - what good enough means here, which exceptions matter, when to stop and come find a person.",
       "why_it_empowers": "It casts them as the architect and the curriculum rather than the user. Designing roles and supervision is a competence they already have.",
-      "say": ["staffing", "teaching", "supervision", "escalation", "the rule nobody wrote down"],
-      "do_not_say": ["automate", "replace", "deploy", "headcount reduction"]
+      "sub_topics": {
+        "control-boundaries": "Probabilistic systems need hard edges. The same request produces slightly different results each run, which is fine for a draft and serious for a transaction, so the architecture is deterministic checks wrapped around the probabilistic part - the agent proposes, ordinary software verifies against the rule, and only then does anything execute. Reach this through authorship rather than through risk: the hard part is stating the rule precisely enough to enforce, and the only person who can do that is someone who does the work."
+      },
+      "say": ["staffing", "teaching", "supervision", "escalation", "the rule nobody wrote down", "proposes", "checked before it goes out", "cannot be undone"],
+      "do_not_say": ["automate", "replace", "deploy", "headcount reduction", "guardrails"]
     },
     {
       "theme": "customization-as-superpower",
