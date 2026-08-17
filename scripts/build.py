@@ -38,6 +38,7 @@ def payload() -> dict:
             for q in corpus.questions
         ],
         "profiles": corpus.industries["profiles"],
+        "arcs": list(corpus.arcs.values()),
         "taxonomy": {
             section: {k: v for k, v in corpus.taxonomy[section].items() if not k.startswith("$")}
             for section in ("arc", "depth", "theme", "industries", "roles")

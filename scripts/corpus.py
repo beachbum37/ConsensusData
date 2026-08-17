@@ -15,6 +15,11 @@ from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 QUESTION_DIR = DATA_DIR / "questions"
+ARC_DIR = DATA_DIR / "arcs"
+
+# The flavors of every arc beat, ordered by how much they presuppose about the
+# guest's current situation. Least presuming last.
+ANCHORING = ("current", "experience", "observed", "general")
 
 REQUIRED_FIELDS = ("id", "text", "theme", "arc", "depth", "industries")
 SLOT_RE = re.compile(r"\{(\w+)\}")
@@ -26,6 +31,7 @@ class Corpus:
     taxonomy: dict
     industries: dict
     packs: dict[str, str] = field(default_factory=dict)
+    arcs: dict[str, dict] = field(default_factory=dict)
 
     @property
     def profiles(self) -> dict[str, dict]:
@@ -58,7 +64,14 @@ def load() -> Corpus:
             question["source_file"] = str(path.relative_to(DATA_DIR.parent))
             questions.append(question)
 
-    return Corpus(questions=questions, taxonomy=taxonomy, industries=industries, packs=packs)
+    arcs = {}
+    if ARC_DIR.is_dir():
+        for path in sorted(ARC_DIR.glob("*.json")):
+            blob = _read_json(path)
+            arcs[blob["arc"]] = blob
+
+    return Corpus(questions=questions, taxonomy=taxonomy, industries=industries,
+                  packs=packs, arcs=arcs)
 
 
 def slots_in(text: str) -> set[str]:

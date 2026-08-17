@@ -8,7 +8,8 @@ from __future__ import annotations
 
 import unittest
 
-from corpus import BRIEF_SHAPE, build_brief, fill_slots, filter_questions, load, slots_in
+from corpus import (ANCHORING, BRIEF_SHAPE, build_brief, fill_slots,
+                    filter_questions, load, slots_in)
 
 
 def profile(**vocab):
@@ -152,6 +153,65 @@ class TestCorpus(unittest.TestCase):
             got = [q for q in self.corpus.questions
                    if q["arc"] == arc and "universal" in q["industries"]]
             self.assertTrue(got, f"no universal questions at stage {arc}")
+
+
+class TestArcs(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.corpus = load()
+
+    def test_arcs_load(self):
+        self.assertIn("ai-workflow-partner", self.corpus.arcs)
+
+    def test_every_beat_has_every_flavor(self):
+        # The whole point of flavors is that the arc survives a guest whose
+        # situation turned out to be different, so a gap here is a real defect.
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                self.assertEqual(
+                    set(beat["flavors"]), set(ANCHORING),
+                    f"arc {name}, beat {beat['beat']} is missing a flavor",
+                )
+
+    def test_flavors_are_distinct(self):
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                texts = [t.strip() for t in beat["flavors"].values()]
+                self.assertEqual(len(set(texts)), len(texts),
+                                 f"arc {name}, beat {beat['beat']} repeats a flavor")
+
+    def test_beat_themes_are_in_the_taxonomy(self):
+        valid = {k for k in self.corpus.taxonomy["theme"] if not k.startswith("$")}
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                self.assertIn(beat["theme"], valid, f"arc {name}, beat {beat['beat']}")
+
+    def test_least_presuming_flavor_avoids_second_person_possessive(self):
+        # A 'general' flavor that says "your team" still assumes a current
+        # situation, which defeats the purpose of having the level at all.
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                text = beat["flavors"]["general"].lower()
+                for phrase in ("your team", "your company", "your organization", "your work"):
+                    self.assertNotIn(phrase, text,
+                                     f"arc {name}, beat {beat['beat']}: general flavor says '{phrase}'")
+
+    def test_slots_in_arcs_are_declared(self):
+        declared = set(self.corpus.industries["$slots"]) | {"phrase"}
+        for name, arc in self.corpus.arcs.items():
+            for beat in arc["beats"]:
+                fields = list(beat["flavors"].values()) + beat.get("followups", [])
+                fields.append(beat.get("if_it_stalls", ""))
+                for text in fields:
+                    for slot in slots_in(text):
+                        self.assertIn(slot, declared, f"arc {name}, beat {beat['beat']}")
+
+    def test_arc_flavors_fill_slots_for_every_industry(self):
+        arc = self.corpus.arcs["ai-workflow-partner"]
+        for slug, profile in self.corpus.profiles.items():
+            for beat in arc["beats"]:
+                for text in beat["flavors"].values():
+                    self.assertNotIn("{", fill_slots(text, profile), f"{slug}/{beat['beat']}")
 
 
 class TestBuildBrief(unittest.TestCase):

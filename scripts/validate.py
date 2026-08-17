@@ -14,7 +14,10 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-from corpus import REQUIRED_FIELDS, load, slots_in
+from corpus import ANCHORING, REQUIRED_FIELDS, load, slots_in
+
+ARC_BEAT_FIELDS = ("beat", "title", "theme", "purpose", "listener_payoff",
+                   "keep_it_approachable", "flavors")
 
 
 def normalize(text: str) -> str:
@@ -110,6 +113,66 @@ def main() -> int:
         if slug != "universal" and slug not in profiled:
             errors.append(f"taxonomy lists industry '{slug}' with no profile in industries.json")
 
+    # ------------------------------------------------------------------ arcs
+    known_slots_or_prompt = known_slots | {"phrase"}
+    for name, arc in corpus.arcs.items():
+        for field_name in ("title", "goal", "house_rules", "anchoring", "beats"):
+            if not arc.get(field_name):
+                errors.append(f"arc '{name}': missing '{field_name}'")
+
+        declared = {k for k in arc.get("anchoring", {}) if not k.startswith("$")}
+        if declared != set(ANCHORING):
+            errors.append(
+                f"arc '{name}': anchoring levels {sorted(declared)} "
+                f"do not match {sorted(ANCHORING)}"
+            )
+
+        seen_beats: set[str] = set()
+        for beat in arc.get("beats", []):
+            slug = beat.get("beat", "<no slug>")
+            where = f"arc '{name}':{slug}"
+
+            for field_name in ARC_BEAT_FIELDS:
+                if not beat.get(field_name):
+                    errors.append(f"{where}: missing '{field_name}'")
+
+            if slug in seen_beats:
+                errors.append(f"{where}: duplicate beat slug")
+            seen_beats.add(slug)
+
+            if beat.get("theme") not in valid_themes:
+                errors.append(f"{where}: unknown theme '{beat.get('theme')}'")
+
+            flavors = beat.get("flavors", {})
+            missing = set(ANCHORING) - set(flavors)
+            if missing:
+                errors.append(
+                    f"{where}: no {', '.join(sorted(missing))} flavor - every beat needs "
+                    "all four so the arc survives a guest whose situation changed"
+                )
+            for level, text in flavors.items():
+                if level not in ANCHORING:
+                    errors.append(f"{where}: unknown anchoring level '{level}'")
+                if not str(text).strip():
+                    errors.append(f"{where}: empty '{level}' flavor")
+                for slot in slots_in(str(text)):
+                    if slot not in known_slots_or_prompt:
+                        warnings.append(f"{where}: slot '{{{slot}}}' has no profile value")
+
+            texts = [str(t).strip() for t in flavors.values()]
+            if len(set(texts)) != len(texts):
+                warnings.append(f"{where}: two flavors are identical - one is not pulling its weight")
+
+            for field_name in ("purpose", "listener_payoff", "keep_it_approachable", "if_it_stalls"):
+                value = str(beat.get(field_name) or "")
+                stray = sorted({c for c in value if not c.isascii()})
+                if stray:
+                    warnings.append(f"{where}: non-ASCII in {field_name}: {' '.join(map(repr, stray))}")
+            for level, text in flavors.items():
+                stray = sorted({c for c in str(text) if not c.isascii()})
+                if stray:
+                    warnings.append(f"{where}: non-ASCII in {level} flavor: {' '.join(map(repr, stray))}")
+
     # Coverage: every industry should have its own questions on top of the universal core.
     per_industry: Counter[str] = Counter()
     for q in corpus.questions:
@@ -138,7 +201,8 @@ def main() -> int:
     for q in corpus.questions:
         by_theme[q["theme"]] += 1
 
-    print(f"{len(corpus.questions)} questions across {len(corpus.packs)} packs")
+    print(f"{len(corpus.questions)} questions across {len(corpus.packs)} packs, "
+          f"{len(corpus.arcs)} arc(s)")
     print(f"  unscoped core: {unscoped}   role-scoped: {universal - unscoped}"
           f"   industry-specific: {len(corpus.questions) - universal}")
     print("  arc:   " + "  ".join(f"{k}={by_arc[k]}" for k in vocab(corpus.taxonomy["arc"])))

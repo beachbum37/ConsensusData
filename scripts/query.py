@@ -7,6 +7,7 @@
     python3 scripts/query.py find --theme money --depth probing
     python3 scripts/query.py find --role ai-leader --no-general
     python3 scripts/query.py profile logistics
+    python3 scripts/query.py arc ai-workflow-partner --industry healthcare
     python3 scripts/query.py list roles
 
 `brief` is the one to reach for the night before an interview: it prints the
@@ -21,7 +22,7 @@ import json
 import sys
 import textwrap
 
-from corpus import Corpus, build_brief, fill_slots, filter_questions, load
+from corpus import ANCHORING, Corpus, build_brief, fill_slots, filter_questions, load
 
 WRAP = textwrap.TextWrapper(width=88, initial_indent="  ", subsequent_indent="  ")
 
@@ -184,6 +185,98 @@ def cmd_brief(corpus: Corpus, args) -> int:
     return 0
 
 
+def cmd_arc(corpus: Corpus, args) -> int:
+    if not args.arc:
+        for name, blob in corpus.arcs.items():
+            print(f"  {name}\n{WRAP.fill(blob['goal'])}\n")
+        return 0
+
+    arc = corpus.arcs.get(args.arc)
+    if not arc:
+        die(f"unknown arc '{args.arc}'. Try: python3 scripts/query.py arc")
+
+    profile = corpus.profile(args.industry) if args.industry else None
+    if args.industry and not profile:
+        die(f"unknown industry '{args.industry}'")
+
+    pick = args.anchoring
+    fill = lambda text: fill_slots(text, profile)
+
+    if args.format == "json":
+        beats = []
+        for beat in arc["beats"]:
+            flavors = {k: fill(v) for k, v in beat["flavors"].items()}
+            beats.append(dict(beat,
+                              flavors=flavors,
+                              ask=flavors[pick] if pick else None,
+                              followups=[fill(f) for f in beat.get("followups", [])],
+                              if_it_stalls=fill(beat.get("if_it_stalls", ""))))
+        print(json.dumps(dict(arc, beats=beats, anchoring_used=pick,
+                              industry=args.industry, guest=args.guest), indent=2))
+        return 0
+
+    md = args.format == "md"
+    head = f"{arc['title']}"
+    if args.guest:
+        head += f" - {args.guest}"
+    print(f"# {head}" if md else f"{head}\n{'=' * len(head)}")
+    print()
+    print(WRAP.fill(arc["goal"]) if not md else f"**Goal.** {arc['goal']}\n")
+    print()
+
+    print("## House rules" if md else "HOUSE RULES")
+    print()
+    for rule in arc["house_rules"]:
+        print(("- " + rule) if md else WRAP.fill("- " + rule))
+    print()
+
+    if pick:
+        note = arc["anchoring"][pick]
+        print((f"**Anchoring: {pick}.** {note}\n") if md else
+              f"ANCHORING: {pick}\n{WRAP.fill(note)}\n")
+    else:
+        print("## Anchoring" if md else "ANCHORING - pick a flavor live, per beat")
+        print()
+        for level in ANCHORING:
+            text = f"{level}: {arc['anchoring'][level]}"
+            print(("- " + text) if md else WRAP.fill("- " + text))
+        print()
+
+    if profile:
+        print(render_profile(profile, args.format))
+        print()
+
+    print("## Beats" if md else "BEATS")
+    print()
+    for i, beat in enumerate(arc["beats"], 1):
+        title = f"{i}. {beat['title']}"
+        print(f"### {title}" if md else f"{title}  [{beat['beat']} / {beat['theme']}]")
+        if md:
+            print(f"`{beat['beat']}` · {beat['theme']}\n")
+
+        if pick:
+            ask = fill(beat["flavors"][pick])
+            print((f"**{ask}**\n") if md else WRAP.fill(ask))
+        else:
+            for level in ANCHORING:
+                line = f"[{level}] {fill(beat['flavors'][level])}"
+                print(("- " + line) if md else WRAP.fill(line))
+        print()
+
+        for label, value in (("Purpose", beat["purpose"]),
+                             ("Listener takes away", beat["listener_payoff"]),
+                             ("Keep it approachable", beat["keep_it_approachable"])):
+            print((f"*{label}.* {value}\n") if md else WRAP.fill(f"{label}: {value}"))
+
+        for f in beat.get("followups", []):
+            print((f"- ↳ {fill(f)}") if md else WRAP.fill(f"-> {fill(f)}"))
+        if beat.get("if_it_stalls"):
+            text = f"If it stalls: {fill(beat['if_it_stalls'])}"
+            print((f"- {text}") if md else WRAP.fill(text))
+        print()
+    return 0
+
+
 def cmd_profile(corpus: Corpus, args) -> int:
     print(render_profile(resolve_industry(corpus, args.industry), args.format))
     return 0
@@ -250,6 +343,16 @@ def build_parser() -> argparse.ArgumentParser:
     b.add_argument("--no-probing", action="store_true",
                    help="drop the probing questions - for a guarded or first-time guest")
     b.set_defaults(func=cmd_brief)
+
+    a = sub.add_parser("arc", parents=[common],
+                       help="a themed interview arc with a flavor of each question per anchoring level")
+    a.add_argument("arc", nargs="?", help="omit to list the available arcs")
+    a.add_argument("--anchoring", choices=list(ANCHORING),
+                   help="print one flavor per beat as a clean read-aloud script. "
+                        "Omit to print all four and choose live")
+    a.add_argument("--industry", help="fill vocabulary slots and prepend the industry profile")
+    a.add_argument("--guest")
+    a.set_defaults(func=cmd_arc)
 
     pr = sub.add_parser("profile", parents=[common], help="show one industry profile")
     pr.add_argument("industry")

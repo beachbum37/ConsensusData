@@ -1,0 +1,213 @@
+{
+  "arc": "ai-workflow-partner",
+  "title": "AI as a Workflow Partner",
+  "goal": "Leave a manager listening with the feeling that this is approachable and already within reach - that it starts with one unglamorous task rather than a transformation, that it does not require being technical, and that the parts of the job they care about stay theirs.",
+  "audience": "Managers in any field who suspect they are behind on this and are slightly embarrassed about it.",
+  "runs": "About 45 minutes at ten beats.",
+  "house_rules": [
+    "Open on the week, not on the technology. If the first question contains the word AI, the listener braces.",
+    "Push every abstract answer down to one task. A platform is not a story; 'I stopped writing the Friday roll-up' is.",
+    "Take the honest limits beat seriously. An unqualified pitch costs you the audience's trust for everything after it.",
+    "Never ask how to make a team feel supported - it produces a change-management answer. Ask what the team actually said.",
+    "Approachable does not mean uncritical. It means the listener finishes thinking 'I could try that on Monday' rather than 'I am already too far behind.'"
+  ],
+  "anchoring": {
+    "$comment": "The four flavors of every beat, ordered by how much they presuppose about the guest's current situation. This is the axis that makes an arc survive a guest whose circumstances turned out to be different from what you were told.",
+    "current": "Assumes they are in the seat right now and can speak freely about it. Most vivid, most fragile - it breaks if they have left, are between roles, or cannot discuss a current employer.",
+    "experience": "Draws on their own history without requiring a current employer. Still personal and specific. The safe default when you are not certain, and the flavor to reach for mid-interview when something surprises you.",
+    "observed": "About what they have watched others do. Works for consultants, vendors, advisors, and anyone who has just moved on. Requires no personal exposure at all.",
+    "general": "Principle only. Works even when the guest cannot discuss any specifics for legal or professional reasons. Least vivid - do not run a whole episode here."
+  },
+  "beats": [
+    {
+      "beat": "the-week",
+      "title": "The recognizable week",
+      "theme": "invisible",
+      "purpose": "Ground the episode in a working reality before any technology enters it, so the audience meets a peer rather than an evangelist.",
+      "listener_payoff": "Recognition. They hear their own week described by someone else.",
+      "keep_it_approachable": "No mention of AI in this question at all. The whole beat exists to establish that the guest has the same week the listener does.",
+      "flavors": {
+        "current": "Walk me through last week. Where did the time actually go?",
+        "experience": "Think about a week when you were closest to the work. Where did the time actually go?",
+        "observed": "When you sit down with managers and map out their week, where does the time actually go?",
+        "general": "What does a manager's week actually consist of, once you strip out what the job description says?"
+      },
+      "followups": [
+        "How much of that was the work, and how much was moving the work along?",
+        "Which part of that would you hand to someone else tomorrow if you could?"
+      ],
+      "if_it_stalls": "Pick one day. Tuesday. Start at the beginning of it."
+    },
+    {
+      "beat": "first-thing-that-stuck",
+      "title": "The first thing that stuck",
+      "theme": "craft",
+      "purpose": "The concrete small win. This is the single most important beat for approachability - one unglamorous task, handed over, and kept.",
+      "listener_payoff": "A specific first move they could picture themselves making.",
+      "keep_it_approachable": "Push until the answer is one task. If you get a platform, a strategy, or a maturity model, ask again. The distinction between 'tried' and 'never took back' is what separates real adoption from experimentation.",
+      "flavors": {
+        "current": "What is the first thing you handed over and never took back?",
+        "experience": "What was the first thing you handed over that actually stuck?",
+        "observed": "When this works for someone, what is the thing that tends to stick?",
+        "general": "What is the first thing that usually sticks - not the first thing people try, the first thing that lasts?"
+      },
+      "followups": [
+        "How long before you stopped double-checking it?",
+        "What did you try before that, that did not stick?"
+      ],
+      "if_it_stalls": "Not the impressive one. The boring one you would be slightly embarrassed to admit."
+    },
+    {
+      "beat": "how-technical-really",
+      "title": "How technical do you actually have to be",
+      "theme": "myths",
+      "purpose": "Remove the perceived prerequisite. A large share of the audience has quietly disqualified themselves on the grounds that they are not technical.",
+      "listener_payoff": "Removal of the biggest self-disqualifier.",
+      "keep_it_approachable": "If the guest is unusually technical, ask them to answer for someone who is not. Otherwise this beat backfires and confirms the listener's fear.",
+      "flavors": {
+        "current": "How technical do you actually have to be to do what you are doing?",
+        "experience": "How technical did you have to become? What did you never learn and never needed?",
+        "observed": "Are the people getting the most out of this the technical ones, or is it something else?",
+        "general": "What does someone actually need to understand, and what can they safely ignore?"
+      },
+      "followups": [
+        "What is the thing people think they need to learn that they do not?",
+        "Who on a team usually turns out to be good at this? Is it who you would expect?"
+      ],
+      "if_it_stalls": "Say I am a manager with no technical background at all. What is genuinely out of reach for me, and what is not?"
+    },
+    {
+      "beat": "errand-to-partner",
+      "title": "From errand to partner",
+      "theme": "change",
+      "purpose": "Move the audience from picturing a window they go to ask things, to something living inside the work. The central reframe of the episode.",
+      "listener_payoff": "The conceptual shift, delivered in physical terms rather than abstract ones.",
+      "keep_it_approachable": "The word 'partner' can sound like marketing. Ground it in where the thing physically lives - a separate window they open, or the tool they already had.",
+      "flavors": {
+        "current": "Is it something you go to, or something already inside the tools you work in? What changed when that changed?",
+        "experience": "Did it move from being somewhere you went to something that was just there? What changed when it did?",
+        "observed": "For the teams you watch, has it moved out of the chat window into the tools? What changes when it does?",
+        "general": "What is the real difference between AI you go and ask, and AI that is already sitting in the workflow?"
+      },
+      "followups": [
+        "Which of the two produces better work?",
+        "What is still stuck in a chat window that should not be?"
+      ],
+      "if_it_stalls": "Where does it physically live for you - a browser tab, or inside the {work_unit} you already had open?"
+    },
+    {
+      "beat": "where-it-falls-down",
+      "title": "Where it falls down",
+      "theme": "failure",
+      "purpose": "Honesty, which is what makes everything else credible. An unqualified pitch loses the room.",
+      "listener_payoff": "Permission to be skeptical - which, counterintuitively, lowers the barrier to trying it.",
+      "keep_it_approachable": "Ask for specifics inside their domain, not general AI criticism. 'It makes things up' helps nobody. 'It cannot read our older records' is useful.",
+      "flavors": {
+        "current": "Where does it fall down in your work, specifically?",
+        "experience": "Where did it consistently fall down in the work you know best?",
+        "observed": "Where do you watch it fall down most often?",
+        "general": "What is it reliably bad at, in this kind of work?"
+      },
+      "followups": [
+        "Did you work around it, or stop using it there entirely?",
+        "How long did it take you to find that out?"
+      ],
+      "if_it_stalls": "What did you have to stop trusting it with?"
+    },
+    {
+      "beat": "never-hand-over",
+      "title": "What stays yours",
+      "theme": "personal",
+      "purpose": "Reassurance and identity. Naming what remains theirs makes the whole subject feel like addition rather than subtraction.",
+      "listener_payoff": "The job is not disappearing, and here is the part that is theirs.",
+      "keep_it_approachable": "This is the beat that speaks to the anxious listener. Ask it warmly and let the answer breathe - do not rush to the next question.",
+      "flavors": {
+        "current": "What is the part of your job you would not hand over, even if it worked perfectly?",
+        "experience": "What was the part you never handed over?",
+        "observed": "What do the managers you work with hold onto, even once they could delegate it?",
+        "general": "What should stay with a person, even when the tool could do it?"
+      },
+      "followups": [
+        "Is that a judgment, or a preference?",
+        "Has that line moved in the last year? Which direction?"
+      ],
+      "if_it_stalls": "What would you feel wrong about automating, even if nobody would ever know?"
+    },
+    {
+      "beat": "checking-the-work",
+      "title": "Knowing when to check",
+      "theme": "judgment",
+      "purpose": "Name the genuinely new skill - deciding what to verify - without making it sound like an extra burden.",
+      "listener_payoff": "A practical method, and permission to stop checking everything.",
+      "keep_it_approachable": "Frame it as a skill they already have from managing people, not a new discipline they have to acquire.",
+      "flavors": {
+        "current": "How do you decide when to check the work and when to let it go?",
+        "experience": "How did you work out when to check and when to let it go?",
+        "observed": "How do people get calibrated on when to check the work?",
+        "general": "How should someone decide what to verify and what to trust?"
+      },
+      "followups": [
+        "What did it take before you stopped checking everything?",
+        "Has anything gotten past you? What happened?"
+      ],
+      "if_it_stalls": "Is it the same instinct you use with a new person on the team, or a different one?"
+    },
+    {
+      "beat": "the-team-conversation",
+      "title": "What the team actually said",
+      "theme": "people",
+      "purpose": "The people beat, asked for observed reality rather than best practice.",
+      "listener_payoff": "A realistic preview of the conversation they are quietly dreading.",
+      "keep_it_approachable": "Do not ask how to make a team feel supported - that phrasing contains its own answer and produces a change-management response. Ask what people actually said, including the unflattering parts.",
+      "flavors": {
+        "current": "When you brought this to your team, what did they actually say?",
+        "experience": "When you brought this to a team, what did they actually say?",
+        "observed": "When a manager brings this to a team, what do people actually say?",
+        "general": "What does a team actually say when this arrives - not what the engagement survey says?"
+      },
+      "followups": [
+        "Who was most resistant, and were they wrong?",
+        "Did anyone ask you about their job? What did you tell them?"
+      ],
+      "if_it_stalls": "What was the first objection, in the first meeting?"
+    },
+    {
+      "beat": "where-the-work-piled-up",
+      "title": "Where the work piled up instead",
+      "theme": "craft",
+      "purpose": "Turn a tool conversation into a process conversation. One step got faster and the queue moved somewhere.",
+      "listener_payoff": "The insight that makes them look at their whole workflow rather than at a tool.",
+      "keep_it_approachable": "This is the most structural beat in the arc. Keep it concrete - a named step, a named queue, a named person - or it drifts into consulting language.",
+      "flavors": {
+        "current": "Once one step got faster, where did the work pile up instead?",
+        "experience": "When one step got faster, where did the work pile up?",
+        "observed": "When a team speeds up one step, where does the queue reappear?",
+        "general": "If one step in a process gets dramatically faster, what usually happens to the rest of it?"
+      },
+      "followups": [
+        "Is the new bottleneck a person?",
+        "Did anyone plan for that, or did you discover it the hard way?"
+      ],
+      "if_it_stalls": "Who is waiting on whom now, that was not waiting before?"
+    },
+    {
+      "beat": "monday-morning",
+      "title": "Monday morning",
+      "theme": "future",
+      "purpose": "The takeaway close. One thing to try, and one thing not to start with.",
+      "listener_payoff": "A first step, and protection against the failure that would make them give up.",
+      "keep_it_approachable": "Insist on both halves. The 'do not start with' half is what stops a listener failing on their first attempt and concluding it is not for them.",
+      "flavors": {
+        "current": "A manager listening wants to try one thing this week. Based on what is working for you now, what should it be - and what should they not start with?",
+        "experience": "Based on what actually worked for you, what should someone try first - and what should they not start with?",
+        "observed": "Based on what you have watched succeed and fail, what should someone try first - and what should they not start with?",
+        "general": "What should someone try first, and what should they not start with?"
+      },
+      "followups": [
+        "How long before they should expect it to feel worth it?",
+        "What should they do if the first attempt is disappointing?"
+      ],
+      "if_it_stalls": "Name the specific task. Not the category - the task."
+    }
+  ]
+}

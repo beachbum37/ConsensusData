@@ -69,6 +69,48 @@ out of the running order.
 | `ai-leader` | 21 | AI Leaders & Adoption Owners, plus the workflow and agent packs |
 | `individual-contributor` | 7 | Everyone Becomes a Manager |
 
+## Arcs: themes with flavors
+
+A brief is a good set of questions. An **arc** is a shaped episode: ordered
+beats, each with a stated purpose, what the listener should take away, and a
+tone note for keeping it approachable.
+
+The reason arcs exist separately from the question corpus is **anchoring**. A
+question rarely breaks because its topic is wrong — it breaks because it
+presupposes something that turned out to be false. "What are you measured on?"
+collapses if the guest left that job in March.
+
+So every beat exists in four flavors, ordered by how much they assume:
+
+| Level | Assumes | Reach for it when |
+| --- | --- | --- |
+| `current` | They're in the seat now and can speak freely | Confirmed, and they're candid |
+| `experience` | Their own history, no current employer needed | **Default when anything is uncertain** |
+| `observed` | Only that they've watched others | Consultants, advisors, someone who just left |
+| `general` | Nothing | They can't discuss specifics at all |
+
+```bash
+python3 scripts/query.py arc                                    # what exists
+python3 scripts/query.py arc ai-workflow-partner --industry healthcare
+python3 scripts/query.py arc ai-workflow-partner --anchoring experience --format md
+```
+
+Omit `--anchoring` and all four flavors print per beat — that's the version to
+hold during a recording, so you can read the room and pick live. Pass a level to
+get a clean read-aloud script.
+
+Tests enforce that every beat has all four flavors and that the `general` flavor
+never says "your team" — a general question that assumes a current situation
+defeats the point of the level.
+
+### The skill
+
+`.claude/skills/interview-arc/SKILL.md` wraps all of this. Ask Claude to prep an
+interview and it establishes what's actually known about the guest, picks the
+anchoring level to match that certainty, pulls the arc and supporting questions,
+and assembles a prep sheet that opens with what to do if the premise turns out
+to be wrong.
+
 ## Using it
 
 Everything is Python 3 standard library. No install, no dependencies.
@@ -163,9 +205,13 @@ as a follow-on, never as an opener.
 ## Layout
 
 ```
+.claude/skills/
+  interview-arc/SKILL.md the skill: prep an interview end to end
 data/
-  taxonomy.json          controlled vocabularies for arc, depth, theme, industries
+  taxonomy.json          controlled vocabularies for arc, depth, theme, industries, roles
   industries.json        20 profiles: vocabulary, status axis, trust signals, landmines
+  arcs/
+    ai-workflow-partner.json   10 beats, four flavors each
   questions/
     00-openers.json      universal core, one file per pack
     …
@@ -213,6 +259,20 @@ question you wish people asked you about your work?" — and `u-open-08` — "Wh
 you meet someone else who does what you do, what do you ask them?" Whatever a
 guest names in answer to those is, by definition, a question that lands on that
 profession. Add it.
+
+## Adding an arc or a beat
+
+Drop a `.json` into `data/arcs/` with `arc`, `title`, `goal`, `house_rules`,
+`anchoring`, and `beats`. Each beat needs `beat`, `title`, `theme`, `purpose`,
+`listener_payoff`, `keep_it_approachable`, and all four `flavors`; `followups`
+and `if_it_stalls` are optional.
+
+Write all four flavors. A beat with three is a beat that will fail in the room.
+Read the `general` one aloud as if to a stranger — if it contains "your team",
+it isn't general.
+
+`validate.py` enforces the four flavors, checks themes against the taxonomy,
+and flags two flavors of a beat that are identical.
 
 ## Adding a role
 

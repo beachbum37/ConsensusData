@@ -423,6 +423,83 @@
 
   .profile .vocab dd { color: var(--ink-2); }
 
+  /* ------------------------------------------------------------- beats */
+
+  .beat { grid-template-columns: 1.75rem minmax(0, 1fr); --tone: var(--d-medium); }
+
+  .beat .eyebrow {
+    grid-column: 2;
+    font-family: var(--font-mono);
+    font-size: .6875rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--ink-3);
+  }
+
+  .beat .title {
+    grid-column: 2;
+    margin: 0 0 .375rem;
+    font-size: var(--step-2);
+    font-weight: 620;
+    letter-spacing: -.01em;
+  }
+
+  .flavors {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+    margin-bottom: .5rem;
+  }
+
+  .flavor {
+    display: grid;
+    grid-template-columns: 5.25rem minmax(0, 1fr);
+    gap: .625rem;
+    align-items: baseline;
+  }
+
+  .flavor .level {
+    font-family: var(--font-mono);
+    font-size: .6875rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--ink-3);
+    padding: .0625rem .25rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    text-align: center;
+  }
+
+  /* The safe default when the guest's situation is unconfirmed. */
+  .flavor[data-level="experience"] .level {
+    color: var(--d-medium);
+    border-color: var(--d-medium);
+  }
+
+  .flavor .q { font-size: var(--step-1); }
+
+  .beat .q { font-family: var(--font-read); line-height: 1.4; margin: 0; text-wrap: pretty; }
+
+  .tone-note {
+    display: flex;
+    flex-direction: column;
+    gap: .1875rem;
+    padding: .5rem .75rem;
+    border-left: 2px solid var(--d-medium);
+    background: var(--surface-2);
+    border-radius: 0 5px 5px 0;
+    font-size: var(--step-0);
+  }
+
+  .tone-note b {
+    font-family: var(--font-mono);
+    font-size: .6875rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--d-medium);
+  }
+
   .empty {
     padding: 3rem 1rem;
     text-align: center;
@@ -469,7 +546,10 @@
     <div class="modes" role="group" aria-label="View">
       <button class="btn" type="button" id="mode-browse" aria-pressed="true">Browse</button>
       <button class="btn" type="button" id="mode-brief" aria-pressed="false">Brief</button>
+      <button class="btn" type="button" id="mode-arc" aria-pressed="false">Arc</button>
     </div>
+    <label class="count" for="anchoring" id="anchoring-label">Anchoring</label>
+    <select id="anchoring"></select>
     <button class="btn" type="button" id="copy-all">Copy Markdown</button>
     <span class="count" id="count"></span>
   </div>
@@ -511,6 +591,9 @@
   const DATA = __DATA__;
 
   const ARC_ORDER = ["opener", "warmup", "core", "deep", "closer", "pivot"];
+  // Flavors of each arc beat, ordered by how much they presuppose about the
+  // guest's current situation.
+  const ANCHORING = ["current", "experience", "observed", "general"];
   // Target count per stage when assembling a brief.
   const BRIEF_SHAPE = [["opener", 2], ["warmup", 2], ["core", 8], ["deep", 5], ["closer", 3]];
 
@@ -520,9 +603,14 @@
     industry: "",
     role: "",
     mode: "browse",
+    // `arc` is the interview arc being run; `stage` is the opener/core/deep
+    // filter. Both are called "arc" elsewhere in the data, so they are kept
+    // deliberately distinct here.
+    arc: (DATA.arcs[0] || {}).arc || "",
+    anchoring: "",
     search: "",
     depth: new Set(),
-    arc: new Set(),
+    stage: new Set(),
     theme: new Set(),
     industryOnly: false
   };
@@ -570,7 +658,7 @@
         if (!roles.includes(state.role) && roles.length) return false;
       }
       if (state.depth.size && !state.depth.has(q.depth)) return false;
-      if (state.arc.size && !state.arc.has(q.arc)) return false;
+      if (state.stage.size && !state.stage.has(q.arc)) return false;
       if (state.theme.size && !state.theme.has(q.theme)) return false;
       if (needle) {
         const hay = [q.text, q.lands_because || "", (q.followups || []).join(" "), (q.tags || []).join(" ")]
@@ -688,6 +776,67 @@
     return node;
   }
 
+  function beatCard(beat, index, profile) {
+    const node = el("article", { className: "card beat" });
+    node.append(el("span", { className: "seq", textContent: String(index).padStart(2, "0") }));
+    node.append(el("p", { className: "eyebrow", textContent: `${beat.beat} · ${beat.theme}` }));
+    node.append(el("h3", { className: "title", textContent: beat.title }));
+
+    const flavors = el("div", { className: "flavors" });
+    const levels = state.anchoring ? [state.anchoring] : ANCHORING;
+    for (const level of levels) {
+      const row = el("div", { className: "flavor" });
+      row.dataset.level = level;
+      if (!state.anchoring) row.append(el("span", { className: "level", textContent: level }));
+      row.append(el("p", { className: "q", textContent: fillSlots(beat.flavors[level], profile) }));
+      flavors.append(row);
+    }
+    node.append(flavors);
+
+    const notes = el("div", { className: "notes" });
+    notes.append(el("p", { className: "why", textContent: beat.purpose }));
+
+    const tone = el("div", { className: "tone-note" });
+    tone.append(el("b", { textContent: "Keep it approachable" }));
+    tone.append(el("span", { textContent: beat.keep_it_approachable }));
+    notes.append(tone);
+
+    notes.append(el("p", { className: "why", textContent: "Listener takes away: " + beat.listener_payoff }));
+    if (beat.followups && beat.followups.length) {
+      notes.append(el("ul", {}, beat.followups.map(f =>
+        el("li", { textContent: fillSlots(f, profile) }))));
+    }
+    if (beat.if_it_stalls) {
+      notes.append(el("p", {
+        className: "why",
+        textContent: "If it stalls: " + fillSlots(beat.if_it_stalls, profile)
+      }));
+    }
+    node.append(notes);
+    return node;
+  }
+
+  function arcPanel(arc) {
+    const panel = el("section", { className: "profile" });
+    panel.append(el("h2", { textContent: arc.title }));
+    const dl = el("dl");
+    dl.append(el("dt", { textContent: "Goal" }));
+    dl.append(el("dd", { textContent: arc.goal }));
+    dl.append(el("dt", { textContent: "House rules" }));
+    dl.append(el("dd", { className: "landmines" }, [
+      el("ul", {}, arc.house_rules.map(r => el("li", { textContent: r })))
+    ]));
+    if (!state.anchoring) {
+      dl.append(el("dt", { textContent: "Anchoring - pick a flavor live, per beat" }));
+      dl.append(el("dd", {}, [
+        el("ul", {}, ANCHORING.map(level =>
+          el("li", { textContent: `${level} - ${arc.anchoring[level]}` })))
+      ]));
+    }
+    panel.append(dl);
+    return panel;
+  }
+
   function profilePanel(profile) {
     const panel = el("section", { className: "profile" });
     panel.append(el("h2", { textContent: profile.label }));
@@ -736,6 +885,31 @@
     const results = document.getElementById("results");
     const profile = profiles[state.industry] || null;
     results.replaceChildren();
+
+    if (state.mode === "arc") {
+      const arc = DATA.arcs.find(a => a.arc === state.arc);
+      if (!arc) {
+        results.append(el("p", { className: "empty", textContent: "No arcs defined yet." }));
+        setCount("");
+        return;
+      }
+      results.append(arcPanel(arc));
+      if (profile) results.append(profilePanel(profile));
+      const stage = el("section", { className: "stage" });
+      const head = el("header");
+      head.append(el("h2", { textContent: "Running order" }));
+      head.append(el("span", {
+        className: "hint",
+        textContent: state.anchoring
+          ? `${arc.anchoring[state.anchoring]}`
+          : "All four flavors shown - read the room and pick"
+      }));
+      stage.append(head);
+      arc.beats.forEach((b, i) => stage.append(beatCard(b, i + 1, profile)));
+      results.append(stage);
+      setCount(arc.beats.length + " beats");
+      return;
+    }
 
     if (state.mode === "brief") {
       if (!profile && !state.role) {
@@ -789,8 +963,31 @@
     toastTimer = setTimeout(() => node.classList.remove("show"), 1800);
   }
 
+  function arcMarkdown(arc, profile) {
+    const lines = ["# " + arc.title, "", "**Goal.** " + arc.goal, "", "## House rules", ""];
+    arc.house_rules.forEach(r => lines.push("- " + r));
+    lines.push("", "## Beats", "");
+    arc.beats.forEach((beat, i) => {
+      lines.push(`### ${i + 1}. ${beat.title}`, "");
+      const levels = state.anchoring ? [state.anchoring] : ANCHORING;
+      levels.forEach(level =>
+        lines.push(`- ${state.anchoring ? "" : "[" + level + "] "}${fillSlots(beat.flavors[level], profile)}`));
+      lines.push("", `*Purpose.* ${beat.purpose}`, "");
+      lines.push(`*Keep it approachable.* ${beat.keep_it_approachable}`, "");
+      lines.push(`*Listener takes away.* ${beat.listener_payoff}`, "");
+      (beat.followups || []).forEach(f => lines.push(`- ↳ ${fillSlots(f, profile)}`));
+      if (beat.if_it_stalls) lines.push(`- If it stalls: ${fillSlots(beat.if_it_stalls, profile)}`);
+      lines.push("");
+    });
+    return lines.join("\n");
+  }
+
   function asMarkdown() {
     const profile = profiles[state.industry] || null;
+    if (state.mode === "arc") {
+      const arc = DATA.arcs.find(a => a.arc === state.arc);
+      if (arc) return arcMarkdown(arc, profile);
+    }
     const list = state.mode === "brief" ? buildBrief() : visible();
     const title = state.mode === "brief" && profile
       ? "# Interview brief: " + profile.label
@@ -852,7 +1049,7 @@
 
     const vocabOf = section => Object.keys(DATA.taxonomy[section]).filter(k => !k.startsWith("$"));
     chipGroup("facet-depth", "depth", vocabOf("depth"), "depth");
-    chipGroup("facet-arc", "arc", vocabOf("arc"));
+    chipGroup("facet-arc", "stage", vocabOf("arc"));
     chipGroup("facet-theme", "theme", vocabOf("theme"));
 
     document.getElementById("search").addEventListener("input", e => {
@@ -868,7 +1065,7 @@
     });
 
     document.getElementById("reset").addEventListener("click", () => {
-      state.depth.clear(); state.arc.clear(); state.theme.clear();
+      state.depth.clear(); state.stage.clear(); state.theme.clear();
       state.search = ""; state.industryOnly = false;
       document.getElementById("search").value = "";
       only.setAttribute("aria-pressed", "false");
@@ -876,18 +1073,35 @@
       render();
     });
 
-    const browse = document.getElementById("mode-browse");
-    const brief = document.getElementById("mode-brief");
+    const anchoring = document.getElementById("anchoring");
+    anchoring.append(el("option", { value: "", textContent: "All flavors" }));
+    for (const level of ANCHORING) {
+      anchoring.append(el("option", { value: level, textContent: level }));
+    }
+    anchoring.addEventListener("change", () => { state.anchoring = anchoring.value; render(); });
+
+    const modeButtons = {
+      browse: document.getElementById("mode-browse"),
+      brief: document.getElementById("mode-brief"),
+      arc: document.getElementById("mode-arc"),
+    };
     const setMode = mode => {
       state.mode = mode;
-      browse.setAttribute("aria-pressed", String(mode === "browse"));
-      brief.setAttribute("aria-pressed", String(mode === "brief"));
-      document.getElementById("rail").hidden = mode === "brief";
-      document.querySelector(".shell").classList.toggle("no-rail", mode === "brief");
+      for (const [name, button] of Object.entries(modeButtons)) {
+        button.setAttribute("aria-pressed", String(name === mode));
+      }
+      const railless = mode !== "browse";
+      document.getElementById("rail").hidden = railless;
+      document.querySelector(".shell").classList.toggle("no-rail", railless);
+      // The anchoring picker only means anything to an arc.
+      anchoring.hidden = mode !== "arc";
+      document.getElementById("anchoring-label").hidden = mode !== "arc";
       render();
     };
-    browse.addEventListener("click", () => setMode("browse"));
-    brief.addEventListener("click", () => setMode("brief"));
+    for (const [name, button] of Object.entries(modeButtons)) {
+      button.addEventListener("click", () => setMode(name));
+    }
+    setMode("browse");
 
     document.getElementById("copy-all").addEventListener("click", () => {
       navigator.clipboard.writeText(asMarkdown()).then(
