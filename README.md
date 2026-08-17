@@ -4,10 +4,11 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**233 questions.** 83 in the universal core, 120 across 20 industry packs, and 30
-scoped to a *role* rather than a field — 18 for middle managers and 12 for the AI
-leaders driving adoption at them. Every question is tagged by theme, interview
-stage, and depth, carries a note on *why* it works, and comes with follow-ups.
+**263 questions.** 83 in the universal core, 120 across 20 industry packs, and 60
+scoped to a *role* rather than a field — for middle managers, the AI leaders
+driving adoption at them, and the senior contributors now directing agents. Every
+question is tagged by theme, interview stage, and depth, carries a note on *why*
+it works, and comes with follow-ups.
 
 ```
 python3 scripts/query.py brief hospitality --role middle-manager
@@ -57,8 +58,16 @@ python3 scripts/query.py brief healthcare --role middle-manager
 ```
 
 That draws healthcare-specific questions, middle-manager questions, and the
-unscoped core into one running order. Role scoping is exclusive in the way that
-matters — an AI-leader question never appears in a manager's brief.
+unscoped core into one running order. Two properties are enforced by tests:
+an AI-leader question never appears in a manager's brief, and the role packs —
+several times larger than any industry pack — never crowd the industry material
+out of the running order.
+
+| Role | Questions | Packs |
+| --- | --- | --- |
+| `middle-manager` | 48 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager |
+| `ai-leader` | 21 | AI Leaders & Adoption Owners, plus the workflow and agent packs |
+| `individual-contributor` | 7 | Everyone Becomes a Manager |
 
 ## Using it
 
@@ -162,9 +171,11 @@ data/
     …
     08-ai-and-management.json    AI and the person in the middle
     09-ai-leaders.json           for adoption owners and AI directors
+    10-chat-to-workflow.json     embedded AI and process redesign
+    11-agent-managers.json       contributors directing agents
     industry/            one file per industry
 scripts/
-  corpus.py              loading, filtering, slot substitution
+  corpus.py              loading, filtering, slot substitution, brief assembly
   query.py               the CLI
   validate.py            schema, vocabulary, and duplicate checks + coverage report
   build.py               bakes docs/index.html

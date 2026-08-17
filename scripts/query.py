@@ -2,29 +2,26 @@
 """Retrieval for the question corpus.
 
     python3 scripts/query.py brief healthcare
+    python3 scripts/query.py brief logistics --role middle-manager
     python3 scripts/query.py brief skilled-trades --guest "Dana Reyes" --format md
     python3 scripts/query.py find --theme money --depth probing
-    python3 scripts/query.py find --industry law --search billable
+    python3 scripts/query.py find --role ai-leader --no-general
     python3 scripts/query.py profile logistics
-    python3 scripts/query.py list industries
+    python3 scripts/query.py list roles
 
 `brief` is the one to reach for the night before an interview: it prints the
-industry profile, then a running order that mixes the universal core with the
-industry pack, with vocabulary slots already filled in.
+industry profile, then a running order blending the industry pack, the role
+pack and the universal core, with vocabulary slots already filled in.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import random
 import sys
 import textwrap
 
-from corpus import Corpus, fill_slots, filter_questions, load
-
-# How many questions of each arc stage a brief aims for, in running order.
-BRIEF_SHAPE = [("opener", 2), ("warmup", 2), ("core", 8), ("deep", 5), ("closer", 3)]
+from corpus import Corpus, build_brief, fill_slots, filter_questions, load
 
 WRAP = textwrap.TextWrapper(width=88, initial_indent="  ", subsequent_indent="  ")
 
@@ -143,40 +140,12 @@ def cmd_find(corpus: Corpus, args) -> int:
 
 def cmd_brief(corpus: Corpus, args) -> int:
     profile = resolve_industry(corpus, args.industry)
-    rng = random.Random(args.seed)
 
     role = args.role
     if role and role not in corpus.taxonomy["roles"]:
         die(f"unknown role '{role}'. Try: python3 scripts/query.py list roles")
 
-    def specific(arc: str) -> list[dict]:
-        """Questions written for this guest's industry or role."""
-        qs = [q for q in corpus.questions if q["arc"] == arc
-              and (args.industry in q["industries"]
-                   or (role and role in q.get("roles", [])))]
-        rng.shuffle(qs)
-        return qs
-
-    def generic(arc: str) -> list[dict]:
-        """The unscoped core. Questions aimed at some other role are excluded -
-        an AI-leader question does not belong in a manager's brief."""
-        qs = [q for q in corpus.questions if q["arc"] == arc
-              and "universal" in q["industries"] and not q.get("roles")]
-        rng.shuffle(qs)
-        return qs
-
-    selected: list[dict] = []
-    for arc, want in BRIEF_SHAPE:
-        # Specific questions first - they are what makes the interview sound
-        # like it was written for this guest - then top up from the core.
-        ranked = specific(arc)
-        picks = ranked[: max(1, want // 2)]
-        for q in generic(arc) + ranked:
-            if len(picks) >= want:
-                break
-            if q not in picks:
-                picks.append(q)
-        selected.extend(picks)
+    selected = build_brief(corpus, args.industry, role, seed=args.seed)
 
     if args.no_probing:
         selected = [q for q in selected if q["depth"] != "probing"]

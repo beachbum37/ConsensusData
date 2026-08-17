@@ -8,6 +8,7 @@ question is and where the data lives.
 from __future__ import annotations
 
 import json
+import random
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -154,3 +155,56 @@ def matches(question: dict, *, industry=None, role=None, theme=None, arc=None,
 
 def filter_questions(corpus: Corpus, **kwargs) -> list[dict]:
     return [q for q in corpus.questions if matches(q, **kwargs)]
+
+
+# How many questions of each arc stage a brief aims for, in running order.
+BRIEF_SHAPE = (("opener", 2), ("warmup", 2), ("core", 8), ("deep", 5), ("closer", 3))
+
+
+def build_brief(corpus: Corpus, industry: str | None, role: str | None = None,
+                seed: int = 0) -> list[dict]:
+    """Assemble a running order for one guest.
+
+    Roughly half of each stage is written for this guest specifically - that is
+    what stops the interview sounding generic. When both scoping axes are in
+    play they get separate budgets, because the role packs are far larger than
+    any industry pack and would otherwise crowd it out entirely. Ties favour
+    the industry, which is the scarcer material.
+    """
+    rng = random.Random(seed)
+
+    def pool(arc: str, kind: str) -> list[dict]:
+        if kind == "industry":
+            qs = [q for q in corpus.questions
+                  if q["arc"] == arc and industry and industry in q["industries"]]
+        elif kind == "role":
+            qs = [q for q in corpus.questions
+                  if q["arc"] == arc and role and role in q.get("roles", [])]
+        else:
+            # The unscoped core. Questions aimed at some other role are
+            # excluded - an AI-leader question does not belong in a
+            # manager's brief.
+            qs = [q for q in corpus.questions if q["arc"] == arc
+                  and "universal" in q["industries"] and not q.get("roles")]
+        rng.shuffle(qs)
+        return qs
+
+    selected: list[dict] = []
+    for arc, want in BRIEF_SHAPE:
+        budget = max(1, want // 2)
+        industry_budget = budget - budget // 2 if role else budget
+
+        picks = pool(arc, "industry")[:industry_budget]
+        for q in pool(arc, "role")[: budget - industry_budget]:
+            if q not in picks:
+                picks.append(q)
+
+        # Top up from the core, then from whatever specific material is left
+        # over - a stage with no industry questions should not run short.
+        for q in pool(arc, "core") + pool(arc, "role") + pool(arc, "industry"):
+            if len(picks) >= want:
+                break
+            if q not in picks:
+                picks.append(q)
+        selected.extend(picks)
+    return selected

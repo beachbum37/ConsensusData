@@ -74,6 +74,16 @@ def main() -> int:
             elif slug != "universal" and slug not in profiled:
                 errors.append(f"{where}: industry '{slug}' has no profile in industries.json")
 
+        # The corpus is deliberately plain ASCII - it gets read aloud, pasted
+        # into email, and printed. Smart quotes and stray glyphs surface here.
+        for field_name in ("text", "lands_because", "avoid_if"):
+            value = q.get(field_name) or ""
+            stray = sorted({c for c in value if not c.isascii()})
+            if stray:
+                warnings.append(
+                    f"{where}: non-ASCII in {field_name}: {' '.join(repr(c) for c in stray)}"
+                )
+
         for slug in q.get("roles", []):
             if slug not in valid_roles:
                 errors.append(f"{where}: unknown role '{slug}'")

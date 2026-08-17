@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import unittest
 
-from corpus import fill_slots, filter_questions, load, slots_in
+from corpus import BRIEF_SHAPE, build_brief, fill_slots, filter_questions, load, slots_in
 
 
 def profile(**vocab):
@@ -152,6 +152,58 @@ class TestCorpus(unittest.TestCase):
             got = [q for q in self.corpus.questions
                    if q["arc"] == arc and "universal" in q["industries"]]
             self.assertTrue(got, f"no universal questions at stage {arc}")
+
+
+class TestBuildBrief(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.corpus = load()
+
+    def source(self, q, industry, role):
+        if industry and industry in q["industries"]:
+            return "industry"
+        if role and role in q.get("roles", []):
+            return "role"
+        return "core"
+
+    def test_brief_is_full_length_and_in_running_order(self):
+        brief = build_brief(self.corpus, "healthcare")
+        self.assertEqual(len(brief), sum(n for _, n in BRIEF_SHAPE))
+        stages = [q["arc"] for q in brief]
+        self.assertEqual(stages, sorted(stages, key=[a for a, _ in BRIEF_SHAPE].index))
+
+    def test_brief_has_no_duplicates(self):
+        brief = build_brief(self.corpus, "logistics", "middle-manager")
+        ids = [q["id"] for q in brief]
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_brief_is_deterministic(self):
+        a = build_brief(self.corpus, "law", "middle-manager", seed=4)
+        b = build_brief(self.corpus, "law", "middle-manager", seed=4)
+        self.assertEqual([q["id"] for q in a], [q["id"] for q in b])
+
+    def test_brief_never_includes_another_role(self):
+        for role in ("middle-manager", "ai-leader"):
+            for q in build_brief(self.corpus, "technology", role):
+                roles = q.get("roles", [])
+                self.assertTrue(role in roles or not roles, f"{q['id']} ({roles}) in {role} brief")
+
+    def test_brief_without_a_role_excludes_all_role_packs(self):
+        for q in build_brief(self.corpus, "finance"):
+            self.assertFalse(q.get("roles"), f"{q['id']} surfaced in a role-less brief")
+
+    def test_role_packs_do_not_crowd_out_the_industry(self):
+        # The role packs are many times larger than any industry pack, so a
+        # merged draw would swamp the industry material entirely.
+        for industry in ("healthcare", "logistics", "skilled-trades", "education"):
+            brief = build_brief(self.corpus, industry, "middle-manager")
+            sources = [self.source(q, industry, "middle-manager") for q in brief]
+            self.assertGreaterEqual(sources.count("industry"), 2, f"{industry} crowded out")
+            self.assertGreaterEqual(sources.count("role"), 2, f"{industry} lost its role questions")
+
+    def test_brief_works_for_every_industry(self):
+        for slug in self.corpus.profiles:
+            self.assertEqual(len(build_brief(self.corpus, slug)), sum(n for _, n in BRIEF_SHAPE))
 
 
 if __name__ == "__main__":

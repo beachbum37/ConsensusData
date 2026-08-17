@@ -598,17 +598,32 @@
     const seed = [...(state.industry + state.role)].reduce((a, c) => a + c.charCodeAt(0), 7);
     const picked = [];
     for (const [arc, want] of BRIEF_SHAPE) {
-      // Written for this guest: their industry, or their role in any industry.
-      const specific = seededShuffle(DATA.questions.filter(q => q.arc === arc &&
-        (q.industries.includes(state.industry) ||
-         (state.role && (q.roles || []).includes(state.role)))), seed + arc.length);
+      const atStage = q => q.arc === arc;
+      const industryPool = seededShuffle(
+        DATA.questions.filter(q => atStage(q) && q.industries.includes(state.industry)),
+        seed + arc.length);
+      const rolePool = seededShuffle(
+        DATA.questions.filter(q => atStage(q) && (q.roles || []).includes(state.role)),
+        seed + arc.length);
       // The unscoped core. Questions aimed at some other role are excluded -
       // an AI-leader question does not belong in a manager's brief.
-      const generic = seededShuffle(DATA.questions.filter(q => q.arc === arc &&
-        q.industries.includes("universal") && !(q.roles || []).length), seed + arc.length);
+      const corePool = seededShuffle(
+        DATA.questions.filter(q => atStage(q) &&
+          q.industries.includes("universal") && !(q.roles || []).length),
+        seed + arc.length);
 
-      const picks = specific.slice(0, Math.max(1, want >> 1));
-      for (const q of generic.concat(specific)) {
+      // Roughly half of each stage is written for this guest. When both axes
+      // are in play they get separate budgets, because the role packs are far
+      // larger than any industry pack and would otherwise crowd it out.
+      // Ties favour the industry, which is the scarcer material.
+      const budget = Math.max(1, want >> 1);
+      const industryBudget = state.role ? budget - (budget >> 1) : budget;
+
+      const picks = industryPool.slice(0, industryBudget);
+      for (const q of rolePool.slice(0, budget - industryBudget)) {
+        if (!picks.includes(q)) picks.push(q);
+      }
+      for (const q of corePool.concat(rolePool, industryPool)) {
         if (picks.length >= want) break;
         if (!picks.includes(q)) picks.push(q);
       }

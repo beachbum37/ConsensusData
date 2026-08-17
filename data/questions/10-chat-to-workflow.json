@@ -1,0 +1,204 @@
+{
+  "pack": "From Chat to Workflow",
+  "description": "AI leaving the chat window and moving into the tools where work already happens. The distinction that makes this a management subject rather than a productivity one: a chat window is a personal habit, invisible and optional, while embedded AI is a change to the process itself - it has a configuration, an owner, a blast radius, and a default that functions as policy. Process is the manager's actual domain, which is why this is where they get leverage. The recurring trap these questions probe: most teams bolted AI onto the existing workflow and made one step faster, rather than asking which steps should still exist.",
+  "questions": [
+    {
+      "id": "wfl-01",
+      "text": "Where does AI actually live in your team's day - a separate window they go to, or inside the tool they already work in? What changed when it moved?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Establishes the whole distinction in one question, in concrete terms the guest can answer from observation. The 'what changed' half is where the real material is - usage stops being voluntary and starts being ambient.",
+      "followups": [
+        "Did people notice the difference, or did it just become the tool?",
+        "Which one produces better work?"
+      ],
+      "tags": ["ai", "workflow", "embedded-ai", "flagship"]
+    },
+    {
+      "id": "wfl-02",
+      "text": "When AI showed up inside a tool your team depends on, who chose how it behaves? Could you change it if you wanted to?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Configuration is a management act that has quietly been assigned to IT, procurement, or a vendor's default. Most managers have never been asked whether they hold that lever, and discovering they do not is the point.",
+      "followups": [
+        "Who would you have to ask?",
+        "Has a default ever produced something you would not have approved?"
+      ],
+      "tags": ["ai", "workflow", "configuration", "authority", "flagship"]
+    },
+    {
+      "id": "wfl-03",
+      "text": "Did you make a step faster, or did you redesign the process? Be honest about which one you actually did.",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "The central question of the whole subject, and the invitation to honesty is what makes it answerable. Almost everyone did the first thing while describing it as the second, and a good guest will admit it.",
+      "followups": [
+        "What stopped you from going further?",
+        "What would redesigning it actually have required?"
+      ],
+      "tags": ["ai", "workflow", "redesign", "flagship", "high-yield"]
+    },
+    {
+      "id": "wfl-04",
+      "text": "What step in your workflow exists only because the next step used to be expensive?",
+      "theme": "craft",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "A genuinely structural question that works in any field - the pre-check before the costly run, the summary written so someone else need not read the whole thing. Naming one is the moment a guest sees their process as changeable rather than given.",
+      "followups": [
+        "Is that step still earning its place?",
+        "Who would object if you removed it?"
+      ],
+      "tags": ["ai", "workflow", "structural", "flagship", "underasked"]
+    },
+    {
+      "id": "wfl-05",
+      "text": "What does your team still do in a chat window that should be part of the workflow? Why has it not moved?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Points directly at the gap between individual habit and team process. The 'why not' half usually surfaces the real obstacle - nobody owns the process, or nobody has the authority to change the tool.",
+      "followups": ["What would it take to move it?"],
+      "tags": ["ai", "workflow", "embedded-ai", "flagship"]
+    },
+    {
+      "id": "wfl-06",
+      "text": "When the tool got faster, where did the work pile up instead?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Bottlenecks move, they do not disappear, and the place the queue reappeared - review, approval, a single person, a downstream team - is the most useful thing a manager can tell you.",
+      "followups": [
+        "Did anyone plan for that, or did you discover it?",
+        "Is the new bottleneck a person?"
+      ],
+      "tags": ["ai", "workflow", "bottleneck", "flagship", "high-yield"]
+    },
+    {
+      "id": "wfl-07",
+      "text": "If you could delete one handoff in your team's process, which one? Is that actually possible now?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Handoffs are where time and context are lost in every industry. The second clause turns a complaint into a live design question, which is the shift you want the audience to make.",
+      "followups": ["Whose job exists because of that handoff?"],
+      "tags": ["ai", "workflow", "handoffs", "redesign"]
+    },
+    {
+      "id": "wfl-08",
+      "text": "Has the AI inside a tool you depend on changed under you without warning? What broke?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Embedded AI means a vendor can alter your process overnight. This risk is real, widely experienced, and almost never discussed publicly - it produces specific, vivid stories.",
+      "followups": [
+        "How did you find out?",
+        "What do you do differently now to protect against it?"
+      ],
+      "tags": ["ai", "workflow", "vendor-risk", "underasked", "high-yield"]
+    },
+    {
+      "id": "wfl-09",
+      "text": "Your workflow now has a shape somebody at a software vendor chose. How much of your process is still actually yours?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "States plainly what embedded AI does to organizational autonomy. Sharp but not hostile, and it gives a thoughtful guest room to describe a real loss of control.",
+      "followups": ["Does that worry you, or is it a fair trade?"],
+      "tags": ["ai", "workflow", "vendor-risk", "autonomy", "high-yield"]
+    },
+    {
+      "id": "wfl-10",
+      "text": "What did you automate that you should have eliminated?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "The oldest and best process question, and AI has made it urgent again by lowering the cost of automating things that should not exist at all. Short, memorable, and it produces a real admission.",
+      "followups": ["Why was it easier to automate than to kill?"],
+      "tags": ["ai", "workflow", "redesign", "short", "flagship"]
+    },
+    {
+      "id": "wfl-11",
+      "text": "Who in your organization is allowed to change how work flows? Has that list changed?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Process authority is the real question underneath the whole subject. Managers are told to transform their workflow and frequently have no standing to change the tools that define it.",
+      "followups": ["Where does your authority stop?"],
+      "tags": ["ai", "workflow", "authority", "the-middle", "high-yield"]
+    },
+    {
+      "id": "wfl-12",
+      "text": "What in your process is still built around a person being available?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Surfaces the human single points of failure - the approver, the one person who knows, the reviewer everything queues behind - which is exactly where workflow redesign either helps or quietly fails.",
+      "followups": ["What happens when they are on leave?"],
+      "tags": ["ai", "workflow", "bottleneck", "single-point-of-failure"]
+    },
+    {
+      "id": "wfl-13",
+      "text": "What would you have to stop doing for the workflow to be genuinely different rather than just faster?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Redesign is subtraction, and this frames it that way. It pushes past the additive instinct - buy the tool, add the step - that most transformation efforts never escape.",
+      "followups": ["Who would have to agree?"],
+      "tags": ["ai", "workflow", "redesign", "subtraction"]
+    },
+    {
+      "id": "wfl-14",
+      "text": "What is the smallest change you made to how work moves that had the biggest effect?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "light",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Concrete, positive, and easy to answer. Gives the audience a portable example, which is what actually moves people to try something on Monday.",
+      "followups": ["How did you know to try that?"],
+      "tags": ["ai", "workflow", "audience-gift", "easy"]
+    },
+    {
+      "id": "wfl-15",
+      "text": "If you rebuilt your team's workflow from scratch tomorrow, what would you not rebuild?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "A closer that asks for subtraction rather than vision, so the answer stays specific. It also sends the audience away with the right question rather than the right answer.",
+      "followups": ["What is stopping you from removing it now?"],
+      "tags": ["ai", "workflow", "closer", "redesign"]
+    }
+  ]
+}
