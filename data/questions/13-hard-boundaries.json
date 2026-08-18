@@ -6,7 +6,8 @@
     "$comment": "Two examples worth having in your head. Both come from the guest's own reading rather than from this repository - confirm the specifics before quoting them on air.",
     "the_blunt_rule": "A company deploying an AI support agent was told by legal that it must never mention a particular competitor. The knowledge base was full of legitimate comparison articles that referenced that competitor, so the agent kept naming it while answering ordinary questions. When engineers tightened the control, the system started refusing valid questions altogether. The rule was not wrong, it was stated at the wrong altitude by people who did not answer the questions.",
     "cascade": "Security researchers have demonstrated second-order prompt injection in multi-agent setups, where instructions introduced through one agent get passed along to others and can lead to actions nobody authorized. The general point survives the specifics: without checks at the handoffs, one bad instruction travels.",
-    "the_moving_target": "Conventional test suites assume stable behavior. A system that passes its tests today can behave differently tomorrow because the model updated, the prompt changed, or new data arrived."
+    "the_moving_target": "Conventional test suites assume stable behavior. A system that passes its tests today can behave differently tomorrow because the model updated, the prompt changed, or new data arrived.",
+    "autonomy_ladder": "The same source argues turnkey deployment is unrealistic for agents and proposes a ladder: assistive output a human reviews; retrieval with limits on governed data; supervised action where the agent proposes and a person confirms; and only then bounded autonomy inside narrow limits, once the earlier controls have been proven. Useful as a shared frame with a guest - ask where they are on it rather than explaining it at them."
   },
   "questions": [
     {
@@ -15,14 +16,24 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "The whole subject rests on this one distinction, and a practitioner can draw it in their own domain immediately. A draft tolerates variation; a payment does not. Getting them to sort their own work into those two piles is the foundation for everything else.",
       "followups": [
         "What is the first thing on the second list?",
         "Who decided which pile that belonged in?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "flagship"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "flagship"
+      ]
     },
     {
       "id": "ctl-02",
@@ -30,14 +41,24 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Stating a rule precisely enough to be enforced is the actual difficulty, and it is the part only someone who does the work can do. The answer doubles as proof of why they are the one who should be writing it.",
       "followups": [
         "What are the exceptions that make it hard?",
         "Who would write that rule today if you did not?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "flagship", "high-yield"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "flagship",
+        "high-yield"
+      ]
     },
     {
       "id": "ctl-03",
@@ -45,14 +66,23 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Rules written at a distance are usually too loose or too blunt, and everyone doing the work has an example. Framing it as the rule's failure rather than the team's keeps it honest and keeps the guest comfortable.",
       "followups": [
         "What would the rule have said if you had written it?",
         "Did anyone go back and change it?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "high-yield"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "high-yield"
+      ]
     },
     {
       "id": "ctl-04",
@@ -60,14 +90,23 @@
       "theme": "people",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Over-tight controls do not stop work, they push it somewhere unobserved. Practitioners know exactly where it goes, and the answer is the strongest possible argument for involving them in writing the boundary.",
       "followups": [
         "Does the person who set the control know that happens?",
         "Is the workaround safer or less safe than the thing the rule was protecting against?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "high-yield"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "high-yield"
+      ]
     },
     {
       "id": "ctl-05",
@@ -75,14 +114,25 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Seven words, and it sorts every action by blast radius. Irreversibility is the cleanest test for where a hard boundary belongs, and it works identically for a refund, a discharge, a pour, a filing, or a send.",
       "followups": [
         "How is that protected today - a system, or a person remembering?",
         "Has it ever gone wrong?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "short", "flagship"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "short",
+        "flagship"
+      ]
     },
     {
       "id": "ctl-06",
@@ -90,14 +140,24 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "ai-leader"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
       "lands_because": "This is the validation layer described in their own terms: something proposes, something else verifies, and only then does it happen. The second clause turns a technical pattern into a question about authority.",
       "followups": [
         "Is that check written down anywhere, or is it in someone's head?",
         "What would it take for you to be the one who defines it?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "flagship"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "flagship"
+      ]
     },
     {
       "id": "ctl-07",
@@ -105,14 +165,23 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Handoffs are where controls belong and where they are usually missing. Asking about people and systems together lets a non-technical guest answer precisely, and the answer maps directly onto where agent-to-agent checks would go.",
       "followups": [
         "Was that always unchecked, or did the check get dropped at some point?",
         "What would you want looked at there?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "handoffs"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "handoffs"
+      ]
     },
     {
       "id": "ctl-08",
@@ -120,14 +189,24 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "ai-leader"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
       "lands_because": "Cascade made concrete and countable. It follows naturally from the handoff question and produces a specific number of steps rather than a general anxiety about automation.",
       "followups": [
         "Who is the person who usually catches it?",
         "What would you want to stop it earlier?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "cascade"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "cascade"
+      ]
     },
     {
       "id": "ctl-09",
@@ -135,14 +214,24 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Every team already runs informal controls - the second signature, the read-back, the pause before sending. Naming them establishes that the guest is not being asked to invent something foreign, only to make explicit what they already enforce.",
       "followups": [
         "Where did that habit come from - a rule, or something that went wrong once?",
         "Which of those would survive if the work got faster?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "existing-controls"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "existing-controls"
+      ]
     },
     {
       "id": "ctl-10",
@@ -150,14 +239,25 @@
       "theme": "change",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "ai-leader"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
       "lands_because": "Conventional testing assumes stable behavior, and these systems are not stable - the model updates, the prompt changes, the data shifts underneath. In most organizations the detector is a person who notices something is off, and that person is usually the guest.",
       "followups": [
         "Would anyone tell you if the model underneath changed?",
         "What was the last time you noticed something was off before anyone else did?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "drift", "high-yield"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "drift",
+        "high-yield"
+      ]
     },
     {
       "id": "ctl-11",
@@ -165,14 +265,24 @@
       "theme": "ethics",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "ai-leader"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
       "lands_because": "Forms, emails, uploaded documents and supplier files are treated as neutral context and are the obvious way in for anything hostile. Asked plainly it is a boundary question, not a scare story, and the guest can answer it from their own inbox.",
       "followups": [
         "What happens to that document once it arrives?",
         "Who checks it today, and what are they checking for?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "inputs"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "inputs"
+      ]
     },
     {
       "id": "ctl-12",
@@ -180,14 +290,76 @@
       "theme": "future",
       "arc": "closer",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "A closer that hands them the pen on exactly the thing the episode argued they should hold. Asking for three lines rather than a philosophy forces the specificity that makes a rule enforceable.",
       "followups": [
         "Which of those would be hardest to write precisely?",
         "What is stopping you from writing them now?"
       ],
-      "tags": ["ai", "architecting-the-department", "control-boundaries", "closer", "flagship"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "closer",
+        "flagship"
+      ]
+    },
+    {
+      "id": "ctl-13",
+      "text": "Between something that only drafts and something that acts on its own, where is your team's work today? What would have to be true before you moved one step along?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
+      "lands_because": "Gives the guest a ladder to place themselves on rather than a yes-or-no about autonomy, and the second half asks for their own preconditions - which is the same as asking what they would need to trust it.",
+      "followups": [
+        "What convinced you it was safe to take the last step?",
+        "Is anything running further along that ladder than you would have chosen?"
+      ],
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "autonomy-ladder",
+        "flagship"
+      ]
+    },
+    {
+      "id": "ctl-14",
+      "text": "After something went wrong, what would you need to be able to reconstruct - and is any of that being kept today?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
+      "lands_because": "Turns audit trails into a practical question about their own investigations. Every manager has tried to reconstruct a decision after the fact and found the record thinner than they expected.",
+      "followups": [
+        "Where did the information it used come from - could you trace it back?",
+        "Who would ask you for that reconstruction?"
+      ],
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "control-boundaries",
+        "provenance"
+      ]
     }
   ]
 }

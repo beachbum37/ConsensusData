@@ -45,8 +45,18 @@
       "name": "The natural language operating system",
       "reframe": "The interface to computing has become plain language, which means describing work precisely is now the act of configuring it. Managers have been writing specifications their whole careers and calling it explaining things to the new person.",
       "why_it_empowers": "It converts a skill they already have and do not count as a skill into the core technical competence.",
-      "say": ["describe", "explain", "the way you would tell a new person", "the rule you say out loud"],
-      "do_not_say": ["prompt engineering", "prompting", "query", "syntax"]
+      "say": [
+        "describe",
+        "explain",
+        "the way you would tell a new person",
+        "the rule you say out loud"
+      ],
+      "do_not_say": [
+        "prompt engineering",
+        "prompting",
+        "query",
+        "syntax"
+      ]
     },
     {
       "theme": "architecting-the-department",
@@ -56,16 +66,63 @@
       "sub_topics": {
         "control-boundaries": "Probabilistic systems need hard edges. The same request produces slightly different results each run, which is fine for a draft and serious for a transaction, so the architecture is deterministic checks wrapped around the probabilistic part - the agent proposes, ordinary software verifies against the rule, and only then does anything execute. Reach this through authorship rather than through risk: the hard part is stating the rule precisely enough to enforce, and the only person who can do that is someone who does the work."
       },
-      "say": ["staffing", "teaching", "supervision", "escalation", "the rule nobody wrote down", "proposes", "checked before it goes out", "cannot be undone"],
-      "do_not_say": ["automate", "replace", "deploy", "headcount reduction", "guardrails"]
+      "say": [
+        "staffing",
+        "teaching",
+        "supervision",
+        "escalation",
+        "the rule nobody wrote down",
+        "proposes",
+        "checked before it goes out",
+        "cannot be undone"
+      ],
+      "do_not_say": [
+        "automate",
+        "replace",
+        "deploy",
+        "headcount reduction",
+        "guardrails"
+      ]
     },
     {
       "theme": "customization-as-superpower",
       "name": "Customization is the superpower",
       "reframe": "Turnkey software was never turnkey. It demanded that users learn its vocabulary and bend their process around it, and that adaptation was unpaid and invisible. The direction has reversed, which means every workaround the team ever built is now a specification.",
       "why_it_empowers": "It retroactively dignifies years of accommodation work and hands them the pen.",
-      "say": ["shape it to you", "the workaround", "bend", "the way your team actually does it"],
-      "do_not_say": ["power user", "best practice", "out of the box", "adoption curve"]
+      "say": [
+        "shape it to you",
+        "the workaround",
+        "bend",
+        "the way your team actually does it"
+      ],
+      "do_not_say": [
+        "power user",
+        "best practice",
+        "out of the box",
+        "adoption curve"
+      ]
+    },
+    {
+      "theme": "management-redefined",
+      "name": "Management itself is being redefined",
+      "reframe": "The shift is from agents-as-tools to agents-as-teammates: things that get onboarded, taught, coached, escalated from and performance-managed, rather than installed. That makes running them a management job rather than a technical one, and a new role is forming around it. The reported pattern is that it fails when it is centralised in IT or hired for AI credentials, and works when it sits with people who already carry functional depth and accountability for whether the work is any good.",
+      "why_it_empowers": "It is the show's promise stated as an emerging job rather than as an aspiration. The people best positioned for it are the ones already answerable for whether the work is good - which is the listener, and which is not who most organizations would think to pick.",
+      "say": [
+        "teammate",
+        "onboarding",
+        "coaching",
+        "escalation path",
+        "who owns it",
+        "orchestration",
+        "answerable"
+      ],
+      "do_not_say": [
+        "headcount",
+        "FTE",
+        "resource",
+        "replace",
+        "workforce reduction"
+      ]
     }
   ]
 }

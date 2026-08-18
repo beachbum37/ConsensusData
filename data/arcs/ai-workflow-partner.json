@@ -3,7 +3,7 @@
   "title": "AI as a Workflow Partner",
   "goal": "Leave a manager listening with the sense that the thing they hold - an accumulated feel for how the work actually goes, exercised daily and written down nowhere - is the scarce input that makes any of this work, and that they are the natural architect of it rather than its subject.",
   "audience": "Managers in any field whose judgment has been exercised constantly and solicited rarely.",
-  "runs": "About an hour at fourteen beats. To cut it down, drop beats with no spine theme first - those are the ones the series does not require.",
+  "runs": "About seventy minutes at seventeen beats. For a forty-five minute cut, drop the beats carrying no spine theme - first-thing-that-stuck, where-it-falls-down, the-team-conversation and where-the-work-piled-up - which leaves the four required themes intact.",
   "house_rules": [
     "Open on the week, not on the technology. If the first question contains the word AI, the listener braces.",
     "Assume competence in the premise. Ask how they decided, not whether they have considered it.",
@@ -65,7 +65,9 @@
       "beat": "the-sentence-you-repeat",
       "title": "The sentence you have said a hundred times",
       "theme": "craft",
-      "covers": ["natural-language-os"],
+      "covers": [
+        "natural-language-os"
+      ],
       "purpose": "Open the natural language idea from something they already do every week - the explanation they have given to every new person - rather than from anything that sounds technical.",
       "listener_payoff": "The realization that they have been writing specifications for years and calling it explaining things.",
       "keep_it_approachable": "The point they should arrive at is that the explanation is the configuration. Let them get there themselves; do not announce it. Use their words - explaining, telling, showing someone - never prompting.",
@@ -85,7 +87,9 @@
       "beat": "who-writes-the-rules",
       "title": "Who writes the rules",
       "theme": "people",
-      "covers": ["natural-language-os"],
+      "covers": [
+        "natural-language-os"
+      ],
       "purpose": "Name plainly that the people who configured the software have generally never done the job, and that the pen is moving.",
       "listener_payoff": "Recognition of something they have felt for years and rarely heard said, followed by the case that it is changing.",
       "keep_it_approachable": "Ask it evenly, not indignantly. Anger is not the register here - recognition is. Let the guest supply whatever feeling it carries.",
@@ -105,7 +109,9 @@
       "beat": "the-rule-that-sounds-simple",
       "title": "The rule that sounds simple",
       "theme": "judgment",
-      "covers": ["architecting-the-department"],
+      "covers": [
+        "architecting-the-department"
+      ],
       "purpose": "Hard boundaries, arrived at from the direction of authorship rather than of risk. The difficulty in a control is never the engineering, it is stating the rule precisely enough to be enforced - and only someone who does the work can state it that precisely.",
       "listener_payoff": "The realization that they are the only person in the building who can write the rule at the right altitude.",
       "keep_it_approachable": "This subject curdles into a fear segment if you let it. Stay on authorship: rules written at a distance come out either too loose to help or so blunt they break the job, and the guest has lived both. Follow this beat straight into what cannot be undone - that is where the boundary actually belongs.",
@@ -126,7 +132,9 @@
       "beat": "how-technical-really",
       "title": "How technical do you actually have to be",
       "theme": "myths",
-      "covers": ["customization-as-superpower"],
+      "covers": [
+        "customization-as-superpower"
+      ],
       "purpose": "Remove the perceived prerequisite. A large share of the audience has quietly disqualified themselves on the grounds that they are not technical.",
       "listener_payoff": "Removal of the biggest self-disqualifier, stated as a fact rather than as encouragement.",
       "keep_it_approachable": "If the guest is unusually technical, ask them to answer for someone who is not - otherwise this beat confirms the listener's fear. Deliver the answer as a finding, never as reassurance.",
@@ -146,7 +154,9 @@
       "beat": "the-year-you-spent-learning-it",
       "title": "The year you spent learning it",
       "theme": "change",
-      "covers": ["customization-as-superpower"],
+      "covers": [
+        "customization-as-superpower"
+      ],
       "purpose": "Recover the hidden cost of the turnkey era, so that the reversal is felt rather than asserted.",
       "listener_payoff": "Permission to stop treating their own adaptation as free, and a measure of what the reversal is actually worth.",
       "keep_it_approachable": "'Turnkey' is the word to put pressure on. It promised no learning curve and delivered a year of one. Naming that is not cynicism - it is accuracy the listener has earned.",
@@ -166,7 +176,9 @@
       "beat": "the-workaround-is-a-spec",
       "title": "The workaround is a specification",
       "theme": "craft",
-      "covers": ["customization-as-superpower"],
+      "covers": [
+        "customization-as-superpower"
+      ],
       "purpose": "Turn years of accommodation into an asset. Every workaround was a design decision made under constraint.",
       "listener_payoff": "Their accumulated accommodation reframed as a written specification they already own.",
       "keep_it_approachable": "Treat the workaround as competent engineering under constraint, because that is what it was. If the guest apologizes for it, say plainly that the failure was the software's.",
@@ -206,7 +218,9 @@
       "beat": "teaching-the-micro-judgments",
       "title": "The rule nobody wrote down",
       "theme": "judgment",
-      "covers": ["architecting-the-department"],
+      "covers": [
+        "architecting-the-department"
+      ],
       "purpose": "The heart of the spine. Surface the undocumented judgment only they hold, and frame handing it over as teaching rather than automating.",
       "listener_payoff": "The specific, sayable form of an expertise they did not know was transferable.",
       "keep_it_approachable": "The answer to the opening question is the curriculum. When they name an unwritten rule, stop and get it stated precisely - that sentence is the whole thesis of the episode made concrete. Use teaching language throughout, never automating language.",
@@ -227,7 +241,9 @@
       "beat": "staffing-the-department",
       "title": "Staffing the department",
       "theme": "people",
-      "covers": ["architecting-the-department"],
+      "covers": [
+        "architecting-the-department"
+      ],
       "purpose": "Move from tool to organization. Ask them to design roles, which is a manager's native competence applied to a new kind of worker.",
       "listener_payoff": "Their existing competence - designing roles and supervision - recognised as the skill this actually requires.",
       "keep_it_approachable": "Keep it in the language of roles, supervision and trust rather than tools and integrations. They already know how to staff a team; this beat should feel like that, because it is.",
@@ -245,10 +261,35 @@
       "if_it_stalls": "Forget the technology. If I gave you three junior people tomorrow, what would you have them do?"
     },
     {
+      "beat": "the-first-week",
+      "title": "The first week",
+      "theme": "people",
+      "covers": [
+        "management-redefined"
+      ],
+      "purpose": "The core reframe of the whole subject - agents as something you onboard rather than install - reached through a thing the guest has done many times and does not think of as a skill.",
+      "listener_payoff": "The realization that the competence this needs is one they have already used dozens of times.",
+      "keep_it_approachable": "Do not say the word agent until they have described a real onboarding in detail. The last follow-up does the reframe for you, and it lands far harder coming from them than from you.",
+      "flavors": {
+        "current": "You already know how to bring on someone who is quick, literal, and knows nothing about your business. What would their first week look like?",
+        "experience": "Think about the last person you onboarded who was fast but knew nothing about your world. What did their first week actually consist of?",
+        "observed": "When you watch a team bring on someone quick but green, what does the first week consist of?",
+        "general": "What does the first week look like for someone who is fast, literal, and knows nothing about the business?"
+      },
+      "followups": [
+        "What did you have to say out loud that you assumed everyone already knew?",
+        "Who checked their work, and for how long?",
+        "Now suppose that person never got discouraged and never got tired. What would you do differently?"
+      ],
+      "if_it_stalls": "Day one, nine in the morning. What are you telling them?"
+    },
+    {
       "beat": "what-stays-with-a-person",
       "title": "Where it should stop and find you",
       "theme": "personal",
-      "covers": ["architecting-the-department"],
+      "covers": [
+        "architecting-the-department"
+      ],
       "purpose": "Answer the underlying fear by handing them the pen: they are not being told where the line is, they are the person who draws it.",
       "listener_payoff": "The line is theirs to draw, which is a different feeling from being told the line exists.",
       "keep_it_approachable": "This is the beat that speaks to the anxious listener. Ask it warmly and let the answer breathe - do not rush to the next question.",
@@ -263,6 +304,29 @@
         "Who gets to move that line - you, or someone above you?"
       ],
       "if_it_stalls": "What would you feel wrong about handing over, even if nobody would ever know?"
+    },
+    {
+      "beat": "who-owns-it",
+      "title": "Who owns it",
+      "theme": "people",
+      "covers": [
+        "management-redefined"
+      ],
+      "purpose": "Where the management shift becomes a question about authority, and where the reporting is unusually clear about what works.",
+      "listener_payoff": "A concrete argument they can make about where this should sit, and evidence behind it.",
+      "keep_it_approachable": "The reported pattern is that this fails when it lives entirely in the technical group and works when it sits with people answerable for whether the work is any good. Say that as a finding, flatly. Delivered as a rallying cry it becomes the flattery the series is supposed to avoid.",
+      "flavors": {
+        "current": "If something does your team's work, who should own whether it does that work well - your team, or the people who built it?",
+        "experience": "When a system did your team's work, who owned whether it did it well?",
+        "observed": "Who tends to own the performance of these systems - the function whose work it is, or the technical group?",
+        "general": "Who should own whether an automated system does a job well - the function whose work it is, or the people who built it?"
+      },
+      "followups": [
+        "Who owns it in practice today?",
+        "What would change if it sat with you?",
+        "Who would you need on your side to make that argument?"
+      ],
+      "if_it_stalls": "Put it the other way round. If it embarrassed your team on a Tuesday, who gets the call?"
     },
     {
       "beat": "the-team-conversation",

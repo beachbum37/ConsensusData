@@ -221,7 +221,14 @@ class TestSeries(unittest.TestCase):
 
     def test_series_loads_with_a_spine(self):
         self.assertTrue(self.corpus.series.get("promise"))
-        self.assertEqual(len(self.corpus.spine), 3)
+        self.assertTrue(self.corpus.spine)
+
+    def test_every_spine_theme_is_fully_specified(self):
+        # A theme missing its reframe or its vocabulary cannot guide writing,
+        # which is the only reason the spine exists as data rather than prose.
+        for theme in self.corpus.spine:
+            for field_name in ("theme", "name", "reframe", "why_it_empowers", "say", "do_not_say"):
+                self.assertTrue(theme.get(field_name), f"{theme.get('theme')} lacks {field_name}")
 
     def test_every_arc_covers_every_spine_theme(self):
         # The series requires that every episode touches these, so an arc that

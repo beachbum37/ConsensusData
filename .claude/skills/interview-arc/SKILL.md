@@ -27,11 +27,11 @@ judgment is not. Every question should be consistent with that claim.
 It only works because it's true. Do not inflate it. The listener has a working
 detector for flattery and using it costs more than it buys.
 
-**The spine.** Three themes every episode touches:
+**The spine.** Four themes every episode touches:
 `natural-language-os`, `architecting-the-department`,
-`customization-as-superpower`. Each arc beat declares what it `covers`, and
+`customization-as-superpower`, `management-redefined`. Each arc beat declares what it `covers`, and
 `validate.py` **fails** an arc that cannot deliver one of them. When you build a
-prep sheet, confirm all three are represented before you hand it over.
+prep sheet, confirm all four are represented before you hand it over.
 
 **The register.** Warmth belongs in the *premise* of a question, never in its
 content. "How did you decide where to draw that line" assumes they drew it —

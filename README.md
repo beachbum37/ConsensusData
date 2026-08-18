@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**287 questions.** 83 in the universal core, 120 across 20 industry packs, and 84
+**302 questions.** 83 in the universal core, 120 across 20 industry packs, and 99
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, and the senior contributors now directing agents. Every
 question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -33,16 +33,17 @@ for — is the scarce input, because the models are close to commodity and that
 judgment is not. It works because it's true; inflating it past that costs more
 than it buys.
 
-**The spine.** Three themes every episode touches:
+**The spine.** Four themes every episode touches:
 
 | Theme | The reframe |
 | --- | --- |
 | `natural-language-os` | Describing work precisely is now the act of configuring it. They've been writing specs for years and calling it explaining things to the new person. |
 | `architecting-the-department` | Not using a tool — standing up specialised workers and teaching them the micro-judgments that live only in their head. Includes **control**: deterministic checks wrapped around the probabilistic part, reached through authorship rather than risk. |
 | `customization-as-superpower` | Turnkey was never turnkey. Every workaround the team built is now a specification. |
+| `management-redefined` | Agents as teammates you onboard, coach and performance-manage — not tools you install. A role is forming around that, and it reportedly fails when centralised in IT. |
 
 Every arc beat declares what it `covers`, and **`validate.py` fails an arc that
-can't deliver one of the three.** The requirement is enforced, not remembered.
+can't deliver one of the four.** The requirement is enforced, not remembered.
 
 **The register.** Warmth belongs in the *premise* of a question, never in its
 content — that distinction is what separates an inviting question from a leading
@@ -95,9 +96,9 @@ out of the running order.
 
 | Role | Questions | Packs |
 | --- | --- | --- |
-| `middle-manager` | 72 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine, Hard Boundaries |
-| `ai-leader` | 25 | AI Leaders & Adoption Owners, plus the workflow and agent packs |
-| `individual-contributor` | 16 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
+| `middle-manager` | 87 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine, Hard Boundaries, The Agent Manager |
+| `ai-leader` | 32 | AI Leaders & Adoption Owners, plus the workflow, boundary and agent-manager packs |
+| `individual-contributor` | 18 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
 
 ## Arcs: themes with flavors
 
@@ -242,7 +243,7 @@ data/
   taxonomy.json          controlled vocabularies for arc, depth, theme, industries, roles
   industries.json        20 profiles: vocabulary, status axis, trust signals, landmines
   arcs/
-    ai-workflow-partner.json   15 beats, four flavors each, 9 carrying spine themes
+    ai-workflow-partner.json   17 beats, four flavors each, 11 carrying spine themes
   questions/
     00-openers.json      universal core, one file per pack
     …
@@ -252,6 +253,7 @@ data/
     11-agent-managers.json       contributors directing agents
     12-the-spine.json            the three required themes, standalone
     13-hard-boundaries.json      control: deterministic checks around probabilistic systems
+    14-agent-manager.json        the management shift: agents as teammates, and who owns them
     industry/            one file per industry
 scripts/
   corpus.py              loading, filtering, slot substitution, brief assembly

@@ -1,0 +1,212 @@
+{
+  "pack": "The Agent Manager",
+  "description": "Management theory's shift from agents-as-tools to agents-as-teammates - things that get onboarded, taught, coached, escalated from and performance-managed rather than installed. A role is forming around that work, and the reported pattern is that it fails when centralised in IT or hired for AI credentials, and works when it sits with people who already carry functional depth and accountability for whether the work is any good. That is the show's promise arriving as a job description rather than as an aspiration.",
+  "register_note": "The temptation here is to sell the listener a promotion. Do not. The empowering fact is a finding, not a prophecy: organizations that indexed on AI credentials got agents that worked technically and failed strategically. Deliver it flat and let them draw the conclusion. Every question should still be answerable by someone who thinks the whole idea is oversold.",
+  "context_for_host": {
+    "$comment": "Source material from the guest's own reading. Handle with care on air - see the caution.",
+    "the_role": "A support agent manager at Salesforce describes starting the day checking how AI agents are learning and adapting, the way a manager checks in on a new employee. The job is described as monitoring quality, speed, escalation and sentiment; refining prompts and workflows; managing handoffs to humans; root-cause analysis on failures; and reporting ROI upward.",
+    "six_capabilities": "Operational literacy about how agents run and fail; functional depth in the process the agent supports; systems thinking across workflows and other agents; change resilience through weekly test-deploy-learn cycles; craftsmanship in the language and logic that shapes behavior; and fluency working across both machines and people.",
+    "ownership": "The argument is that line-of-business owners, not IT, should design, test and govern the agents that run their workflows - if agents do real work for a unit, that unit owns their performance. Reporting lines vary: digital customer success, sales management, a transformation office, or a central AI operations group.",
+    "the_hiring_finding": "The best agent managers reportedly come from roles already accountable for service quality and operational judgment, and deep domain expertise is said to matter more than formal AI credentials. Groups that centralised the role in IT saw agents succeed technically and fail strategically.",
+    "caution": "This is largely a vendor writing about its own platform, and the figures - case resolution rates, pipeline generated, meetings booked - are self-reported. The structural argument stands on its own; the numbers should not be repeated on air as neutral fact. Ask your guest whether it matches what they have seen, which is a better use of the material anyway."
+  },
+  "questions": [
+    {
+      "id": "mgr-01",
+      "text": "You already know how to bring on someone who is quick, literal, and knows nothing about your business. What would their first week look like?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Onboarding is something they have done many times, so the answer arrives without effort - and it is, in detail, the work of setting an agent up. Do not name the parallel; the follow-up does it for you.",
+      "followups": [
+        "What did you have to say out loud that you assumed everyone already knew?",
+        "Who checked their work, and for how long?",
+        "Now suppose that person never got discouraged and never got tired. What would you do differently?"
+      ],
+      "tags": ["ai", "management-redefined", "onboarding", "flagship", "high-yield"]
+    },
+    {
+      "id": "mgr-02",
+      "text": "If something does your team's work, who should own whether it does that work well - your team, or the people who built it?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Where this sits is a question about authority, and it is the one place the reporting is unusually clear: centralising it away from the function is what makes agents succeed technically and fail in the work. The guest can argue for their own standing without it sounding self-serving.",
+      "followups": [
+        "Who owns it in practice today?",
+        "What would change if it sat with you?",
+        "Who would you need on your side to make that argument?"
+      ],
+      "tags": ["ai", "management-redefined", "ownership", "flagship", "high-yield"]
+    },
+    {
+      "id": "mgr-03",
+      "text": "What are you measured on today that would stop meaning anything if the work got done a different way?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Activity metrics - calls made, tickets closed, meetings booked - stop measuring anything useful once volume decouples from effort. Naming which of their own numbers goes hollow is concrete and slightly subversive.",
+      "followups": [
+        "What should replace it?",
+        "Who would have to agree to change that number?"
+      ],
+      "tags": ["ai", "management-redefined", "metrics", "high-yield"]
+    },
+    {
+      "id": "mgr-04",
+      "text": "Who on your team would actually be good at directing this work? Would anyone above you think to pick them?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "The second sentence is the whole question. The people who turn out to be good at this tend to be the ones already answerable for whether the work is any good, and they are rarely who a selection process reaches for.",
+      "followups": [
+        "What is it about them that makes you say so?",
+        "What would you have to argue to get them picked?"
+      ],
+      "tags": ["ai", "management-redefined", "hiring", "flagship", "high-yield"]
+    },
+    {
+      "id": "mgr-05",
+      "text": "What would you put on a scorecard for work that is done well but not done by a person?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Performance management is a competence they already hold, pointed at a new object. Asking for the scorecard rather than the philosophy forces the specificity that makes the answer useful.",
+      "followups": [
+        "Which of those could you actually see today?",
+        "What would you watch weekly, and what only quarterly?"
+      ],
+      "tags": ["ai", "management-redefined", "performance", "concrete"]
+    },
+    {
+      "id": "mgr-06",
+      "text": "When something it did turned out to be wrong, how would you find out why?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Root-cause analysis is the least discussed and most defining part of the role. It also quietly surfaces whether anything is being recorded well enough to reconstruct what happened.",
+      "followups": [
+        "Is enough being kept today to answer that?",
+        "Who would you go to, and would they be able to tell you?"
+      ],
+      "tags": ["ai", "management-redefined", "root-cause", "observability"]
+    },
+    {
+      "id": "mgr-07",
+      "text": "What does coaching look like when the thing you are coaching never gets discouraged?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Tests the teammate metaphor at its edge, which is where the interesting answer lives. Good managers spend real effort on morale and timing, and finding that half of the craft does not apply is genuinely clarifying.",
+      "followups": [
+        "So what is left of coaching, once you take that part out?",
+        "Does that make it easier or just different?"
+      ],
+      "tags": ["ai", "management-redefined", "coaching", "clarifying"]
+    },
+    {
+      "id": "mgr-08",
+      "text": "Where should a job like that report - into your function, into the technical group, or somewhere that does not exist yet?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Reporting lines are where an org chart admits what it actually believes. Offering three options including 'somewhere that does not exist yet' gives permission for the honest answer.",
+      "followups": [
+        "What goes wrong with each of the other two?",
+        "Where does it sit in your organization today, if anywhere?"
+      ],
+      "tags": ["ai", "management-redefined", "org-design"]
+    },
+    {
+      "id": "mgr-09",
+      "text": "What would someone have to be fluent in to do that job well - and which of those do you already have?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "individual-contributor"],
+      "lands_because": "Asks them to build the job description and then audit themselves against it. The second clause is where the episode's argument becomes personal without anyone having to assert it.",
+      "followups": [
+        "Which one would take you longest to pick up?",
+        "Which of those is hardest to hire for?"
+      ],
+      "tags": ["ai", "management-redefined", "capabilities", "flagship"]
+    },
+    {
+      "id": "mgr-10",
+      "text": "When it hands something back to a person, who exactly should it go to - and how would it know?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Routing is a real design problem that managers solve constantly for human queues and have never been asked to write down. The 'how would it know' half turns an org fact into a specification.",
+      "followups": [
+        "What happens today when nobody obvious owns it?",
+        "How long should it wait before escalating again?"
+      ],
+      "tags": ["ai", "management-redefined", "escalation", "handoffs"]
+    },
+    {
+      "id": "mgr-11",
+      "text": "What does your team do that a system arriving out of the box would get wrong on day one?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager"],
+      "lands_because": "Draws the line between what can be taken as it comes and what needs the process rethought first. It also hands them a concrete list of the things only they can supply.",
+      "followups": [
+        "Is that a quirk of your organization, or is everyone in your field like that?",
+        "Who would have to be asked before that could be built in?"
+      ],
+      "tags": ["ai", "management-redefined", "customization-as-superpower", "turnkey-boundary"]
+    },
+    {
+      "id": "mgr-12",
+      "text": "If an automated system told one of your customers something untrue, who in your organization would be answerable for it?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "ai-leader"],
+      "lands_because": "Accountability has already been tested externally - a tribunal held an airline responsible for what its chatbot told a customer and rejected the argument that the bot was a separate entity. Most organizations have not worked out their internal answer, and the hesitation is itself informative.",
+      "followups": [
+        "Is that written down anywhere, or is it an assumption?",
+        "Would that person know it was them?"
+      ],
+      "tags": ["ai", "management-redefined", "accountability", "high-yield"]
+    },
+    {
+      "id": "mgr-13",
+      "text": "If this became a real job title where you work within the year, what would it be called and who would be first?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["middle-manager", "individual-contributor"],
+      "lands_because": "Makes a broad prediction local and specific, and closes the episode on a named person in a real building rather than on a trend. Frequently the answer is the guest, said sideways.",
+      "followups": [
+        "Would you want it?",
+        "What would have to be true for that to be a good job rather than a thankless one?"
+      ],
+      "tags": ["ai", "management-redefined", "closer", "flagship"]
+    }
+  ]
+}
