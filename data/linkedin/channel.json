@@ -31,7 +31,9 @@
       "min": 2,
       "max": 5,
       "note": "At the end, never mid-sentence. They are filing labels, not decoration."
-    }
+    },
+    "long_form_max_chars": 2850,
+    "$long_form": "A post may declare \"long_form\": true when the argument genuinely needs the room - a flagship the account expects to point back to. It is then checked against long_form_max_chars instead of the target range, which still leaves headroom under the platform limit for a late edit. Rare by design: if every post is long form, none of them is."
   },
   "shape": {
     "$comment": "The four parts of every post in this repo. The close is a real question, not engagement bait - see 'avoids'.",
@@ -105,5 +107,9 @@
     "reported": "Somebody reported it, and the report is identifiable. Say who, and say reported.",
     "attributed": "It is a named framework or argument rather than a finding. Attribute it as such.",
     "framing": "A way of seeing the thing, owned by this account. Nothing to cite, and nothing to claim as evidence."
+  },
+  "spine_gaps_accepted": {
+    "$comment": "Spine themes the current queue does not carry. The feed is supposed to say all four over time, so validate.py fails on an uncovered theme unless it is declared here - the exception stays visible in the data rather than quietly disappearing when posts get cut. Each entry says what would close it.",
+    "customization-as-superpower": "Left uncovered when the rent-versus-own and tackle-box posts were cut. The material is still in the nuggets - nug-rent-vs-own, nug-tackle-box, nug-capability-escalator - so the way to close this is one post on turnkey software never having been turnkey, and the team's workarounds being the specification all along."
   }
 }

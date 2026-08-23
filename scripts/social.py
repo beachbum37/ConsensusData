@@ -178,9 +178,13 @@ def order_posts(posts: list[dict]) -> list[dict]:
     Two rules, in priority order: never two posts in a row whose primary spine
     theme is the same, and never two in a row from the same source article.
 
-    After those, take from the theme with the *most* posts still waiting. That
-    is what keeps a heavily stocked theme from bunching up at the end - spend
-    the plentiful material while there is still something to alternate it with.
+    After those, take from the theme with the *most* posts still waiting, then
+    from the source article with the most waiting. That is what keeps a heavily
+    stocked theme or article from bunching up at the end - spend the plentiful
+    material while there is still something to alternate it with. Both floors
+    are tested: the ordering has to hit the fewest adjacent repeats arithmetic
+    allows, not merely avoid the easy ones.
+
     Deterministic, because a schedule that reshuffles overnight is not one.
     """
     remaining = sorted(posts, key=lambda p: p["id"])
@@ -192,13 +196,17 @@ def order_posts(posts: list[dict]) -> list[dict]:
     while remaining:
         prev = out[-1] if out else None
         left: dict[str, int] = {}
+        left_source: dict[str, int] = {}
         for post in remaining:
             left[primary(post)] = left.get(primary(post), 0) + 1
+            key = post.get("source", "")
+            left_source[key] = left_source.get(key, 0) + 1
 
         def penalty(post: dict) -> tuple:
             same_theme = bool(prev) and primary(post) == primary(prev)
             same_source = bool(prev) and post.get("source") == prev.get("source")
-            return (same_theme, same_source, -left[primary(post)], post["id"])
+            return (same_theme, same_source, -left[primary(post)],
+                    -left_source[post.get("source", "")], post["id"])
 
         pick = min(remaining, key=penalty)
         remaining.remove(pick)

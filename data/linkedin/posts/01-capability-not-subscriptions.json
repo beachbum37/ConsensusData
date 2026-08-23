@@ -1,58 +1,20 @@
 {
   "pack": "Capability, not subscriptions",
   "source": "track-trophy",
-  "description": "Rewrites of the 'build capability, not subscriptions' explainer for a feed. The argument is about ownership: two decades of answering every business problem with another seat license, against a loop where the thing you build is yours and compounds. The trap in this material is that it flatters the reader too easily - each post carries a real cost of ownership somewhere in it, because a post that does not is an advertisement.",
+  "description": "From the 'build capability, not subscriptions' explainer. The surviving post is the three-eras argument - search, prompt, skill - which is the one that hands the reader a position rather than a verdict. The rest of the article's material lives in the nuggets, where the rent-versus-own and tackle-box frames are still available to build from.",
   "posts": [
-    {
-      "id": "li-rent-01",
-      "title": "Twenty years of the same answer",
-      "format": "reframe",
-      "status": "ready",
-      "covers": ["customization-as-superpower"],
-      "nuggets": ["nug-rent-vs-own", "nug-expertise-is-the-spec"],
-      "hook": "For twenty years, every business problem had the same answer: buy another piece of software.",
-      "body": [
-        "New reporting need, another seat license. New workflow, another six-month configuration project. Another line on the monthly bill.",
-        "It never really mattered what the problem was. The answer was always to rent something rigid and add it to the pile.",
-        "What has actually changed is not that the software got better. It is that the specification stopped being a document you hand to a vendor and started being something you can say out loud.",
-        "The old loop: find the problem, find a product, spend months bending your process to fit it, pay for it forever. New problem, back to the start.",
-        "The new one: find the problem, describe how your team already handles it, and keep what you built. The next problem starts from there instead of from zero.",
-        "One of those compounds. The other one renews.",
-        "The honest part nobody puts in the deck: what you build, you maintain. Nobody pages you at 2am about your vendor's uptime. That is a real trade, and it is still worth making for the handful of processes that are actually yours."
-      ],
-      "close": "What is one workflow in your group that no vendor has ever gotten right, and your team has quietly worked around for years?",
-      "hashtags": ["#FutureOfWork", "#Leadership", "#AIatWork", "#Operations"],
-      "why_it_lands": "Every manager has signed off on a tool that never fit, and has watched their team build the workaround. The post treats that workaround as a specification rather than as a failure, which is the show's promise in one move.",
-      "risk": "Reads as anti-SaaS posturing if the maintenance paragraph gets cut for length. Keep it."
-    },
-    {
-      "id": "li-trophy-02",
-      "title": "Trophy fish and tackle boxes",
-      "format": "reframe",
-      "status": "ready",
-      "covers": ["customization-as-superpower"],
-      "nuggets": ["nug-tackle-box", "nug-capability-escalator"],
-      "hook": "The demo going around your feed this week is a trophy fish. Mounted on a wall, caught by somebody else, feeding nobody.",
-      "body": [
-        "It is worth something. It tells you there are fish in the water.",
-        "It does not tell you how to fish, and it does not tell you what your team should do on Monday.",
-        "The thing worth building is a stocked tackle box. Boring, specific, and restockable.",
-        "In practice a tackle box looks like: the checklist your best analyst runs before a number leaves the building. The way your team words the email that goes out when a shipment is late. The six things somebody checks before a file is closed.",
-        "None of that makes a good video. All of it compounds.",
-        "It is worth measuring that way too. Not 'what is the most impressive thing AI did here this month', but 'what can this team do this quarter that it could not do last quarter, with the same people'.",
-        "That second question is much harder to answer, which is most of the reason people prefer the first one."
-      ],
-      "close": "If your team caught one thing this quarter, would it end up on the wall, or in the box?",
-      "hashtags": ["#AIatWork", "#Management", "#FutureOfWork"],
-      "why_it_lands": "Names the low-grade irritation of watching AI theatre while being accountable for real output, and gives it a shape. The image is memorable enough to get repeated in a meeting, which is the actual distribution mechanism for a frame."
-    },
     {
       "id": "li-eras-03",
       "title": "Search, prompt, skill",
       "format": "argument",
       "status": "ready",
-      "covers": ["natural-language-os"],
-      "nuggets": ["nug-three-eras", "nug-expertise-is-the-spec"],
+      "covers": [
+        "natural-language-os"
+      ],
+      "nuggets": [
+        "nug-three-eras",
+        "nug-expertise-is-the-spec"
+      ],
       "hook": "Three eras of solving a problem at work. The only thing that really changes across them is who does the solving.",
       "body": [
         "Search. The tool retrieves. You read ten links, synthesize them, and decide. What you gained was access to information.",
@@ -64,7 +26,12 @@
         "The catch is that step three only pays off where the process is stable enough to be worth writing down. Plenty of valuable work is not, and knowing which is which is the judgment call."
       ],
       "close": "What is one process on your team that lives entirely in one person's head and has never been written down anywhere?",
-      "hashtags": ["#AIatWork", "#Leadership", "#ProcessImprovement", "#FutureOfWork"],
+      "hashtags": [
+        "#AIatWork",
+        "#Leadership",
+        "#ProcessImprovement",
+        "#FutureOfWork"
+      ],
       "why_it_lands": "Gives the reader a position on a ladder rather than a verdict, and the move from step two to three is described as documentation rather than as technical skill - which is the point, and which is checkable against their own experience.",
       "risk": "Do not let this become a maturity model with levels and colours. It is three sentences about who is doing the work."
     }

@@ -1,38 +1,20 @@
 {
   "pack": "Onboard it like a hire",
   "source": "executor-to-editor",
-  "description": "Rewrites of the executor-to-editor transcript: the HR playbook applied to agents - a written job description with decision rights, work chosen from the dull and deterministic end, a performance review on a cycle, and a named human supervisor. The transcript carries an unattributed survey figure; it stays out of every post here. The structural argument does not need it.",
+  "description": "From the executor-to-editor transcript: the HR playbook applied to agents. The two surviving posts are the accountability half of it - a performance review on a cycle, and a name so failure has somewhere to land. The transcript's unattributed survey figure stays out of both. The structural argument does not need it.",
   "posts": [
-    {
-      "id": "li-onboard-01",
-      "title": "Figure it out",
-      "format": "reframe",
-      "status": "ready",
-      "covers": ["architecting-the-department", "management-redefined"],
-      "nuggets": ["nug-hr-not-it", "nug-job-description", "nug-threshold-example"],
-      "hook": "Nobody would hire someone, walk them to a desk in the corner, and say figure it out. That is close to how most AI gets introduced to a team.",
-      "body": [
-        "Provision the license. Send the login. Wait for the productivity.",
-        "It gets treated as a software rollout, so it gets a software rollout's onboarding, which is to say none, and then the stall gets blamed on the tool or on the team.",
-        "The version that works borrows from HR instead.",
-        "Start with a job description, written down. What is this responsible for. What can it decide by itself. What is it not allowed to touch.",
-        "The vague version is: help the team with invoices. That instruction cannot be followed or checked by anyone.",
-        "The real version is: review and approve invoices under five hundred dollars from vendors we have paid before. Anything over five thousand, stop and escalate to a named person.",
-        "Without those edges you get one of two failures, and most organizations manage to get both. Scope creep, where it is suddenly drafting external messages nobody approved. Or paralysis, where nothing gets used at all, because no one has been told what they might break.",
-        "The boundary is not there to restrain the technology. It is there so people are willing to use it."
-      ],
-      "close": "If you wrote a one-page job description for the AI your team uses, what would go in the 'not allowed to' section?",
-      "hashtags": ["#AIatWork", "#Leadership", "#Management", "#FutureOfWork"],
-      "why_it_lands": "The onboarding image is instantly recognisable and slightly funny, and it converts a technology problem into one the reader is already good at. The invoice thresholds give the post something checkable.",
-      "risk": "Attribute the playbook as a framework if you name it. It is somebody's argument, not a finding."
-    },
     {
       "id": "li-review-02",
       "title": "The performance review",
       "format": "argument",
       "status": "ready",
-      "covers": ["management-redefined"],
-      "nuggets": ["nug-performance-review", "nug-verify-like-a-junior"],
+      "covers": [
+        "management-redefined"
+      ],
+      "nuggets": [
+        "nug-performance-review",
+        "nug-verify-like-a-junior"
+      ],
       "hook": "If an agent has a job description, it needs a performance review.",
       "body": [
         "Handing work to an agent does not hand over responsibility for the work. It only moves where the responsibility sits, and usually it moves it somewhere less specific.",
@@ -44,7 +26,12 @@
         "One caution from experience with human reviews: a check that never finds anything quietly becomes a rubber stamp. If your review has not caught anything in three months, the interesting question is whether it is still happening."
       ],
       "close": "Is there anything your team relies on today whose output nobody, specifically, reviews?",
-      "hashtags": ["#Leadership", "#Governance", "#AIatWork", "#Management"],
+      "hashtags": [
+        "#Leadership",
+        "#Governance",
+        "#AIatWork",
+        "#Management"
+      ],
       "why_it_lands": "Takes an accountability argument that usually arrives as compliance pressure and re-routes it through ordinary management practice the reader already believes in.",
       "risk": "The legal expectation is a forecast in the source material, not settled law. Keep the hedge in."
     },
@@ -53,8 +40,13 @@
       "title": "Name it, so it can be blamed properly",
       "format": "argument",
       "status": "ready",
-      "covers": ["management-redefined"],
-      "nuggets": ["nug-naming", "nug-performance-review"],
+      "covers": [
+        "management-redefined"
+      ],
+      "nuggets": [
+        "nug-naming",
+        "nug-performance-review"
+      ],
       "hook": "Give the agent a name. Not to make it feel like a colleague. To make it impossible to blame in the abstract.",
       "body": [
         "The instinct to push back on this is a healthy one. Naming software feels like a step toward pretending it is a person, and it is not a person.",
@@ -66,7 +58,11 @@
         "It does come with a cost worth watching for. Once a thing has a name, people start talking about what it wants, and a few of them start apologising to it. Keep the name in the process documentation and out of the anthropomorphising, and it stays useful."
       ],
       "close": "When something goes wrong in a report your team produces, can you name every step that touched it?",
-      "hashtags": ["#AIatWork", "#Management", "#Governance"],
+      "hashtags": [
+        "#AIatWork",
+        "#Management",
+        "#Governance"
+      ],
       "why_it_lands": "Opens by agreeing with the reader's objection, then reframes the practice as accountability rather than personification. Agreeing first is what buys the turn.",
       "risk": "Do not open with the recommendation unqualified. The objection has to come in the first two lines or the post loses half its readers."
     }

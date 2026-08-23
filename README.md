@@ -154,9 +154,14 @@ python3 scripts/linkedin.py post li-onboard-01 --bare      # paste-ready copy
 python3 scripts/linkedin.py scan --format md               # the weekly news pass
 ```
 
-**Nine posts**, written from three source articles and stocked deep enough for
-nine weeks at one a week. Each declares which spine themes it `covers`, which
-`nuggets` it draws on, why it lands, and what it risks.
+**Four posts**, written from three source articles - four weeks at one a week.
+Each declares which spine themes it `covers`, which `nuggets` it draws on, why
+it lands, and what it risks.
+
+One of them, `li-agent-mgr-01`, is carried all the way: long form, two alternate
+hooks to test, the first comment that carries the sourcing, and prepared replies
+to the three objections it will predictably draw. That is what a post looks like
+when it is ready to publish rather than ready to read.
 
 **The register is shared with the podcast.** `data/series.json` governs both, so
 `validate.py` lints post copy against the same avoid list as question text, plus
@@ -165,9 +170,16 @@ also has to carry all four spine themes - the same requirement the arcs carry,
 enforced the same way.
 
 **The fold is enforced.** A hook over 210 characters gets cut mid-sentence on a
-phone, so validation fails it. So does a post over the platform limit, a link in
-the body, a dangling nugget reference, and a figure with no verified source
-behind it.
+phone, so validation fails it - alternate hooks included. So does a post over
+the platform limit, a link in the body, a dangling nugget reference, and a
+figure with no verified source behind it.
+
+**A gap in the spine has to be declared.** Cutting posts can leave a theme
+uncovered, which fails validation unless it is written into
+`spine_gaps_accepted` in `channel.json` along with what would close it. The
+current queue has one: `customization-as-superpower`, left open when the
+rent-versus-own and tackle-box posts were cut. The material for it is still in
+the nuggets.
 
 ### Nuggets
 

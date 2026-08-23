@@ -46,6 +46,8 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
     known_sources = {k for k in channel.sources if not k.startswith("$")}
     nugget_sources = {k for k in load_channel_sources() if not k.startswith("$")}
     lo, hi = bible["mechanics"]["target_chars"]
+    long_max = bible["mechanics"]["long_form_max_chars"]
+    accepted_gaps = {k for k in bible.get("spine_gaps_accepted", {}) if not k.startswith("$")}
     tags = bible["mechanics"]["hashtags"]
 
     feed_avoid = {k: v for k, v in bible.get("voice", {})
@@ -117,9 +119,29 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
                 f"{where}: hook is {len(hook)} chars, past the {channel.fold_chars}-char "
                 "fold - it will be cut mid-sentence"
             )
+        for i, alt in enumerate(post.get("alt_hooks", [])):
+            if len(alt) > channel.fold_chars:
+                errors.append(
+                    f"{where}: alt hook {i + 1} is {len(alt)} chars, past the "
+                    f"{channel.fold_chars}-char fold"
+                )
+            if alt.strip() == hook.strip():
+                warnings.append(f"{where}: alt hook {i + 1} is the hook again")
+
         size = char_count(post)
         if size > channel.max_chars:
             errors.append(f"{where}: {size} chars, over the {channel.max_chars} limit")
+        elif post.get("long_form"):
+            if size > long_max:
+                errors.append(
+                    f"{where}: {size} chars, over the {long_max} long-form ceiling - "
+                    "that leaves no headroom for an edit before the platform limit"
+                )
+            elif size <= hi:
+                warnings.append(
+                    f"{where}: declared long_form but only {size} chars, inside the "
+                    f"{lo}-{hi} target - drop the flag"
+                )
         elif not lo <= size <= hi:
             warnings.append(f"{where}: {size} chars, outside the {lo}-{hi} target")
 
@@ -131,6 +153,14 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
         for tag in hashtags:
             if not tag.startswith("#") or " " in tag:
                 errors.append(f"{where}: malformed hashtag '{tag}'")
+
+        for i, reply in enumerate(post.get("replies", [])):
+            for field_name in ("expect", "reply"):
+                if not reply.get(field_name):
+                    errors.append(f"{where}: prepared reply {i + 1} has no '{field_name}'")
+            lint_feed(str(reply.get("reply", "")), f"{where} [reply {i + 1}]")
+            ascii_check(str(reply.get("reply", "")), where, f"reply {i + 1}")
+        ascii_check(str(post.get("first_comment") or ""), where, "first_comment")
 
         body = render_body(post)
         ascii_check(body, where, "post copy")
@@ -152,10 +182,25 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
         if "http://" in body or "https://" in body:
             warnings.append(f"{where}: contains a link - put it in the first comment instead")
 
+    # The feed is supposed to say all four themes over time. A gap is allowed
+    # when somebody declared it in channel.json, so that cutting posts leaves a
+    # visible hole rather than a silent one.
     for theme in sorted(spine_themes - covered):
-        errors.append(
-            f"linkedin: no post covers spine theme '{theme}' - the feed is supposed to "
-            "carry the same four themes as the show"
+        if theme in accepted_gaps:
+            warnings.append(
+                f"linkedin: no post covers spine theme '{theme}' - declared in "
+                "channel.json spine_gaps_accepted, so it is a known hole to fill"
+            )
+        else:
+            errors.append(
+                f"linkedin: no post covers spine theme '{theme}' - the feed is supposed to "
+                "carry the same four themes as the show. Write one, or declare the gap in "
+                "channel.json spine_gaps_accepted"
+            )
+    for theme in sorted(accepted_gaps & covered):
+        warnings.append(
+            f"linkedin: spine gap '{theme}' is declared in channel.json but a post now "
+            "covers it - remove the declaration"
         )
 
     ready = channel.ready()

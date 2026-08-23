@@ -119,7 +119,25 @@ discounts.
 - **hashtags** - two to five, at the end.
 - **why_it_lands**, and **risk** when the post has a failure mode.
 
-Target 900-1800 characters. Longer reads as an essay, shorter as a slogan.
+Target 900-1800 characters. Longer reads as an essay, shorter as a slogan. A
+flagship that genuinely needs the room declares `long_form: true` and is checked
+against a 2850 ceiling instead - rare by design, because if every post is long
+form then none of them is.
+
+**Taking a post all the way.** A post the user intends to actually publish gets
+four more things, and `li-agent-mgr-01` is the worked example of all four:
+
+- `alt_hooks` - one or two other openings to test. They have to survive the fold
+  as well, and validation checks them.
+- `first_comment` - where the sourcing goes, and any link. Never in the body.
+- `replies` - `expect` / `reply` pairs for the objections the post will draw.
+  Write them before publishing, not at 9pm under a comment. The good ones concede
+  the true part of the objection first.
+- `risk` - the specific way this post fails, for whoever reads it before it goes.
+
+**If cutting posts leaves a spine theme uncovered**, validation fails. Either
+write one that covers it, or declare it in `spine_gaps_accepted` in
+`channel.json` with what would close the hole. Never let the gap go silent.
 
 Two rules that do most of the work:
 

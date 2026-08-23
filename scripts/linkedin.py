@@ -50,7 +50,8 @@ def post_text(channel: Channel, post: dict, notes: bool) -> str:
     fold = channel.fold_chars
     out = [
         f"[{post['id']}] {post['title']}",
-        f"  {post['format']} / {post['status']} / {post['pack']}",
+        f"  {post['format']} / {post['status']}"
+        f"{' / long form' if post.get('long_form') else ''} / {post['pack']}",
         f"  covers: {', '.join(post.get('covers', []))}",
         f"  {char_count(post)} chars (limit {channel.max_chars}), "
         f"hook {len(post['hook'])} (fold at {fold})",
@@ -63,6 +64,20 @@ def post_text(channel: Channel, post: dict, notes: bool) -> str:
         wrap(above_fold(post, fold)),
         "",
     ]
+    if post.get("alt_hooks"):
+        out.append("Other hooks to test:")
+        for alt in post["alt_hooks"]:
+            out.append(wrap(f"- {alt}  ({len(alt)} chars)"))
+        out.append("")
+    if post.get("first_comment"):
+        out += ["First comment (links go here, never in the body):",
+                wrap(post["first_comment"]), ""]
+    if post.get("replies"):
+        out.append("If somebody says:")
+        for reply in post["replies"]:
+            out.append(wrap(f"> {reply['expect']}"))
+            out.append(wrap(f"  {reply['reply']}"))
+            out.append("")
     if post.get("why_it_lands"):
         out += ["Why it lands:", wrap(post["why_it_lands"]), ""]
     if post.get("risk"):
@@ -86,6 +101,14 @@ def post_md(channel: Channel, post: dict, notes: bool) -> str:
                 f"{', '.join(post.get('covers', []))} - {char_count(post)} chars*", ""]
     out += ["```", render_body(post), "```", ""]
     if notes:
+        if post.get("alt_hooks"):
+            out.append("**Other hooks.**")
+            out += [f"- {alt}" for alt in post["alt_hooks"]] + [""]
+        if post.get("first_comment"):
+            out += [f"**First comment.** {post['first_comment']}", ""]
+        if post.get("replies"):
+            out.append("**If somebody says.**")
+            out += [f"- *{r['expect']}* -> {r['reply']}" for r in post["replies"]] + [""]
         if post.get("why_it_lands"):
             out += [f"**Why it lands.** {post['why_it_lands']}", ""]
         if post.get("risk"):
