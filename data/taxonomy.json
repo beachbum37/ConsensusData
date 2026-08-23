@@ -32,7 +32,8 @@
     "$comment": "A second scoping axis, orthogonal to industry. A question can be for a role in any field - a middle manager in a hospital and in a warehouse face the same structure. Questions with no roles listed are role-agnostic and work on anyone.",
     "middle-manager": "The person responsible for delivery, holding a team below and executives above. Has authority over the work but rarely over the constraints.",
     "ai-leader": "Whoever owns AI strategy, adoption or enablement - director, head of AI, transformation lead. Adjacent authority rather than a manager in the middle, and often the source of the pressure managers feel.",
-    "individual-contributor": "A senior practitioner with no direct reports who now directs agents. Increasingly doing a version of management without the title, the training, or the authority that comes with it."
+    "individual-contributor": "A senior practitioner with no direct reports who now directs agents. Increasingly doing a version of management without the title, the training, or the authority that comes with it.",
+    "builder": "Whoever invented, founded or ships the tool. Unlike every other role here they have a commercial stake in the conversation and have told their origin story hundreds of times, so questions aimed at their product get the deck and questions aimed at what they have watched users actually do get something nobody else can give you."
   },
   "industries": {
     "universal": "Written to land on any professional. The backbone of the database.",

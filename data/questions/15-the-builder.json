@@ -1,0 +1,212 @@
+{
+  "pack": "The Builder",
+  "description": "For the person who invented, founded or ships the thing. This is the only guest type in the database with a commercial stake in the conversation, which changes what you can get from them. Their product claims are worth nothing to your audience - they are available on the website. What is worth everything is that they have watched hundreds of people use the thing and fail in specific ways, and that observational data exists nowhere else. Aim every question at the watching, not at the building.",
+  "register_note": "The series voice already covers this: the tool is not the protagonist of the show, the person configuring it is. Hold that line and the episode cannot become a demo. The practical version - never ask a question whose answer is a feature. Ask questions whose answers are observations about other people's work, and the guest becomes a researcher reporting findings rather than a founder pitching.",
+  "why_the_obvious_question_fails": "'What pain point are you solving' is slide two of their deck and you will get it verbatim, polished, and useless. Every builder can recite it. Replace it with what they watched people do before the thing existed - same territory, but it asks for an observation they have to go and retrieve rather than a claim they have rehearsed.",
+  "questions": [
+    {
+      "id": "bld-01",
+      "text": "What were you watching people do, before this existed, that made you think there was something here?",
+      "theme": "origin",
+      "arc": "warmup",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "The honest replacement for asking what problem they solve. It asks for an observation they have to go back and retrieve rather than a claim they have delivered a hundred times, and observations are specific in a way pitches never are.",
+      "followups": [
+        "What were they doing instead? Walk me through the workaround.",
+        "How many people did you watch before you believed it?"
+      ],
+      "tags": ["ai", "builder-guest", "anti-pitch", "flagship", "high-yield"]
+    },
+    {
+      "id": "bld-02",
+      "text": "What do people try to do with it that you did not build it for?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Misuse is the single best signal a builder has and it is never in the deck, because it is evidence about what people actually need rather than about what was shipped. Almost every honest builder lights up at this.",
+      "followups": [
+        "Did you end up supporting it, or did you hold the line?",
+        "What did that tell you that your own plan had missed?"
+      ],
+      "tags": ["ai", "builder-guest", "anti-pitch", "flagship", "high-yield"]
+    },
+    {
+      "id": "bld-03",
+      "text": "Who is it genuinely not for?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Six words, and it is a test as much as a question. A builder who can name the people it does not suit has credibility for everything else they say; one who cannot has just told your audience how to weigh the rest of the episode.",
+      "followups": [
+        "Has someone bought it who should not have? What happened?",
+        "Do you say that in a sales conversation?"
+      ],
+      "tags": ["ai", "builder-guest", "anti-pitch", "guest-test", "flagship"]
+    },
+    {
+      "id": "bld-04",
+      "text": "What do you know from watching people use it that you could never have learned by asking them?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Names the builder's real privilege - they have watched the work happen rather than heard it described - and invites them to report from it. The gap between what people say they do and what they do is the most useful thing they own.",
+      "followups": [
+        "Where were people most wrong about their own work?",
+        "What did they never mention that turned out to matter most?"
+      ],
+      "tags": ["ai", "builder-guest", "observation", "flagship"]
+    },
+    {
+      "id": "bld-05",
+      "text": "What did the first version get wrong?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Past tense and safely resolved, so it is easy to answer honestly, and it breaks the polished origin narrative into something with texture. What they were wrong about is usually more interesting than what they were right about.",
+      "followups": [
+        "How long did it take you to see it?",
+        "Who told you - a user, or your own data?"
+      ],
+      "tags": ["ai", "builder-guest", "anti-pitch", "honest"]
+    },
+    {
+      "id": "bld-06",
+      "text": "The last famous assistant in roughly that shape got switched off and turned into a punchline. Which part of that criticism still stands?",
+      "theme": "myths",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Anyone building an assistant interface has knowingly picked up a cursed object and has thought about this more than you have. Asking which of the old criticism survives - rather than whether they have solved it - gets a real technical answer instead of a defence.",
+      "followups": [
+        "What did that thing get right that everyone forgets?",
+        "What is actually different now, at the level of mechanism rather than model quality?"
+      ],
+      "tags": ["ai", "builder-guest", "assistant-interface", "flagship", "high-yield"]
+    },
+    {
+      "id": "bld-07",
+      "text": "What makes an assistant welcome rather than intrusive? Be specific about the moment it decides to speak.",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Interruption is the whole design problem of an assistant interface, and the demand for the specific moment forces a real account of how it reads context rather than a claim about being helpful.",
+      "followups": [
+        "How does it know when someone is in the middle of something?",
+        "What does it do when it is not sure?"
+      ],
+      "tags": ["ai", "builder-guest", "assistant-interface", "concrete"]
+    },
+    {
+      "id": "bld-08",
+      "text": "What can a person teach it that it did not arrive knowing?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "The bridge from a product to the show's actual subject. If the answer is nothing, it is a tool; if the answer is the team's own judgment, it is the beginning of a department, and either answer is worth the airtime.",
+      "followups": [
+        "Who does that teaching - the person who bought it, or someone technical?",
+        "How long before it is meaningfully better at their work than at anyone else's?"
+      ],
+      "tags": ["ai", "builder-guest", "customization-as-superpower", "architecting-the-department", "flagship"]
+    },
+    {
+      "id": "bld-09",
+      "text": "One assistant is one relationship. What changes when there are five of them and they have to hand work to each other?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "The conceptual jump from an interface to a department, asked as a design problem rather than as a product roadmap question. It moves the guest from selling to thinking, which is the whole objective with this guest type.",
+      "followups": [
+        "What breaks first when you go from one to several?",
+        "Who is supposed to notice when the handoff goes wrong?"
+      ],
+      "tags": ["ai", "builder-guest", "architecting-the-department", "flagship", "high-yield"]
+    },
+    {
+      "id": "bld-10",
+      "text": "If someone could staff it rather than configure it - give it roles instead of settings - what would the first three roles be?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Hands the builder the show's own frame and asks them to think inside it. The reframe from settings to roles is exactly the shift the series argues for, and a good builder will improve on it in real time.",
+      "followups": [
+        "Which of those would a manager trust first?",
+        "What would that person actually be responsible for?"
+      ],
+      "tags": ["ai", "builder-guest", "architecting-the-department", "management-redefined", "flagship"]
+    },
+    {
+      "id": "bld-11",
+      "text": "Who inside a company should own how it behaves - the person who bought it, the team that uses it, or you?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Ownership asked of the vendor rather than of the customer, which is the version nobody puts to them. Including themselves in the list is what makes it honest, and the answer reveals how much control they actually intend to hand over.",
+      "followups": [
+        "How much of its behavior can a customer change without calling you?",
+        "Where do you refuse to let them change it, and why?"
+      ],
+      "tags": ["ai", "builder-guest", "management-redefined", "ownership", "high-yield"]
+    },
+    {
+      "id": "bld-12",
+      "text": "What is the question buyers ask that tells you they have misunderstood what it is?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Gets the misconception without letting them correct it with a pitch, because the frame is diagnostic rather than promotional. It also tells your audience how to think about the whole category.",
+      "followups": ["What should they be asking instead?"],
+      "tags": ["ai", "builder-guest", "anti-pitch", "myths"]
+    },
+    {
+      "id": "bld-13",
+      "text": "What did you have to stop building because it turned out nobody wanted it?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "Kills the vision monologue by asking for the part of the vision that died. Concrete, past tense, and it usually produces the most human minute of a builder interview.",
+      "followups": [
+        "Were you convinced, or did you give in?",
+        "Do you still think you were right?"
+      ],
+      "tags": ["ai", "builder-guest", "anti-pitch", "honest"]
+    },
+    {
+      "id": "bld-14",
+      "text": "What would you want a manager to be able to change about it on a Tuesday, without calling anyone?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "industries": ["universal"],
+      "roles": ["builder"],
+      "lands_because": "A closer that lands on the listener rather than on the product. It asks the builder to describe the autonomy they intend to give the person in the middle, which is the only thing about their tool the audience actually needs to know.",
+      "followups": ["What is stopping that today - the design, or the business model?"],
+      "tags": ["ai", "builder-guest", "customization-as-superpower", "closer", "flagship"]
+    }
+  ]
+}

@@ -4,10 +4,10 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**302 questions.** 83 in the universal core, 120 across 20 industry packs, and 99
+**316 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
 scoped to a *role* rather than a field — for middle managers, the AI leaders
-driving adoption at them, and the senior contributors now directing agents. Every
-question is tagged by theme, interview stage, and depth, carries a note on *why*
+driving adoption at them, the senior contributors now directing agents, and the
+people who build the tools. Every question is tagged by theme, interview stage, and depth, carries a note on *why*
 it works, and comes with follow-ups.
 
 ```
@@ -99,6 +99,7 @@ out of the running order.
 | `middle-manager` | 87 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine, Hard Boundaries, The Agent Manager |
 | `ai-leader` | 32 | AI Leaders & Adoption Owners, plus the workflow, boundary and agent-manager packs |
 | `individual-contributor` | 18 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
+| `builder` | 14 | The Builder |
 
 ## Arcs: themes with flavors
 
@@ -254,6 +255,7 @@ data/
     12-the-spine.json            the three required themes, standalone
     13-hard-boundaries.json      control: deterministic checks around probabilistic systems
     14-agent-manager.json        the management shift: agents as teammates, and who owns them
+    15-the-builder.json          interviewing the person who made the tool, without it becoming a demo
     industry/            one file per industry
 scripts/
   corpus.py              loading, filtering, slot substitution, brief assembly
