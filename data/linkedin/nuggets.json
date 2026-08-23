@@ -1,0 +1,210 @@
+{
+  "$comment": "Training nuggets: the claims, frames and vocabulary distilled from the source articles. Two jobs. (1) They are the raw material for posts - every post declares which nuggets it draws on, and validate.py checks the references resolve. (2) They are the matching set for the weekly scouring pass: a news item is worth writing about when it is a concrete instance of one of these claims, or a genuine counterexample to one. Read these before scanning, not after.",
+  "sources": {
+    "$comment": "Where the nuggets came from. 'kind' matters for how a claim can be used in public: a framework is somebody's argument, a transcript figure is unchecked until someone checks it.",
+    "track-trophy": {
+      "title": "Build capability, not subscriptions",
+      "kind": "explainer script",
+      "thesis": "The era of renting software is closing. Domain expertise becomes the specification, the AI handles the implementation, and what an organization accumulates is capability rather than seat licenses.",
+      "images": ["the trophy fish on the wall versus the stocked tackle box", "the vicious cycle of renting versus the compounding loop of owning", "the capability escalator"]
+    },
+    "agent-mgrs": {
+      "title": "Agent managers own its performance",
+      "kind": "explainer script",
+      "thesis": "Agents should be championed and managed by line-of-business owners rather than IT, which requires domain managers to develop a specific set of capabilities, and requires deterministic validation wrapped around the probabilistic part.",
+      "images": ["coaching a sports team rather than programming a machine"]
+    },
+    "executor-to-editor": {
+      "title": "From executor to editor",
+      "kind": "interview transcript",
+      "thesis": "Scaling agentic AI is a work-management problem rather than a technology problem, so the playbook is HR's: a job description, the right work, a performance review, a named human supervisor.",
+      "images": ["hiring someone, pointing at a desk, and saying figure it out"],
+      "referenced_work": "An operational framework attributed in the transcript to Joseph Fuller, alongside a paper by an Anthropic economist. Both are second-hand here - see citation_status on any nugget that leans on them."
+    }
+  },
+  "nuggets": [
+    {
+      "id": "nug-rent-vs-own",
+      "claim": "For twenty years every business problem resolved to the same answer: buy another piece of software. That produced a vicious cycle - problem, product, configuration project, permanent bill - where the new alternative is a compounding loop: problem, teach it once, own the capability, and start the next problem from what you already built.",
+      "theme": "customization-as-superpower",
+      "source": "track-trophy",
+      "vocabulary": ["seat license", "configuration project", "vendor roadmap", "compounding loop", "own the capability"],
+      "use_when": "A story about a team replacing or outgrowing a SaaS tool by building the specific thing they needed, or about buying yet another tool for a problem that was really a process problem.",
+      "counterpoint": "Owning a capability means owning its maintenance. Nobody pages you at 2am about a vendor's uptime. A post that skips this sounds like it has never run anything.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-expertise-is-the-spec",
+      "claim": "You no longer have to be a programmer to build a capability. Deep knowledge of how the business actually runs is the specification; the implementation is the part that got cheap. That elevates domain experts rather than replacing engineers.",
+      "theme": "natural-language-os",
+      "source": "track-trophy",
+      "vocabulary": ["the specification", "domain expert", "describe it the way you would tell a new person"],
+      "use_when": "Someone outside engineering built the working thing - a nurse, a scheduler, an underwriter, a shop foreman.",
+      "counterpoint": "Being able to build it is not the same as being allowed to run it in production. The interesting part of most of these stories is what happened at the review gate.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-three-eras",
+      "claim": "Three eras of problem solving, distinguished by who does the solving. Search: the tool retrieves and you synthesize. Prompt: you direct and it drafts, one turn at a time, every time. Skill: you teach the process once and it executes repeatedly on its own. The leverage moves from access to information, to faster first drafts, to institutionalized capability.",
+      "theme": "natural-language-os",
+      "source": "track-trophy",
+      "vocabulary": ["search era", "prompt era", "skill era", "institutionalized capability"],
+      "use_when": "Anything showing a team crossing from operating a chat window every time to a process that runs without a person starting it.",
+      "counterpoint": "Step three needs the process to be stable enough to be worth writing down. Plenty of valuable work is not, and saying so keeps the frame honest.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-tackle-box",
+      "claim": "The showboating demo is a trophy fish mounted on a wall: it proves the water has fish in it and feeds nobody. The measure that matters is a stocked tackle box - can this team catch things this quarter it could not catch last quarter.",
+      "theme": "customization-as-superpower",
+      "source": "track-trophy",
+      "vocabulary": ["trophy fish", "tackle box", "capability building"],
+      "use_when": "A viral demo is circulating, or an organization is reporting an impressive one-off with no path from it to daily work.",
+      "counterpoint": "Some demos are how a capability gets funded. The dividing line is whether anyone can repeat it on a normal Tuesday.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-hr-not-it",
+      "claim": "Think like HR, not IT. An agent is closer to an employee you onboard than to a dashboard you install, so the tools that work on it are the ones already used to manage people: a role, a standard, supervision, and review.",
+      "theme": "management-redefined",
+      "source": "executor-to-editor",
+      "vocabulary": ["onboarding", "job description", "supervisor", "performance review"],
+      "use_when": "An organization publishes how it actually introduced agents to a team, or a deployment failed for reasons that are recognisably management reasons.",
+      "counterpoint": "The analogy has a hard edge. An agent has no career, no morale and no rights, and stretching the metaphor past accountability gets silly fast.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-deployment-bottleneck",
+      "claim": "The bottleneck is not model capability, it is integration into daily work. Licenses get provisioned, logins get sent, and the workforce is expected to organically become twice as productive - which is treating AI like Microsoft Word.",
+      "theme": "management-redefined",
+      "source": "executor-to-editor",
+      "vocabulary": ["deployment bottleneck", "provision a license", "blank chat window"],
+      "use_when": "Survey coverage about stalled adoption, or a report of high license spend next to flat productivity.",
+      "counterpoint": "Sometimes the tool really is not good enough yet for that job. Diagnosing every stall as a management failure is its own kind of vendor talk.",
+      "citation_status": "framing",
+      "verify_before_use": "The transcript puts the share of companies making tangible progress on human-machine collaboration at under 10 percent and does not name the survey. Do not put that number in a post. The argument does not need it."
+    },
+    {
+      "id": "nug-job-description",
+      "claim": "Step one is a literal, written job description for the agent: what it is responsible for, what it may decide alone, and what it is not allowed to touch. Vague scope produces one of two failures - scope creep into sensitive data and external communications, or paralysed employees who will not touch it because nobody has told them what they might break.",
+      "theme": "architecting-the-department",
+      "source": "executor-to-editor",
+      "vocabulary": ["decision rights", "operational boundaries", "escalate", "scope creep"],
+      "use_when": "Any account of an agent doing something nobody intended, or a rollout where nothing got used.",
+      "counterpoint": "Written boundaries only bind if they are also enforced in the system. A policy document that the software does not implement is decoration.",
+      "citation_status": "attributed",
+      "attribution": "Presented in the transcript as step one of an operational playbook attributed to Joseph Fuller. Attribute it as a framework, not as a finding."
+    },
+    {
+      "id": "nug-threshold-example",
+      "claim": "The worked example: an agent may independently review and approve a 500 dollar invoice from a known vendor, and must halt and escalate a 5,000 dollar invoice to a named human. High-volume low-risk execution stays with the agent; the high-stakes judgment call is physically prevented.",
+      "theme": "architecting-the-department",
+      "source": "executor-to-editor",
+      "vocabulary": ["threshold", "halt and escalate", "known vendor", "high volume, low risk"],
+      "use_when": "Almost any post about boundaries. This is the concrete specific the shape rule asks for, and it travels across industries - swap invoices for refunds, discharge summaries, purchase orders, shift swaps.",
+      "counterpoint": "Thresholds are easy to state and hard to set. The real work is the exception list, which is exactly why it belongs to the person who does the job.",
+      "citation_status": "attributed",
+      "attribution": "Illustrative example from the same transcript, not a case study from a named company."
+    },
+    {
+      "id": "nug-dull-and-deterministic",
+      "claim": "Design the agent's role around human pain points: the dull, dispiriting and deterministic work, where there is a clear objective right answer. Boring beats fancy - target the tedious repetitive workflow before the complex generative one.",
+      "theme": "architecting-the-department",
+      "source": "executor-to-editor",
+      "vocabulary": ["dull, dispiriting, deterministic", "boring beats fancy"],
+      "use_when": "A deployment succeeded on unglamorous work, or a flashy one failed on work that needed taste.",
+      "counterpoint": "Dispiriting work is sometimes also the training ground where juniors learn to see. Removing it wholesale has a cost that shows up two years later.",
+      "citation_status": "attributed"
+    },
+    {
+      "id": "nug-performance-review",
+      "claim": "Offloading the work does not offload responsibility for it. If the agent has a formal job description it needs a formal performance review on a regular cycle against explicit indicators - accuracy, timeliness, reliability - and every agent needs a named human supervisor on the org chart. Regulators and courts will expect that accountability to exist.",
+      "theme": "management-redefined",
+      "source": "executor-to-editor",
+      "vocabulary": ["performance review", "named supervisor", "accountability", "auditable"],
+      "use_when": "Regulatory news, an audit finding, or a company publishing how it actually reviews agent output.",
+      "counterpoint": "The legal claim is a forecast in the source, not settled law. Say it as an expectation forming, not as a rule already on the books.",
+      "citation_status": "attributed"
+    },
+    {
+      "id": "nug-naming",
+      "claim": "Naming an agent is not about humanising it. It is functional: a name makes the role discussable in a fast conversation and locks in accountability. Without one, errors get attributed to 'the AI', which becomes an abstract scapegoat nobody can question. With one, the record reads: this agent produced that pull, and this person signed off.",
+      "theme": "management-redefined",
+      "source": "executor-to-editor",
+      "vocabulary": ["scapegoat", "document history", "signed off", "discussable"],
+      "use_when": "Any incident where responsibility for an AI-produced output evaporated, or a team explaining its naming convention.",
+      "counterpoint": "Names also invite the anthropomorphising this argument is trying to avoid, especially once people start apologising to them. Worth saying out loud in the post.",
+      "citation_status": "attributed"
+    },
+    {
+      "id": "nug-lob-ownership",
+      "claim": "Sustained success requires agents to be championed and managed by line-of-business owners rather than the IT department. It is about business outcomes rather than technical uptime: IT can secure the data pipelines, but the domain experts have to define what good actually looks like - the tone of voice, the escalation rules, the success metrics.",
+      "theme": "management-redefined",
+      "source": "agent-mgrs",
+      "vocabulary": ["line of business owner", "own its performance", "escalation rules", "what good looks like"],
+      "use_when": "An org chart change putting agent ownership somewhere specific, or a post-mortem where the technical team ran something they could not judge.",
+      "counterpoint": "Distributed ownership without a shared platform recreates shadow IT, with worse security. The strong version of this argument names who still owns the guardrails.",
+      "citation_status": "reported"
+    },
+    {
+      "id": "nug-coaching-not-programming",
+      "claim": "Managing agents sounds less like programming a machine and more like coaching a sports team: define the role, set the standard, watch the tape, correct the specific thing, run it again next week.",
+      "theme": "management-redefined",
+      "source": "agent-mgrs",
+      "vocabulary": ["coaching", "the standard", "run it again"],
+      "use_when": "A team describing a weekly rhythm around their agents, rather than a one-time configuration.",
+      "counterpoint": "Coaching implies the thing improves from the coaching. Much of the improvement comes from the model, and it is worth being precise about which is which.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-six-capabilities",
+      "claim": "Six capabilities are said to make an agent manager: AI operational literacy (no computer science degree required), functional definition from deep experiential knowledge of the process, systems thinking across workflows and other agents, change resilience through short test-deploy-learn cycles, craftsmanship in the language and logic that shape behaviour, and fluency working across both machines and people.",
+      "theme": "management-redefined",
+      "source": "agent-mgrs",
+      "vocabulary": ["operational literacy", "functional definition", "test, deploy, learn"],
+      "use_when": "A job posting for an agent manager, or a company describing how it staffed the role.",
+      "counterpoint": "Six-capability lists are how consultancies describe jobs before the jobs exist. Useful as a description of what the work demands, weak as evidence that anyone is hiring for it.",
+      "citation_status": "reported"
+    },
+    {
+      "id": "nug-deterministic-wrapper",
+      "claim": "The structural fix is deterministic validation wrapped around the probabilistic part: the AI is only allowed to propose a course of action, and a hard-coded deterministic layer verifies that proposal against security and business policy before anything executes.",
+      "theme": "architecting-the-department",
+      "source": "agent-mgrs",
+      "vocabulary": ["propose", "verify", "deterministic layer", "before it executes"],
+      "use_when": "An incident caused by an agent acting directly, or an architecture writeup that puts a checking layer in the path.",
+      "counterpoint": "The checking layer is only as good as the rule, and the rule is the part nobody has written down. That is the whole opening, not a footnote.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-unsupervised-handoffs",
+      "claim": "Strictly limit unsupervised handoffs between agents. An agent handling external email should never have unverified direct API access to the agent that modifies the central financial ledger.",
+      "theme": "architecting-the-department",
+      "source": "agent-mgrs",
+      "vocabulary": ["handoff", "unverified access", "external input", "the ledger"],
+      "use_when": "Any real incident involving chained agents or injected instructions arriving through untrusted input.",
+      "counterpoint": "Stated as security advice it is uncontroversial. What makes it a post is that deciding which handoffs are safe is a business judgment, not a security one.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-verify-like-a-junior",
+      "claim": "Three rules for managing the work: verify like a junior developer, because the output is competent but junior and human review is not optional; explain the why, because reasoning transfers where recipes do not; and boring beats fancy.",
+      "theme": "architecting-the-department",
+      "source": "track-trophy",
+      "vocabulary": ["verify", "human review", "reasoning beats recipes"],
+      "use_when": "A story about a review process that caught something, or one about a review process that had quietly stopped happening.",
+      "counterpoint": "Review that never finds anything decays into rubber-stamping. The honest version asks how often the check actually catches something.",
+      "citation_status": "framing"
+    },
+    {
+      "id": "nug-capability-escalator",
+      "claim": "An AI workforce grows the way an organization does: single-task coworkers first - formatters, schedulers - then domain analysts that research and recommend as trust builds, and only then anything with broad decision scope.",
+      "theme": "architecting-the-department",
+      "source": "track-trophy",
+      "vocabulary": ["capability escalator", "AI coworker", "single-task specialist", "as trust builds"],
+      "use_when": "A team describing a second or third agent, and what changed about supervision between them.",
+      "counterpoint": "Trust that escalates on a schedule rather than on evidence is just impatience with extra steps. Ask what specifically earned the promotion.",
+      "citation_status": "framing"
+    }
+  ]
+}

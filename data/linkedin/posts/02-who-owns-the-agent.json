@@ -1,0 +1,75 @@
+{
+  "pack": "Who owns the agent",
+  "source": "agent-mgrs",
+  "description": "Rewrites of the agent-manager material: ownership sitting with the line of business rather than IT, the six capabilities, and the deterministic layer that has to sit between a proposal and an action. This is the pack that most easily turns into a promise of a promotion for the reader, which would be flattery. Every post here delivers the ownership argument as a reported pattern and leaves the reader room to think it is oversold.",
+  "posts": [
+    {
+      "id": "li-agent-mgr-01",
+      "title": "The new management job is not in IT",
+      "format": "argument",
+      "status": "ready",
+      "covers": ["management-redefined"],
+      "nuggets": ["nug-lob-ownership", "nug-six-capabilities"],
+      "hook": "A new management job is taking shape, and the reporting keeps landing in the same awkward place: the people best suited to it are not in the technical team.",
+      "body": [
+        "The pattern is consistent enough to be worth taking seriously. Agents run centrally by a technical group tend to work technically and drift in the actual work. Agents owned by the function they serve get corrected faster, because somebody there can tell within a day that the output is subtly wrong.",
+        "That is not a knock on IT. It is that the questions which decide whether an agent is any good are not technical questions.",
+        "What tone does it take with a customer who is already angry. What is it never allowed to decide alone. What does good enough look like on a Tuesday in the middle of quarter close, when the alternative is nothing going out at all.",
+        "IT can make sure the data pipelines are secure. Only somebody who does the work can say what good looks like in it.",
+        "The capabilities the job is said to need, roughly in the order of how much of each is already sitting in your team:",
+        "- deep knowledge of the actual process, exceptions included\n- the ability to state a rule precisely enough that it can be enforced\n- enough operational literacy to know how these things fail\n- systems thinking across the handoffs\n- a weekly rhythm of test, adjust, run it again\n- the patience to work with both the machine and the people around it",
+        "Four of those are management. One is language. One is genuinely new.",
+        "Worth saying plainly: this is a description of what the work demands, not proof that anyone is hiring for it yet. The job postings are thin. The work is not."
+      ],
+      "close": "If an agent started doing part of your team's work next month, who on your org chart would own whether it did it well?",
+      "hashtags": ["#Leadership", "#AIatWork", "#Management", "#FutureOfWork"],
+      "why_it_lands": "The reader is being told that the thing they hold - functional depth and accountability for output - is the qualification, and it is delivered as a finding rather than as encouragement. The last paragraph is what makes it credible.",
+      "risk": "One sentence of triumphalism turns this into 'managers will inherit the earth'. Keep the register flat."
+    },
+    {
+      "id": "li-handoff-02",
+      "title": "The email agent and the ledger",
+      "format": "argument",
+      "status": "ready",
+      "covers": ["architecting-the-department"],
+      "nuggets": ["nug-unsupervised-handoffs", "nug-deterministic-wrapper", "nug-threshold-example"],
+      "hook": "The agent that reads your inbound email should not have a direct line to the one that touches the ledger.",
+      "body": [
+        "These systems are probabilistic. Run the same request twice and you get two slightly different results. That is fine for a draft and serious for a transaction.",
+        "So the fix is not trusting the model more. It is structural: the agent proposes, ordinary deterministic software checks the proposal against the rule, and only then does anything actually happen.",
+        "Then you limit the handoffs. Anything taking in untrusted text from outside the company should not have unverified access to the system that moves money, because instructions arrive in that text too.",
+        "Here is the part that puts this on a manager's desk rather than the security team's.",
+        "The hard step is not building the checking layer. It is stating the rule precisely enough that software can enforce it.",
+        "'Help with invoices' cannot be enforced. This can: approve a repeat vendor invoice under five hundred dollars, halt anything over five thousand and escalate it to a named person.",
+        "The person who can write that sentence, with the right numbers and the exceptions that actually come up, is the person who has been processing the invoices for six years.",
+        "Which makes the security conversation and the domain expertise conversation the same conversation, and most organizations are still holding them in separate rooms."
+      ],
+      "close": "What is a rule in your workflow that everybody follows and nobody has ever written down?",
+      "hashtags": ["#AIatWork", "#Operations", "#RiskManagement", "#Leadership"],
+      "why_it_lands": "Control is reached through authorship rather than through fear. The reader arrives at the boundary question as the author of the rule, not as the person being warned about risk.",
+      "risk": "Do not let it tip into security-scare content. The subject is who writes the rule."
+    },
+    {
+      "id": "li-coach-03",
+      "title": "Coaching, not programming",
+      "format": "reframe",
+      "status": "ready",
+      "covers": ["management-redefined", "customization-as-superpower"],
+      "nuggets": ["nug-coaching-not-programming", "nug-lob-ownership"],
+      "hook": "Running an agent turns out to look less like programming a machine and more like coaching a team you inherited mid-season.",
+      "body": [
+        "You do not write its code. You define what it is for, what tone it takes, when it hands off, and what counts as a good week.",
+        "Then you watch the tape. Not all of it, just the plays that went wrong, and you correct the specific thing rather than restating the philosophy.",
+        "Then you run it again next week.",
+        "That is a coaching job, and it is a job most managers have already done with people, usually without anyone calling it that.",
+        "It is also why ownership matters more than tooling. The person who defines what good looks like has to be somebody who has done the work, or the standard drifts toward whatever is easy to measure.",
+        "Split it the other way - technical team sets the standard, the function receives it - and you get something that runs beautifully and produces work nobody on the team would put their name to.",
+        "The limit of the metaphor is worth naming. Coaching implies the thing improves because you coached it. A fair amount of the improvement is just the model getting better underneath you, and it is worth being precise about which is which when you report the results upward."
+      ],
+      "close": "Who defines what good looks like for the tools your team uses today, and have they ever done the job themselves?",
+      "hashtags": ["#Management", "#AIatWork", "#Leadership"],
+      "why_it_lands": "Converts a management skill the reader already has into the core competence, and the closing question is one they have a strong private answer to.",
+      "risk": "The sports metaphor gets thin if it runs longer than this. Three beats and out."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "$comment": "The LinkedIn channel bible. It inherits the show's register from series.json - promise, invites, avoids, avoid_patterns are all enforced against post copy by validate.py - and adds only what is specific to publishing on a feed: the mechanics of the fold, the shape of a post, and the rules that keep the account from sounding like marketing.",
+  "channel": "linkedin",
+  "cadence": {
+    "posts_per_week": [
+      1,
+      2
+    ],
+    "start_at": 1,
+    "note": "One a week that is genuinely good beats two that are filler. Move to two only when the queue holds at least four ready posts, so a slow week never forces a weak one.",
+    "scan_rhythm": "One scouring pass a week against data/linkedin/sources.json. A pass that finds nothing publishable is a normal outcome and is not a reason to lower the bar."
+  },
+  "audience": {
+    "$comment": "Same person as the podcast listener, arriving through a different door and giving you two seconds instead of forty minutes.",
+    "who": "A manager or senior practitioner responsible for delivery in any field. They have been handed software configured by someone who has never done their job.",
+    "what_they_are_doing_when_they_see_it": "Scrolling between meetings, on a phone, deciding in under two seconds whether to tap 'see more'.",
+    "why_they_stop": "They recognise their own working week in the first line. Recognition, not novelty, is what earns the tap.",
+    "what_makes_them_leave": "Being sold to, being told they are behind, or reading a paragraph that could have been written by someone who has never run anything."
+  },
+  "mechanics": {
+    "$comment": "Platform facts the copy has to survive. Numbers here are enforced by validate.py.",
+    "max_chars": 3000,
+    "fold_chars": 210,
+    "target_chars": [
+      900,
+      1800
+    ],
+    "line_length": "Short paragraphs, one to three lines. A wall of text on a phone is a scroll.",
+    "links": "No external link in the body - put it in the first comment and say so in the post. A body link costs reach and the post has to stand alone anyway.",
+    "hashtags": {
+      "min": 2,
+      "max": 5,
+      "note": "At the end, never mid-sentence. They are filing labels, not decoration."
+    }
+  },
+  "shape": {
+    "$comment": "The four parts of every post in this repo. The close is a real question, not engagement bait - see 'avoids'.",
+    "hook": "One or two lines that fit above the fold. It names a situation the reader has been in, or states the claim flat. It never teases the payoff.",
+    "body": "The argument, in short paragraphs. At least one concrete, checkable specific - a threshold, a sentence someone would actually say, a step in a process.",
+    "close": "A question they can answer from their own week without disclosing anything they would regret. It has to be a question you would genuinely want the answer to.",
+    "hashtags": "Two to five."
+  },
+  "formats": {
+    "$comment": "Controlled vocabulary for a post's 'format' field.",
+    "argument": "A claim, the reasoning, and what follows from it. The default.",
+    "reframe": "Takes a thing the reader already believes and turns it ninety degrees. Strongest format this account has, because the show's whole premise is a reframe.",
+    "field-note": "One concrete thing observed or reported, told small and specific, with the general point left implicit until the last line.",
+    "playbook": "A short numbered or bulleted procedure someone could run on Monday. Use sparingly - it invites skimming.",
+    "question": "Opens a real question the author has not settled, and says so. Only honest if it is true."
+  },
+  "voice": {
+    "$comment": "series.json 'voice' governs here in full. These are the additions that only bite on a feed.",
+    "invites": [
+      "Lead with the reader's situation, not with the technology. The first line should be recognisable to someone who has never touched an agent.",
+      "One concrete specific per post - a dollar threshold, a sentence somebody said, a step in a process. Abstraction is what makes a post forgettable.",
+      "Say the claim flat. A hook that teases ('the reason will surprise you') spends trust the account has to keep.",
+      "Write so that a reader who thinks the whole thing is oversold can still finish it and disagree with something specific.",
+      "Attribute honestly. Reported is reported, and a framework is somebody's framework."
+    ],
+    "avoids": [
+      "Engagement bait. 'Agree?', 'Thoughts?', 'Comment YES below', the fake poll. It works once and costs the account its register.",
+      "The broetry cadence - every sentence its own paragraph for drama. Short paragraphs, not one-line theatre.",
+      "Statistics without a checked citation. See 'statistics' below.",
+      "Prediction as content. Nobody needs another take on what AI will do to work by 2030; the account's material is what people already did last Tuesday.",
+      "Naming a vendor as the hero, including the ones this account likes.",
+      "Recycled hook formulas. 'I asked AI to X and the result shocked me' is not this account."
+    ],
+    "statistics": "No number goes in a post unless the nugget it comes from carries citation_status 'verified' and a source you have actually opened. Structural arguments do not need the number to work, and a wrong number is the one mistake this audience will remember.",
+    "avoid_patterns": {
+      "$comment": "Case-insensitive substrings validate.py flags in post copy, on top of the show-wide list in series.json. These are the feed-specific failures: engagement bait, hook formulas, and the vocabulary of a vendor.",
+      "agree?": "Engagement bait. Ask something you actually want the answer to.",
+      "thoughts?": "Engagement bait. A real question names what you are asking about.",
+      "comment below": "Engagement bait.",
+      "drop a comment": "Engagement bait.",
+      "let me know in the comments": "Engagement bait.",
+      "who else": "Engagement bait dressed as solidarity.",
+      "will shock you": "Hook formula. Say the claim flat.",
+      "will surprise you": "Hook formula. Say the claim flat.",
+      "read that again": "Hook formula.",
+      "here's the thing": "Hook formula.",
+      "game changer": "Vendor register.",
+      "game-changer": "Vendor register.",
+      "unlock the power": "Vendor register.",
+      "supercharge": "Vendor register.",
+      "10x your": "Vendor register.",
+      "the future of work is here": "Prediction as content, and a cliche."
+    }
+  },
+  "do_not_post": [
+    "Anything that reads as a vendor case study, including the ones with real results.",
+    "Client or employer specifics that were not offered publicly by the person they belong to.",
+    "A response to a news item within a day of it breaking, before the facts settle.",
+    "A post whose only content is that a model was released."
+  ],
+  "measurement": {
+    "$comment": "What to watch, so the account does not get optimised into slop.",
+    "primary": "Comments from people who do the work, describing their own version of the thing. That is the signal the register is landing.",
+    "secondary": "Saves and DMs. Both mean it was useful rather than agreeable.",
+    "ignore": "Impressions on a post that got them by being provocative. Reach bought that way selects for an audience this account does not want.",
+    "review": "Once a quarter, read the ten posts with the most practitioner comments and ask what they had in common. Feed that back into the formats, not into the hooks."
+  },
+  "citation_status": {
+    "$comment": "How much weight a nugget's claim can carry in public. validate.py enforces these values on every nugget.",
+    "verified": "You have opened the primary source yourself. The only status that permits a number in a post.",
+    "reported": "Somebody reported it, and the report is identifiable. Say who, and say reported.",
+    "attributed": "It is a named framework or argument rather than a finding. Attribute it as such.",
+    "framing": "A way of seeing the thing, owned by this account. Nothing to cite, and nothing to claim as evidence."
+  }
+}

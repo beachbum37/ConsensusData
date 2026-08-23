@@ -143,6 +143,71 @@ anchoring level to match that certainty, pulls the arc and supporting questions,
 and assembles a prep sheet that opens with what to do if the premise turns out
 to be wrong.
 
+## The LinkedIn machine
+
+The show's other channel. One to two posts a week to the same person, arriving
+through a different door and giving you two seconds instead of forty minutes.
+
+```bash
+python3 scripts/linkedin.py queue --weeks 4 --per-week 1   # what to post, when
+python3 scripts/linkedin.py post li-onboard-01 --bare      # paste-ready copy
+python3 scripts/linkedin.py scan --format md               # the weekly news pass
+```
+
+**Nine posts**, written from three source articles and stocked deep enough for
+nine weeks at one a week. Each declares which spine themes it `covers`, which
+`nuggets` it draws on, why it lands, and what it risks.
+
+**The register is shared with the podcast.** `data/series.json` governs both, so
+`validate.py` lints post copy against the same avoid list as question text, plus
+a feed-specific one: engagement bait, hook formulas, vendor register. The feed
+also has to carry all four spine themes - the same requirement the arcs carry,
+enforced the same way.
+
+**The fold is enforced.** A hook over 210 characters gets cut mid-sentence on a
+phone, so validation fails it. So does a post over the platform limit, a link in
+the body, a dangling nugget reference, and a figure with no verified source
+behind it.
+
+### Nuggets
+
+`data/linkedin/nuggets.json` holds the claims distilled from the source
+articles - what each one asserts, which spine theme it carries, the vocabulary
+worth reusing, when to reach for it, how much weight the citation can bear, and
+**a counterpoint**. The counterpoint is required by the tests. A nugget with
+nothing to say against it is a slogan.
+
+Nuggets do two jobs. They are the raw material for posts, and they are the
+matching set for the weekly scan: a news item is worth writing about when it is
+a concrete instance of one of these claims, or a genuine counterexample to one.
+
+```bash
+python3 scripts/linkedin.py nuggets --theme management-redefined
+python3 scripts/linkedin.py nuggets --search "tackle box"
+```
+
+Claims carry a `citation_status` - `verified`, `reported`, `attributed`, or
+`framing` - and only `verified` permits a number in a post. One nugget carries a
+`verify_before_use` note against an unattributed survey figure in its source
+transcript; that figure is deliberately absent from every post, and a test keeps
+it that way.
+
+### The scan
+
+`data/linkedin/sources.json` is the scouring brief: where to look, five
+conditions a find has to meet, a disqualifier list that kills most items in a
+sentence, search queries including deliberate counterexample queries, and a
+five-dimension score. Six or better is worth drafting.
+
+A pass that finds nothing publishable is a normal outcome, and an empty slot in
+the queue prints as an empty slot rather than a repeat - it means write
+something or go looking, not post a weaker one twice.
+
+### The skill
+
+`.claude/skills/linkedin-post/SKILL.md` runs all three jobs: publish from the
+queue, run a scouring pass, or turn an article into nuggets and posts.
+
 ## Using it
 
 Everything is Python 3 standard library. No install, no dependencies.
@@ -239,12 +304,18 @@ as a follow-on, never as an opener.
 ```
 .claude/skills/
   interview-arc/SKILL.md the skill: prep an interview end to end
+  linkedin-post/SKILL.md the skill: publish, scan for material, write new posts
 data/
   series.json            the bible: promise, register, spine
   taxonomy.json          controlled vocabularies for arc, depth, theme, industries, roles
   industries.json        20 profiles: vocabulary, status axis, trust signals, landmines
   arcs/
     ai-workflow-partner.json   17 beats, four flavors each, 11 carrying spine themes
+  linkedin/
+    channel.json         the channel bible: cadence, the fold, feed register
+    nuggets.json         claims distilled from the source articles
+    sources.json         the weekly scouring brief and scoring rubric
+    posts/               the posts, one pack per source article
   questions/
     00-openers.json      universal core, one file per pack
     …
@@ -260,10 +331,13 @@ data/
 scripts/
   corpus.py              loading, filtering, slot substitution, brief assembly
   query.py               the CLI
-  validate.py            schema, vocabulary, and duplicate checks + coverage report
+  social.py              loading, rendering and scheduling for the LinkedIn machine
+  linkedin.py            the LinkedIn CLI
+  validate.py            schema, vocabulary, register and fold checks + coverage
   build.py               bakes docs/index.html
   template.html          the page source
   test_corpus.py         unit tests
+  test_social.py         unit tests for the LinkedIn machine
 docs/
   index.html             generated - do not edit by hand
   artifact.html          generated

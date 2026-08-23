@@ -1,0 +1,113 @@
+{
+  "$comment": "The weekly scouring brief: where to look for novel AI use cases in the workplace, what counts as one, and how to score a find before it becomes a post. Run one pass a week. Nothing publishable is a normal outcome - the disqualifiers exist so the account does not fill with product news.",
+  "what_we_are_looking_for": "A specific instance of somebody's actual job being done differently. A named function, a before and after in the work itself, and enough detail that a manager in a different industry could recognise their own version of it. The nuggets in nuggets.json are the matching set: a find is worth writing about when it is a concrete case of one of those claims, or a genuine counterexample to one.",
+  "novelty_test": {
+    "$comment": "All five have to hold. Any one of them missing and it is product news, not a use case.",
+    "named_function": "You can say which job it is. Claims adjuster, ward pharmacist, dispatcher, grant writer, line cook. Not 'knowledge workers'.",
+    "the_work_changed": "Something about how the work is done is different, not just which tool is open. If the answer is 'they use a chatbot now', keep reading.",
+    "a_person_decided": "Somebody made a call about scope, boundaries or supervision, and you can say what the call was.",
+    "checkable_detail": "At least one specific that could be wrong: a threshold, a step that got removed, a rule, a number of cases, a handoff.",
+    "transferable": "A manager in an unrelated field would recognise the structure of the problem."
+  },
+  "disqualifiers": [
+    "A model release, a benchmark score, or a funding round.",
+    "A vendor case study with results and no process. If it does not say what the agent was not allowed to do, there is no post in it.",
+    "A prediction about employment in 2030.",
+    "An anonymous 'a Fortune 500 company' with no function named.",
+    "A pilot with no described supervision. Pilots that nobody checked are not use cases, they are announcements.",
+    "Anything under 48 hours old where the facts are still moving."
+  ],
+  "scoring": {
+    "$comment": "Score a candidate 0-3 on each. Six or better is worth drafting; anything with a 0 on specificity gets dropped regardless of total.",
+    "specificity": "How concrete is the detail. 3 means you could describe the process to someone who does that job and they would nod.",
+    "spine_fit": "Does it carry one of the four spine themes without being bent to fit. 3 means the story is already about that.",
+    "recognisability": "Would the audience see their own week in it. 3 means they have had the same argument in their own function.",
+    "honesty_headroom": "Is there a real counterpoint you can include without wrecking the post. 3 means the story has a genuine cost or tradeoff in it, which is what makes it credible.",
+    "freshness": "Not staleness, but whether the account has said this recently. 3 means the angle has not appeared in the last eight posts."
+  },
+  "sources": [
+    {
+      "name": "Peer-reviewed and working-paper economics of AI at work",
+      "kind": "research",
+      "examples": ["NBER working papers", "arXiv cs.CY and econ.GN", "Anthropic Economic Index", "Stanford Digital Economy Lab"],
+      "good_for": "Task-level rather than job-level findings, which is the altitude this account argues at.",
+      "watch_for": "Preprints without review. Say 'a working paper reports' and mean it."
+    },
+    {
+      "name": "Management press",
+      "kind": "trade",
+      "examples": ["MIT Sloan Management Review", "Harvard Business Review", "Stanford Social Innovation Review"],
+      "good_for": "The management framing this account shares, and named operational frameworks worth arguing with.",
+      "watch_for": "Consulting content marketing wearing a journal's typeface."
+    },
+    {
+      "name": "Industry trade press",
+      "kind": "trade",
+      "examples": ["Modern Healthcare and Becker's for hospitals", "FreightWaves for logistics", "Legal Tech News and Law360 for legal", "Restaurant Business", "Construction Dive", "Chief Investment Officer"],
+      "good_for": "The richest vein by far. Trade press writes for practitioners, so it names the function and the process instead of the vendor.",
+      "watch_for": "Sponsored posts. Check the byline."
+    },
+    {
+      "name": "Regulators, auditors and standards bodies",
+      "kind": "official",
+      "examples": ["NIST AI Risk Management Framework updates", "state and national labour and health regulators", "financial conduct regulators", "public-sector audit reports"],
+      "good_for": "Accountability and supervision material - the performance-review and named-supervisor nuggets. Audit reports in particular describe what actually happened, in detail, under oath.",
+      "watch_for": "Draft guidance read as if it were in force."
+    },
+    {
+      "name": "Practitioner communities",
+      "kind": "primary",
+      "examples": ["subreddits for specific trades and professions", "professional association forums", "conference talks by people who run the function", "engineering blogs describing internal tooling"],
+      "good_for": "The unglamorous detail nobody publishes: the workaround, the rule they added after the incident, the thing they turned off.",
+      "watch_for": "Single anonymous accounts. Corroborate before quoting, and never quote a named individual without their public consent."
+    },
+    {
+      "name": "Labour market data",
+      "kind": "official",
+      "examples": ["national statistics offices", "job posting aggregates", "union and works council communications"],
+      "good_for": "Evidence about whether roles like agent manager are actually being hired, which is the weak point in the six-capabilities nugget.",
+      "watch_for": "Job title inflation. A posting is an intention, not a job."
+    }
+  ],
+  "queries": {
+    "$comment": "Starting points for a weekly search pass. Rotate rather than running all of them - the aim is one good find, not a survey.",
+    "structural": [
+      "\"agent manager\" job description line of business",
+      "who owns AI agents org chart \"not IT\"",
+      "AI agent \"escalate to a human\" threshold policy",
+      "\"human in the loop\" removed OR added after incident"
+    ],
+    "by_function": [
+      "AI workflow nurses scheduling hospital rollout what changed",
+      "claims adjusters AI triage rules exceptions",
+      "dispatchers AI logistics exception handling",
+      "public sector caseworker AI pilot evaluation report"
+    ],
+    "counterexample": [
+      "AI pilot rolled back reason process",
+      "\"we turned it off\" AI tool team workflow",
+      "AI deployment failed audit findings"
+    ],
+    "note": "The counterexample queries earn their place. A find that contradicts a nugget is more valuable than a fifth confirmation of one, and it is the only reliable way to keep the account from becoming a fan account for its own thesis."
+  },
+  "candidate_schema": {
+    "$comment": "What to record for a find, whether or not it becomes a post. Kept so the same story does not get rediscovered every six weeks.",
+    "id": "kebab-case slug",
+    "found": "ISO date",
+    "source_url": "the primary source, not an aggregator's rewrite of it",
+    "function": "the named job",
+    "what_changed": "one sentence on the work before and after",
+    "the_decision": "the scope, boundary or supervision call somebody made",
+    "nuggets": "which claims it instantiates or contradicts",
+    "scores": "the five scoring dimensions",
+    "verdict": "draft, hold, or drop, with one line of reasoning"
+  },
+  "workflow": [
+    "1. Read the nuggets first. You are looking for instances, not for interesting news.",
+    "2. Run two or three queries, including one counterexample query.",
+    "3. Apply the novelty test before reading anything closely. It kills most items in a sentence.",
+    "4. Score what survives. Record every candidate, including the drops.",
+    "5. Take the best one to a draft. If nothing scores six, publish from the queue instead and say nothing about it - a quiet week is not a content emergency.",
+    "6. Before drafting, check the last eight posts for the same angle."
+  ]
+}
