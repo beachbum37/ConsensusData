@@ -86,7 +86,21 @@ Then:
    plainly when nothing cleared the bar. **A week with no publishable find is a
    normal outcome.** Manufacturing one is how the account turns into slop.
 5. Fetch the primary source before writing anything, never an aggregator's
-   rewrite of it.
+   rewrite of it. If a fetch is blocked - some environments allow search but not
+   fetching - the candidate stays at `hold` and says so. Never draft from a
+   search snippet, and never promote a figure to `verified` you have not read in
+   its source.
+6. Record every candidate in `data/linkedin/candidates.json`, drops included,
+   with the pass itself: date, queries run, what happened. That is what stops
+   the same story being rediscovered in six weeks.
+
+```bash
+python3 scripts/linkedin.py candidates
+```
+
+Watch for a find that **contradicts** a nugget or a line in a post already in
+the queue - record it in `contradicts`, and say so in the report. Correcting a
+post before it goes out is worth more than another one that agrees with us.
 
 **Numbers.** No figure goes in a post unless you have opened the primary source
 yourself, in which case the nugget behind it gets `citation_status: verified`.

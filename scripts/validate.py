@@ -15,8 +15,9 @@ import sys
 from collections import Counter, defaultdict
 
 from corpus import ANCHORING, REQUIRED_FIELDS, load, slots_in
-from social import (NUGGET_FIELDS, POST_FIELDS, STATUSES, char_count,
-                    load_channel, render_body)
+from social import (CANDIDATE_FIELDS, DRAFT_THRESHOLD, NUGGET_FIELDS,
+                    POST_FIELDS, SCORE_FIELDS, STATUSES, VERDICTS, char_count,
+                    load_channel, render_body, score_total)
 
 ARC_BEAT_FIELDS = ("beat", "title", "theme", "purpose", "listener_payoff",
                    "keep_it_approachable", "flavors")
@@ -245,9 +246,41 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
             "covers it - remove the declaration"
         )
 
+    seen_candidates: set[str] = set()
+    for c in channel.candidates:
+        where = f"candidates.json:{c.get('id', '<no id>')}"
+        for field_name in CANDIDATE_FIELDS:
+            if not c.get(field_name):
+                errors.append(f"{where}: missing required field '{field_name}'")
+        if c.get("id") in seen_candidates:
+            errors.append(f"{where}: duplicate candidate id")
+        seen_candidates.add(c.get("id"))
+        if c.get("verdict") not in VERDICTS:
+            errors.append(f"{where}: unknown verdict '{c.get('verdict')}'")
+        if not str(c.get("source_url", "")).startswith("http"):
+            errors.append(f"{where}: source_url is not a link")
+        for nid in list(c.get("nuggets", [])) + list(c.get("contradicts", [])):
+            if nid not in nugget_ids:
+                errors.append(f"{where}: references unknown nugget '{nid}'")
+        for field_name in SCORE_FIELDS:
+            value = c.get("scores", {}).get(field_name)
+            if not isinstance(value, int) or not 0 <= value <= 3:
+                errors.append(f"{where}: score '{field_name}' is not 0-3")
+        # The rubric decides, not enthusiasm: specificity 0 drops a find whatever
+        # else it scores, and nothing gets drafted below the threshold.
+        if c.get("verdict") == "draft":
+            if c.get("scores", {}).get("specificity") == 0:
+                errors.append(f"{where}: verdict 'draft' with specificity 0")
+            if score_total(c) < DRAFT_THRESHOLD:
+                errors.append(
+                    f"{where}: verdict 'draft' but scores {score_total(c)}, "
+                    f"under the {DRAFT_THRESHOLD} bar"
+                )
+
     ready = channel.ready()
     print(f"{len(channel.posts)} LinkedIn post(s) across {len(channel.packs)} pack(s), "
-          f"{len(ready)} ready, {len(channel.nuggets)} nugget(s)")
+          f"{len(ready)} ready, {len(channel.nuggets)} nugget(s), "
+          f"{len(channel.candidates)} candidate(s) from {len(channel.passes)} pass(es)")
     per_theme: Counter[str] = Counter()
     for post in channel.posts:
         for theme in post.get("covers", []):

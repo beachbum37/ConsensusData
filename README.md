@@ -236,6 +236,21 @@ A pass that finds nothing publishable is a normal outcome, and an empty slot in
 the queue prints as an empty slot rather than a repeat - it means write
 something or go looking, not post a weaker one twice.
 
+### Candidates
+
+Every pass is recorded in `data/linkedin/candidates.json` - the finds, their
+scores, and the drops, so the same story is not rediscovered in six weeks.
+
+```bash
+python3 scripts/linkedin.py candidates
+python3 scripts/linkedin.py candidates --verdict draft
+```
+
+Validation holds the rubric to its word: a candidate marked `draft` has to
+score at least 6 of 15 and cannot have scored 0 on specificity. Clearing the bar
+is necessary and not sufficient - a survey can score well and still not be a use
+case, which is what the `reasoning` line is for.
+
 ### The skill
 
 `.claude/skills/linkedin-post/SKILL.md` runs all three jobs: publish from the
@@ -348,6 +363,7 @@ data/
     channel.json         the channel bible: cadence, the fold, feed register
     nuggets.json         claims distilled from the source articles
     sources.json         the weekly scouring brief and scoring rubric
+    candidates.json      what each pass found, scored, and decided
     posts/               the posts, one pack per source article
   questions/
     00-openers.json      universal core, one file per pack

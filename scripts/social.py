@@ -45,6 +45,18 @@ STATUSES = ("ready", "draft", "held")
 POST_DAYS = {1: (1,), 2: (1, 3)}
 
 
+CANDIDATE_FIELDS = ("id", "found", "source_url", "function", "what_changed",
+                    "the_decision", "nuggets", "scores", "verdict", "reasoning")
+SCORE_FIELDS = ("specificity", "spine_fit", "recognisability",
+                "honesty_headroom", "freshness")
+
+# What a scouring pass can conclude about a find.
+VERDICTS = ("draft", "hold", "drop")
+
+# Six or better is worth drafting; a zero on specificity drops it regardless.
+DRAFT_THRESHOLD = 6
+
+
 @dataclass
 class Channel:
     channel: dict
@@ -52,6 +64,8 @@ class Channel:
     sources: dict
     posts: list[dict]
     packs: dict[str, str] = field(default_factory=dict)
+    candidates: list[dict] = field(default_factory=list)
+    passes: list[dict] = field(default_factory=list)
 
     @property
     def mechanics(self) -> dict:
@@ -77,6 +91,9 @@ class Channel:
 
     def ready(self) -> list[dict]:
         return [p for p in self.posts if p.get("status") == "ready"]
+
+    def candidate(self, cid: str) -> dict | None:
+        return next((c for c in self.candidates if c["id"] == cid), None)
 
 
 def _read_json(path: Path) -> dict:
@@ -114,8 +131,17 @@ def load_channel() -> Channel:
         post["cta_text"] = resolve_cta(post.get("cta", "default"), variants, identity)
         post["first_comment_text"] = resolve_first_comment(post, lead, identity)
 
+    candidates_path = LINKEDIN_DIR / "candidates.json"
+    candidates_blob = _read_json(candidates_path) if candidates_path.exists() else {}
+
     return Channel(channel=channel, nuggets=nuggets_blob.get("nuggets", []),
-                   sources=sources, posts=posts, packs=packs)
+                   sources=sources, posts=posts, packs=packs,
+                   candidates=candidates_blob.get("candidates", []),
+                   passes=candidates_blob.get("passes", []))
+
+
+def score_total(candidate: dict) -> int:
+    return sum(int(candidate.get("scores", {}).get(f, 0)) for f in SCORE_FIELDS)
 
 
 # ------------------------------------------------------------------ rendering

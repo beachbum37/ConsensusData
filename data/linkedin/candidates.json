@@ -1,0 +1,83 @@
+{
+  "$comment": "Findings from scouring passes, recorded whether or not they become posts - drops included, so the same story is not rediscovered in six weeks. Schema is candidate_schema in sources.json. A candidate is not a post: it becomes one only after somebody opens the primary source and it still holds up.",
+  "passes": [
+    {
+      "date": "2026-08-24",
+      "queries_run": [
+        "\"agent manager\" OR \"AI agent operations\" job description line of business owns agents 2026",
+        "AI pilot rolled back \"turned it off\" hospital OR agency OR insurer workflow 2026",
+        "government audit report 2026 AI agent oversight caseworkers inspector general",
+        "AI agent deployment scaled back OR paused OR \"brought humans back\" 2026 (counterexample query)",
+        "Becker's OR Modern Healthcare 2026 nurses OR schedulers AI agent policy who reviews output"
+      ],
+      "note": "Search worked; fetching did not. This session's egress policy blocked every primary attempted - nist.gov, sinch.com, theregister.com, itpro.com, prnewswire.com, beckershospitalreview.com, and oig.hhs.gov timed out. So every candidate here is triaged from search results only, and none can move past 'hold' until somebody opens the source. No figure below is quotable in a post: nothing reached citation_status 'verified'.",
+      "outcome": "5 candidates recorded, 0 cleared to draft."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "sinch-ai-production-paradox",
+      "found": "2026-08-24",
+      "source_url": "https://sinch.com/news/sinch-releases-ai-production-paradox/",
+      "corroboration": ["https://www.theregister.com/ai-ml/2026/05/13/ai-customer-service-bots-get-rolled-back-at-74-of-firms/"],
+      "function": "Customer service and customer communications teams",
+      "what_changed": "Enterprises put AI agents into live customer operations and then switched them off again: the report puts rollback after deployment at roughly three in four, and reports the rate as higher, not lower, among organizations with the most mature guardrails.",
+      "the_decision": "Somebody with authority pulled a live agent out of production. The report attributes the rollbacks to governance failure rather than model quality, which is the account's argument arriving as somebody else's data.",
+      "nuggets": ["nug-deployment-bottleneck", "nug-hr-not-it", "nug-performance-review"],
+      "contradicts": ["nug-deployment-bottleneck"],
+      "scores": {"specificity": 2, "spine_fit": 3, "recognisability": 3, "honesty_headroom": 3, "freshness": 3},
+      "verdict": "hold",
+      "reasoning": "Strongest find of the pass and a genuine counterexample: the stall is not at the pilot gate, it is after go-live, which complicates the deployment-bottleneck nugget rather than confirming it. The inversion is the post - the most governed teams rolled back most, which reads either as maturity meaning they noticed, or as governance arriving after deployment instead of before. But it is survey evidence, not a use case: no named function doing named work. It is a vendor survey, and the vendor sells the remedy. Primary blocked here, so open sinch.com and the Register write-up first, and quote no number until you have."
+    },
+    {
+      "id": "beckers-agentic-nursing-2026",
+      "found": "2026-08-24",
+      "source_url": "https://www.beckershospitalreview.com/healthcare-information-technology/agentic-ai-arrives-for-nursing-shifts-and-health-system-call-centers/",
+      "function": "Nursing, shift scheduling, and health system contact centres",
+      "what_changed": "Named health systems are reported to be running agents across scheduling, documentation, care coordination and the call centre, with the American Nurses Association pushing for guardrails written by nurses rather than for them.",
+      "the_decision": "The live argument is who writes the rules. A professional body asking that the people accountable for the work set the boundaries is the ownership claim stated by someone with standing to make it.",
+      "nuggets": ["nug-lob-ownership", "nug-coaching-not-programming", "nug-job-description"],
+      "scores": {"specificity": 2, "spine_fit": 3, "recognisability": 3, "honesty_headroom": 2, "freshness": 3},
+      "verdict": "hold",
+      "reasoning": "The closest thing in this pass to an actual use case, and the nurse-led-guardrails argument is the ownership nugget in a field the audience recognises. Everything that would make it publishable is inside the article: which system, which process, what the agent may decide alone. Blocked here. Open it, and if the process detail is there this is the one to draft."
+    },
+    {
+      "id": "agent-manager-becomes-a-job-title",
+      "found": "2026-08-24",
+      "source_url": "https://blog.theinterviewguys.com/what-an-ai-agent-manager-actually-does/",
+      "function": "The agent-manager role itself",
+      "what_changed": "Reported as formalising into a real title during 2026 - named employers posting it, a Harvard Business Review definition in February, and a Gartner projection that a large share of agentic projects get cancelled by 2027.",
+      "the_decision": "Organizations deciding the work needs an owner with a title rather than absorbing it into whoever was already answerable.",
+      "nuggets": ["nug-six-capabilities", "nug-lob-ownership"],
+      "contradicts": ["nug-six-capabilities"],
+      "scores": {"specificity": 1, "spine_fit": 3, "recognisability": 2, "honesty_headroom": 3, "freshness": 2},
+      "verdict": "hold",
+      "reasoning": "Matters mostly because it tests a line already sitting in the queue: li-agent-mgr-01 says almost nobody advertises this as a job title yet. If HBR defined it and named employers are hiring for it, that line needs softening before the post goes out. Everything found so far is SEO aggregation quoting each other - a posting is an intention, not a job. Worth ten minutes on the HBR piece and two real postings before either drafting or editing."
+    },
+    {
+      "id": "nist-agent-standards-initiative",
+      "found": "2026-08-24",
+      "source_url": "https://www.nist.gov/artificial-intelligence/ai-agent-standards-initiative",
+      "corroboration": ["https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure"],
+      "function": "Whoever owns agent identity and authorization - security, platform, and the functions they serve",
+      "what_changed": "A standards body took up agent identity, authorization and auditing, with secondary coverage reporting that measuring whether escalation paths actually get used is an acknowledged gap.",
+      "the_decision": "Not a decision by a practitioner - this is the rule-making layer catching up to what the accounts here already argue about handoffs and deterministic checks.",
+      "nuggets": ["nug-deterministic-wrapper", "nug-unsupervised-handoffs", "nug-performance-review"],
+      "scores": {"specificity": 2, "spine_fit": 3, "recognisability": 1, "honesty_headroom": 2, "freshness": 3},
+      "verdict": "hold",
+      "reasoning": "Real and relevant, but a step removed from the reader's Tuesday: standards news is support inside a post, not the subject of one. The one line worth chasing is whether NIST really says escalation utilization is unmeasured - that is li-review-02's argument from an institution, and it came from a secondary. nist.gov is blocked here."
+    },
+    {
+      "id": "hhs-oig-ai-governance-audit",
+      "found": "2026-08-24",
+      "source_url": "https://oig.hhs.gov/reports/work-plan/browse-work-plan-projects/audit-of-hhs-governance-of-artificial-intelligence/",
+      "function": "Federal health administration - public health surveillance, fraud detection, administrative automation",
+      "what_changed": "Nothing yet. An inspector general opened an audit of whether the department established AI governance for the tools it has deployed.",
+      "the_decision": "An auditor deciding this is now worth auditing, which is the accountability argument becoming procedure.",
+      "nuggets": ["nug-performance-review", "nug-naming"],
+      "scores": {"specificity": 1, "spine_fit": 2, "recognisability": 1, "honesty_headroom": 2, "freshness": 3},
+      "verdict": "hold",
+      "reasoning": "A work-plan entry, not a finding. Audit reports describe what actually happened in detail and under oath, which is why they are on the source list - but that value arrives when the report issues, not when it is announced. Diary it and check back; there is no post in an audit that has not reported."
+    }
+  ]
+}

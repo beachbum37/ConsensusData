@@ -14,10 +14,10 @@ import unittest
 from datetime import date
 
 from corpus import load
-from social import (POST_DAYS, STATUSES, build_queue, char_count, filter_nuggets,
-                    filter_posts, fold_fits, load_channel, order_posts,
-                    posting_dates, render_body, resolve_cta,
-                    resolve_first_comment)
+from social import (DRAFT_THRESHOLD, POST_DAYS, SCORE_FIELDS, STATUSES, VERDICTS,
+                    build_queue, char_count, filter_nuggets, filter_posts,
+                    fold_fits, load_channel, order_posts, posting_dates,
+                    render_body, resolve_cta, resolve_first_comment, score_total)
 
 
 class TestPosts(unittest.TestCase):
@@ -320,6 +320,41 @@ class TestQueue(unittest.TestCase):
         filled = [p for _, p in queue if p]
         self.assertEqual(len(filled), len(self.channel.ready()))
         self.assertIsNone(queue[-1][1])
+
+
+class TestCandidates(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.channel = load_channel()
+
+    def test_every_candidate_links_its_source(self):
+        for c in self.channel.candidates:
+            self.assertTrue(c["source_url"].startswith("http"), c["id"])
+
+    def test_verdicts_are_known_and_scores_are_in_range(self):
+        for c in self.channel.candidates:
+            self.assertIn(c["verdict"], VERDICTS, c["id"])
+            for field_name in SCORE_FIELDS:
+                self.assertIn(c["scores"][field_name], (0, 1, 2, 3), c["id"])
+
+    def test_nothing_is_drafted_below_the_bar(self):
+        for c in self.channel.candidates:
+            if c["verdict"] == "draft":
+                self.assertGreaterEqual(score_total(c), DRAFT_THRESHOLD, c["id"])
+                self.assertNotEqual(c["scores"]["specificity"], 0, c["id"])
+
+    def test_candidate_nugget_references_resolve(self):
+        ids = {n["id"] for n in self.channel.nuggets}
+        for c in self.channel.candidates:
+            for nid in list(c.get("nuggets", [])) + list(c.get("contradicts", [])):
+                self.assertIn(nid, ids, f"{c['id']} -> {nid}")
+
+    def test_a_high_score_alone_does_not_make_it_a_post(self):
+        # Scoring well and being publishable are different things - a survey can
+        # clear the bar and still not be a use case, and the verdict is where
+        # that judgement lives.
+        for c in self.channel.candidates:
+            self.assertTrue(c["reasoning"].strip(), c["id"])
 
 
 class TestNuggets(unittest.TestCase):

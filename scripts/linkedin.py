@@ -22,9 +22,10 @@ import sys
 import textwrap
 from datetime import date
 
-from social import (STATUSES, Channel, above_fold, build_queue, char_count,
-                    filter_nuggets, filter_posts, fold_fits, load_channel,
-                    render_body)
+from social import (DRAFT_THRESHOLD, SCORE_FIELDS, STATUSES, VERDICTS, Channel,
+                    above_fold, build_queue, char_count, filter_nuggets,
+                    filter_posts, fold_fits, load_channel, render_body,
+                    score_total)
 
 WRAP = textwrap.TextWrapper(width=88, initial_indent="  ", subsequent_indent="  ")
 
@@ -295,6 +296,40 @@ def cmd_scan(channel: Channel, args) -> int:
     return 0
 
 
+def cmd_candidates(channel: Channel, args) -> int:
+    found = [c for c in channel.candidates
+             if not args.verdict or c.get("verdict") == args.verdict]
+    if args.format == "json":
+        print(json.dumps(found, indent=2))
+        return 0
+
+    for entry in channel.passes:
+        print(f"Pass {entry['date']}: {entry.get('outcome', '')}")
+        if entry.get("note"):
+            print(wrap(entry["note"]))
+        print()
+
+    if not found:
+        print("no candidates match")
+        return 0
+    print(f"{len(found)} candidate(s)\n")
+    for c in sorted(found, key=lambda c: -score_total(c)):
+        total = score_total(c)
+        flag = "  <- clears the bar" if total >= DRAFT_THRESHOLD else ""
+        print(f"[{c['id']}] {c['verdict']}  {total}/15{flag}")
+        print(f"  {c['source_url']}")
+        print(wrap(f"function: {c['function']}"))
+        print(wrap(f"changed: {c['what_changed']}"))
+        print(wrap(f"decision: {c['the_decision']}"))
+        print("  scores: " + "  ".join(
+            f"{f}={c['scores'].get(f, 0)}" for f in SCORE_FIELDS))
+        if c.get("contradicts"):
+            print(wrap("contradicts: " + ", ".join(c["contradicts"])))
+        print(wrap(f"why: {c['reasoning']}"))
+        print()
+    return 0
+
+
 def cmd_channel(channel: Channel, args) -> int:
     bible = channel.channel
     if args.format == "json":
@@ -391,6 +426,11 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("scan", parents=[common],
                        help="the weekly brief for finding new material")
     s.set_defaults(func=cmd_scan)
+
+    cand = sub.add_parser("candidates", parents=[common],
+                          help="what the scouring passes turned up")
+    cand.add_argument("--verdict", choices=list(VERDICTS))
+    cand.set_defaults(func=cmd_candidates)
 
     c = sub.add_parser("channel", parents=[common], help="the channel bible")
     c.set_defaults(func=cmd_channel)
