@@ -16,7 +16,8 @@ from datetime import date
 from corpus import load
 from social import (POST_DAYS, STATUSES, build_queue, char_count, filter_nuggets,
                     filter_posts, fold_fits, load_channel, order_posts,
-                    posting_dates, render_body, resolve_cta)
+                    posting_dates, render_body, resolve_cta,
+                    resolve_first_comment)
 
 
 class TestPosts(unittest.TestCase):
@@ -152,6 +153,17 @@ class TestPosts(unittest.TestCase):
         for post in self.channel.posts:
             self.assertNotIn("http", render_body(post), post["id"])
 
+    def test_every_post_has_a_first_comment_carrying_the_episode_link(self):
+        # Assembled for every post, not just the ones somebody fussed over.
+        for post in self.channel.posts:
+            comment = post["first_comment_text"]
+            self.assertIn("http", comment, post["id"])
+            self.assertNotIn("[[", comment, post["id"])
+
+    def test_nothing_published_still_shows_a_placeholder(self):
+        for post in self.channel.posts:
+            self.assertNotIn("[[", render_body(post), post["id"])
+
     def test_statuses_are_known(self):
         for post in self.channel.posts:
             self.assertIn(post["status"], STATUSES, post["id"])
@@ -176,6 +188,18 @@ class TestCta(unittest.TestCase):
 
     def test_unknown_variant_falls_back_to_default(self):
         self.assertIn("[[linkedin page]]", resolve_cta("nope", self.variants, {}))
+
+    def test_first_comment_is_lead_then_the_posts_own_note(self):
+        text = resolve_first_comment(
+            {"first_comment": "Sourcing note."},
+            "Episodes: {youtube_url}", {"youtube_url": "https://example.com"},
+        )
+        self.assertEqual(text, "Episodes: https://example.com\n\nSourcing note.")
+
+    def test_a_post_with_no_note_still_gets_the_link(self):
+        text = resolve_first_comment({}, "Episodes: {youtube_url}",
+                                     {"youtube_url": "https://example.com"})
+        self.assertEqual(text, "Episodes: https://example.com")
 
 
 class TestRendering(unittest.TestCase):

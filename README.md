@@ -179,14 +179,19 @@ agent" - they read a person, a booking agent, an insurance agent. Validation
 fails a post whose first mention is unlabelled, unless it declares
 `agent_label_exempt`.
 
-**The subscribe line is channel-level.** `cta` in `channel.json` holds the
-variants and `identity` holds the account's names; the line is resolved at load
-time and rendered after the close question, before the hashtags. It never
-replaces the question - a post that ends on a pitch instead of a question gets
-no comments. Links follow the same policy as everything else: the body carries
-a Page follow and nothing else, Spotify and YouTube go in the first comment.
-Until `identity` is filled in, posts render a visible `[[placeholder]]` and
-validation says so on every one of them.
+**The subscribe line and the first comment are channel-level.** `identity` in
+`channel.json` holds the account's names once - show, LinkedIn Page, Spotify,
+YouTube - and both are assembled from it at load time. The subscribe line renders
+after the close question and before the hashtags; it never replaces the question,
+because a post that ends on a pitch instead of a question gets no comments. The
+first comment is the lead carrying the episode link plus whatever sourcing note
+the post declares, so every post has one rather than only the ones somebody
+fussed over.
+
+No link goes in the body at all - it costs reach, and a scroller between meetings
+will not leave the feed for one. An identity field left empty is a channel the
+show does not use yet; validation only complains when something references it
+and a `[[placeholder]]` reaches the rendered copy.
 
 **A gap in the spine has to be declared.** Cutting posts can leave a theme
 uncovered, which fails validation unless it is written into

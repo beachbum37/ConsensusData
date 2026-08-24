@@ -131,7 +131,9 @@ four more things, and `li-agent-mgr-01` is the worked example of all four:
 
 - `alt_hooks` - one or two other openings to test. They have to survive the fold
   as well, and validation checks them.
-- `first_comment` - where the sourcing goes, and any link. Never in the body.
+- `first_comment` - the post's own sourcing note. The episode link is prepended
+  from `channel.json` automatically, so never write one into the body, and never
+  restate the podcast line here.
 - `replies` - `expect` / `reply` pairs for the objections the post will draw.
   Write them before publishing, not at 9pm under a comment. The good ones concede
   the true part of the objection first.
@@ -175,4 +177,8 @@ Nothing here posts to LinkedIn. The output is copy to paste, on purpose - a
 human reads it once more before it goes out, which is the same rule this
 account argues for everywhere else.
 
-Put links in the first comment, never in the body, and say so in the post.
+Put links in the first comment, never in the body. Both the subscribe line and
+the first comment assemble themselves from `channel.json` identity - print them
+with `linkedin.py post <id>` and post the comment yourself, from the same
+account, within a minute of publishing. A first comment that arrives an hour
+later is a comment nobody scrolled back for.

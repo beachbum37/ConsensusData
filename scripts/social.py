@@ -109,14 +109,24 @@ def load_channel() -> Channel:
     # alone, which is what keeps char_count honest about what gets pasted.
     identity = channel.get("identity", {})
     variants = channel.get("cta", {}).get("variants", {})
+    lead = channel.get("first_comment", {}).get("lead", "")
     for post in posts:
         post["cta_text"] = resolve_cta(post.get("cta", "default"), variants, identity)
+        post["first_comment_text"] = resolve_first_comment(post, lead, identity)
 
     return Channel(channel=channel, nuggets=nuggets_blob.get("nuggets", []),
                    sources=sources, posts=posts, packs=packs)
 
 
 # ------------------------------------------------------------------ rendering
+
+
+def fill_identity(text: str, identity: dict) -> str:
+    """Substitute the account's own names into a template."""
+    for field_name in IDENTITY_FIELDS:
+        value = identity.get(field_name) or f"[[{field_name.replace('_', ' ')}]]"
+        text = text.replace("{" + field_name + "}", value)
+    return text.strip()
 
 
 def resolve_cta(variant: str, variants: dict, identity: dict) -> str:
@@ -126,11 +136,21 @@ def resolve_cta(variant: str, variants: dict, identity: dict) -> str:
     rather than as an empty string, because a subscribe line that silently
     says "Follow  for the posts" is worse than one that shouts.
     """
-    text = variants.get(variant, variants.get("default", ""))
-    for field_name in IDENTITY_FIELDS:
-        value = identity.get(field_name) or f"[[{field_name.replace('_', ' ')}]]"
-        text = text.replace("{" + field_name + "}", value)
-    return text.strip()
+    return fill_identity(variants.get(variant, variants.get("default", "")), identity)
+
+
+def resolve_first_comment(post: dict, lead: str, identity: dict) -> str:
+    """The first comment: the episode link, then the post's own sourcing note.
+
+    Assembled rather than written per post, so the link is never forgotten on
+    the posts nobody spent an evening on. A post with nothing to source still
+    gets the lead.
+    """
+    parts = [fill_identity(lead, identity)]
+    note = (post.get("first_comment") or "").strip()
+    if note:
+        parts.append(fill_identity(note, identity))
+    return "\n\n".join(p for p in parts if p)
 
 
 def render_body(post: dict) -> str:

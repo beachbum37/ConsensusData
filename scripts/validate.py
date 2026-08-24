@@ -15,8 +15,8 @@ import sys
 from collections import Counter, defaultdict
 
 from corpus import ANCHORING, REQUIRED_FIELDS, load, slots_in
-from social import (IDENTITY_FIELDS, NUGGET_FIELDS, POST_FIELDS, STATUSES,
-                    char_count, load_channel, render_body)
+from social import (NUGGET_FIELDS, POST_FIELDS, STATUSES, char_count,
+                    load_channel, render_body)
 
 ARC_BEAT_FIELDS = ("beat", "title", "theme", "purpose", "listener_payoff",
                    "keep_it_approachable", "flavors")
@@ -160,7 +160,21 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
                     errors.append(f"{where}: prepared reply {i + 1} has no '{field_name}'")
             lint_feed(str(reply.get("reply", "")), f"{where} [reply {i + 1}]")
             ascii_check(str(reply.get("reply", "")), where, f"reply {i + 1}")
-        ascii_check(str(post.get("first_comment") or ""), where, "first_comment")
+
+        # The first comment is assembled from channel.json plus the post's own
+        # note, and carrying the episode link is its whole job.
+        comment = post.get("first_comment_text", "")
+        ascii_check(comment, where, "first comment")
+        lint_feed(comment, f"{where} [first comment]")
+        if "[[" in comment:
+            warnings.append(
+                f"{where}: first comment renders an unfilled placeholder - set "
+                "channel.json identity"
+            )
+        if "http" not in comment:
+            warnings.append(
+                f"{where}: first comment carries no link, which is what it is for"
+            )
 
         body = render_body(post)
         ascii_check(body, where, "post copy")
@@ -219,15 +233,6 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
         warnings.append(
             f"linkedin: spine gap '{theme}' is declared in channel.json but a post now "
             "covers it - remove the declaration"
-        )
-
-    missing_identity = [f for f in IDENTITY_FIELDS
-                        if not bible.get("identity", {}).get(f)]
-    if missing_identity:
-        warnings.append(
-            "linkedin: channel.json identity is not filled in ("
-            + ", ".join(missing_identity)
-            + ") - the subscribe line and first comment render placeholders until it is"
         )
 
     ready = channel.ready()

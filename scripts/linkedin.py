@@ -69,9 +69,9 @@ def post_text(channel: Channel, post: dict, notes: bool) -> str:
         for alt in post["alt_hooks"]:
             out.append(wrap(f"- {alt}  ({len(alt)} chars)"))
         out.append("")
-    if post.get("first_comment"):
-        out += ["First comment (links go here, never in the body):",
-                wrap(post["first_comment"]), ""]
+    if post.get("first_comment_text"):
+        out += ["First comment - post it yourself within a minute of publishing:",
+                wrap(post["first_comment_text"]), ""]
     if post.get("replies"):
         out.append("If somebody says:")
         for reply in post["replies"]:
@@ -104,8 +104,8 @@ def post_md(channel: Channel, post: dict, notes: bool) -> str:
         if post.get("alt_hooks"):
             out.append("**Other hooks.**")
             out += [f"- {alt}" for alt in post["alt_hooks"]] + [""]
-        if post.get("first_comment"):
-            out += [f"**First comment.** {post['first_comment']}", ""]
+        if post.get("first_comment_text"):
+            out += ["**First comment.**", "", "```", post["first_comment_text"], "```", ""]
         if post.get("replies"):
             out.append("**If somebody says.**")
             out += [f"- *{r['expect']}* -> {r['reply']}" for r in post["replies"]] + [""]

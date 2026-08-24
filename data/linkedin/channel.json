@@ -114,20 +114,26 @@
     "customization-as-superpower": "Left uncovered when the rent-versus-own and tackle-box posts were cut. The material is still in the nuggets - nug-rent-vs-own, nug-tackle-box, nug-capability-escalator - so the way to close this is one post on turnkey software never having been turnkey, and the team's workarounds being the specification all along."
   },
   "identity": {
-    "$comment": "Fill these in once. The subscribe line and the first comment are assembled from them, so they change in one place. Until then they render as visible [[placeholders]] and validate.py warns on every post that shows one - loud, but it blocks nothing, because the copy is finished either way.",
-    "show_name": "",
+    "$comment": "The account's own names. The subscribe line and the first comment are assembled from these, so they change in one place. A field left empty is a channel the show does not use yet - nothing references it, and validate.py only complains when a rendered post or first comment shows a [[placeholder]] because something referenced it anyway.",
+    "show_name": "Work Less AI More",
     "linkedin_page": "",
     "spotify_url": "",
-    "youtube_url": ""
+    "youtube_url": "https://www.youtube.com/@WorklessAimore"
   },
   "cta": {
     "$comment": "The subscribe line, appended to every post at render time. It lives here rather than in each post so it changes in one place and stays consistent, and it is short on purpose - it is the toll for the post, not the point of it.",
     "placement": "After the close question, before the hashtags. Never above the fold, and never in place of the question - a post that ends on a pitch instead of a question gets no comments.",
-    "link_policy": "The body carries a follow of the LinkedIn Page and nothing else. An external link in the body costs reach, and the Page follow is one tap without leaving the feed, which is the only conversion a scroller will actually make. Spotify and YouTube go in the first comment, where the people who tapped through are the ones who wanted them.",
+    "link_policy": "The body carries no link at all. An external link in the body costs reach, and a scroller between meetings will not leave the feed for one - but they will follow, which is a tap. The episode link goes in the first comment, where the people who tapped through are the ones who wanted it. Switch the cta variant to 'page' once there is a LinkedIn Page to follow.",
     "variants": {
-      "default": "We turn these arguments into interviews with the people who run the work. Follow {linkedin_page} for the posts; episodes on Spotify and YouTube, links in the first comment.",
-      "short": "{show_name} is interviews with people who run the work, in their own words. Follow {linkedin_page} here; episode links in the first comment.",
+      "default": "We turn these arguments into interviews with the people who run the work. Follow along here for the posts, and {show_name} is on YouTube - link in the first comment.",
+      "page": "We turn these arguments into interviews with the people who run the work. Follow {linkedin_page} for the posts, and {show_name} is on YouTube - link in the first comment.",
+      "short": "{show_name} is interviews with people who run the work, in their own words. Episode link in the first comment.",
       "none": ""
     }
+  },
+  "first_comment": {
+    "$comment": "The first comment is assembled rather than written per post: a fixed lead carrying the episode link, then whatever sourcing note the post declares in its own first_comment field. Every post gets one, so the link is never forgotten on the posts nobody spent an evening on.",
+    "lead": "{show_name} is the podcast behind these posts - conversations with people who run the work, about how they actually run it. Episodes on YouTube: {youtube_url}",
+    "timing": "Post it yourself within a minute of publishing, from the same account. A first comment that arrives an hour later is a comment nobody scrolled back for."
   }
 }
