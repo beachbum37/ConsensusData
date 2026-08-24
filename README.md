@@ -184,9 +184,11 @@ fails a post whose first mention is unlabelled, unless it declares
 YouTube - and both are assembled from it at load time. The subscribe line renders
 after the close question and before the hashtags; it never replaces the question,
 because a post that ends on a pitch instead of a question gets no comments. The
-first comment is the lead carrying the episode link plus whatever sourcing note
-the post declares, so every post has one rather than only the ones somebody
-fussed over.
+first comment is the lead carrying the episode link plus an optional sourcing
+note, so every post has one rather than only the ones somebody fussed over. A
+sourcing note has to name a source the reader can check and link it; a claim
+that came from somewhere unnameable gets hedged in the post copy instead, where
+a borrowed claim belongs.
 
 No link goes in the body at all - it costs reach, and a scroller between meetings
 will not leave the feed for one. An identity field left empty is a channel the

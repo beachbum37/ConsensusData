@@ -45,7 +45,6 @@
         "Somewhere in your organization is a person who would be very good at managing AI agents, and their job title has nothing to do with AI.",
         "The best managers of AI agents reportedly come from roles already accountable for whether the work is any good, rather than from roles accountable for the technology."
       ],
-      "first_comment": "Two sources behind this one, both worth reading against your own experience rather than taken flat. The six capabilities come from vendor writing about its own agent-manager role, where the supporting figures are self-reported. The ownership argument is the part that stands on its own.",
       "replies": [
         {
           "expect": "Isn't this just prompt engineering with a new job title?",

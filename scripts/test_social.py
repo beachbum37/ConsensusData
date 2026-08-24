@@ -160,6 +160,13 @@ class TestPosts(unittest.TestCase):
             self.assertIn("http", comment, post["id"])
             self.assertNotIn("[[", comment, post["id"])
 
+    def test_a_sourcing_note_always_carries_its_link(self):
+        # An attribution the reader cannot check plants doubt and buys nothing.
+        for post in self.channel.posts:
+            note = (post.get("first_comment") or "").strip()
+            if note:
+                self.assertIn("http", note, post["id"])
+
     def test_nothing_published_still_shows_a_placeholder(self):
         for post in self.channel.posts:
             self.assertNotIn("[[", render_body(post), post["id"])

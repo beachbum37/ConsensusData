@@ -131,9 +131,14 @@ four more things, and `li-agent-mgr-01` is the worked example of all four:
 
 - `alt_hooks` - one or two other openings to test. They have to survive the fold
   as well, and validation checks them.
-- `first_comment` - the post's own sourcing note. The episode link is prepended
-  from `channel.json` automatically, so never write one into the body, and never
-  restate the podcast line here.
+- `first_comment` - optional, and only for a source the reader could go and
+  check: a named study, report or article, **with its link**. Validation fails a
+  note without one. If the source cannot be named - a vendor blog, a transcript,
+  something read second-hand - do not gesture at it here. An attribution nobody
+  can verify tells the reader where the idea came from without letting them check
+  it, which plants doubt and buys nothing. Hedge inside the post copy instead
+  ("reportedly", "is said to"), which is where a borrowed claim belongs. The
+  episode link is prepended automatically either way.
 - `replies` - `expect` / `reply` pairs for the objections the post will draw.
   Write them before publishing, not at 9pm under a comment. The good ones concede
   the true part of the objection first.

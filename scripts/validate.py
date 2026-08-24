@@ -176,6 +176,16 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
                 f"{where}: first comment carries no link, which is what it is for"
             )
 
+        # A sourcing note is for a source the reader can go and check. One that
+        # cannot be linked belongs in a hedge inside the copy, not in a comment
+        # that names no one.
+        note = (post.get("first_comment") or "").strip()
+        if note and "http" not in note:
+            errors.append(
+                f"{where}: sourcing note names a source with no link. Link it, or "
+                "drop the note and hedge in the post copy instead"
+            )
+
         body = render_body(post)
         ascii_check(body, where, "post copy")
 

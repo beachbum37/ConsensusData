@@ -132,8 +132,9 @@
     }
   },
   "first_comment": {
-    "$comment": "The first comment is assembled rather than written per post: a fixed lead carrying the episode link, then whatever sourcing note the post declares in its own first_comment field. Every post gets one, so the link is never forgotten on the posts nobody spent an evening on.",
+    "$comment": "The first comment is assembled rather than written per post: a fixed lead carrying the episode link, then the post's optional sourcing note. Every post gets one, so the link is never forgotten on the posts nobody spent an evening on.",
     "lead": "{show_name} is the podcast behind these posts - conversations with people who run the work, about how they actually run it. Episodes on YouTube: {youtube_url}",
-    "timing": "Post it yourself within a minute of publishing, from the same account. A first comment that arrives an hour later is a comment nobody scrolled back for."
+    "timing": "Post it yourself within a minute of publishing, from the same account. A first comment that arrives an hour later is a comment nobody scrolled back for.",
+    "sourcing_note": "A post's own first_comment is for a source the reader could go and check: a named study, report or article, with its link. It must carry that link, and validate.py fails one that does not. If the source cannot be named - a vendor blog, a transcript, something read second-hand - do not gesture at it in the comment. An unverifiable attribution tells the reader where the idea came from without letting them check it, which plants doubt and buys nothing. Hedge inside the post copy instead: 'reportedly', 'is said to', 'the reporting suggests'. That is where a claim belongs to somebody else."
   }
 }
