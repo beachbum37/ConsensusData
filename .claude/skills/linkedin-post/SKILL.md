@@ -86,10 +86,12 @@ Then:
    plainly when nothing cleared the bar. **A week with no publishable find is a
    normal outcome.** Manufacturing one is how the account turns into slop.
 5. Fetch the primary source before writing anything, never an aggregator's
-   rewrite of it. If a fetch is blocked - some environments allow search but not
-   fetching - the candidate stays at `hold` and says so. Never draft from a
-   search snippet, and never promote a figure to `verified` you have not read in
-   its source.
+   rewrite of it. If a fetch is blocked - a sandboxed session allowlists outbound
+   access, so search works and fetching may not - the candidate stays at `hold`
+   and says so. Never draft from a search snippet, and never promote a figure to
+   `verified` you have not read in its source. `network_allowlist` in
+   `sources.json` lists the domains a pass needs; they go in the environment's
+   Custom network access list at claude.ai/code.
 6. Record every candidate in `data/linkedin/candidates.json`, drops included,
    with the pass itself: date, queries run, what happened. That is what stops
    the same story being rediscovered in six weeks.
@@ -97,6 +99,13 @@ Then:
 ```bash
 python3 scripts/linkedin.py candidates
 ```
+
+**Trace a claim back before scoring it.** A trade round-up and a vendor case
+study look identical in a search result. Follow the story to whoever first
+published it: results with no process, and metrics the vendor collected about
+its own product, are a drop however good the outlet that repeated them. A
+professional body, a regulator or an auditor saying the same thing is worth
+five times as much, because they have standing and no product.
 
 Watch for a find that **contradicts** a nugget or a line in a post already in
 the queue - record it in `contradicts`, and say so in the report. Correcting a

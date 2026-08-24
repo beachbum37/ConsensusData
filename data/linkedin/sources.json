@@ -29,42 +29,72 @@
     {
       "name": "Peer-reviewed and working-paper economics of AI at work",
       "kind": "research",
-      "examples": ["NBER working papers", "arXiv cs.CY and econ.GN", "Anthropic Economic Index", "Stanford Digital Economy Lab"],
+      "examples": [
+        "NBER working papers",
+        "arXiv cs.CY and econ.GN",
+        "Anthropic Economic Index",
+        "Stanford Digital Economy Lab"
+      ],
       "good_for": "Task-level rather than job-level findings, which is the altitude this account argues at.",
       "watch_for": "Preprints without review. Say 'a working paper reports' and mean it."
     },
     {
       "name": "Management press",
       "kind": "trade",
-      "examples": ["MIT Sloan Management Review", "Harvard Business Review", "Stanford Social Innovation Review"],
+      "examples": [
+        "MIT Sloan Management Review",
+        "Harvard Business Review",
+        "Stanford Social Innovation Review"
+      ],
       "good_for": "The management framing this account shares, and named operational frameworks worth arguing with.",
       "watch_for": "Consulting content marketing wearing a journal's typeface."
     },
     {
       "name": "Industry trade press",
       "kind": "trade",
-      "examples": ["Modern Healthcare and Becker's for hospitals", "FreightWaves for logistics", "Legal Tech News and Law360 for legal", "Restaurant Business", "Construction Dive", "Chief Investment Officer"],
+      "examples": [
+        "Modern Healthcare and Becker's for hospitals",
+        "FreightWaves for logistics",
+        "Legal Tech News and Law360 for legal",
+        "Restaurant Business",
+        "Construction Dive",
+        "Chief Investment Officer"
+      ],
       "good_for": "The richest vein by far. Trade press writes for practitioners, so it names the function and the process instead of the vendor.",
       "watch_for": "Sponsored posts. Check the byline."
     },
     {
       "name": "Regulators, auditors and standards bodies",
       "kind": "official",
-      "examples": ["NIST AI Risk Management Framework updates", "state and national labour and health regulators", "financial conduct regulators", "public-sector audit reports"],
+      "examples": [
+        "NIST AI Risk Management Framework updates",
+        "state and national labour and health regulators",
+        "financial conduct regulators",
+        "public-sector audit reports"
+      ],
       "good_for": "Accountability and supervision material - the performance-review and named-supervisor nuggets. Audit reports in particular describe what actually happened, in detail, under oath.",
       "watch_for": "Draft guidance read as if it were in force."
     },
     {
       "name": "Practitioner communities",
       "kind": "primary",
-      "examples": ["subreddits for specific trades and professions", "professional association forums", "conference talks by people who run the function", "engineering blogs describing internal tooling"],
+      "examples": [
+        "subreddits for specific trades and professions",
+        "professional association forums",
+        "conference talks by people who run the function",
+        "engineering blogs describing internal tooling"
+      ],
       "good_for": "The unglamorous detail nobody publishes: the workaround, the rule they added after the incident, the thing they turned off.",
       "watch_for": "Single anonymous accounts. Corroborate before quoting, and never quote a named individual without their public consent."
     },
     {
       "name": "Labour market data",
       "kind": "official",
-      "examples": ["national statistics offices", "job posting aggregates", "union and works council communications"],
+      "examples": [
+        "national statistics offices",
+        "job posting aggregates",
+        "union and works council communications"
+      ],
       "good_for": "Evidence about whether roles like agent manager are actually being hired, which is the weak point in the six-capabilities nugget.",
       "watch_for": "Job title inflation. A posting is an intention, not a job."
     }
@@ -109,5 +139,28 @@
     "4. Score what survives. Record every candidate, including the drops.",
     "5. Take the best one to a draft. If nothing scores six, publish from the queue instead and say nothing about it - a quiet week is not a content emergency.",
     "6. Before drafting, check the last eight posts for the same angle."
-  ]
+  ],
+  "network_allowlist": {
+    "$comment": "A scouring pass needs to open primaries, not just search titles. In a sandboxed session outbound access is allowlisted, so a pass that cannot fetch stops at triage and every candidate stays at 'hold'. Paste this list into the environment's Custom network access allowlist to let a pass finish. Search still works at any access level.",
+    "domains": [
+      "*.nist.gov",
+      "*.gao.gov",
+      "*.oig.hhs.gov",
+      "*.nber.org",
+      "arxiv.org",
+      "*.nursingworld.org",
+      "*.beckershospitalreview.com",
+      "*.modernhealthcare.com",
+      "*.freightwaves.com",
+      "*.constructiondive.com",
+      "*.hbr.org",
+      "sloanreview.mit.edu",
+      "*.theregister.com",
+      "*.itpro.com",
+      "*.prnewswire.com",
+      "*.globenewswire.com",
+      "*.bls.gov"
+    ],
+    "note": "Keep it to publishers and institutions the brief already names. A wide-open allowlist is not the goal; being able to read the source you are about to quote is."
+  }
 }

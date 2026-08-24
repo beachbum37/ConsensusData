@@ -12,20 +12,90 @@
       ],
       "note": "Search worked; fetching did not. This session's egress policy blocked every primary attempted - nist.gov, sinch.com, theregister.com, itpro.com, prnewswire.com, beckershospitalreview.com, and oig.hhs.gov timed out. So every candidate here is triaged from search results only, and none can move past 'hold' until somebody opens the source. No figure below is quotable in a post: nothing reached citation_status 'verified'.",
       "outcome": "5 candidates recorded, 0 cleared to draft."
+    },
+    {
+      "date": "2026-08-24",
+      "queries_run": [
+        "Intermountain Health agentic AI scheduling contact center 2026 what the agents do",
+        "American Nurses Association 2026 AI guardrails position statement nurse-led oversight"
+      ],
+      "note": "Follow-up pass on the nursing candidate, which split in two under scrutiny. The health-system half traces back to a vendor case study - Hyro's, with call-abandonment and containment metrics and no process detail - which the disqualifier list drops on sight. The professional-body half got stronger: the ANA published consensus findings from its first AI in Nursing Practice Think Tank, convened 22 April 2026, released 5 May 2026, and the argument is nurse-led guardrails with nurses as the final accountable decision-makers.",
+      "outcome": "1 candidate upgraded and rewritten, 1 dropped, 1 superseded."
     }
   ],
   "candidates": [
     {
+      "id": "ana-nurse-led-guardrails",
+      "found": "2026-08-24",
+      "source_url": "https://www.nursingworld.org/news/news-releases/2026-news-releases/american-nurses-association-calls-for-nurse-led-guardrails-on-artificial-intelligence-in-healthcare/",
+      "corroboration": [
+        "https://www.globenewswire.com/news-release/2026/05/05/3288082/0/en/American-Nurses-Association-Calls-for-Nurse-Led-Guardrails-on-Artificial-Intelligence-in-Healthcare.html",
+        "https://nurse.org/news/ana-ai-nursing-guardrails/"
+      ],
+      "function": "Bedside and clinical nursing, and whoever writes the AI policy the ward has to work under",
+      "what_changed": "A professional body published consensus findings from its first AI in Nursing Practice Think Tank, convened 22 April 2026 and released 5 May, asking for guardrails written by nurses: human oversight described as non-negotiable, nurses as the final accountable decision-makers, black-box systems named as incompatible with professional accountability, and a nursing AI playbook among five near-term actions.",
+      "the_decision": "The profession claiming authorship of the rules rather than receiving them. That is the ownership argument made by the people accountable for the work, in public, with their name on it.",
+      "nuggets": [
+        "nug-lob-ownership",
+        "nug-job-description",
+        "nug-performance-review",
+        "nug-hr-not-it"
+      ],
+      "scores": {
+        "specificity": 2,
+        "spine_fit": 3,
+        "recognisability": 3,
+        "honesty_headroom": 3,
+        "freshness": 3
+      },
+      "verdict": "hold",
+      "reasoning": "The strongest candidate found, and the one to draft next. It is our ownership claim arriving from a body with standing to make it, in a field every reader can picture, and it travels: swap nurses for underwriters, dispatchers or inspectors and the argument is identical. The honest counterweight is real and belongs in the post - a profession asking to write the rules is also a profession protecting its jurisdiction, and 'nurses are the final authority' is easier to publish than to staff at 3am on a short shift. Everything needed is in the consensus report; nursingworld.org is blocked from this session, so open it, confirm the five actions and the risk list, then draft."
+    },
+    {
+      "id": "intermountain-hyro-contact-center",
+      "found": "2026-08-24",
+      "source_url": "https://www.hyro.ai/case-study/intermountain-health-responsible-ai/",
+      "function": "Health system contact centre and patient access",
+      "what_changed": "Agents handling appointment scheduling and password resets against Epic, with handoffs to live staff, reported alongside improvements in call abandonment, routing and containment.",
+      "the_decision": "Unclear, which is the problem. The write-up reports outcomes without saying what the agent was not allowed to do, or who decided.",
+      "nuggets": [
+        "nug-tackle-box"
+      ],
+      "scores": {
+        "specificity": 1,
+        "spine_fit": 1,
+        "recognisability": 2,
+        "honesty_headroom": 1,
+        "freshness": 2
+      },
+      "verdict": "drop",
+      "reasoning": "Vendor case study with results and no process - the disqualifier list names this exactly. The metrics are the vendor's own and the interesting part, the boundary, is absent. Recorded as a drop so the same numbers do not resurface through a trade round-up in two months looking like independent reporting."
+    },
+    {
       "id": "sinch-ai-production-paradox",
       "found": "2026-08-24",
       "source_url": "https://sinch.com/news/sinch-releases-ai-production-paradox/",
-      "corroboration": ["https://www.theregister.com/ai-ml/2026/05/13/ai-customer-service-bots-get-rolled-back-at-74-of-firms/"],
+      "corroboration": [
+        "https://www.theregister.com/ai-ml/2026/05/13/ai-customer-service-bots-get-rolled-back-at-74-of-firms/"
+      ],
       "function": "Customer service and customer communications teams",
       "what_changed": "Enterprises put AI agents into live customer operations and then switched them off again: the report puts rollback after deployment at roughly three in four, and reports the rate as higher, not lower, among organizations with the most mature guardrails.",
       "the_decision": "Somebody with authority pulled a live agent out of production. The report attributes the rollbacks to governance failure rather than model quality, which is the account's argument arriving as somebody else's data.",
-      "nuggets": ["nug-deployment-bottleneck", "nug-hr-not-it", "nug-performance-review"],
-      "contradicts": ["nug-deployment-bottleneck"],
-      "scores": {"specificity": 2, "spine_fit": 3, "recognisability": 3, "honesty_headroom": 3, "freshness": 3},
+      "nuggets": [
+        "nug-deployment-bottleneck",
+        "nug-hr-not-it",
+        "nug-performance-review"
+      ],
+      "contradicts": [
+        "nug-deployment-bottleneck"
+      ],
+      "scores": {
+        "specificity": 2,
+        "spine_fit": 3,
+        "recognisability": 3,
+        "honesty_headroom": 3,
+        "freshness": 3
+      },
       "verdict": "hold",
       "reasoning": "Strongest find of the pass and a genuine counterexample: the stall is not at the pilot gate, it is after go-live, which complicates the deployment-bottleneck nugget rather than confirming it. The inversion is the post - the most governed teams rolled back most, which reads either as maturity meaning they noticed, or as governance arriving after deployment instead of before. But it is survey evidence, not a use case: no named function doing named work. It is a vendor survey, and the vendor sells the remedy. Primary blocked here, so open sinch.com and the Register write-up first, and quote no number until you have."
     },
@@ -36,10 +106,20 @@
       "function": "Nursing, shift scheduling, and health system contact centres",
       "what_changed": "Named health systems are reported to be running agents across scheduling, documentation, care coordination and the call centre, with the American Nurses Association pushing for guardrails written by nurses rather than for them.",
       "the_decision": "The live argument is who writes the rules. A professional body asking that the people accountable for the work set the boundaries is the ownership claim stated by someone with standing to make it.",
-      "nuggets": ["nug-lob-ownership", "nug-coaching-not-programming", "nug-job-description"],
-      "scores": {"specificity": 2, "spine_fit": 3, "recognisability": 3, "honesty_headroom": 2, "freshness": 3},
-      "verdict": "hold",
-      "reasoning": "The closest thing in this pass to an actual use case, and the nurse-led-guardrails argument is the ownership nugget in a field the audience recognises. Everything that would make it publishable is inside the article: which system, which process, what the agent may decide alone. Blocked here. Open it, and if the process detail is there this is the one to draft."
+      "nuggets": [
+        "nug-lob-ownership",
+        "nug-coaching-not-programming",
+        "nug-job-description"
+      ],
+      "scores": {
+        "specificity": 2,
+        "spine_fit": 3,
+        "recognisability": 3,
+        "honesty_headroom": 2,
+        "freshness": 3
+      },
+      "verdict": "drop",
+      "reasoning": "Superseded. Split into two on the follow-up pass: the ANA consensus report, which is the real find, and the health-system deployments, which trace back to a vendor case study. Kept so the Becker's round-up is not re-triaged in six weeks."
     },
     {
       "id": "agent-manager-becomes-a-job-title",
@@ -48,9 +128,20 @@
       "function": "The agent-manager role itself",
       "what_changed": "Reported as formalising into a real title during 2026 - named employers posting it, a Harvard Business Review definition in February, and a Gartner projection that a large share of agentic projects get cancelled by 2027.",
       "the_decision": "Organizations deciding the work needs an owner with a title rather than absorbing it into whoever was already answerable.",
-      "nuggets": ["nug-six-capabilities", "nug-lob-ownership"],
-      "contradicts": ["nug-six-capabilities"],
-      "scores": {"specificity": 1, "spine_fit": 3, "recognisability": 2, "honesty_headroom": 3, "freshness": 2},
+      "nuggets": [
+        "nug-six-capabilities",
+        "nug-lob-ownership"
+      ],
+      "contradicts": [
+        "nug-six-capabilities"
+      ],
+      "scores": {
+        "specificity": 1,
+        "spine_fit": 3,
+        "recognisability": 2,
+        "honesty_headroom": 3,
+        "freshness": 2
+      },
       "verdict": "hold",
       "reasoning": "Matters mostly because it tests a line already sitting in the queue: li-agent-mgr-01 says almost nobody advertises this as a job title yet. If HBR defined it and named employers are hiring for it, that line needs softening before the post goes out. Everything found so far is SEO aggregation quoting each other - a posting is an intention, not a job. Worth ten minutes on the HBR piece and two real postings before either drafting or editing."
     },
@@ -58,12 +149,24 @@
       "id": "nist-agent-standards-initiative",
       "found": "2026-08-24",
       "source_url": "https://www.nist.gov/artificial-intelligence/ai-agent-standards-initiative",
-      "corroboration": ["https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure"],
+      "corroboration": [
+        "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure"
+      ],
       "function": "Whoever owns agent identity and authorization - security, platform, and the functions they serve",
       "what_changed": "A standards body took up agent identity, authorization and auditing, with secondary coverage reporting that measuring whether escalation paths actually get used is an acknowledged gap.",
       "the_decision": "Not a decision by a practitioner - this is the rule-making layer catching up to what the accounts here already argue about handoffs and deterministic checks.",
-      "nuggets": ["nug-deterministic-wrapper", "nug-unsupervised-handoffs", "nug-performance-review"],
-      "scores": {"specificity": 2, "spine_fit": 3, "recognisability": 1, "honesty_headroom": 2, "freshness": 3},
+      "nuggets": [
+        "nug-deterministic-wrapper",
+        "nug-unsupervised-handoffs",
+        "nug-performance-review"
+      ],
+      "scores": {
+        "specificity": 2,
+        "spine_fit": 3,
+        "recognisability": 1,
+        "honesty_headroom": 2,
+        "freshness": 3
+      },
       "verdict": "hold",
       "reasoning": "Real and relevant, but a step removed from the reader's Tuesday: standards news is support inside a post, not the subject of one. The one line worth chasing is whether NIST really says escalation utilization is unmeasured - that is li-review-02's argument from an institution, and it came from a secondary. nist.gov is blocked here."
     },
@@ -74,8 +177,17 @@
       "function": "Federal health administration - public health surveillance, fraud detection, administrative automation",
       "what_changed": "Nothing yet. An inspector general opened an audit of whether the department established AI governance for the tools it has deployed.",
       "the_decision": "An auditor deciding this is now worth auditing, which is the accountability argument becoming procedure.",
-      "nuggets": ["nug-performance-review", "nug-naming"],
-      "scores": {"specificity": 1, "spine_fit": 2, "recognisability": 1, "honesty_headroom": 2, "freshness": 3},
+      "nuggets": [
+        "nug-performance-review",
+        "nug-naming"
+      ],
+      "scores": {
+        "specificity": 1,
+        "spine_fit": 2,
+        "recognisability": 1,
+        "honesty_headroom": 2,
+        "freshness": 3
+      },
       "verdict": "hold",
       "reasoning": "A work-plan entry, not a finding. Audit reports describe what actually happened in detail and under oath, which is why they are on the source list - but that value arrives when the report issues, not when it is announced. Diary it and check back; there is no post in an audit that has not reported."
     }
