@@ -16,7 +16,7 @@ from datetime import date
 from corpus import load
 from social import (POST_DAYS, STATUSES, build_queue, char_count, filter_nuggets,
                     filter_posts, fold_fits, load_channel, order_posts,
-                    posting_dates, render_body)
+                    posting_dates, render_body, resolve_cta)
 
 
 class TestPosts(unittest.TestCase):
@@ -124,6 +124,30 @@ class TestPosts(unittest.TestCase):
             body = render_body(post)
             self.assertTrue(body.isascii(), f"{post['id']} has non-ASCII copy")
 
+    def test_first_mention_of_agent_is_labelled(self):
+        # On a feed the reader does not expand "agent" into "AI agent".
+        for post in self.channel.posts:
+            if post.get("agent_label_exempt"):
+                continue
+            body = render_body(post)
+            first = body.lower().find("agent")
+            if first >= 0:
+                self.assertEqual(body[max(0, first - 3):first].lower(), "ai ",
+                                 f"{post['id']}: ...{body[max(0, first - 30):first + 10]}...")
+
+    def test_every_post_ends_on_a_question_then_the_invitation(self):
+        # The subscribe line is the toll for the post, never the point of it -
+        # a post that ends on a pitch instead of a question gets no comments.
+        for post in self.channel.posts:
+            parts = render_body(post).split("\n\n")
+            self.assertTrue(parts[-3].endswith("?"), post["id"])
+            self.assertEqual(parts[-2], post["cta_text"], post["id"])
+            self.assertTrue(parts[-1].startswith("#"), post["id"])
+
+    def test_the_invitation_is_not_in_the_hook(self):
+        for post in self.channel.posts:
+            self.assertNotIn("Follow", post["hook"], post["id"])
+
     def test_no_links_in_the_body(self):
         for post in self.channel.posts:
             self.assertNotIn("http", render_body(post), post["id"])
@@ -133,12 +157,40 @@ class TestPosts(unittest.TestCase):
             self.assertIn(post["status"], STATUSES, post["id"])
 
 
+class TestCta(unittest.TestCase):
+    variants = {"default": "Follow {linkedin_page}; {show_name} is on Spotify.", "none": ""}
+
+    def test_identity_is_substituted(self):
+        text = resolve_cta("default", self.variants,
+                           {"linkedin_page": "@AskAnyone", "show_name": "Ask Anyone"})
+        self.assertEqual(text, "Follow @AskAnyone; Ask Anyone is on Spotify.")
+
+    def test_missing_identity_renders_a_visible_placeholder(self):
+        # Better a shout than "Follow  for the posts" going out silently.
+        text = resolve_cta("default", self.variants, {})
+        self.assertIn("[[linkedin page]]", text)
+        self.assertIn("[[show name]]", text)
+
+    def test_none_variant_suppresses_it(self):
+        self.assertEqual(resolve_cta("none", self.variants, {}), "")
+
+    def test_unknown_variant_falls_back_to_default(self):
+        self.assertIn("[[linkedin page]]", resolve_cta("nope", self.variants, {}))
+
+
 class TestRendering(unittest.TestCase):
     def setUp(self):
         self.post = {
             "id": "t-01", "hook": "A hook.", "body": ["One.", "Two."],
             "close": "A question?", "hashtags": ["#A", "#B"],
         }
+
+    def test_the_invitation_sits_between_the_question_and_the_hashtags(self):
+        self.post["cta_text"] = "Follow along."
+        self.assertEqual(
+            render_body(self.post),
+            "A hook.\n\nOne.\n\nTwo.\n\nA question?\n\nFollow along.\n\n#A #B",
+        )
 
     def test_hook_leads_and_hashtags_trail(self):
         rendered = render_body(self.post)

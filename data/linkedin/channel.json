@@ -57,7 +57,8 @@
       "One concrete specific per post - a dollar threshold, a sentence somebody said, a step in a process. Abstraction is what makes a post forgettable.",
       "Say the claim flat. A hook that teases ('the reason will surprise you') spends trust the account has to keep.",
       "Write so that a reader who thinks the whole thing is oversold can still finish it and disagree with something specific.",
-      "Attribute honestly. Reported is reported, and a framework is somebody's framework."
+      "Attribute honestly. Reported is reported, and a framework is somebody's framework.",
+      "Say 'AI agent' the first time, in every post. On a feed the reader does not expand 'agent' into 'AI agent' - they read a person, a booking agent, an insurance agent. Once it is labelled, 'agents' is fine for the rest of the post."
     ],
     "avoids": [
       "Engagement bait. 'Agree?', 'Thoughts?', 'Comment YES below', the fake poll. It works once and costs the account its register.",
@@ -111,5 +112,22 @@
   "spine_gaps_accepted": {
     "$comment": "Spine themes the current queue does not carry. The feed is supposed to say all four over time, so validate.py fails on an uncovered theme unless it is declared here - the exception stays visible in the data rather than quietly disappearing when posts get cut. Each entry says what would close it.",
     "customization-as-superpower": "Left uncovered when the rent-versus-own and tackle-box posts were cut. The material is still in the nuggets - nug-rent-vs-own, nug-tackle-box, nug-capability-escalator - so the way to close this is one post on turnkey software never having been turnkey, and the team's workarounds being the specification all along."
+  },
+  "identity": {
+    "$comment": "Fill these in once. The subscribe line and the first comment are assembled from them, so they change in one place. Until then they render as visible [[placeholders]] and validate.py warns on every post that shows one - loud, but it blocks nothing, because the copy is finished either way.",
+    "show_name": "",
+    "linkedin_page": "",
+    "spotify_url": "",
+    "youtube_url": ""
+  },
+  "cta": {
+    "$comment": "The subscribe line, appended to every post at render time. It lives here rather than in each post so it changes in one place and stays consistent, and it is short on purpose - it is the toll for the post, not the point of it.",
+    "placement": "After the close question, before the hashtags. Never above the fold, and never in place of the question - a post that ends on a pitch instead of a question gets no comments.",
+    "link_policy": "The body carries a follow of the LinkedIn Page and nothing else. An external link in the body costs reach, and the Page follow is one tap without leaving the feed, which is the only conversion a scroller will actually make. Spotify and YouTube go in the first comment, where the people who tapped through are the ones who wanted them.",
+    "variants": {
+      "default": "We turn these arguments into interviews with the people who run the work. Follow {linkedin_page} for the posts; episodes on Spotify and YouTube, links in the first comment.",
+      "short": "{show_name} is interviews with people who run the work, in their own words. Follow {linkedin_page} here; episode links in the first comment.",
+      "none": ""
+    }
   }
 }

@@ -30,6 +30,10 @@ POST_DIR = LINKEDIN_DIR / "posts"
 
 POST_FIELDS = ("id", "title", "format", "status", "covers", "nuggets",
                "hook", "body", "close", "hashtags", "why_it_lands")
+
+# Identity values that have not been filled in render as a visible placeholder,
+# so an unconfigured post cannot be pasted by accident.
+IDENTITY_FIELDS = ("show_name", "linkedin_page", "spotify_url", "youtube_url")
 NUGGET_FIELDS = ("id", "claim", "theme", "source", "use_when",
                  "counterpoint", "citation_status")
 
@@ -100,11 +104,33 @@ def load_channel() -> Channel:
     for nugget in nuggets_blob.get("nuggets", []):
         nugget["source_file"] = "data/linkedin/nuggets.json"
 
+    # The subscribe line is channel-level, so it gets resolved once here and
+    # stamped onto each post. render_body then stays a function of the post
+    # alone, which is what keeps char_count honest about what gets pasted.
+    identity = channel.get("identity", {})
+    variants = channel.get("cta", {}).get("variants", {})
+    for post in posts:
+        post["cta_text"] = resolve_cta(post.get("cta", "default"), variants, identity)
+
     return Channel(channel=channel, nuggets=nuggets_blob.get("nuggets", []),
                    sources=sources, posts=posts, packs=packs)
 
 
 # ------------------------------------------------------------------ rendering
+
+
+def resolve_cta(variant: str, variants: dict, identity: dict) -> str:
+    """The subscribe line with the account's names filled in.
+
+    An identity value nobody has filled in comes back as [[a placeholder]]
+    rather than as an empty string, because a subscribe line that silently
+    says "Follow  for the posts" is worse than one that shouts.
+    """
+    text = variants.get(variant, variants.get("default", ""))
+    for field_name in IDENTITY_FIELDS:
+        value = identity.get(field_name) or f"[[{field_name.replace('_', ' ')}]]"
+        text = text.replace("{" + field_name + "}", value)
+    return text.strip()
 
 
 def render_body(post: dict) -> str:
@@ -118,6 +144,8 @@ def render_body(post: dict) -> str:
     parts.extend(str(p).strip() for p in post.get("body", []))
     if post.get("close"):
         parts.append(post["close"].strip())
+    if post.get("cta_text"):
+        parts.append(post["cta_text"])
     if post.get("hashtags"):
         parts.append(" ".join(post["hashtags"]))
     return "\n\n".join(parts)

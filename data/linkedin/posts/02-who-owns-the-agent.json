@@ -19,23 +19,22 @@
         "nug-coaching-not-programming",
         "nug-threshold-example"
       ],
-      "hook": "A new management job is taking shape, and the reporting keeps landing somewhere awkward: the people best suited to it are not on the technical team.",
+      "hook": "A new management job is taking shape around AI agents, and the reporting keeps landing somewhere awkward: the people best suited to it are not on the technical team.",
       "body": [
-        "The pattern is consistent enough to take seriously. Agents run centrally by a technical group tend to work technically and drift in the actual work. Agents owned by the function they serve get corrected faster, because somebody there can tell within a day that the output is subtly wrong.",
-        "That is not a knock on IT. It is that the questions which decide whether an agent is any good are not technical questions.",
-        "What tone does it take with a customer who is already angry. What is it never allowed to decide alone. What does good enough look like on a Tuesday in the middle of quarter close, when the honest alternative is that nothing goes out at all.",
+        "The pattern is consistent enough to take seriously. AI agents run by a central technical group tend to work technically and drift in the actual work. Agents owned by the function they serve get corrected faster: somebody there can tell within a day that the output is subtly wrong.",
+        "That is not a knock on IT. The questions that decide whether an agent is any good are not technical questions.",
+        "What is it never allowed to decide alone. What does good enough look like on a Tuesday in the middle of quarter close, when the honest alternative is that nothing goes out at all.",
         "IT can make the pipelines secure. Only somebody who does the work can say what good looks like inside it.",
-        "What the job consists of, from people already doing it under other titles: you start the week looking at where it escalated and where it should have and did not. You rewrite the rule that produced the miss. You watch the handoffs to people, because that is where work gets dropped. You root-cause failures instead of reissuing the instruction louder.",
+        "What the job consists of, from people already doing it under other titles: you start the week on where the agent escalated, and where it should have and did not. You rewrite the rule that produced the miss. You watch the handoffs to people, because that is where work gets dropped. You root-cause the failures.",
         "That is a management week, not an engineering week.",
-        "The capabilities it is said to need, ordered by how much of each is already sitting in your team:",
+        "The capabilities it is said to need, ordered by how much of each already sits in your team:",
         "- deep knowledge of the process, exceptions included\n- the ability to state a rule precisely enough to enforce\n- enough operational literacy to know how these things fail\n- systems thinking across the handoffs\n- a weekly rhythm of test, adjust, run it again\n- the patience to work with both the machine and the people",
         "Four of those are management. One is language. One is genuinely new.",
-        "The second never makes it into a job posting, and it is where most of the work lives. 'Help with invoices' cannot be enforced by anything. This can: approve a repeat vendor invoice under five hundred dollars, halt anything over five thousand, escalate to a named person. Then spend the real effort on the exceptions, a list only somebody who has processed the invoices can write.",
-        "Two cautions, because the version of this argument without them is a sales pitch.",
-        "It describes what the work demands. It is not evidence that anyone is hiring for it. The postings are thin, the work is not, and it is landing on whoever was already answerable for the output.",
-        "And function ownership only works if somebody still owns the guardrails. Distributed ownership with no shared platform underneath is shadow IT with better branding and worse security."
+        "Almost nobody advertises this as a job title yet. The work is here anyway, landing on whoever was answerable for the output before any of it arrived.",
+        "The language one never makes it into a posting, and it is where most of the work lives. 'Help with invoices' cannot be enforced. This can: approve a repeat vendor invoice under five hundred dollars, halt anything over five thousand, escalate to a named person. The real effort goes into the exceptions, a list only somebody who has processed the invoices can write.",
+        "One caution, because without it this is a sales pitch: ownership by the function only works if somebody still owns the guardrails. AI agents spread across a company with no shared platform underneath is shadow IT with better branding and worse security."
       ],
-      "close": "If an agent started doing part of your team's work next month, who on your org chart would own whether it did it well?",
+      "close": "If an AI agent did part of your team's work next month, who on your org chart would own whether it did it well?",
       "hashtags": [
         "#Leadership",
         "#AIatWork",
@@ -44,13 +43,13 @@
       ],
       "alt_hooks": [
         "Somewhere in your organization is a person who would be very good at managing AI agents, and their job title has nothing to do with AI.",
-        "The best agent managers reportedly come from roles already accountable for whether the work is any good, rather than from roles accountable for the technology."
+        "The best managers of AI agents reportedly come from roles already accountable for whether the work is any good, rather than from roles accountable for the technology."
       ],
-      "first_comment": "Two sources behind this, both worth reading against your own experience rather than taken flat. The six capabilities come from vendor writing about its own agent-manager role, where the supporting figures are self-reported. The ownership argument is the part that stands on its own, and it is the part I have seen play out.",
+      "first_comment": "Episodes here: Spotify {spotify_url} and YouTube {youtube_url}. Two sources behind this post, both worth reading against your own experience rather than taken flat. The six capabilities come from vendor writing about its own agent-manager role, where the supporting figures are self-reported. The ownership argument is the part that stands on its own.",
       "replies": [
         {
           "expect": "Isn't this just prompt engineering with a new job title?",
-          "reply": "The wording is maybe a fifth of it. The rest is deciding what it may decide alone, where the escalation path goes, and reviewing what it actually produced last week. That part does not fail loudly. It fails by drifting while nobody owns it."
+          "reply": "The wording is maybe a fifth of it. The rest is deciding what the AI agent may decide alone, where the escalation path goes, and reviewing what it actually produced last week. That part does not fail loudly. It fails by drifting while nobody owns it."
         },
         {
           "expect": "IT exists for a reason. This sounds like a recipe for chaos.",

@@ -15,10 +15,10 @@
         "nug-performance-review",
         "nug-verify-like-a-junior"
       ],
-      "hook": "If an agent has a job description, it needs a performance review.",
+      "hook": "If an AI agent has a job description, it needs a performance review.",
       "body": [
         "Handing work to an agent does not hand over responsibility for the work. It only moves where the responsibility sits, and usually it moves it somewhere less specific.",
-        "So review it the way you would a direct report, on a cycle, against things you named in advance. How often was it accurate. Was it on time. How often did it escalate when it should have, and how often did it not.",
+        "So review the agent the way you would a direct report, on a cycle, against things you named in advance. How often was it accurate. Was it on time. How often did it escalate when it should have, and how often did it not.",
         "That last one is the number worth watching. Escalation rate is the honest measure of whether the boundary you set is real.",
         "Then put a human supervisor next to it on the org chart, by name.",
         "That part is going to stop being a nice-to-have. When something goes wrong in a report that left the building, 'the system categorised it that way' is not an answer that will hold up much longer, with a regulator, an auditor or a customer.",
@@ -47,7 +47,7 @@
         "nug-naming",
         "nug-performance-review"
       ],
-      "hook": "Give the agent a name. Not to make it feel like a colleague. To make it impossible to blame in the abstract.",
+      "hook": "Give the AI agent a name. Not to make it feel like a colleague. To make it impossible to blame in the abstract.",
       "body": [
         "The instinct to push back on this is a healthy one. Naming software feels like a step toward pretending it is a person, and it is not a person.",
         "The reason to do it anyway is accountability.",

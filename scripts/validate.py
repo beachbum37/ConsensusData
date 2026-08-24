@@ -15,8 +15,8 @@ import sys
 from collections import Counter, defaultdict
 
 from corpus import ANCHORING, REQUIRED_FIELDS, load, slots_in
-from social import (NUGGET_FIELDS, POST_FIELDS, STATUSES, char_count,
-                    load_channel, render_body)
+from social import (IDENTITY_FIELDS, NUGGET_FIELDS, POST_FIELDS, STATUSES,
+                    char_count, load_channel, render_body)
 
 ARC_BEAT_FIELDS = ("beat", "title", "theme", "purpose", "listener_payoff",
                    "keep_it_approachable", "flavors")
@@ -164,6 +164,24 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
 
         body = render_body(post)
         ascii_check(body, where, "post copy")
+
+        # On a feed nobody expands "agent" into "AI agent" - they read a
+        # person. The first mention has to say so; after that, "agents" is fine.
+        first = body.lower().find("agent")
+        if first >= 0 and not post.get("agent_label_exempt"):
+            if body[max(0, first - 3):first].lower() != "ai ":
+                errors.append(
+                    f"{where}: first mention of 'agent' is not labelled 'AI agent' - "
+                    f"...{body[max(0, first - 40):first + 20]}..."
+                )
+
+        # A warning rather than an error: the copy is finished, the account
+        # names simply are not known yet. It is loud, and it blocks nothing.
+        if "[[" in body:
+            warnings.append(
+                f"{where}: renders an unfilled placeholder - set channel.json "
+                "identity before this one goes out"
+            )
         lint_voice(body, where)
         lint_feed(body, where)
 
@@ -201,6 +219,15 @@ def check_linkedin(spine_themes: set[str], lint_voice, errors: list[str],
         warnings.append(
             f"linkedin: spine gap '{theme}' is declared in channel.json but a post now "
             "covers it - remove the declaration"
+        )
+
+    missing_identity = [f for f in IDENTITY_FIELDS
+                        if not bible.get("identity", {}).get(f)]
+    if missing_identity:
+        warnings.append(
+            "linkedin: channel.json identity is not filled in ("
+            + ", ".join(missing_identity)
+            + ") - the subscribe line and first comment render placeholders until it is"
         )
 
     ready = channel.ready()

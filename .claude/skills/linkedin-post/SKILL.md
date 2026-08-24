@@ -116,7 +116,9 @@ discounts.
   step in a process. `nug-threshold-example` travels well across industries.
 - **close** - a real question, answerable from their own week, that you would
   genuinely want the answer to. Not "thoughts?".
-- **hashtags** - two to five, at the end.
+- **hashtags** - two to five, at the end. The subscribe line is appended
+  automatically between the close and the hashtags - do not write one into the
+  body.
 - **why_it_lands**, and **risk** when the post has a failure mode.
 
 Target 900-1800 characters. Longer reads as an essay, shorter as a slogan. A
@@ -148,7 +150,13 @@ sceptic cannot finish and disagree with something specific in is an
 advertisement.
 
 **Lead with the reader, not the technology.** The first line should be
-recognisable to someone who has never touched an agent.
+recognisable to someone who has never touched an AI agent.
+
+**Say "AI agent" the first time, every post.** On a feed the reader does not
+expand "agent" into "AI agent" - they read a person, a booking agent, an
+insurance agent. After the first mention, "agents" is fine. Validation enforces
+this; a post whose first "agent" genuinely is not an AI one declares
+`agent_label_exempt`.
 
 Then:
 
