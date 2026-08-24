@@ -118,6 +118,46 @@ mistake this audience remembers. `nug-deployment-bottleneck` carries a
 `verify_before_use` note for exactly this reason - the survey figure in the
 source transcript is unattributed and stays out of the copy.
 
+## Job 2b: the daily brief
+
+A routine fires this every morning in a fresh session. It is Job 2 on a tighter
+loop, with a fixed output: **the top three finds, or fewer, or none.**
+
+1. Run the pass exactly as above - nuggets first, two or three queries including
+   a counterexample query, novelty test, then score.
+2. **Dedupe against `data/linkedin/candidates.json` before anything else.** A
+   story already recorded - held, drafted or dropped - does not come back. If a
+   held candidate has genuinely moved on (the audit reported, the study
+   published), that is an update to the existing record, not a new find.
+3. Open the primary for anything that survives. With network access the pass can
+   finish, so a candidate reaching the email should be verified, not triaged.
+4. Record everything found in `candidates.json`, including the drops, and commit.
+5. Write the brief as the session's final message, in this shape:
+
+```
+Work Less AI More - scan for <date>
+
+1. <headline claim in one line>
+   <source name and link>
+   Why it is worth a post: <one or two sentences>
+   Where it fits: <nugget ids, or which post it argues with>
+   Score <n>/15 - verdict <draft|hold>
+
+2. ...
+
+Dropped today: <n> (<one-clause reasons>)
+Queue: <n> posts ready, <n> weeks at one a week
+```
+
+**Most days will have nothing, and the brief says so.** Three slots is a
+ceiling, never a quota. A day with one real find and two empty slots is a good
+brief; three padded items is how the account learns to publish filler. When
+nothing clears the bar, the whole email is one line saying so and what is still
+sitting in the queue.
+
+Two things always earn a place in the brief even alone: a find that
+**contradicts** a nugget, and one that argues with a post already in the queue.
+
 ## Job 3: write new posts
 
 From a find, or from an article the user drops in.
