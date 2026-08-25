@@ -132,9 +132,18 @@ loop, with a fixed output: **the top three finds, or fewer, or none.**
 3. Open the primary for anything that survives. With network access the pass can
    finish, so a candidate reaching the email should be verified, not triaged.
 4. Record everything found in `candidates.json`, including the drops, and commit.
-5. Write the brief as the session's final message, in this shape:
+5. **Write the brief to `data/linkedin/briefs/YYYY-MM-DD.md` and push it**, then
+   repeat it as the session's final message. The file is the delivery that
+   cannot fail: email is a notification the run does not control, and a brief
+   that exists only in a session transcript is a brief nobody reads. A morning
+   with no commit in `briefs/` is a morning the job did not run - that absence
+   is the monitoring.
+6. Lead the final message with the subject line, so it survives being relayed
+   as a notification. Shape:
 
 ```
+Scan brief <date>: <n> finds / nothing new
+
 Work Less AI More - scan for <date>
 
 1. <headline claim in one line>
