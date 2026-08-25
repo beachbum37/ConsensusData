@@ -106,6 +106,20 @@ def main() -> int:
         for slug in q.get("settings", []):
             if slug not in valid_settings:
                 errors.append(f"{where}: unknown setting '{slug}'")
+
+        for slug, variant in (q.get("setting_text") or {}).items():
+            if slug not in valid_settings:
+                errors.append(f"{where}: setting_text for unknown setting '{slug}'")
+            elif variant.strip() == q.get("text", "").strip():
+                warnings.append(
+                    f"{where}: setting_text['{slug}'] is identical to the base text"
+                )
+            scoped = q.get("settings", [])
+            if scoped and slug not in scoped:
+                warnings.append(
+                    f"{where}: setting_text['{slug}'] can never render - the question "
+                    f"is scoped to {scoped}"
+                )
         if len(q.get("settings", [])) == len(valid_settings) and valid_settings:
             warnings.append(
                 f"{where}: lists every setting, which is the same as listing none"
@@ -136,6 +150,20 @@ def main() -> int:
     for slug in valid_industries:
         if slug != "universal" and slug not in profiled:
             errors.append(f"taxonomy lists industry '{slug}' with no profile in industries.json")
+
+    # Reassigning questions to one setting shrinks the pool the other one sees.
+    # This is the floor below which a setting stops having enough to draw on.
+    SETTING_FLOOR = 250
+    for slug in sorted(valid_settings):
+        available = sum(
+            1 for q in corpus.questions
+            if not q.get("settings") or slug in q["settings"]
+        )
+        if available < SETTING_FLOOR:
+            errors.append(
+                f"setting '{slug}' surfaces only {available} questions, below the "
+                f"floor of {SETTING_FLOOR} - too much has been scoped away from it"
+            )
 
     # -------------------------------------------------- series voice and spine
     spine_themes = {t["theme"] for t in corpus.spine}
@@ -283,9 +311,16 @@ def main() -> int:
         for slug in q.get("settings", []):
             per_setting[slug] += 1
     if valid_settings:
-        print("Per setting (setting-scoped questions):")
+        variants: Counter[str] = Counter()
+        for q in corpus.questions:
+            for slug in (q.get("setting_text") or {}):
+                variants[slug] += 1
+        print("Per setting (own questions + reworded + total surfaced):")
         for slug in sorted(valid_settings):
-            print(f"  {slug:<20} {per_setting[slug]:>3}")
+            surfaced = sum(1 for q in corpus.questions
+                           if not q.get("settings") or slug in q["settings"])
+            print(f"  {slug:<20} {per_setting[slug]:>3} own  "
+                  f"{variants[slug]:>3} reworded  {surfaced:>3} surfaced")
         print()
 
     print("Per role (role-scoped questions):")

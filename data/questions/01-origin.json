@@ -8,10 +8,17 @@
       "theme": "origin",
       "arc": "warmup",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Everyone was wrong about their own field once, and the shape of that wrongness is a fast route into what the job actually is.",
-      "followups": ["When did you find out otherwise?"],
-      "tags": ["misconception", "reliable"]
+      "followups": [
+        "When did you find out otherwise?"
+      ],
+      "tags": [
+        "misconception",
+        "reliable"
+      ]
     },
     {
       "id": "u-orig-02",
@@ -19,10 +26,17 @@
       "theme": "origin",
       "arc": "warmup",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Gives permission to skip the tidy origin myth. Most careers are drift plus one or two decisive accidents, and guests are usually relieved to be allowed to say so.",
-      "followups": ["What was the accident?"],
-      "tags": ["anti-narrative", "honest"]
+      "followups": [
+        "What was the accident?"
+      ],
+      "tags": [
+        "anti-narrative",
+        "honest"
+      ]
     },
     {
       "id": "u-orig-03",
@@ -30,13 +44,19 @@
       "theme": "origin",
       "arc": "warmup",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Craft transmits through people, not curricula. This produces a character, a scene, and an implicit definition of excellence all at once.",
       "followups": [
         "What did they do that you did not understand at the time?",
         "Do you do it their way now, or did you break from it?"
       ],
-      "tags": ["mentorship", "character", "story-generator"]
+      "tags": [
+        "mentorship",
+        "character",
+        "story-generator"
+      ]
     },
     {
       "id": "u-orig-04",
@@ -44,10 +64,17 @@
       "theme": "origin",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Every field has a gap between how it teaches and how it operates. Naming the gap is insider knowledge the guest can offer without betraying anyone.",
-      "followups": ["Is the training still teaching that?"],
-      "tags": ["training-gap", "expertise"]
+      "followups": [
+        "Is the training still teaching that?"
+      ],
+      "tags": [
+        "training-gap",
+        "expertise"
+      ]
     },
     {
       "id": "u-orig-05",
@@ -55,11 +82,18 @@
       "theme": "origin",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Reframes commitment as a decision rather than a destiny. Often the most emotionally honest moment available in the first half of an interview.",
-      "followups": ["Do you think you made the right call?"],
+      "followups": [
+        "Do you think you made the right call?"
+      ],
       "avoid_if": "The guest has just described a current crisis - it will read as a suggestion that they quit.",
-      "tags": ["commitment", "vulnerable"]
+      "tags": [
+        "commitment",
+        "vulnerable"
+      ]
     },
     {
       "id": "u-orig-06",
@@ -67,13 +101,19 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Credentialing, apprenticeship, and hiring norms have shifted in nearly every industry. Experienced guests have strong, specific opinions about this and rarely get asked.",
       "followups": [
         "Would you get hired today with the resume you had?",
         "Is the new path better or just longer?"
       ],
-      "tags": ["access", "generational", "strong-opinions"]
+      "tags": [
+        "access",
+        "generational",
+        "strong-opinions"
+      ]
     },
     {
       "id": "u-orig-07",
@@ -81,10 +121,20 @@
       "theme": "personal",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Specific, bounded, and usually never asked. Produces concrete detail about hazing, hours, money, or the body without requiring the guest to indict anyone.",
-      "followups": ["Do people entering now still pay that?"],
-      "tags": ["entry-cost", "candid"]
+      "followups": [
+        "Do people entering now still pay that?"
+      ],
+      "tags": [
+        "entry-cost",
+        "candid"
+      ],
+      "setting_text": {
+        "entrepreneur": "What did the first year on your own cost you that nobody warned you about?"
+      }
     }
   ]
 }

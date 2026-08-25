@@ -9,7 +9,7 @@ from __future__ import annotations
 import unittest
 
 from corpus import (ANCHORING, APERTURE, BRIEF_SHAPE, build_brief, fill_slots,
-                    filter_questions, load, slots_in)
+                    filter_questions, load, slots_in, text_for)
 
 
 def profile(**vocab):
@@ -324,6 +324,41 @@ class TestSetting(unittest.TestCase):
             for q in brief:
                 self.assertNotIn(other, q.get("settings", []),
                                  f"{q['id']} leaked into a {setting} brief")
+
+    def test_each_setting_stays_above_the_floor(self):
+        # Reassigning questions to one setting shrinks what the other sees.
+        # 250 is the agreed floor below which a setting runs thin.
+        for slug in ("enterprise", "entrepreneur"):
+            available = len(filter_questions(self.corpus, setting=slug))
+            self.assertGreaterEqual(available, 250, f"{slug} surfaces only {available}")
+
+    def test_setting_text_returns_the_variant(self):
+        q = self.corpus.by_id("u-open-02")
+        self.assertIn("boot up", text_for(q, "entrepreneur"))
+        self.assertEqual(text_for(q, "enterprise"), q["text"])
+        self.assertEqual(text_for(q), q["text"])
+
+    def test_no_variant_is_a_copy_of_the_base(self):
+        # A variant identical to the base is dead weight that reads as though
+        # the question was tailored when it was not.
+        for q in self.corpus.questions:
+            for slug, variant in (q.get("setting_text") or {}).items():
+                self.assertNotEqual(variant.strip(), q["text"].strip(),
+                                    f"{q['id']} setting_text[{slug}] duplicates the base")
+
+    def test_variants_only_for_settings_the_question_can_reach(self):
+        for q in self.corpus.questions:
+            scoped = q.get("settings", [])
+            for slug in (q.get("setting_text") or {}):
+                if scoped:
+                    self.assertIn(slug, scoped,
+                                  f"{q['id']} has a variant for {slug} it can never render")
+
+    def test_variants_use_declared_settings(self):
+        valid = {k for k in self.corpus.taxonomy["settings"] if not k.startswith("$")}
+        for q in self.corpus.questions:
+            for slug in (q.get("setting_text") or {}):
+                self.assertIn(slug, valid, f"{q['id']} variant for unknown setting {slug!r}")
 
     def test_a_setting_scoped_question_is_not_also_industry_pinned(self):
         # The constraint is the setting, not the field - it should stay

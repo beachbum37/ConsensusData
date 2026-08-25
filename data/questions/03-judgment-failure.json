@@ -8,13 +8,19 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Universal condition of professional work, and it lets the guest look competent while being honest about uncertainty. A reliable story generator.",
       "followups": [
         "What would you have needed to know to be sure?",
         "Did you ever find out whether you were right?"
       ],
-      "tags": ["uncertainty", "story-generator", "flagship"]
+      "tags": [
+        "uncertainty",
+        "story-generator",
+        "flagship"
+      ]
     },
     {
       "id": "u-judg-02",
@@ -22,11 +28,19 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Every field rations something - time, attention, risk, care - and practitioners normalize it. Naming it out loud is genuinely revealing and often the clip that travels.",
-      "followups": ["Is that the right tradeoff? What would it take to change it?"],
+      "followups": [
+        "Is that the right tradeoff? What would it take to change it?"
+      ],
       "avoid_if": "You have not yet established that you understand the constraints they work under. Without that, the answer becomes a confession they will regret.",
-      "tags": ["rationing", "high-yield", "trust-required"]
+      "tags": [
+        "rationing",
+        "high-yield",
+        "trust-required"
+      ]
     },
     {
       "id": "u-judg-03",
@@ -34,10 +48,17 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Forces a real position rather than a both-sides answer, and the career-arc half invites reflection instead of defensiveness.",
-      "followups": ["What changed your mind?"],
-      "tags": ["tempo", "forces-position"]
+      "followups": [
+        "What changed your mind?"
+      ],
+      "tags": [
+        "tempo",
+        "forces-position"
+      ]
     },
     {
       "id": "u-judg-04",
@@ -45,10 +66,17 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Intuition calibration is the interior experience of getting good at something, and the two-part structure keeps it from becoming a platitude about trusting yourself.",
-      "followups": ["What taught you the difference?"],
-      "tags": ["intuition", "calibration"]
+      "followups": [
+        "What taught you the difference?"
+      ],
+      "tags": [
+        "intuition",
+        "calibration"
+      ]
     },
     {
       "id": "u-judg-05",
@@ -56,10 +84,21 @@
       "theme": "people",
       "arc": "core",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Small, easy, and it maps the informal expertise network that every profession runs on and no org chart shows.",
-      "followups": ["What do they have that you do not?"],
-      "tags": ["networks", "easy", "warm"]
+      "followups": [
+        "What do they have that you do not?"
+      ],
+      "tags": [
+        "networks",
+        "easy",
+        "warm"
+      ],
+      "setting_text": {
+        "entrepreneur": "Who do you call when you are stuck, with nobody down the hall?"
+      }
     },
     {
       "id": "u-fail-01",
@@ -67,10 +106,18 @@
       "theme": "failure",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "The safest possible entry into failure. It is framed as mentorship, it is safely in the past, and it almost always yields a real story rather than a sanitized one.",
-      "followups": ["What did it cost at the time?"],
-      "tags": ["failure-entry", "safe", "always-works"]
+      "followups": [
+        "What did it cost at the time?"
+      ],
+      "tags": [
+        "failure-entry",
+        "safe",
+        "always-works"
+      ]
     },
     {
       "id": "u-fail-02",
@@ -78,13 +125,22 @@
       "theme": "failure",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Structural rather than personal, so it is easy to answer honestly - and the answers vary enormously. Aviation and medicine have formal review; most fields absorb error silently, and that contrast is itself the story.",
       "followups": [
         "Does the process work?",
         "What happens to the person who made the error?"
       ],
-      "tags": ["systems", "structural", "comparative"]
+      "tags": [
+        "systems",
+        "structural",
+        "comparative"
+      ],
+      "setting_text": {
+        "entrepreneur": "How do you handle your own errors? Do you have any process at all, or does it just get absorbed?"
+      }
     },
     {
       "id": "u-fail-03",
@@ -92,13 +148,19 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Near-misses carry the dramatic weight of failure without the shame of it, so guests tell them freely. Often the best story in the episode.",
       "followups": [
         "What caught it?",
         "Did anything change afterward, or did everyone just move on?"
       ],
-      "tags": ["story-generator", "drama", "safe"]
+      "tags": [
+        "story-generator",
+        "drama",
+        "safe"
+      ]
     },
     {
       "id": "u-fail-04",
@@ -106,10 +168,18 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Goes at disclosure norms rather than at the guest personally. Reveals the accountability structure of an entire industry in one answer.",
-      "followups": ["Should that be different?"],
-      "tags": ["disclosure", "accountability", "structural"]
+      "followups": [
+        "Should that be different?"
+      ],
+      "tags": [
+        "disclosure",
+        "accountability",
+        "structural"
+      ]
     },
     {
       "id": "u-fail-05",
@@ -117,11 +187,19 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "The second clause is the sharp one. In some fields the practitioner pays; in others a patient, a client, a homeowner, or a taxpayer does. It surfaces the moral weight of the work directly.",
-      "followups": ["Does that asymmetry change how carefully you work?"],
+      "followups": [
+        "Does that asymmetry change how carefully you work?"
+      ],
       "avoid_if": "The guest is currently facing litigation, an investigation, or a public incident.",
-      "tags": ["stakes", "moral-weight", "high-yield"]
+      "tags": [
+        "stakes",
+        "moral-weight",
+        "high-yield"
+      ]
     },
     {
       "id": "u-fail-06",
@@ -129,11 +207,17 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Short, quiet, and unguarded. It works only as a follow-on, after the guest has already told you a failure story and found that you handled it well.",
       "followups": [],
       "avoid_if": "Never open with this, and never ask it of a guest who has stayed guarded. If they deflect, let it go on the first deflection - pushing here costs you the rest of the interview.",
-      "tags": ["deep", "one-shot", "handle-with-care"]
+      "tags": [
+        "deep",
+        "one-shot",
+        "handle-with-care"
+      ]
     }
   ]
 }

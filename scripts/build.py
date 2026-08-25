@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = Path(__file__).resolve().parent / "template.html"
 DOCS = ROOT / "docs"
 
-FIELDS = ("id", "text", "theme", "arc", "depth", "industries", "roles", "settings",
+FIELDS = ("id", "text", "theme", "arc", "depth", "industries", "roles", "settings", "setting_text",
           "aperture", "narrow_to", "lands_because", "followups", "avoid_if",
           "tags", "pack")
 

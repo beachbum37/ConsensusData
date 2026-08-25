@@ -8,14 +8,24 @@
       "theme": "people",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The bridge between the two halves of the subject, and it casts the manager as the person who already holds the scarce skill rather than the person being automated. Guests light up at it.",
       "followups": [
         "What did that cost you to learn?",
         "Is anyone teaching them, or are they just finding out?"
       ],
-      "tags": ["ai", "agents", "delegation", "flagship", "high-yield"]
+      "tags": [
+        "ai",
+        "agents",
+        "delegation",
+        "flagship",
+        "high-yield"
+      ]
     },
     {
       "id": "agm-02",
@@ -23,11 +33,23 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The two-part structure prevents a glib answer in either direction. The non-transferable half is the more interesting one - motivation, growth, and loyalty have no analogue, and naming that clarifies what management actually was.",
-      "followups": ["So what is management, if you take the people part out?"],
-      "tags": ["ai", "agents", "delegation", "flagship", "clarifying"]
+      "followups": [
+        "So what is management, if you take the people part out?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "delegation",
+        "flagship",
+        "clarifying"
+      ]
     },
     {
       "id": "agm-03",
@@ -35,14 +57,28 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Span of control is a real, old, well-understood management constraint that nobody has re-derived for agents. Asking for the ceiling invites a number and a story about hitting it.",
       "followups": [
         "What happens to the quality at the top of that range?",
         "Did you notice the ceiling before or after something went wrong?"
       ],
-      "tags": ["ai", "agents", "span-of-control", "quantified", "flagship"]
+      "tags": [
+        "ai",
+        "agents",
+        "span-of-control",
+        "quantified",
+        "flagship"
+      ],
+      "setting_text": {
+        "entrepreneur": "How many things can you actually supervise at once? Have you found the ceiling?"
+      }
     },
     {
       "id": "agm-04",
@@ -50,14 +86,24 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Specifying precisely what you want has become load-bearing, and it is exactly the skill good managers already have. The teachability half tests whether the guest can articulate it or only do it.",
       "followups": [
         "What do people get wrong on their first try?",
         "Is it the same skill as briefing a junior?"
       ],
-      "tags": ["ai", "agents", "specification", "tacit-knowledge"]
+      "tags": [
+        "ai",
+        "agents",
+        "specification",
+        "tacit-knowledge"
+      ]
     },
     {
       "id": "agm-05",
@@ -65,11 +111,27 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Trust calibration is the whole craft of supervision, human or otherwise. Asking how they calibrated forces a real account rather than a principle.",
-      "followups": ["What did it take to stop checking everything?"],
-      "tags": ["ai", "agents", "trust", "review", "flagship"]
+      "followups": [
+        "What did it take to stop checking everything?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "trust",
+        "review",
+        "flagship"
+      ],
+      "setting_text": {
+        "entrepreneur": "When do you check the work and when do you accept it? How did you calibrate that?"
+      }
     },
     {
       "id": "agm-06",
@@ -77,15 +139,25 @@
       "theme": "people",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The human cost of the shift, made specific. It is the question a manager has been privately worrying about, and asking it plainly usually produces the most honest moment in the conversation.",
       "followups": [
         "Is that a training problem or a temperament one?",
         "Do you owe them a path, or does the organization?"
       ],
       "avoid_if": "The guest is currently running a performance process on someone who fits that description.",
-      "tags": ["ai", "agents", "human-cost", "flagship", "high-yield"]
+      "tags": [
+        "ai",
+        "agents",
+        "human-cost",
+        "flagship",
+        "high-yield"
+      ]
     },
     {
       "id": "agm-07",
@@ -93,11 +165,22 @@
       "theme": "people",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Names the specific reason people abandon delegation and revert to doing it themselves. Managers know this valley intimately from experience and can describe crossing it.",
-      "followups": ["How long is the valley, honestly?"],
-      "tags": ["ai", "agents", "delegation", "practical"]
+      "followups": [
+        "How long is the valley, honestly?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "delegation",
+        "practical"
+      ]
     },
     {
       "id": "agm-08",
@@ -105,14 +188,24 @@
       "theme": "people",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Seven words that force a real position, and hiring is where a stated philosophy meets an actual decision. The answer tells you what the guest truly believes about the thesis.",
       "followups": [
         "Has your interview changed? What do you ask now?",
         "Can you assess direction in an interview at all?"
       ],
-      "tags": ["ai", "agents", "hiring", "short", "flagship"]
+      "tags": [
+        "ai",
+        "agents",
+        "hiring",
+        "short",
+        "flagship"
+      ]
     },
     {
       "id": "agm-09",
@@ -120,11 +213,23 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The evaluation problem stated precisely. It is unsolved in most organizations, and a manager improvising an answer live is genuinely interesting listening.",
-      "followups": ["Does your performance process have any idea how to handle that?"],
-      "tags": ["ai", "agents", "evaluation", "fairness", "high-yield"]
+      "followups": [
+        "Does your performance process have any idea how to handle that?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "evaluation",
+        "fairness",
+        "high-yield"
+      ]
     },
     {
       "id": "agm-10",
@@ -132,11 +237,26 @@
       "theme": "ethics",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Accountability cannot be delegated downward to something that cannot hold it, which means it concentrates on the human director. Most organizations have not said this out loud.",
-      "followups": ["Is that fair, if they could not have caught the error?"],
-      "tags": ["ai", "agents", "accountability", "high-yield"]
+      "followups": [
+        "Is that fair, if they could not have caught the error?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "accountability",
+        "high-yield"
+      ],
+      "setting_text": {
+        "entrepreneur": "An agent cannot be held accountable. Where does that leave you?"
+      }
     },
     {
       "id": "agm-11",
@@ -144,11 +264,24 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "The second clause is the question. It asks the guest to examine whether their line is reasoned or protective, and the good ones will concede they are not sure.",
-      "followups": ["Has that line moved in the last year? Which direction?"],
-      "tags": ["ai", "agents", "limits", "self-examining", "flagship"]
+      "followups": [
+        "Has that line moved in the last year? Which direction?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "limits",
+        "self-examining",
+        "flagship"
+      ]
     },
     {
       "id": "agm-12",
@@ -156,11 +289,23 @@
       "theme": "change",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "The IC track was built as an alternative to management for people who wanted to keep doing the work. If directing agents is now the work, the premise of that ladder is in question.",
-      "followups": ["What do you tell someone who took that track deliberately?"],
-      "tags": ["ai", "agents", "career-path", "structural"]
+      "followups": [
+        "What do you tell someone who took that track deliberately?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "career-path",
+        "structural"
+      ]
     },
     {
       "id": "agm-13",
@@ -168,11 +313,23 @@
       "theme": "people",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The 'still very good' clause removes the easy answer. It forces the guest to say whether excellence at the craft is now sufficient, which is the question their whole team is quietly asking.",
-      "followups": ["Have you had that person? What did you do?"],
-      "tags": ["ai", "agents", "human-cost", "sharp", "high-yield"]
+      "followups": [
+        "Have you had that person? What did you do?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "human-cost",
+        "sharp",
+        "high-yield"
+      ]
     },
     {
       "id": "agm-14",
@@ -180,12 +337,24 @@
       "theme": "personal",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Turns the thesis back on the guest. It is the direct answer to the flattening anxiety - either they can name what remains theirs, or the hesitation itself is the story.",
-      "followups": ["Is that a comfortable answer or an uncomfortable one?"],
+      "followups": [
+        "Is that a comfortable answer or an uncomfortable one?"
+      ],
       "avoid_if": "Ask it late. Cold, it reads as a challenge to their job security rather than a real question.",
-      "tags": ["ai", "agents", "the-middle", "flagship", "handle-with-care"]
+      "tags": [
+        "ai",
+        "agents",
+        "the-middle",
+        "flagship",
+        "handle-with-care"
+      ]
     },
     {
       "id": "agm-15",
@@ -193,11 +362,28 @@
       "theme": "future",
       "arc": "closer",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "ai-leader", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader",
+        "individual-contributor"
+      ],
       "lands_because": "A closer that makes the guest commit. It also connects back to the apprenticeship question - you cannot direct work you have never learned to judge, and most guests will say so.",
-      "followups": ["Can you actually direct work you have never done yourself?"],
-      "tags": ["ai", "agents", "closer", "apprenticeship", "forces-position"]
+      "followups": [
+        "Can you actually direct work you have never done yourself?"
+      ],
+      "tags": [
+        "ai",
+        "agents",
+        "closer",
+        "apprenticeship",
+        "forces-position"
+      ],
+      "setting_text": {
+        "entrepreneur": "What should someone starting out now learn first - the craft, or how to direct it?"
+      }
     }
   ]
 }

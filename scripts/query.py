@@ -23,7 +23,7 @@ import sys
 import textwrap
 
 from corpus import (ANCHORING, APERTURE, Corpus, build_brief, fill_slots,
-                    filter_questions, load)
+                    filter_questions, load, text_for)
 
 WRAP = textwrap.TextWrapper(width=88, initial_indent="  ", subsequent_indent="  ")
 
@@ -43,11 +43,12 @@ def resolve_industry(corpus: Corpus, slug: str) -> dict:
 # ---------------------------------------------------------------- rendering
 
 
-def render_text(questions: list[dict], profile: dict | None, show_notes: bool) -> str:
+def render_text(questions: list[dict], profile: dict | None, show_notes: bool,
+                setting: str | None = None) -> str:
     out = []
     for i, q in enumerate(questions, 1):
         out.append(f"{i:>3}. [{q['id']}] {q['arc']}/{q['depth']}/{q['theme']}")
-        out.append(WRAP.fill(fill_slots(q["text"], profile)))
+        out.append(WRAP.fill(fill_slots(text_for(q, setting), profile)))
         if show_notes:
             if q.get("lands_because"):
                 out.append(WRAP.fill(f"why: {q['lands_because']}"))
@@ -59,10 +60,11 @@ def render_text(questions: list[dict], profile: dict | None, show_notes: bool) -
     return "\n".join(out)
 
 
-def render_md(questions: list[dict], profile: dict | None, show_notes: bool) -> str:
+def render_md(questions: list[dict], profile: dict | None, show_notes: bool,
+              setting: str | None = None) -> str:
     out = []
     for i, q in enumerate(questions, 1):
-        out.append(f"{i}. **{fill_slots(q['text'], profile)}**")
+        out.append(f"{i}. **{fill_slots(text_for(q, setting), profile)}**")
         out.append(f"   `{q['id']}` · {q['arc']} · {q['depth']} · {q['theme']}")
         if show_notes:
             if q.get("lands_because"):
@@ -75,15 +77,16 @@ def render_md(questions: list[dict], profile: dict | None, show_notes: bool) -> 
     return "\n".join(out)
 
 
-def render(questions: list[dict], profile, fmt: str, show_notes: bool) -> str:
+def render(questions: list[dict], profile, fmt: str, show_notes: bool,
+           setting: str | None = None) -> str:
     if fmt == "json":
         return json.dumps(
-            [dict(q, text=fill_slots(q["text"], profile)) for q in questions],
+            [dict(q, text=fill_slots(text_for(q, setting), profile)) for q in questions],
             indent=2,
         )
     if fmt == "md":
-        return render_md(questions, profile, show_notes)
-    return render_text(questions, profile, show_notes)
+        return render_md(questions, profile, show_notes, setting)
+    return render_text(questions, profile, show_notes, setting)
 
 
 def render_profile(profile: dict, fmt: str) -> str:
@@ -138,7 +141,7 @@ def cmd_find(corpus: Corpus, args) -> int:
         return 1
     if args.format != "json":
         print(f"{len(questions)} question(s)\n")
-    print(render(questions, profile, args.format, not args.bare))
+    print(render(questions, profile, args.format, not args.bare, args.setting))
     return 0
 
 
@@ -174,8 +177,9 @@ def cmd_brief(corpus: Corpus, args) -> int:
             "role": role,
             "guest": args.guest,
             "profile": profile,
-            "running_order": [dict(q, text=fill_slots(q["text"], profile)) for q in selected],
-            "pivots": [dict(q, text=fill_slots(q["text"], profile)) for q in pivots],
+            "setting": setting,
+            "running_order": [dict(q, text=fill_slots(text_for(q, setting), profile)) for q in selected],
+            "pivots": [dict(q, text=fill_slots(text_for(q, setting), profile)) for q in pivots],
         }, indent=2))
         return 0
 
@@ -187,10 +191,10 @@ def cmd_brief(corpus: Corpus, args) -> int:
     print(render_profile(profile, args.format))
     print("\n" + ("## Running order" if args.format == "md" else "RUNNING ORDER"))
     print()
-    print(render(selected, profile, args.format, not args.bare))
+    print(render(selected, profile, args.format, not args.bare, setting))
     print("## Pivots" if args.format == "md" else "PIVOTS - keep these in view")
     print()
-    print(render(pivots, profile, args.format, False))
+    print(render(pivots, profile, args.format, False, setting))
     return 0
 
 

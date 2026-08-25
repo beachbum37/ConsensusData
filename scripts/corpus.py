@@ -142,6 +142,21 @@ def fill_slots(text: str, profile: dict | None) -> str:
     return SLOT_RE.sub(lambda m: vocab.get(m.group(1), m.group(0)), text)
 
 
+def text_for(question: dict, setting: str | None = None) -> str:
+    """The wording of a question for the setting in play.
+
+    Some questions are right for both settings but land badly in one of them -
+    "when you start work" assumes somewhere to arrive at. `setting_text` holds
+    the reworded version, and everything that renders a question goes through
+    here so the variant cannot be forgotten in one code path.
+    """
+    if setting:
+        variant = (question.get("setting_text") or {}).get(setting)
+        if variant:
+            return variant
+    return question["text"]
+
+
 def matches(question: dict, *, industry=None, role=None, setting=None, theme=None,
             arc=None, depth=None, tag=None, search=None, aperture=None,
             universal=True, general=True) -> bool:

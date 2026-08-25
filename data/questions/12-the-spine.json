@@ -8,14 +8,27 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Starts from something they have done a hundred times rather than from anything technical, and the answer is the thing that now configures a system. They arrive at that themselves, which is the only way it lands.",
       "followups": [
         "How long did it take you to work that out for yourself?",
         "Who else in the building could give that explanation?"
       ],
-      "tags": ["ai", "natural-language-os", "spine", "flagship"]
+      "tags": [
+        "ai",
+        "natural-language-os",
+        "spine",
+        "flagship"
+      ],
+      "setting_text": {
+        "entrepreneur": "You have explained this work to every client and every helper you have ever had. What is the part of that explanation written down nowhere?"
+      }
     },
     {
       "id": "spn-02",
@@ -23,14 +36,24 @@
       "theme": "people",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Names something practitioners have felt for a whole career and rarely heard said out loud. Ask it evenly rather than indignantly and the guest supplies the feeling.",
       "followups": [
         "What would you have changed, if anyone had asked you?",
         "What would have to be true for that to move?"
       ],
-      "tags": ["ai", "natural-language-os", "spine", "flagship", "high-yield"]
+      "tags": [
+        "ai",
+        "natural-language-os",
+        "spine",
+        "flagship",
+        "high-yield"
+      ]
     },
     {
       "id": "spn-03",
@@ -38,11 +61,22 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Invites a practitioner to compare two acts of instruction they can both speak to, and the differences they name are exactly the skill the subject requires.",
-      "followups": ["Which one is harder? Which one did you get better at first?"],
-      "tags": ["ai", "natural-language-os", "spine"]
+      "followups": [
+        "Which one is harder? Which one did you get better at first?"
+      ],
+      "tags": [
+        "ai",
+        "natural-language-os",
+        "spine"
+      ]
     },
     {
       "id": "spn-04",
@@ -50,11 +84,22 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Every practitioner has a list. Being asked for it, possibly for the first time, is the entire emotional proposition of the show in one question.",
-      "followups": ["Who did you ask, and what did they say?"],
-      "tags": ["ai", "natural-language-os", "spine", "high-yield"]
+      "followups": [
+        "Who did you ask, and what did they say?"
+      ],
+      "tags": [
+        "ai",
+        "natural-language-os",
+        "spine",
+        "high-yield"
+      ]
     },
     {
       "id": "spn-05",
@@ -62,14 +107,27 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The gap between the written process and the real one is where all the transferable judgment lives. This is the fastest route to it, and the answer is the curriculum.",
       "followups": [
         "So what is the unwritten rule? Say it out loud.",
         "How would you teach that to something that has never done the job?"
       ],
-      "tags": ["ai", "architecting-the-department", "spine", "flagship", "high-yield"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "spine",
+        "flagship",
+        "high-yield"
+      ],
+      "setting_text": {
+        "entrepreneur": "What would go wrong if someone followed your written process exactly, to the letter?"
+      }
     },
     {
       "id": "spn-06",
@@ -77,11 +135,23 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "Micro-judgment in its smallest and most concrete form. Short, easy to answer, and it produces exactly the kind of rule that is invisible until someone asks.",
-      "followups": ["What happened the one time nobody checked?"],
-      "tags": ["ai", "architecting-the-department", "spine", "short"]
+      "followups": [
+        "What happened the one time nobody checked?"
+      ],
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "spine",
+        "short"
+      ]
     },
     {
       "id": "spn-07",
@@ -89,14 +159,26 @@
       "theme": "people",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Job design is a competence they already have. Asking the question in the language of roles rather than tools puts them on ground where they are the expert.",
       "followups": [
         "Which would you trust first, and which last?",
         "What would you call that person's job?"
       ],
-      "tags": ["ai", "architecting-the-department", "spine", "flagship"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "spine",
+        "flagship"
+      ],
+      "setting_text": {
+        "entrepreneur": "If you were staffing a small department to take on the rule-shaped parts of your work, what roles would you create?"
+      }
     },
     {
       "id": "spn-08",
@@ -104,14 +186,23 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Answers the underlying anxiety by handing over the pen. They are not being told where the line sits; they are the one drawing it.",
       "followups": [
         "Is that a judgment or a preference?",
         "Who gets to move that line - you, or someone above you?"
       ],
-      "tags": ["ai", "architecting-the-department", "spine", "flagship"]
+      "tags": [
+        "ai",
+        "architecting-the-department",
+        "spine",
+        "flagship"
+      ]
     },
     {
       "id": "spn-09",
@@ -119,14 +210,26 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Recovers a cost everyone absorbed and nobody counted. Putting pressure on the word turnkey is accuracy rather than cynicism, and it makes the reversal something felt rather than asserted.",
       "followups": [
         "Who paid for that time?",
         "How long before your team was as fast with it as they had been without it?"
       ],
-      "tags": ["ai", "customization-as-superpower", "spine", "high-yield"]
+      "tags": [
+        "ai",
+        "customization-as-superpower",
+        "spine",
+        "high-yield"
+      ],
+      "setting_text": {
+        "entrepreneur": "The last big system you bought was sold as turnkey. How much of the first year went into learning its language rather than it learning yours?"
+      }
     },
     {
       "id": "spn-10",
@@ -134,14 +237,27 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "The workaround is a specification they already wrote. Treat it as competent engineering under constraint, because that is what it was.",
       "followups": [
         "What was the software refusing to do?",
         "If you handed that to someone as a specification, what would it say?"
       ],
-      "tags": ["ai", "customization-as-superpower", "spine", "flagship"]
+      "tags": [
+        "ai",
+        "customization-as-superpower",
+        "spine",
+        "flagship"
+      ],
+      "setting_text": {
+        "entrepreneur": "What workaround have you built that you have stopped noticing is a workaround?"
+      }
     },
     {
       "id": "spn-11",
@@ -149,11 +265,25 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Locates the specificity that used to be a liability - too niche to be supported - and reframes it as the thing that can now be built. That inversion is the whole customization argument in one answer.",
-      "followups": ["Is that a quirk, or is it the actual reason the work comes out well?"],
-      "tags": ["ai", "customization-as-superpower", "spine", "high-yield"]
+      "followups": [
+        "Is that a quirk, or is it the actual reason the work comes out well?"
+      ],
+      "tags": [
+        "ai",
+        "customization-as-superpower",
+        "spine",
+        "high-yield"
+      ],
+      "setting_text": {
+        "entrepreneur": "What do you do that no vendor would ever ship a feature for?"
+      }
     },
     {
       "id": "spn-12",
@@ -161,11 +291,26 @@
       "theme": "future",
       "arc": "closer",
       "depth": "medium",
-      "industries": ["universal"],
-      "roles": ["middle-manager", "individual-contributor"],
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "middle-manager",
+        "individual-contributor"
+      ],
       "lands_because": "A closer that puts the agency in their verb. It asks what they would build rather than what will happen to them, which is the register the whole series runs in.",
-      "followups": ["What is stopping you from doing that now?"],
-      "tags": ["ai", "customization-as-superpower", "spine", "closer"]
+      "followups": [
+        "What is stopping you from doing that now?"
+      ],
+      "tags": [
+        "ai",
+        "customization-as-superpower",
+        "spine",
+        "closer"
+      ],
+      "setting_text": {
+        "entrepreneur": "If the tool could be shaped around how you work instead of the other way round, what is the first thing you would change?"
+      }
     }
   ]
 }

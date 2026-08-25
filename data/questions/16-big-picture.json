@@ -25,7 +25,10 @@
         "email-safe",
         "slotted",
         "flagship"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "How is AI changing the way people who run their own businesses in {industry} make decisions?"
+      }
     },
     {
       "id": "big-02",
@@ -92,7 +95,10 @@
         "big-picture",
         "email-safe",
         "flagship"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "What changes when AI becomes part of how you work every day rather than a tool you reach for occasionally?"
+      }
     },
     {
       "id": "big-05",
@@ -115,7 +121,10 @@
         "email-safe",
         "flagship",
         "high-yield"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "What do people running small operations know now that is about to matter more, not less?"
+      }
     },
     {
       "id": "big-06",
@@ -363,6 +372,9 @@
         "big-picture",
         "email-safe",
         "executive"
+      ],
+      "settings": [
+        "enterprise"
       ]
     },
     {
@@ -386,7 +398,10 @@
         "counterweight",
         "flagship",
         "high-yield"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "Which parts of running your own thing get harder as this spreads, rather than easier?"
+      }
     },
     {
       "id": "big-18",

@@ -8,13 +8,19 @@
       "theme": "craft",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Nobody has a rehearsed answer for a specific day. It produces texture, names, and small problems - which is the raw material for every follow-up in the episode.",
       "followups": [
         "What was the hardest twenty minutes of that?",
         "Was that a normal day or were you dealing with something unusual?"
       ],
-      "tags": ["specificity", "warm", "no-prep-needed"]
+      "tags": [
+        "specificity",
+        "warm",
+        "no-prep-needed"
+      ]
     },
     {
       "id": "u-open-02",
@@ -22,10 +28,20 @@
       "theme": "craft",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Every profession has an instrument panel - a board, a queue, a chart, a market, a forecast. Naming it hands the audience the guest's frame of reference in one sentence.",
-      "followups": ["What are you hoping not to see there?"],
-      "tags": ["ritual", "concrete"]
+      "followups": [
+        "What are you hoping not to see there?"
+      ],
+      "tags": [
+        "ritual",
+        "concrete"
+      ],
+      "setting_text": {
+        "entrepreneur": "What is the first thing you look at when you boot up in the morning?"
+      }
     },
     {
       "id": "u-open-03",
@@ -33,10 +49,17 @@
       "theme": "myths",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Invites the guest to compare their reality against a civilian's expectation, which is exactly the gap the episode exists to close.",
-      "followups": ["Is that surprising to people inside your field too, or just outsiders?"],
-      "tags": ["gap", "audience-bridge"]
+      "followups": [
+        "Is that surprising to people inside your field too, or just outsiders?"
+      ],
+      "tags": [
+        "gap",
+        "audience-bridge"
+      ]
     },
     {
       "id": "u-open-04",
@@ -44,10 +67,20 @@
       "theme": "invisible",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Surfaces the unglamorous substrate of the job early, and signals to the guest that you are interested in the real thing rather than the highlight reel.",
-      "followups": ["How much of the job is that?"],
-      "tags": ["invisible-labor", "signals-seriousness"]
+      "followups": [
+        "How much of the job is that?"
+      ],
+      "tags": [
+        "invisible-labor",
+        "signals-seriousness"
+      ],
+      "setting_text": {
+        "entrepreneur": "What did you do this week that nobody outside your line of work would even recognize as work?"
+      }
     },
     {
       "id": "u-open-05",
@@ -55,10 +88,17 @@
       "theme": "myths",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "The distance between the two answers is usually the whole story, and the guest gets to be funny about it. Low risk, high yield.",
-      "followups": ["Which one is closer to true?"],
-      "tags": ["identity", "humor"]
+      "followups": [
+        "Which one is closer to true?"
+      ],
+      "tags": [
+        "identity",
+        "humor"
+      ]
     },
     {
       "id": "u-open-06",
@@ -66,13 +106,18 @@
       "theme": "craft",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Objects and systems are easy to talk about and hard to be evasive about. Works equally for a torque wrench, a claims platform, a mixing desk, or a scheduling system.",
       "followups": [
         "Is it good? Would you design it differently?",
         "What did people use before it?"
       ],
-      "tags": ["objects", "universally-answerable"]
+      "tags": [
+        "objects",
+        "universally-answerable"
+      ]
     },
     {
       "id": "u-open-07",
@@ -80,10 +125,20 @@
       "theme": "craft",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Nearly every profession has a crunch - harvest, close, Q4, testing season, storm season, camp, deployment workup. Asking about it shows you know work has a calendar.",
-      "followups": ["What does the rest of your life look like during that stretch?"],
-      "tags": ["seasonality", "crunch"]
+      "followups": [
+        "What does the rest of your life look like during that stretch?"
+      ],
+      "tags": [
+        "seasonality",
+        "crunch"
+      ],
+      "setting_text": {
+        "entrepreneur": "What time of year is hardest in your business, and what happens then?"
+      }
     },
     {
       "id": "u-open-08",
@@ -91,10 +146,18 @@
       "theme": "craft",
       "arc": "opener",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Hands you the insider question for free. Often the best question of the interview is the one they just told you they ask.",
-      "followups": ["Ask me nothing - just tell me what a good answer to that sounds like."],
-      "tags": ["meta", "question-mining", "host-favorite"]
+      "followups": [
+        "Ask me nothing - just tell me what a good answer to that sounds like."
+      ],
+      "tags": [
+        "meta",
+        "question-mining",
+        "host-favorite"
+      ]
     }
   ]
 }

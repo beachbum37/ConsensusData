@@ -9,15 +9,26 @@
       "theme": "people",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The permission chain is the defining constraint of enterprise work and it is invisible from outside. Asking who rather than whether gets you a list of real functions instead of a complaint about bureaucracy.",
       "followups": [
         "How long did that take, start to finish?",
         "Which of those approvals turned out to be the one that mattered?"
       ],
-      "tags": ["setting-split", "procurement", "flagship", "high-yield"]
+      "tags": [
+        "setting-split",
+        "procurement",
+        "flagship",
+        "high-yield"
+      ]
     },
     {
       "id": "ent-02",
@@ -25,15 +36,25 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Draws the exact boundary of their authority over their own process, which most managers have never been asked to state and often discover is narrower than they assumed.",
       "followups": [
         "Where does that line feel wrong to you?",
         "Has anyone ever moved it for you?"
       ],
-      "tags": ["setting-split", "authority", "flagship"]
+      "tags": [
+        "setting-split",
+        "authority",
+        "flagship"
+      ]
     },
     {
       "id": "ent-03",
@@ -41,15 +62,25 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Shelfware is universal in large organizations and nobody is ever asked about it directly. The story is usually about who chose it and who was not consulted, which is the show's argument arriving on its own.",
       "followups": [
         "Who chose it? Were you in the room?",
         "What would you have bought instead?"
       ],
-      "tags": ["setting-split", "procurement", "high-yield"]
+      "tags": [
+        "setting-split",
+        "procurement",
+        "high-yield"
+      ]
     },
     {
       "id": "ent-04",
@@ -57,15 +88,26 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager", "ai-leader"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
       "lands_because": "Scale is the enterprise's real problem with anything configurable - a rule precise enough to help one team is usually too specific to survive standardisation. Naming that tension is more useful than complaining about either end of it.",
       "followups": [
         "What gets lost when it is generalised?",
         "Is there a version that stays local? What would that cost?"
       ],
-      "tags": ["setting-split", "scale", "flagship"]
+      "tags": [
+        "setting-split",
+        "scale",
+        "flagship"
+      ]
     },
     {
       "id": "ent-05",
@@ -73,15 +115,25 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "The gap between an announcement and a working practice is where middle managers spend their lives, and describing the transmission mechanism is something only they can do.",
       "followups": [
         "What do you translate, and what do you quietly absorb?",
         "What happens to the parts that do not fit your team?"
       ],
-      "tags": ["setting-split", "the-middle", "invisible"]
+      "tags": [
+        "setting-split",
+        "the-middle",
+        "invisible"
+      ]
     },
     {
       "id": "ent-06",
@@ -89,15 +141,25 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "Asks for a number, which turns a general feeling about slowness into something comparable and quotable. The follow-up is where the real answer is.",
       "followups": [
         "What have you stopped proposing because of that gap?",
         "Has anyone found a legitimate way around it?"
       ],
-      "tags": ["setting-split", "pace", "quantified"]
+      "tags": [
+        "setting-split",
+        "pace",
+        "quantified"
+      ]
     },
     {
       "id": "ent-07",
@@ -105,15 +167,26 @@
       "theme": "failure",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager", "ai-leader"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager",
+        "ai-leader"
+      ],
       "lands_because": "In a large organization the detector is usually a frontline person with no route to report it. Following that path is a concrete way into governance without saying the word.",
       "followups": [
         "Would they tell anyone? Who?",
         "How long before it reached someone who could act?"
       ],
-      "tags": ["setting-split", "governance", "high-yield"]
+      "tags": [
+        "setting-split",
+        "governance",
+        "high-yield"
+      ]
     },
     {
       "id": "ent-08",
@@ -121,15 +194,25 @@
       "theme": "future",
       "arc": "closer",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["enterprise"],
-      "roles": ["middle-manager"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "enterprise"
+      ],
+      "roles": [
+        "middle-manager"
+      ],
       "lands_because": "A closer that hands them the autonomy the other half of this pack takes for granted, and the answer is usually specific, immediate and slightly wistful.",
       "followups": [
         "What is actually stopping it - the policy, or nobody having asked?",
         "Who would you need on your side?"
       ],
-      "tags": ["setting-split", "closer", "flagship"]
+      "tags": [
+        "setting-split",
+        "closer",
+        "flagship"
+      ]
     },
     {
       "id": "sol-01",
@@ -137,14 +220,23 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "Names the founder's real structural advantage - decision latency near zero - and asks for the receipt. It is a generous question that still demands a specific.",
       "followups": [
         "How fast did you know whether it worked?",
         "What did you get wrong by moving that fast?"
       ],
-      "tags": ["setting-split", "autonomy", "flagship", "high-yield"]
+      "tags": [
+        "setting-split",
+        "autonomy",
+        "flagship",
+        "high-yield"
+      ]
     },
     {
       "id": "sol-02",
@@ -152,14 +244,22 @@
       "theme": "money",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "Personal cost makes the return question honest in a way no enterprise business case ever is. Founders can usually tell you the exact number at which something stopped being worth it.",
       "followups": [
         "What did you cancel, and how quickly?",
         "What is the most you have paid for something that saved you time?"
       ],
-      "tags": ["setting-split", "economics", "flagship"]
+      "tags": [
+        "setting-split",
+        "economics",
+        "flagship"
+      ]
     },
     {
       "id": "sol-03",
@@ -167,14 +267,22 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "For a solo operator this is not a productivity question, it is the whole business model. The answer is concrete and immediately borrowable by anyone listening who runs their own thing.",
       "followups": [
         "Did you take any of it back?",
         "What is next on that list, and what is holding it up?"
       ],
-      "tags": ["setting-split", "delegation", "flagship"]
+      "tags": [
+        "setting-split",
+        "delegation",
+        "flagship"
+      ]
     },
     {
       "id": "sol-04",
@@ -182,14 +290,22 @@
       "theme": "invisible",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "Names the unpaid functions a founder absorbs, which is the mirror image of the enterprise permission chain. Slightly funny, and it surfaces where they know they are exposed.",
       "followups": [
         "What are you not checking that a bigger company would?",
         "Has that ever cost you?"
       ],
-      "tags": ["setting-split", "invisible", "high-yield"]
+      "tags": [
+        "setting-split",
+        "invisible",
+        "high-yield"
+      ]
     },
     {
       "id": "sol-05",
@@ -197,15 +313,23 @@
       "theme": "ethics",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "Disclosure is a live commercial question for anyone selling their own labour, and there is no company policy to hide behind. The second half keeps it a question about judgment rather than an accusation.",
       "followups": [
         "Has a client ever asked directly?",
         "Has it changed what you charge?"
       ],
       "avoid_if": "The guest sells AI services and would have to defend a marketing claim rather than describe a decision.",
-      "tags": ["setting-split", "disclosure", "high-yield"]
+      "tags": [
+        "setting-split",
+        "disclosure",
+        "high-yield"
+      ]
     },
     {
       "id": "sol-06",
@@ -213,14 +337,22 @@
       "theme": "change",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "The clearest, least abstract measure of what has changed for a small operator, and it produces a concrete before and after rather than a claim about productivity.",
       "followups": [
         "Would you still hire for it if you could afford to?",
         "What still needs a person, and why?"
       ],
-      "tags": ["setting-split", "leverage", "flagship"]
+      "tags": [
+        "setting-split",
+        "leverage",
+        "flagship"
+      ]
     },
     {
       "id": "sol-07",
@@ -228,14 +360,22 @@
       "theme": "judgment",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "Undiluted accountability sharpens the autonomy question in a way it never is inside a company, where risk is shared and diffuse. Founders have thought about this concretely because the consequence lands on them.",
       "followups": [
         "What do you check every time, no matter what?",
         "What went wrong once and changed that rule?"
       ],
-      "tags": ["setting-split", "accountability", "flagship"]
+      "tags": [
+        "setting-split",
+        "accountability",
+        "flagship"
+      ]
     },
     {
       "id": "sol-08",
@@ -243,14 +383,206 @@
       "theme": "future",
       "arc": "closer",
       "depth": "medium",
-      "industries": ["universal"],
-      "settings": ["entrepreneur"],
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
       "lands_because": "A closer about capacity rather than ambition. It asks what actually limits a small operation now, which is usually a more interesting answer than where they hope to get to.",
       "followups": [
         "Would growing mean hiring people, or not any more?",
         "Do you want to be bigger?"
       ],
-      "tags": ["setting-split", "closer", "capacity"]
+      "tags": [
+        "setting-split",
+        "closer",
+        "capacity"
+      ]
+    },
+    {
+      "id": "sol-09",
+      "text": "What is the last thing you would give up doing yourself, even when it stops making economic sense?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "Founders carry work they keep for identity rather than for margin, and naming it is the most honest moment available in this kind of interview.",
+      "followups": [
+        "Have you tried to hand it over and taken it back?",
+        "Is that sentiment, or is it actually the thing clients pay for?"
+      ],
+      "tags": [
+        "setting-split",
+        "identity",
+        "flagship"
+      ]
+    },
+    {
+      "id": "sol-10",
+      "text": "When you were deciding whether to buy something, what did you actually do instead of a business case?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "There is no procurement process, so the real decision procedure is exposed - a trial, a weekend, a friend's recommendation. Practical and immediately borrowable.",
+      "followups": [
+        "How long do you give something before you decide?",
+        "What have you kept paying for that you should have cancelled?"
+      ],
+      "tags": [
+        "setting-split",
+        "economics",
+        "concrete"
+      ]
+    },
+    {
+      "id": "sol-11",
+      "text": "What do you do now on a Sunday that you used to need a whole week for?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "Concrete before-and-after in the only currency a small operator has, which is their own hours. Easy to answer and vivid.",
+      "followups": [
+        "What did you do with the time?",
+        "Did the work get better, or just faster?"
+      ],
+      "tags": [
+        "setting-split",
+        "leverage"
+      ]
+    },
+    {
+      "id": "sol-12",
+      "text": "Who is the first person you would hire now, and is it the same person it would have been two years ago?",
+      "theme": "people",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "The hiring question is the sharpest available measure of what has actually changed for a small business, because it is a decision with real money behind it.",
+      "followups": [
+        "What would you want them to be good at that you would not have cared about before?",
+        "Would you hire at all, or keep buying capacity?"
+      ],
+      "tags": [
+        "setting-split",
+        "hiring",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "sol-13",
+      "text": "What are you worse at now because you stopped doing it yourself?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "Skill atrophy lands harder on a solo operator, because nobody else in the building has the skill either. Honest, slightly uncomfortable, and rarely asked.",
+      "followups": [
+        "Does that worry you?",
+        "Could you still do it if you had to?"
+      ],
+      "tags": [
+        "setting-split",
+        "atrophy",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "sol-14",
+      "text": "How do you know when you are being sold something versus when it is genuinely useful?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "Founders are the target of relentless marketing with no procurement function to absorb it, so they develop real filters. Useful for every listener.",
+      "followups": [
+        "What is your test?",
+        "What got past that filter once?"
+      ],
+      "tags": [
+        "setting-split",
+        "skepticism"
+      ]
+    },
+    {
+      "id": "sol-15",
+      "text": "What could you take on now that you would have turned down before?",
+      "theme": "future",
+      "arc": "core",
+      "depth": "medium",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "Capacity expressed as opportunity rather than efficiency, which is how a business owner actually experiences it.",
+      "followups": [
+        "Have you actually said yes to one of those?",
+        "What would you still turn down?"
+      ],
+      "tags": [
+        "setting-split",
+        "capacity",
+        "flagship"
+      ]
+    },
+    {
+      "id": "sol-16",
+      "text": "Nobody is going to notice if you stop. What keeps the standard where it is?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": [
+        "universal"
+      ],
+      "settings": [
+        "entrepreneur"
+      ],
+      "lands_because": "With no manager, no review and no colleague looking, quality is entirely self-enforced. A genuinely interesting question about professional character that only works in this setting.",
+      "followups": [
+        "Has it slipped anywhere?",
+        "Who would you be embarrassed in front of?"
+      ],
+      "tags": [
+        "setting-split",
+        "standards",
+        "flagship",
+        "high-yield"
+      ]
     }
   ]
 }

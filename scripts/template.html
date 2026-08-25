@@ -665,6 +665,12 @@
     return /^[aeiou]/i.test(word) ? "an" : "a";
   }
 
+  // Some questions are right for both settings but land badly in one of them.
+  // Every render path goes through here so a variant cannot be missed in one.
+  function textFor(q) {
+    return (state.setting && (q.setting_text || {})[state.setting]) || q.text;
+  }
+
   function fillSlots(text, profile) {
     if (!profile) return text;
     // {industry} is derived from the profile's label rather than declared in
@@ -708,7 +714,7 @@
       if (state.stage.size && !state.stage.has(q.arc)) return false;
       if (state.theme.size && !state.theme.has(q.theme)) return false;
       if (needle) {
-        const hay = [q.text, q.lands_because || "", (q.followups || []).join(" "), (q.tags || []).join(" ")]
+        const hay = [q.text, textFor(q), q.lands_because || "", (q.followups || []).join(" "), (q.tags || []).join(" ")]
           .join(" ").toLowerCase();
         if (!hay.includes(needle)) return false;
       }
@@ -786,7 +792,7 @@
     node.dataset.depth = q.depth;
 
     node.append(el("span", { className: "seq", textContent: String(index).padStart(2, "0") }));
-    node.append(el("p", { className: "q", textContent: fillSlots(q.text, profile) }));
+    node.append(el("p", { className: "q", textContent: fillSlots(textFor(q), profile) }));
 
     const meta = el("div", { className: "meta" });
     meta.append(el("span", { className: "depth", textContent: q.depth }));
@@ -830,7 +836,7 @@
     const copy = el("button", { className: "copy", type: "button", textContent: "copy" });
     copy.title = "Copy this question";
     copy.addEventListener("click", () => {
-      navigator.clipboard.writeText(fillSlots(q.text, profile)).then(
+      navigator.clipboard.writeText(fillSlots(textFor(q), profile)).then(
         () => toast("Question copied"),
         () => toast("Could not reach the clipboard")
       );
@@ -1103,7 +1109,7 @@
       lines.push("");
     }
     list.forEach((q, i) => {
-      lines.push((i + 1) + ". **" + fillSlots(q.text, profile) + "**");
+      lines.push((i + 1) + ". **" + fillSlots(textFor(q), profile) + "**");
       lines.push("   `" + q.id + "` · " + q.arc + " · " + q.depth + " · " + q.theme);
       if (q.lands_because) lines.push("   *Why:* " + q.lands_because);
       if (q.narrow_to) lines.push("   **Land it:** " + fillSlots(q.narrow_to, profile));

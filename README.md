@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**350 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
+**358 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, the senior contributors now directing agents, and the
 people who build the tools. Every question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -113,6 +113,14 @@ own hours.
 
 Setting **narrows** rather than adding a third source — picking one excludes
 questions written for the other and keeps the whole unscoped core.
+
+Two mechanisms carry it. Questions that only make sense in one setting are
+scoped there outright (a shadow org chart needs an org chart; *who pays for your
+work* is sharpest solo). Questions that suit both but **word** badly in one
+carry a `setting_text` variant — *"when you start work"* becomes *"when you boot
+up in the morning"*. `validate.py` rejects a variant identical to its base, and
+a floor check fails the build if either setting drops below **250** available
+questions, so reassignment can't quietly hollow one side out.
 
 ```bash
 python3 scripts/query.py brief finance --role middle-manager --setting entrepreneur

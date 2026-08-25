@@ -132,7 +132,10 @@
         "control-boundaries",
         "short",
         "flagship"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "What can you do that cannot be undone?"
+      }
     },
     {
       "id": "ctl-06",
@@ -231,7 +234,10 @@
         "architecting-the-department",
         "control-boundaries",
         "existing-controls"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "What do you already do to catch a bad instruction before you act on it?"
+      }
     },
     {
       "id": "ctl-10",
@@ -282,7 +288,10 @@
         "architecting-the-department",
         "control-boundaries",
         "inputs"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "What arrives from outside - a client brief, a supplier file, an email attachment - that you treat as trustworthy without thinking?"
+      }
     },
     {
       "id": "ctl-12",
@@ -308,7 +317,10 @@
         "control-boundaries",
         "closer",
         "flagship"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "If you were writing the rulebook for a system doing your work, what would the first three lines be?"
+      }
     },
     {
       "id": "ctl-13",
@@ -334,7 +346,10 @@
         "control-boundaries",
         "autonomy-ladder",
         "flagship"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "Between something that only drafts and something that acts on its own, where are you today? What would have to be true before you moved one step along?"
+      }
     },
     {
       "id": "ctl-14",
@@ -359,7 +374,10 @@
         "architecting-the-department",
         "control-boundaries",
         "provenance"
-      ]
+      ],
+      "setting_text": {
+        "entrepreneur": "After something went wrong, what would you need to be able to reconstruct - and do you keep any of that?"
+      }
     }
   ]
 }

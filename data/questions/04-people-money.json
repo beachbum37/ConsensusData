@@ -8,11 +8,22 @@
       "theme": "people",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Every workplace has a shadow hierarchy - the scheduler, the senior tech, the office manager, the one partner everyone defers to. Naming it is insider knowledge that costs the guest nothing if kept general.",
-      "followups": ["How did they get that power?"],
+      "followups": [
+        "How did they get that power?"
+      ],
       "avoid_if": "The guest is a current executive at a named employer and the answer would identify a specific person.",
-      "tags": ["hierarchy", "shadow-power", "high-yield"]
+      "tags": [
+        "hierarchy",
+        "shadow-power",
+        "high-yield"
+      ],
+      "settings": [
+        "enterprise"
+      ]
     },
     {
       "id": "u-ppl-02",
@@ -20,10 +31,18 @@
       "theme": "people",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Status systems are field-specific and invisible from outside. This is one of the fastest ways to make an audience feel like they understand a profession's internal culture.",
-      "followups": ["And what impresses outsiders that your peers would roll their eyes at?"],
-      "tags": ["status", "culture", "flagship"]
+      "followups": [
+        "And what impresses outsiders that your peers would roll their eyes at?"
+      ],
+      "tags": [
+        "status",
+        "culture",
+        "flagship"
+      ]
     },
     {
       "id": "u-ppl-03",
@@ -31,10 +50,21 @@
       "theme": "invisible",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Generous rather than critical - the guest gets to give credit publicly. Almost always produces a specific, vivid character.",
-      "followups": ["What happens the week they are out?"],
-      "tags": ["credit", "warm", "character"]
+      "followups": [
+        "What happens the week they are out?"
+      ],
+      "tags": [
+        "credit",
+        "warm",
+        "character"
+      ],
+      "setting_text": {
+        "entrepreneur": "Who do you rely on that nobody would guess from the outside - a contractor, a peer, a spouse?"
+      }
     },
     {
       "id": "u-ppl-04",
@@ -42,13 +72,19 @@
       "theme": "people",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Every profession has internal factions - methodological, generational, or regional - that are invisible externally and deeply felt internally. Guests enjoy explaining these.",
       "followups": [
         "Which side are you on?",
         "What is the best argument for the other side?"
       ],
-      "tags": ["factions", "insider", "debate"]
+      "tags": [
+        "factions",
+        "insider",
+        "debate"
+      ]
     },
     {
       "id": "u-ppl-05",
@@ -56,10 +92,21 @@
       "theme": "people",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Almost universally answered 'no', and the explanation of what promotion actually selects for is where the interesting material is.",
-      "followups": ["What does it select for instead? Is that entirely wrong?"],
-      "tags": ["advancement", "candid", "reliable-no"]
+      "followups": [
+        "What does it select for instead? Is that entirely wrong?"
+      ],
+      "tags": [
+        "advancement",
+        "candid",
+        "reliable-no"
+      ],
+      "settings": [
+        "enterprise"
+      ]
     },
     {
       "id": "u-ppl-06",
@@ -67,10 +114,18 @@
       "theme": "ethics",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "The client-versus-judgment conflict exists for doctors, lawyers, contractors, designers, advisors, and agents alike. The slot makes it native to any of them.",
-      "followups": ["Who wins, usually? Has that changed as you got more senior?"],
-      "tags": ["slotted", "conflict", "always-works"]
+      "followups": [
+        "Who wins, usually? Has that changed as you got more senior?"
+      ],
+      "tags": [
+        "slotted",
+        "conflict",
+        "always-works"
+      ]
     },
     {
       "id": "u-ppl-07",
@@ -78,10 +133,20 @@
       "theme": "people",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Lets the guest be independent-minded without disloyalty, and usually marks a real inflection point in how they think.",
-      "followups": ["Was it wrong then, or did the field change under it?"],
-      "tags": ["mentorship", "inflection"]
+      "followups": [
+        "Was it wrong then, or did the field change under it?"
+      ],
+      "tags": [
+        "mentorship",
+        "inflection"
+      ],
+      "setting_text": {
+        "entrepreneur": "What did someone you learned from tell you that turned out to be wrong?"
+      }
     },
     {
       "id": "u-money-01",
@@ -89,10 +154,21 @@
       "theme": "money",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "The single most clarifying question you can ask about any profession. The payer determines the incentives, and the incentives determine the work - in insurance, philanthropy, journalism, medicine, and research alike.",
-      "followups": ["If a different party paid, what would change first?"],
-      "tags": ["incentives", "flagship", "clarifying"]
+      "followups": [
+        "If a different party paid, what would change first?"
+      ],
+      "tags": [
+        "incentives",
+        "flagship",
+        "clarifying"
+      ],
+      "settings": [
+        "entrepreneur"
+      ]
     },
     {
       "id": "u-money-02",
@@ -100,13 +176,22 @@
       "theme": "money",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Structural framing lets a guest criticize their industry without naming a villain. Almost everyone has a ready answer they rarely get invited to give.",
       "followups": [
         "Does anyone benefit from keeping it that way?",
         "Have you ever felt it pull on you?"
       ],
-      "tags": ["incentives", "critique", "high-yield"]
+      "tags": [
+        "incentives",
+        "critique",
+        "high-yield"
+      ],
+      "setting_text": {
+        "entrepreneur": "What is the incentive in your line of work that produces the worst behavior?"
+      }
     },
     {
       "id": "u-money-03",
@@ -114,10 +199,18 @@
       "theme": "money",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Exposes the mismatch between billable, visible work and the work that actually requires skill. Surgeons, consultants, designers, and mechanics all feel this and describe it differently.",
-      "followups": ["What would it look like to pay for the hard part instead?"],
-      "tags": ["pricing", "mismatch", "underasked"]
+      "followups": [
+        "What would it look like to pay for the hard part instead?"
+      ],
+      "tags": [
+        "pricing",
+        "mismatch",
+        "underasked"
+      ]
     },
     {
       "id": "u-money-04",
@@ -125,10 +218,18 @@
       "theme": "money",
       "arc": "deep",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Where professional identity and economics come apart. The answer is usually the part of the job the guest cares about most, which makes it a doorway to something sincere.",
-      "followups": ["What would have to change for you to stop?"],
-      "tags": ["values", "sincere", "identity"]
+      "followups": [
+        "What would have to change for you to stop?"
+      ],
+      "tags": [
+        "values",
+        "sincere",
+        "identity"
+      ]
     },
     {
       "id": "u-money-05",
@@ -136,10 +237,21 @@
       "theme": "money",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Safe framing - past tense, self-directed - for a subject most guests are wary of. Works especially well with anyone who runs their own shop, practice, farm, or studio.",
-      "followups": ["Who explained it to you, in the end?"],
-      "tags": ["business-literacy", "safe-entry", "self-employed"]
+      "followups": [
+        "Who explained it to you, in the end?"
+      ],
+      "tags": [
+        "business-literacy",
+        "safe-entry",
+        "self-employed"
+      ],
+      "setting_text": {
+        "entrepreneur": "What did you not understand about the money when you started out on your own?"
+      }
     }
   ]
 }

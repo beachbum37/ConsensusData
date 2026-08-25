@@ -8,13 +8,19 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Forces expertise into observable behavior instead of adjectives. The demand for specificity is doing the work - without it you get 'experience' and 'judgment' and nothing else.",
       "followups": [
         "Can that be taught, or does it only come from repetition?",
         "Is there anything the five-year person does better?"
       ],
-      "tags": ["expertise", "flagship", "always-works"]
+      "tags": [
+        "expertise",
+        "flagship",
+        "always-works"
+      ]
     },
     {
       "id": "u-craft-02",
@@ -22,10 +28,18 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Rapid pattern recognition is the signature of expertise in every field. Fill the slot from the industry profile - case, job, matter, load, story, service - and it sounds native.",
-      "followups": ["What are you actually looking at when you make that read?"],
-      "tags": ["pattern-recognition", "slotted", "flagship"]
+      "followups": [
+        "What are you actually looking at when you make that read?"
+      ],
+      "tags": [
+        "pattern-recognition",
+        "slotted",
+        "flagship"
+      ]
     },
     {
       "id": "u-craft-03",
@@ -33,10 +47,21 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Separates automated skill from live cognition, which is a distinction professionals feel acutely and are almost never invited to describe.",
-      "followups": ["What happens when you have to do the sharp part while exhausted anyway?"],
-      "tags": ["automaticity", "fatigue", "underasked"]
+      "followups": [
+        "What happens when you have to do the sharp part while exhausted anyway?"
+      ],
+      "tags": [
+        "automaticity",
+        "fatigue",
+        "underasked"
+      ],
+      "setting_text": {
+        "entrepreneur": "What part of running this could you do exhausted, and what genuinely requires you to be sharp?"
+      }
     },
     {
       "id": "u-craft-04",
@@ -44,13 +69,19 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Points straight at the tacit core of the craft. Guests who train others have thought about this constantly and have examples ready.",
       "followups": [
         "How do you try anyway?",
         "Who taught it to you well?"
       ],
-      "tags": ["tacit-knowledge", "teaching", "flagship"]
+      "tags": [
+        "tacit-knowledge",
+        "teaching",
+        "flagship"
+      ]
     },
     {
       "id": "u-craft-05",
@@ -58,14 +89,20 @@
       "theme": "craft",
       "arc": "deep",
       "depth": "probing",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Gets at the difference between procedure and practice. The guest has to trust you before answering honestly, so place it after they have warmed up.",
       "followups": [
         "How do you know when you have earned the right to break it?",
         "What happens to someone who breaks it too early?"
       ],
       "avoid_if": "The guest works under a regulator or licensing body and the honest answer could expose them. Offer the escape hatch: 'or a rule you would keep but that people argue about.'",
-      "tags": ["heterodoxy", "trust-required", "high-yield"]
+      "tags": [
+        "heterodoxy",
+        "trust-required",
+        "high-yield"
+      ]
     },
     {
       "id": "u-craft-06",
@@ -73,10 +110,18 @@
       "theme": "craft",
       "arc": "core",
       "depth": "light",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Turns the guest into a teacher, which is a comfortable and generous posture, and gives the audience a concrete takeaway to remember the episode by.",
-      "followups": ["What do people usually get wrong when they try that?"],
-      "tags": ["takeaway", "generous", "audience-gift"]
+      "followups": [
+        "What do people usually get wrong when they try that?"
+      ],
+      "tags": [
+        "takeaway",
+        "generous",
+        "audience-gift"
+      ]
     },
     {
       "id": "u-craft-07",
@@ -84,10 +129,18 @@
       "theme": "judgment",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Completion is contested in almost every profession - good enough versus perfect, and whether the decision belongs to the practitioner, the client, or the clock.",
-      "followups": ["When was the last time you disagreed with that call?"],
-      "tags": ["standards", "slotted", "authority"]
+      "followups": [
+        "When was the last time you disagreed with that call?"
+      ],
+      "tags": [
+        "standards",
+        "slotted",
+        "authority"
+      ]
     },
     {
       "id": "u-craft-08",
@@ -95,10 +148,18 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Every professional reads their counterpart for signals - a patient's gait, a client's hesitation, a buyer's questions, a room's energy. It feels like letting the audience behind the glass.",
-      "followups": ["What does the signal usually mean?"],
-      "tags": ["reading-people", "slotted", "behind-the-curtain"]
+      "followups": [
+        "What does the signal usually mean?"
+      ],
+      "tags": [
+        "reading-people",
+        "slotted",
+        "behind-the-curtain"
+      ]
     },
     {
       "id": "u-craft-09",
@@ -106,10 +167,21 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "Invisible excellence is nearly universal - the clean wire run behind the drywall, the paragraph nobody had to reread, the handoff that prevented an incident. Warm and revealing at once.",
-      "followups": ["Would another professional notice?"],
-      "tags": ["pride", "warm", "invisible-labor"]
+      "followups": [
+        "Would another professional notice?"
+      ],
+      "tags": [
+        "pride",
+        "warm",
+        "invisible-labor"
+      ],
+      "setting_text": {
+        "entrepreneur": "Is there a piece of your work you are quietly proud of that no client would ever notice?"
+      }
     },
     {
       "id": "u-craft-10",
@@ -117,10 +189,21 @@
       "theme": "craft",
       "arc": "core",
       "depth": "medium",
-      "industries": ["universal"],
+      "industries": [
+        "universal"
+      ],
       "lands_because": "The second half is the whole question. It opens a gap between institutional metrics and personal standards without asking the guest to attack their employer.",
-      "followups": ["What would your definition be?"],
-      "tags": ["metrics", "values", "safe-dissent"]
+      "followups": [
+        "What would your definition be?"
+      ],
+      "tags": [
+        "metrics",
+        "values",
+        "safe-dissent"
+      ],
+      "setting_text": {
+        "entrepreneur": "What counts as a good day in your business, and do you agree with that definition?"
+      }
     }
   ]
 }
