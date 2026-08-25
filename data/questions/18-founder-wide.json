@@ -1,0 +1,323 @@
+{
+  "pack": "The Founder's View",
+  "description": "Wide-aperture questions for someone who built a company in this space. The intersection of two things the database already had separately - big-picture framing, and the builder's observational privilege - which was empty until now. A founder selling into this has watched hundreds of organizations try to adopt it and has seen which ones stuck. No individual manager has that sample, and it is the only thing a vendor guest can give an audience that is genuinely worth the airtime.",
+  "register_note": "Every question here is aimed at what they have watched rather than at what they have built. That is the whole anti-pitch discipline: their product claims are on the website, their adoption data is not. Where a question could be answered with a feature, the narrow_to drags it back to a named company and a specific week.",
+  "questions": [
+    {
+      "id": "fnd-01",
+      "text": "From building a company around this, what have you learned about where people get adoption right and where they get it wrong?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Take the one that got it right. What did they do in the first month that the others did not?",
+      "lands_because": "The founder's central asset stated plainly - a sample size no manager has. Wide enough to send in an email, and the narrow_to keeps the on-air version from becoming a case study reel.",
+      "followups": [
+        "Is the difference the technology, the people, or the permission?",
+        "Can you tell which one it will be before you start?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "adoption",
+        "email-safe",
+        "flagship"
+      ]
+    },
+    {
+      "id": "fnd-02",
+      "text": "Who inside a company usually calls you first, and who do you most wish would call you?",
+      "theme": "people",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "What does the second person know that the first one does not?",
+      "lands_because": "The gap between who buys and who could make it work is the show's whole argument, arriving from the vendor's side where it is a commercial observation rather than a complaint.",
+      "followups": [
+        "What happens when the first person buys and the second was never asked?",
+        "Have you ever refused to sell until you talked to the second one?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "management-redefined",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "fnd-03",
+      "text": "You have watched a lot of first attempts. What does a doomed one look like in week one?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Take the last one you saw coming. What was the tell - something they said, or something they did?",
+      "lands_because": "Pattern recognition across many attempts, which is exactly what a founder has and an audience wants. The week-one framing makes it actionable rather than retrospective.",
+      "followups": [
+        "Do you tell them? What do they say?",
+        "Has one you wrote off turned out fine?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "failure",
+        "flagship"
+      ]
+    },
+    {
+      "id": "fnd-04",
+      "text": "What did you believe about how this gets adopted that turned out to be wrong?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "What changed your mind - a customer, or a number?",
+      "lands_because": "Updating publicly is high status among serious builders and impossible for anyone running on a script, so it doubles as a read on the guest inside the first ten minutes.",
+      "followups": [
+        "What do you still believe that the market has not agreed with yet?",
+        "How long did it take you to admit it internally?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "guest-test",
+        "email-safe",
+        "flagship"
+      ]
+    },
+    {
+      "id": "fnd-05",
+      "text": "If you were not selling this, what would you tell someone to do instead?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Have you ever actually said that to a prospect? What happened?",
+      "lands_because": "The sharpest anti-pitch question available, and the follow-up is the real test - saying it in a podcast is free, saying it in a sales call is not.",
+      "followups": [
+        "Who should not be buying this at all?"
+      ],
+      "avoid_if": "The guest is mid-raise or mid-launch and would be defending a number rather than describing a judgment.",
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "anti-pitch",
+        "quotable",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "fnd-06",
+      "text": "What do buyers ask you for that they do not actually need?",
+      "theme": "myths",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "What should they have asked for instead? Give me the real one.",
+      "lands_because": "Diagnostic rather than promotional, so it gets the misconception without handing the guest a slot to pitch into. Also tells the audience how to think about the whole category.",
+      "followups": [
+        "Where did that expectation come from - a competitor, or a conference?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "myths",
+        "anti-pitch"
+      ]
+    },
+    {
+      "id": "fnd-07",
+      "text": "What separates a company getting real value in six weeks from one still piloting a year later?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Think of one that is still piloting. What is actually stopping them?",
+      "lands_because": "Pilot purgatory asked of the person who has watched both outcomes many times. The specific timeframes stop the answer becoming a maturity model.",
+      "followups": [
+        "Is it something they could fix, or something structural?",
+        "Do the fast ones stay fast?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "adoption",
+        "email-safe",
+        "flagship"
+      ]
+    },
+    {
+      "id": "fnd-08",
+      "text": "What does this require a company to change about itself that nobody wants to hear?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "At the last customer where that landed badly, who was the person who had to change? What was their title?",
+      "lands_because": "Turnkey is a sales promise and almost never true. Asking the vendor to name the unwelcome prerequisite is honest, and the narrow_to lands it on a real chair in a real building.",
+      "followups": [
+        "Do you say that before the sale or after?",
+        "What happens to the ones who refuse?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "customization-as-superpower",
+        "anti-pitch",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "fnd-09",
+      "text": "Where is money actually changing hands for this today, and where is it still a slide?",
+      "theme": "money",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Name the thing people most often buy and then never really use.",
+      "lands_because": "The value-versus-hype question aimed at someone who sees a pipeline, which makes it a report rather than an opinion. The narrow_to is the honest half.",
+      "followups": [
+        "What is being funded that you would not fund?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "money",
+        "email-safe"
+      ]
+    },
+    {
+      "id": "fnd-10",
+      "text": "What is the honest ceiling on this right now, in the work you sell into?",
+      "theme": "failure",
+      "arc": "deep",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Where have you watched it hit that ceiling with a real customer?",
+      "lands_because": "A vendor naming the limit is the single most credibility-earning thing they can do on air, and it makes everything they said before it believable.",
+      "followups": [
+        "Is that a this-year ceiling or a structural one?",
+        "What would have to be true to move it?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "honest-limits",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "fnd-11",
+      "text": "What is the most expensive mistake you watch companies make with this?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Walk me through one. What did it cost them, in time or money?",
+      "lands_because": "Invites the founder to be the person with perspective rather than the person selling, and the narrow_to converts an opinion into a case with a number on it.",
+      "followups": [
+        "Is it a mistake of ambition or of caution?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "quotable"
+      ]
+    },
+    {
+      "id": "fnd-12",
+      "text": "In five years, who inside a company owns this? Name the job.",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "roles": [
+        "builder"
+      ],
+      "narrow_to": "Does that person exist at your customers today? What are they called now?",
+      "lands_because": "A closer that lands on a person rather than a product, and asking for the job title forces something concrete out of what would otherwise be futurism.",
+      "followups": [
+        "Who owns it today, and is that working?",
+        "What would that person need to be good at?"
+      ],
+      "tags": [
+        "big-picture",
+        "builder-guest",
+        "management-redefined",
+        "closer",
+        "flagship"
+      ]
+    }
+  ]
+}

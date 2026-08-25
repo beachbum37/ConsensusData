@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**358 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
+**370 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, the senior contributors now directing agents, and the
 people who build the tools. Every question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -99,7 +99,7 @@ out of the running order.
 | `middle-manager` | 87 | AI & the Person in the Middle, From Chat to Workflow, Everyone Becomes a Manager, The Spine, Hard Boundaries, The Agent Manager |
 | `ai-leader` | 32 | AI Leaders & Adoption Owners, plus the workflow, boundary and agent-manager packs |
 | `individual-contributor` | 18 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
-| `builder` | 14 | The Builder |
+| `builder` | 26 | The Builder, The Founder's View |
 
 ### A third axis: setting
 
@@ -302,6 +302,7 @@ data/
     15-the-builder.json          for founders and inventors, aimed away from the pitch
     16-big-picture.json          wide-aperture questions for emails, panels and trailers
     17-setting-split.json        the same subject for enterprise vs entrepreneur
+    18-founder-wide.json         wide-aperture questions for someone who built a company here
     15-the-builder.json          interviewing the person who made the tool, without it becoming a demo
     industry/            one file per industry
 scripts/

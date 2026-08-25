@@ -404,9 +404,13 @@ class TestAperture(unittest.TestCase):
             # guest's own experience, or it demands a single instance. Either
             # is fine; neither means the question has not been landed.
             personal = any(w in lowered for w in (" you", "you ", "your"))
+            # All the ordinary ways an interviewer demands a single occurrence.
+            # This list has grown twice from real misses; keep adding phrasings
+            # rather than dropping the check, which has caught weak landings.
             instance = any(w in lowered for w in (
                 "one ", "give me", "name ", "which ", "walk me", "an example",
-                "think of", "describe",
+                "think of", "describe", "the last", "the first", "a time when",
+                "specifically",
             ))
             self.assertTrue(
                 personal or instance,
