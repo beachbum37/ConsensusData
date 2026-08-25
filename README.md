@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**334 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
+**350 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, the senior contributors now directing agents, and the
 people who build the tools. Every question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -100,6 +100,24 @@ out of the running order.
 | `ai-leader` | 32 | AI Leaders & Adoption Owners, plus the workflow, boundary and agent-manager packs |
 | `individual-contributor` | 18 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
 | `builder` | 14 | The Builder |
+
+### A third axis: setting
+
+Enterprise and entrepreneur are the same subject under opposite constraints.
+Inside a large organization the binding constraint is almost never money or
+capability — it's **permission**: procurement owns the purchase, IT owns the
+configuration, legal owns the risk, and the manager owns the outcome anyway.
+Running your own thing inverts all of it: you *are* procurement, IT and legal,
+nobody has to approve anything, the money is yours, and the constraint is your
+own hours.
+
+Setting **narrows** rather than adding a third source — picking one excludes
+questions written for the other and keeps the whole unscoped core.
+
+```bash
+python3 scripts/query.py brief finance --role middle-manager --setting entrepreneur
+python3 scripts/query.py find --setting enterprise
+```
 
 ### Aperture
 
@@ -275,6 +293,7 @@ data/
     14-agent-manager.json        the management shift: agents as teammates, and who owns them
     15-the-builder.json          for founders and inventors, aimed away from the pitch
     16-big-picture.json          wide-aperture questions for emails, panels and trailers
+    17-setting-split.json        the same subject for enterprise vs entrepreneur
     15-the-builder.json          interviewing the person who made the tool, without it becoming a demo
     industry/            one file per industry
 scripts/

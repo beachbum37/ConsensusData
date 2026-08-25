@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = Path(__file__).resolve().parent / "template.html"
 DOCS = ROOT / "docs"
 
-FIELDS = ("id", "text", "theme", "arc", "depth", "industries", "roles",
+FIELDS = ("id", "text", "theme", "arc", "depth", "industries", "roles", "settings",
           "aperture", "narrow_to", "lands_because", "followups", "avoid_if",
           "tags", "pack")
 
@@ -43,7 +43,7 @@ def payload() -> dict:
         "series": {k: v for k, v in corpus.series.items() if not k.startswith("$")},
         "taxonomy": {
             section: {k: v for k, v in corpus.taxonomy[section].items() if not k.startswith("$")}
-            for section in ("arc", "depth", "theme", "industries", "roles")
+            for section in ("arc", "depth", "theme", "industries", "roles", "settings")
         },
     }
 

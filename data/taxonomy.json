@@ -35,6 +35,11 @@
     "individual-contributor": "A senior practitioner with no direct reports who now directs agents. Increasingly doing a version of management without the title, the training, or the authority that comes with it.",
     "builder": "Whoever invented, founded or ships the tool. Unlike every other role here they have a commercial stake in the conversation and have told their origin story hundreds of times, so questions aimed at their product get the deck and questions aimed at what they have watched users actually do get something nobody else can give you."
   },
+  "settings": {
+    "$comment": "A third scoping axis: the setting the guest works in. Orthogonal to both industry and role - a middle manager at a 40,000-person insurer and a founder with six people face the same subject through completely different constraints. Questions with no settings listed work in either.",
+    "enterprise": "Inside a large organization. Tools arrive through procurement, IT owns the configuration, legal reviews the risk, budget runs on a cycle, and the binding constraint is usually permission rather than money or capability.",
+    "entrepreneur": "Running their own thing. They are procurement, IT, legal and the user at once. Nobody to ask and nobody to delegate to, the cost comes out of their own pocket, and the binding constraint is their own hours."
+  },
   "industries": {
     "universal": "Written to land on any professional. The backbone of the database.",
     "healthcare": "Clinicians, nurses, hospital administrators, public health, allied health.",

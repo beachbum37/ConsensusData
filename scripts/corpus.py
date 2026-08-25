@@ -142,8 +142,8 @@ def fill_slots(text: str, profile: dict | None) -> str:
     return SLOT_RE.sub(lambda m: vocab.get(m.group(1), m.group(0)), text)
 
 
-def matches(question: dict, *, industry=None, role=None, theme=None, arc=None,
-            depth=None, tag=None, search=None, aperture=None,
+def matches(question: dict, *, industry=None, role=None, setting=None, theme=None,
+            arc=None, depth=None, tag=None, search=None, aperture=None,
             universal=True, general=True) -> bool:
     """Apply the filters that `query.py` exposes. None means 'no constraint'.
 
@@ -163,6 +163,12 @@ def matches(question: dict, *, industry=None, role=None, theme=None, arc=None,
         if general:
             applies = applies or not roles
         if not applies:
+            return False
+    # Setting narrows rather than adding a source: choosing one excludes
+    # questions written for the other, and keeps everything unscoped.
+    if setting:
+        settings = question.get("settings", [])
+        if settings and setting not in settings:
             return False
     if aperture and question.get("aperture", "narrow") != aperture:
         return False
@@ -196,7 +202,7 @@ BRIEF_SHAPE = (("opener", 2), ("warmup", 2), ("core", 8), ("deep", 5), ("closer"
 
 
 def build_brief(corpus: Corpus, industry: str | None, role: str | None = None,
-                seed: int = 0) -> list[dict]:
+                seed: int = 0, setting: str | None = None) -> list[dict]:
     """Assemble a running order for one guest.
 
     Roughly half of each stage is written for this guest specifically - that is
@@ -207,22 +213,28 @@ def build_brief(corpus: Corpus, industry: str | None, role: str | None = None,
     """
     rng = random.Random(seed)
 
+    def in_setting(q: dict) -> bool:
+        """Setting filters every pool rather than forming one of its own - it
+        narrows which version of a question fits, it is not a third source."""
+        scoped = q.get("settings", [])
+        return not setting or not scoped or setting in scoped
+
     def pool(arc: str, kind: str) -> list[dict]:
         if kind == "industry":
             qs = [q for q in corpus.questions
                   if q["arc"] == arc and industry and industry in q["industries"]
-                  and q.get("aperture", "narrow") == "narrow"]
+                  and q.get("aperture", "narrow") == "narrow" and in_setting(q)]
         elif kind == "role":
             qs = [q for q in corpus.questions
                   if q["arc"] == arc and role and role in q.get("roles", [])
-                  and q.get("aperture", "narrow") == "narrow"]
+                  and q.get("aperture", "narrow") == "narrow" and in_setting(q)]
         else:
             # The unscoped core. Questions aimed at some other role are
             # excluded - an AI-leader question does not belong in a
             # manager's brief.
             qs = [q for q in corpus.questions if q["arc"] == arc
                   and "universal" in q["industries"] and not q.get("roles")
-                  and q.get("aperture", "narrow") == "narrow"]
+                  and q.get("aperture", "narrow") == "narrow" and in_setting(q)]
         rng.shuffle(qs)
         return qs
 

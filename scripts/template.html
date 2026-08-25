@@ -579,6 +579,8 @@
     <select id="industry"></select>
     <label class="count" for="role">as</label>
     <select id="role"></select>
+    <label class="count" for="setting">at</label>
+    <select id="setting"></select>
     <div class="modes" role="group" aria-label="View">
       <button class="btn" type="button" id="mode-browse" aria-pressed="true">Browse</button>
       <button class="btn" type="button" id="mode-brief" aria-pressed="false">Brief</button>
@@ -638,6 +640,7 @@
   const state = {
     industry: "",
     role: "",
+    setting: "",
     mode: "browse",
     // `arc` is the interview arc being run; `stage` is the opener/core/deep
     // filter. Both are called "arc" elsewhere in the data, so they are kept
@@ -695,6 +698,12 @@
         const roles = q.roles || [];
         if (!roles.includes(state.role) && roles.length) return false;
       }
+      // Setting narrows: it excludes questions written for the other setting
+      // and keeps everything unscoped.
+      if (state.setting) {
+        const settings = q.settings || [];
+        if (settings.length && !settings.includes(state.setting)) return false;
+      }
       if (state.depth.size && !state.depth.has(q.depth)) return false;
       if (state.stage.size && !state.stage.has(q.arc)) return false;
       if (state.theme.size && !state.theme.has(q.theme)) return false;
@@ -723,8 +732,12 @@
   function buildBrief() {
     const seed = [...(state.industry + state.role)].reduce((a, c) => a + c.charCodeAt(0), 7);
     const picked = [];
+    const inSetting = q => {
+      const scoped = q.settings || [];
+      return !state.setting || !scoped.length || scoped.includes(state.setting);
+    };
     for (const [arc, want] of BRIEF_SHAPE) {
-      const atStage = q => q.arc === arc;
+      const atStage = q => q.arc === arc && inSetting(q) && q.aperture !== "wide";
       const industryPool = seededShuffle(
         DATA.questions.filter(q => atStage(q) && q.industries.includes(state.industry)),
         seed + arc.length);
@@ -787,6 +800,9 @@
     }
     if (q.aperture === "wide") {
       meta.append(el("span", { className: "wide-chip", textContent: "big picture" }));
+    }
+    for (const s of q.settings || []) {
+      meta.append(el("span", { className: "wide-chip", textContent: s }));
     }
     meta.append(el("span", { textContent: q.id }));
     node.append(meta);
@@ -1133,6 +1149,15 @@
       roleSelect.append(option);
     }
     roleSelect.addEventListener("change", () => { state.role = roleSelect.value; render(); });
+
+    const settingSelect = document.getElementById("setting");
+    settingSelect.append(el("option", { value: "", textContent: "Any setting" }));
+    for (const [slug, description] of Object.entries(DATA.taxonomy.settings || {})) {
+      const option = el("option", { value: slug, textContent: slug });
+      option.title = description;
+      settingSelect.append(option);
+    }
+    settingSelect.addEventListener("change", () => { state.setting = settingSelect.value; render(); });
 
     const vocabOf = section => Object.keys(DATA.taxonomy[section]).filter(k => !k.startsWith("$"));
     chipGroup("facet-depth", "depth", vocabOf("depth"), "depth");

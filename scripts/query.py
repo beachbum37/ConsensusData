@@ -121,6 +121,7 @@ def cmd_find(corpus: Corpus, args) -> int:
         corpus,
         industry=args.industry,
         role=args.role,
+        setting=args.setting,
         theme=args.theme,
         arc=args.arc,
         depth=args.depth,
@@ -148,7 +149,11 @@ def cmd_brief(corpus: Corpus, args) -> int:
     if role and role not in corpus.taxonomy["roles"]:
         die(f"unknown role '{role}'. Try: python3 scripts/query.py list roles")
 
-    selected = build_brief(corpus, args.industry, role, seed=args.seed)
+    setting = args.setting
+    if setting and setting not in corpus.taxonomy.get("settings", {}):
+        die(f"unknown setting '{setting}'. Try: python3 scripts/query.py list settings")
+
+    selected = build_brief(corpus, args.industry, role, seed=args.seed, setting=setting)
 
     if args.no_probing:
         selected = [q for q in selected if q["depth"] != "probing"]
@@ -158,6 +163,8 @@ def cmd_brief(corpus: Corpus, args) -> int:
     title = f"Interview brief: {profile['label']}"
     if role:
         title += f" / {role}"
+    if setting:
+        title += f" / {setting}"
     if args.guest:
         title += f" - {args.guest}"
 
@@ -317,12 +324,12 @@ def cmd_profile(corpus: Corpus, args) -> int:
 
 
 def cmd_list(corpus: Corpus, args) -> int:
-    if args.what in ("industries", "roles"):
+    if args.what in ("industries", "roles", "settings"):
         for slug, desc in corpus.taxonomy[args.what].items():
             if slug.startswith("$"):
                 continue
             n = sum(1 for q in corpus.questions
-                    if slug in (q["industries"] if args.what == "industries" else q.get("roles", [])))
+                    if slug in (q["industries"] if args.what == "industries" else q.get(args.what, [])))
             print(f"  {slug:<20} {n:>3}  {desc}")
     elif args.what == "tags":
         tags = sorted({t for q in corpus.questions for t in q.get("tags", [])})
@@ -357,6 +364,7 @@ def build_parser() -> argparse.ArgumentParser:
     f = sub.add_parser("find", parents=[common], help="filter the corpus")
     f.add_argument("--industry")
     f.add_argument("--role", help="middle-manager, ai-leader")
+    f.add_argument("--setting", help="enterprise, entrepreneur")
     f.add_argument("--theme")
     f.add_argument("--arc")
     f.add_argument("--depth")
@@ -374,6 +382,7 @@ def build_parser() -> argparse.ArgumentParser:
     b = sub.add_parser("brief", parents=[common], help="build a running order for one interview")
     b.add_argument("industry")
     b.add_argument("--role", help="middle-manager, ai-leader")
+    b.add_argument("--setting", help="enterprise, entrepreneur")
     b.add_argument("--guest")
     b.add_argument("--seed", type=int, default=0, help="change for a different draw")
     b.add_argument("--no-probing", action="store_true",
@@ -395,7 +404,7 @@ def build_parser() -> argparse.ArgumentParser:
     pr.set_defaults(func=cmd_profile)
 
     ls = sub.add_parser("list", help="list the controlled vocabularies")
-    ls.add_argument("what", choices=["industries", "roles", "themes", "arcs", "depths", "tags", "packs"])
+    ls.add_argument("what", choices=["industries", "roles", "settings", "themes", "arcs", "depths", "tags", "packs"])
     ls.set_defaults(func=cmd_list)
 
     return p

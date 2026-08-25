@@ -39,6 +39,7 @@ def main() -> int:
     valid_depths = set(vocab(corpus.taxonomy["depth"]))
     valid_industries = set(vocab(corpus.taxonomy["industries"]))
     valid_roles = set(vocab(corpus.taxonomy["roles"]))
+    valid_settings = set(vocab(corpus.taxonomy.get("settings", {})))
     # {industry} is derived from each profile's label rather than declared.
     known_slots = set(corpus.industries["$slots"]) | {"industry"}
     profiled = set(corpus.profiles)
@@ -101,6 +102,14 @@ def main() -> int:
             )
         if aperture != "wide" and q.get("narrow_to"):
             warnings.append(f"{where}: has narrow_to but is not a wide question")
+
+        for slug in q.get("settings", []):
+            if slug not in valid_settings:
+                errors.append(f"{where}: unknown setting '{slug}'")
+        if len(q.get("settings", [])) == len(valid_settings) and valid_settings:
+            warnings.append(
+                f"{where}: lists every setting, which is the same as listing none"
+            )
 
         for slug in q.get("roles", []):
             if slug not in valid_roles:
@@ -269,6 +278,16 @@ def main() -> int:
     print("  depth: " + "  ".join(f"{k}={by_depth[k]}" for k in vocab(corpus.taxonomy["depth"])))
     print("  theme: " + "  ".join(f"{k}={by_theme[k]}" for k in sorted(by_theme)))
     print()
+    per_setting: Counter[str] = Counter()
+    for q in corpus.questions:
+        for slug in q.get("settings", []):
+            per_setting[slug] += 1
+    if valid_settings:
+        print("Per setting (setting-scoped questions):")
+        for slug in sorted(valid_settings):
+            print(f"  {slug:<20} {per_setting[slug]:>3}")
+        print()
+
     print("Per role (role-scoped questions):")
     for slug in sorted(valid_roles):
         print(f"  {slug:<20} {per_role[slug]:>3}")

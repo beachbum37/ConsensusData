@@ -283,6 +283,56 @@ class TestSeries(unittest.TestCase):
                               f"{q['id']} exempts a phrase it does not contain")
 
 
+class TestSetting(unittest.TestCase):
+    """Enterprise and entrepreneur are the same subject under opposite
+    constraints, so the axis narrows rather than adding a third source."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.corpus = load()
+
+    def test_settings_come_from_the_taxonomy(self):
+        valid = {k for k in self.corpus.taxonomy["settings"] if not k.startswith("$")}
+        self.assertTrue(valid)
+        for q in self.corpus.questions:
+            for slug in q.get("settings", []):
+                self.assertIn(slug, valid, f"{q['id']} uses undeclared setting {slug!r}")
+
+    def test_both_settings_have_questions(self):
+        for setting in ("enterprise", "entrepreneur"):
+            got = [q for q in self.corpus.questions if setting in q.get("settings", [])]
+            self.assertTrue(got, f"no questions for {setting}")
+
+    def test_choosing_a_setting_excludes_the_other(self):
+        for setting, other in (("enterprise", "entrepreneur"), ("entrepreneur", "enterprise")):
+            for q in filter_questions(self.corpus, setting=setting):
+                scoped = q.get("settings", [])
+                self.assertFalse(scoped and other in scoped and setting not in scoped,
+                                 f"{q['id']} leaked into {setting}")
+                if scoped:
+                    self.assertIn(setting, scoped, f"{q['id']} ({scoped}) surfaced under {setting}")
+
+    def test_choosing_a_setting_keeps_the_unscoped_core(self):
+        # Setting narrows which version fits; it must not throw away the
+        # hundreds of questions that work in either.
+        got = filter_questions(self.corpus, setting="entrepreneur")
+        self.assertTrue(sum(1 for q in got if not q.get("settings")) > 100)
+
+    def test_briefs_respect_the_setting(self):
+        for setting, other in (("enterprise", "entrepreneur"), ("entrepreneur", "enterprise")):
+            brief = build_brief(self.corpus, "finance", "middle-manager", setting=setting)
+            for q in brief:
+                self.assertNotIn(other, q.get("settings", []),
+                                 f"{q['id']} leaked into a {setting} brief")
+
+    def test_a_setting_scoped_question_is_not_also_industry_pinned(self):
+        # The constraint is the setting, not the field - it should stay
+        # universal or it will almost never surface.
+        for q in self.corpus.questions:
+            if q.get("settings"):
+                self.assertIn("universal", q["industries"], f"{q['id']} is scoped twice over")
+
+
 class TestAperture(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
