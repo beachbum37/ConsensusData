@@ -21,6 +21,12 @@ ARC_DIR = DATA_DIR / "arcs"
 # guest's current situation. Least presuming last.
 ANCHORING = ("current", "experience", "observed", "general")
 
+# How wide a question opens. Narrow is the default and the whole corpus assumes
+# it. Wide questions are for pre-interview emails, panels and trailers - they
+# are deliberately kept out of briefs, where they would hollow out a running
+# order, and every one of them carries a narrow_to follow-up that lands it.
+APERTURE = ("narrow", "wide")
+
 REQUIRED_FIELDS = ("id", "text", "theme", "arc", "depth", "industries")
 SLOT_RE = re.compile(r"\{(\w+)\}")
 
@@ -114,7 +120,10 @@ def fill_slots(text: str, profile: dict | None) -> str:
     """
     if not profile:
         return text
-    vocab = profile.get("vocabulary", {})
+    # {industry} is derived rather than declared - it is just the profile's
+    # label, and big-picture questions ask for the field by name.
+    vocab = dict(profile.get("vocabulary", {}))
+    vocab.setdefault("industry", profile.get("label", ""))
 
     def with_article(m: re.Match) -> str:
         article, slot = m.group(1), m.group(2)
@@ -134,7 +143,8 @@ def fill_slots(text: str, profile: dict | None) -> str:
 
 
 def matches(question: dict, *, industry=None, role=None, theme=None, arc=None,
-            depth=None, tag=None, search=None, universal=True, general=True) -> bool:
+            depth=None, tag=None, search=None, aperture=None,
+            universal=True, general=True) -> bool:
     """Apply the filters that `query.py` exposes. None means 'no constraint'.
 
     Industry and role are the two scoping axes and behave the same way: a
@@ -154,6 +164,8 @@ def matches(question: dict, *, industry=None, role=None, theme=None, arc=None,
             applies = applies or not roles
         if not applies:
             return False
+    if aperture and question.get("aperture", "narrow") != aperture:
+        return False
     if theme and question["theme"] != theme:
         return False
     if arc and question["arc"] != arc:
@@ -198,16 +210,19 @@ def build_brief(corpus: Corpus, industry: str | None, role: str | None = None,
     def pool(arc: str, kind: str) -> list[dict]:
         if kind == "industry":
             qs = [q for q in corpus.questions
-                  if q["arc"] == arc and industry and industry in q["industries"]]
+                  if q["arc"] == arc and industry and industry in q["industries"]
+                  and q.get("aperture", "narrow") == "narrow"]
         elif kind == "role":
             qs = [q for q in corpus.questions
-                  if q["arc"] == arc and role and role in q.get("roles", [])]
+                  if q["arc"] == arc and role and role in q.get("roles", [])
+                  and q.get("aperture", "narrow") == "narrow"]
         else:
             # The unscoped core. Questions aimed at some other role are
             # excluded - an AI-leader question does not belong in a
             # manager's brief.
             qs = [q for q in corpus.questions if q["arc"] == arc
-                  and "universal" in q["industries"] and not q.get("roles")]
+                  and "universal" in q["industries"] and not q.get("roles")
+                  and q.get("aperture", "narrow") == "narrow"]
         rng.shuffle(qs)
         return qs
 

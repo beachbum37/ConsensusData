@@ -1,0 +1,414 @@
+{
+  "pack": "Big Picture",
+  "description": "Wide-aperture questions - the executive-level, sweeping kind. Every other pack in this database is built on the opposite instinct, that abstraction is where evasion lives, so these carry an explicit aperture of 'wide' and are kept out of briefs on purpose. They have three real uses: the pre-interview email, where a broad question lets a guest arrive prepared with examples; the open of a panel or multi-guest episode, where nobody has a shared specific to start from; and trailers and pull quotes, where a wide answer is what travels.",
+  "how_to_use": "Never ask one of these and move on. Every question here carries a narrow_to - the follow-up that drives the answer down to one instance - and the validator will not accept a wide question without one. Ask the wide version to open the territory, let them give the panoramic answer, then land it. The wide question buys you the frame; the narrow_to buys you the episode.",
+  "register_note": "Wide questions drift toward the passive - how is AI changing you - which makes the guest the object rather than the subject. Where these say 'changing', the narrow_to always asks what the guest decided, built or overrode. Keep that pairing and the bank stays inside the series voice.",
+  "questions": [
+    {
+      "id": "big-01",
+      "text": "How is AI changing the way executives and managers make decisions in {industry}?",
+      "theme": "change",
+      "arc": "warmup",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Give me one decision that used to take a week and now takes a day. What actually changed about how it got made?",
+      "lands_because": "The broadest possible opening on the subject, and a good one for an email because a guest can arrive with a real example rather than improvising. On air it is only worth asking if you land it immediately.",
+      "followups": [
+        "Which decisions have not changed at all?",
+        "Is anyone deciding faster than they should be?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "slotted",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-02",
+      "text": "Where do you think AI is creating the most value right now, and where is it still overhyped?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Name the most overhyped one specifically. What did people expect it to do that it does not?",
+      "lands_because": "The two-sided structure is what saves it - asking only about value gets a brochure, and the overhyped half is where a credible guest separates themselves. Works well in an email because the honest answer takes thought.",
+      "followups": [
+        "What is quietly working that nobody talks about?",
+        "How long before the overhyped part catches up, if ever?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "balanced",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-03",
+      "text": "How should managers think about using AI without giving up the human judgment that still matters?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Where did you personally override it, and what did you see that it did not?",
+      "lands_because": "The most common framing of the subject and therefore the one your audience already has in their head. Its weakness is that 'human judgment' is a placeholder, which is exactly what the narrow_to and the first follow-up are for.",
+      "followups": [
+        "What does human judgment actually mean here, once you try to specify it?",
+        "Has your answer to that changed in the last year?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "needs-landing"
+      ]
+    },
+    {
+      "id": "big-04",
+      "text": "What changes when AI becomes part of everyday operations rather than just a tool someone uses occasionally?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "What changed in your own week, on an ordinary Tuesday, when it stopped being occasional?",
+      "lands_because": "Names the transition from personal habit to shared process, which is where it becomes a management subject rather than a productivity one. The narrow_to is what stops it becoming a lecture about transformation.",
+      "followups": [
+        "What had to be agreed once it was everyone's rather than one person's?",
+        "Who noticed first that it had crossed that line?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-05",
+      "text": "What do middle managers know now that is about to matter more, not less?",
+      "theme": "future",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Name one of those. Who taught it to you, and how long did it take?",
+      "lands_because": "The series-voice version of asking what managers need in order to stay valuable. Same territory, but it assumes they already hold something worth having rather than implying they are at risk - which is the difference between an inviting question and a worried one.",
+      "followups": [
+        "What is going the other way - what will matter less?",
+        "Is anyone teaching the first thing to people coming up?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "big-06",
+      "text": "What separates the organizations getting real value out of this from the ones still running pilots?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Think of one organization in each category. What was actually different about them?",
+      "lands_because": "Pilot purgatory is universally recognised and rarely explained. Asking for the separator rather than for best practice gets a diagnosis instead of a checklist.",
+      "followups": [
+        "Is the difference the technology, the people, or the permission structure?",
+        "Can an organization tell which one it is from the inside?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "diagnosis",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-07",
+      "text": "Which decisions in your world should never be made faster, even when they could be?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Name one. What does the extra time actually buy?",
+      "lands_because": "Inverts the speed assumption that runs under most of this conversation, and it is one of the few wide questions that produces a genuinely surprising answer. Good for a trailer.",
+      "followups": [
+        "Has anything been sped up that should not have been?",
+        "Who would have to protect that slowness?"
+      ],
+      "tags": [
+        "big-picture",
+        "quotable",
+        "inversion",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-08",
+      "text": "What is the most expensive mistake organizations are making with this right now?",
+      "theme": "failure",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Have you watched it happen? Walk me through that one.",
+      "lands_because": "Invites the guest to be the person with perspective, which is a comfortable posture, and the narrow_to converts an opinion into a case. Reliable pull quote.",
+      "followups": [
+        "Is it a mistake of ambition or of caution?",
+        "What would have caught it early?"
+      ],
+      "tags": [
+        "big-picture",
+        "quotable",
+        "failure"
+      ]
+    },
+    {
+      "id": "big-09",
+      "text": "How do you tell a real productivity gain from one that just moved the work somewhere else?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Where has the work moved to, in a team you know well?",
+      "lands_because": "The measurement question that almost nobody asks out loud, and the one your audience most needs. It sounds analytical rather than skeptical, so it does not read as an attack on the technology.",
+      "followups": [
+        "What would you measure instead of time saved?",
+        "Who ends up holding the moved work?"
+      ],
+      "tags": [
+        "big-picture",
+        "measurement",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "big-10",
+      "text": "What is everyone agreeing about right now that you think will turn out to be wrong?",
+      "theme": "change",
+      "arc": "deep",
+      "depth": "probing",
+      "industries": [
+        "universal"
+      ],
+      "aperture": "wide",
+      "narrow_to": "What would have to happen for you to be proven right? What is the earliest sign?",
+      "lands_because": "Consensus-breaking is high status among serious people and impossible for anyone running on talking points, so it doubles as a read on your guest. The best wide question in the bank for a trailer.",
+      "followups": [
+        "Who else thinks that? Are you alone on it?",
+        "What did you believe a year ago that you have already dropped?"
+      ],
+      "avoid_if": "The guest is speaking on behalf of an employer with a public position on exactly this.",
+      "tags": [
+        "big-picture",
+        "quotable",
+        "guest-test",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "big-11",
+      "text": "Who benefits most from this shift, and who is quietly absorbing the cost?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "probing",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Name the group absorbing it. What does that cost look like in a week of their work?",
+      "lands_because": "The distributional question, which sweeping conversations about productivity almost always skip. Asked evenly it is analysis rather than accusation, and the second half is where the real answer is.",
+      "followups": [
+        "Is anyone accounting for that cost?",
+        "Does it show up in any number that leadership sees?"
+      ],
+      "tags": [
+        "big-picture",
+        "distributional",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "big-12",
+      "text": "What does good governance look like when the technology changes faster than the policy can?",
+      "theme": "ethics",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "What is one rule you would write today that would still hold in two years?",
+      "lands_because": "The governance question in the form practitioners actually experience it, as a pacing problem rather than a compliance one. The narrow_to forces a durable rule instead of a principle.",
+      "followups": [
+        "What should be decided once, and what should be revisited every quarter?",
+        "Who should own the revisiting?"
+      ],
+      "tags": [
+        "big-picture",
+        "governance",
+        "email-safe"
+      ]
+    },
+    {
+      "id": "big-13",
+      "text": "Where does responsibility sit when an automated decision turns out to be wrong?",
+      "theme": "ethics",
+      "arc": "deep",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "In an organization you know, who would actually get the call? Would they know it was them?",
+      "lands_because": "A question with real legal weight behind it now, and one most organizations have not answered internally. The narrow_to turns an abstraction about accountability into a named chair.",
+      "followups": [
+        "Is that written down, or is it an assumption everyone shares?",
+        "Should it sit with the person who bought it, ran it, or built it?"
+      ],
+      "tags": [
+        "big-picture",
+        "accountability",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-14",
+      "text": "How much of this is genuinely new, and how much is a pattern we have been through before?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Which earlier wave does it rhyme with most, and where does the analogy break down?",
+      "lands_because": "Rewards a guest with a long memory and calms an anxious audience without dismissing the change. The second half of the narrow_to is what keeps it from becoming comfortable nothing-ever-changes talk.",
+      "followups": [
+        "What did that earlier wave teach that people have already forgotten?",
+        "What is genuinely without precedent?"
+      ],
+      "tags": [
+        "big-picture",
+        "historical",
+        "email-safe"
+      ]
+    },
+    {
+      "id": "big-15",
+      "text": "If this works as promised, what does a well-run organization look like in five years?",
+      "theme": "future",
+      "arc": "closer",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Describe one team inside it. What does a Tuesday look like for the person running that team?",
+      "lands_because": "A closer that gives the audience somewhere to stand, and the narrow_to keeps it from evaporating into futurism by putting one recognisable person inside the picture.",
+      "followups": [
+        "What is the same as today that people assume will change?",
+        "What has to go right for that version rather than a worse one?"
+      ],
+      "tags": [
+        "big-picture",
+        "closer",
+        "flagship"
+      ]
+    },
+    {
+      "id": "big-16",
+      "text": "What should a board be asking management about this that they mostly are not?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "What answer would you want to hear back? What answer would worry you?",
+      "lands_because": "Pitched at the altitude the guest is used to speaking at while still being about a gap rather than a strategy. Useful in an email to a senior guest because it flatters the frame without flattering them.",
+      "followups": [
+        "What are boards asking that is a waste of time?",
+        "Who in the organization can actually answer that question honestly?"
+      ],
+      "tags": [
+        "big-picture",
+        "email-safe",
+        "executive"
+      ]
+    },
+    {
+      "id": "big-17",
+      "text": "Which parts of a manager's job get harder as this spreads, rather than easier?",
+      "theme": "change",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Which one has already got harder for you? What does that look like on a normal week?",
+      "lands_because": "The counterweight to every efficiency claim, and it speaks directly to a listener who suspects their job is getting more complicated rather than less. Assumes the manager is the subject, not the recipient.",
+      "followups": [
+        "Is anyone acknowledging that part?",
+        "What would help with it, concretely?"
+      ],
+      "tags": [
+        "big-picture",
+        "counterweight",
+        "flagship",
+        "high-yield"
+      ]
+    },
+    {
+      "id": "big-18",
+      "text": "What would you need to see before you trusted one of these systems with something that really mattered?",
+      "theme": "judgment",
+      "arc": "core",
+      "depth": "medium",
+      "aperture": "wide",
+      "industries": [
+        "universal"
+      ],
+      "narrow_to": "Has anything cleared that bar for you yet? What was it?",
+      "lands_because": "Turns trust from a mood into a list of conditions, which is both more useful and more revealing. Works on a skeptic and an enthusiast equally, which is rare for a wide question.",
+      "followups": [
+        "Who else would have to agree before it counted?",
+        "What would make you take that trust back?"
+      ],
+      "tags": [
+        "big-picture",
+        "trust",
+        "works-on-skeptics"
+      ]
+    }
+  ]
+}

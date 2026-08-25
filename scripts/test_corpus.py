@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import unittest
 
-from corpus import (ANCHORING, BRIEF_SHAPE, build_brief, fill_slots,
+from corpus import (ANCHORING, APERTURE, BRIEF_SHAPE, build_brief, fill_slots,
                     filter_questions, load, slots_in)
 
 
@@ -90,7 +90,9 @@ class TestCorpus(unittest.TestCase):
                 self.fail(f"{slug}.{slot} = {word!r} looks plural")
 
     def test_every_slot_used_in_a_question_is_declared(self):
-        declared = set(self.corpus.industries["$slots"]) | {"phrase"}
+        # {phrase} is filled by the host live; {industry} is derived from each
+        # profile's label rather than declared in $slots.
+        declared = set(self.corpus.industries["$slots"]) | {"phrase", "industry"}
         for q in self.corpus.questions:
             for slot in slots_in(q["text"]):
                 self.assertIn(slot, declared, f"{q['id']} uses undeclared {{{slot}}}")
@@ -279,6 +281,78 @@ class TestSeries(unittest.TestCase):
             for pattern in q.get("voice_exempt", []):
                 self.assertIn(pattern.lower(), q["text"].lower(),
                               f"{q['id']} exempts a phrase it does not contain")
+
+
+class TestAperture(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.corpus = load()
+
+    def wide(self):
+        return [q for q in self.corpus.questions if q.get("aperture") == "wide"]
+
+    def test_the_bank_exists(self):
+        self.assertTrue(self.wide())
+
+    def test_apertures_come_from_the_vocabulary(self):
+        for q in self.corpus.questions:
+            self.assertIn(q.get("aperture", "narrow"), APERTURE, q["id"])
+
+    def test_every_wide_question_carries_the_follow_up_that_lands_it(self):
+        # A wide question without a narrow_to is an invitation to a talking
+        # point, which is the thing the rest of the corpus exists to avoid.
+        for q in self.wide():
+            self.assertTrue(q.get("narrow_to"), f"{q['id']} is wide with no narrow_to")
+
+    def test_narrow_to_points_at_the_guest_not_at_more_theory(self):
+        # Keyword-matching "is this specific enough" turns out to be brittle -
+        # it kept failing on questions that plainly do ask for an instance. What
+        # actually distinguishes a landing follow-up is that it is a question
+        # and it points at the guest's own experience rather than the topic.
+        for q in self.wide():
+            text = q["narrow_to"].strip()
+            # Not necessarily a question - "Walk me through that one." is a
+            # perfectly good landing prompt.
+            self.assertGreater(len(text.split()), 5, f"{q['id']} narrow_to is too thin")
+            lowered = text.lower()
+            # A landing follow-up does one of two things: it points at the
+            # guest's own experience, or it demands a single instance. Either
+            # is fine; neither means the question has not been landed.
+            personal = any(w in lowered for w in (" you", "you ", "your"))
+            instance = any(w in lowered for w in (
+                "one ", "give me", "name ", "which ", "walk me", "an example",
+                "think of", "describe",
+            ))
+            self.assertTrue(
+                personal or instance,
+                f"{q['id']} narrow_to neither points at the guest nor asks for "
+                f"an instance: {text!r}",
+            )
+
+    def test_narrow_to_only_on_wide_questions(self):
+        for q in self.corpus.questions:
+            if q.get("aperture", "narrow") != "wide":
+                self.assertNotIn("narrow_to", q, f"{q['id']} has narrow_to but is not wide")
+
+    def test_wide_questions_never_enter_a_brief(self):
+        # They would hollow out a running order, which is the whole reason the
+        # aperture field exists.
+        for industry in ("healthcare", "logistics", "law"):
+            for role in (None, "middle-manager"):
+                for q in build_brief(self.corpus, industry, role):
+                    self.assertNotEqual(q.get("aperture"), "wide",
+                                        f"{q['id']} leaked into a {industry}/{role} brief")
+
+    def test_industry_slot_fills_from_the_profile_label(self):
+        profile = self.corpus.profile("healthcare")
+        self.assertEqual(
+            fill_slots("decisions in {industry}?", profile),
+            "decisions in Healthcare & Medicine?",
+        )
+
+    def test_wide_questions_are_reachable_by_filter(self):
+        got = filter_questions(self.corpus, aperture="wide")
+        self.assertEqual(len(got), len(self.wide()))
 
 
 class TestBuildBrief(unittest.TestCase):

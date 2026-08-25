@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**316 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
+**334 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, the senior contributors now directing agents, and the
 people who build the tools. Every question is tagged by theme, interview stage, and depth, carries a note on *why*
@@ -100,6 +100,24 @@ out of the running order.
 | `ai-leader` | 32 | AI Leaders & Adoption Owners, plus the workflow, boundary and agent-manager packs |
 | `individual-contributor` | 18 | Everyone Becomes a Manager, The Spine, Hard Boundaries |
 | `builder` | 14 | The Builder |
+
+### Aperture
+
+Almost every question here is deliberately narrow — abstraction is where evasion
+lives. The exception is the **Big Picture** bank, marked `aperture: "wide"`.
+Those are the sweeping executive-level questions, and they have three real uses:
+the pre-interview email, the open of a panel, and trailers.
+
+They're kept out of briefs automatically, because they'd hollow out a running
+order. And every one carries a **`narrow_to`** — the follow-up that drives the
+answer down to one instance. `validate.py` refuses a wide question without one.
+The wide question buys the frame; the `narrow_to` buys the episode.
+
+```bash
+python3 scripts/query.py find --aperture wide --industry healthcare
+```
+
+Wide questions can use `{industry}`, which fills from the profile's label.
 
 ## Arcs: themes with flavors
 
@@ -255,6 +273,8 @@ data/
     12-the-spine.json            the three required themes, standalone
     13-hard-boundaries.json      control: deterministic checks around probabilistic systems
     14-agent-manager.json        the management shift: agents as teammates, and who owns them
+    15-the-builder.json          for founders and inventors, aimed away from the pitch
+    16-big-picture.json          wide-aperture questions for emails, panels and trailers
     15-the-builder.json          interviewing the person who made the tool, without it becoming a demo
     industry/            one file per industry
 scripts/

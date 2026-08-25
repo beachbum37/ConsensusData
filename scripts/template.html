@@ -289,6 +289,14 @@
   }
 
   .card[data-depth="medium"] { --tone: var(--d-medium); }
+
+  /* Big-picture questions are a different tool, so they are marked as one. */
+  .wide-chip {
+    padding: .0625rem .375rem;
+    border: 1px solid var(--ink-3);
+    border-radius: 999px;
+    letter-spacing: .04em;
+  }
   .card[data-depth="probing"] { --tone: var(--d-probing); }
 
   .card .seq {
@@ -656,7 +664,9 @@
 
   function fillSlots(text, profile) {
     if (!profile) return text;
-    const vocab = profile.vocabulary || {};
+    // {industry} is derived from the profile's label rather than declared in
+    // its vocabulary - big-picture questions ask for the field by name.
+    const vocab = Object.assign({ industry: profile.label || "" }, profile.vocabulary || {});
     return text
       .replace(/\b(a|A)\s+\{(\w+)\}/g, (whole, article, slot) => {
         const word = vocab[slot];
@@ -775,6 +785,9 @@
     if (state.role && (q.roles || []).includes(state.role)) {
       meta.append(el("span", { textContent: "· role pack" }));
     }
+    if (q.aperture === "wide") {
+      meta.append(el("span", { className: "wide-chip", textContent: "big picture" }));
+    }
     meta.append(el("span", { textContent: q.id }));
     node.append(meta);
 
@@ -783,6 +796,12 @@
     if (q.followups && q.followups.length) {
       notes.append(el("ul", {}, q.followups.map(f =>
         el("li", { textContent: fillSlots(f, profile) }))));
+    }
+    if (q.narrow_to) {
+      const land = el("div", { className: "tone-note" });
+      land.append(el("b", { textContent: "Land it" }));
+      land.append(el("span", { textContent: fillSlots(q.narrow_to, profile) }));
+      notes.append(land);
     }
     if (q.avoid_if) {
       const warn = el("div", { className: "warn" });
@@ -1071,6 +1090,7 @@
       lines.push((i + 1) + ". **" + fillSlots(q.text, profile) + "**");
       lines.push("   `" + q.id + "` · " + q.arc + " · " + q.depth + " · " + q.theme);
       if (q.lands_because) lines.push("   *Why:* " + q.lands_because);
+      if (q.narrow_to) lines.push("   **Land it:** " + fillSlots(q.narrow_to, profile));
       (q.followups || []).forEach(f => lines.push("   - ↳ " + fillSlots(f, profile)));
       if (q.avoid_if) lines.push("   - ⚠ " + q.avoid_if);
       lines.push("");

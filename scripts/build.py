@@ -27,7 +27,8 @@ TEMPLATE = Path(__file__).resolve().parent / "template.html"
 DOCS = ROOT / "docs"
 
 FIELDS = ("id", "text", "theme", "arc", "depth", "industries", "roles",
-          "lands_because", "followups", "avoid_if", "tags", "pack")
+          "aperture", "narrow_to", "lands_because", "followups", "avoid_if",
+          "tags", "pack")
 
 
 def payload() -> dict:

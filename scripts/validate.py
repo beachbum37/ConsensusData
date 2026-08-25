@@ -14,7 +14,7 @@ import re
 import sys
 from collections import Counter, defaultdict
 
-from corpus import ANCHORING, REQUIRED_FIELDS, load, slots_in
+from corpus import ANCHORING, APERTURE, REQUIRED_FIELDS, load, slots_in
 
 ARC_BEAT_FIELDS = ("beat", "title", "theme", "purpose", "listener_payoff",
                    "keep_it_approachable", "flavors")
@@ -39,7 +39,8 @@ def main() -> int:
     valid_depths = set(vocab(corpus.taxonomy["depth"]))
     valid_industries = set(vocab(corpus.taxonomy["industries"]))
     valid_roles = set(vocab(corpus.taxonomy["roles"]))
-    known_slots = set(corpus.industries["$slots"])
+    # {industry} is derived from each profile's label rather than declared.
+    known_slots = set(corpus.industries["$slots"]) | {"industry"}
     profiled = set(corpus.profiles)
 
     seen_ids: dict[str, str] = {}
@@ -86,6 +87,20 @@ def main() -> int:
                 warnings.append(
                     f"{where}: non-ASCII in {field_name}: {' '.join(repr(c) for c in stray)}"
                 )
+
+        aperture = q.get("aperture", "narrow")
+        if aperture not in APERTURE:
+            errors.append(f"{where}: unknown aperture '{aperture}'")
+        if aperture == "wide" and not q.get("narrow_to"):
+            # A wide question without the follow-up that lands it is just an
+            # invitation to a talking point, which is what the rest of the
+            # corpus exists to avoid.
+            errors.append(
+                f"{where}: aperture 'wide' needs a 'narrow_to' - the follow-up that "
+                "drives the answer to one specific instance"
+            )
+        if aperture != "wide" and q.get("narrow_to"):
+            warnings.append(f"{where}: has narrow_to but is not a wide question")
 
         for slug in q.get("roles", []):
             if slug not in valid_roles:
@@ -246,8 +261,10 @@ def main() -> int:
 
     print(f"{len(corpus.questions)} questions across {len(corpus.packs)} packs, "
           f"{len(corpus.arcs)} arc(s)")
+    wide = sum(1 for q in corpus.questions if q.get("aperture") == "wide")
     print(f"  unscoped core: {unscoped}   role-scoped: {universal - unscoped}"
-          f"   industry-specific: {len(corpus.questions) - universal}")
+          f"   industry-specific: {len(corpus.questions) - universal}"
+          f"   (of which wide-aperture: {wide})")
     print("  arc:   " + "  ".join(f"{k}={by_arc[k]}" for k in vocab(corpus.taxonomy["arc"])))
     print("  depth: " + "  ".join(f"{k}={by_depth[k]}" for k in vocab(corpus.taxonomy["depth"])))
     print("  theme: " + "  ".join(f"{k}={by_theme[k]}" for k in sorted(by_theme)))

@@ -22,7 +22,8 @@ import json
 import sys
 import textwrap
 
-from corpus import ANCHORING, Corpus, build_brief, fill_slots, filter_questions, load
+from corpus import (ANCHORING, APERTURE, Corpus, build_brief, fill_slots,
+                    filter_questions, load)
 
 WRAP = textwrap.TextWrapper(width=88, initial_indent="  ", subsequent_indent="  ")
 
@@ -125,6 +126,7 @@ def cmd_find(corpus: Corpus, args) -> int:
         depth=args.depth,
         tag=args.tag,
         search=args.search,
+        aperture=args.aperture,
         universal=not args.no_universal,
         general=not args.no_general,
     )
@@ -359,6 +361,8 @@ def build_parser() -> argparse.ArgumentParser:
     f.add_argument("--arc")
     f.add_argument("--depth")
     f.add_argument("--tag")
+    f.add_argument("--aperture", choices=list(APERTURE),
+                   help="wide = big-picture questions for emails, panels and trailers")
     f.add_argument("--search", help="substring match on text, notes, followups and tags")
     f.add_argument("--limit", type=int)
     f.add_argument("--no-universal", action="store_true",
