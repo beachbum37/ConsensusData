@@ -4,7 +4,7 @@ A retrievable database of podcast interview questions, built so the questions
 land on professionals in any industry — a nurse, a machinist, a bond trader, a
 line cook, a county planner.
 
-**370 questions.** 83 in the universal core, 120 across 20 industry packs, and 113
+**378 questions.** 83 in the universal core, 128 across 21 industry packs, and 113
 scoped to a *role* rather than a field — for middle managers, the AI leaders
 driving adoption at them, the senior contributors now directing agents, and the
 people who build the tools. Every question is tagged by theme, interview stage, and depth, carries a note on *why*

@@ -56,7 +56,14 @@ class TestCorpus(unittest.TestCase):
 
     def test_loads_questions_and_profiles(self):
         self.assertGreater(len(self.corpus.questions), 100)
-        self.assertEqual(len(self.corpus.profiles), 20)
+        self.assertTrue(self.corpus.profiles)
+
+    def test_taxonomy_industries_and_profiles_match(self):
+        # The real invariant, rather than a count that goes stale every time an
+        # industry is added: the two lists describe the same set.
+        declared = {k for k in self.corpus.taxonomy["industries"]
+                    if not k.startswith("$")} - {"universal"}
+        self.assertEqual(declared, set(self.corpus.profiles))
 
     def test_ids_are_unique(self):
         ids = [q["id"] for q in self.corpus.questions]

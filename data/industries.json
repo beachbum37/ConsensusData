@@ -547,6 +547,36 @@
         "rotation",
         "field exercise"
       ]
+    },
+    {
+      "slug": "actuarial",
+      "label": "Actuarial Science",
+      "vocabulary": {
+        "craft": "actuarial work",
+        "work_unit": "valuation",
+        "peer": "reviewing actuary",
+        "customer": "underwriter",
+        "bad_outcome": "reserve strengthening",
+        "crunch": "year-end valuation"
+      },
+      "status_axis": "Credentials first - the exam track is long, public, and the visible currency for a decade. After that it is whose numbers hold up under audit and regulatory review, and who is willing to sign the opinion.",
+      "earns_trust": "Knowing the hard part is setting assumptions rather than doing the math, that most of the work is data cleaning and model maintenance, and that an actuary does not set prices - regulators, competition and the business all bound the answer.",
+      "landmines": [
+        "Confusing them with accountants or with quants. All three touch numbers and share almost nothing else.",
+        "Asking them to predict a specific event. They price distributions, not outcomes, and the difference is the whole profession.",
+        "Assuming they set prices. They produce an indicated rate; what gets filed and sold is someone else's decision.",
+        "Treating the exams as trivia. It is years of unpaid evenings and it is how the field decides who you are."
+      ],
+      "also_called": [
+        "loss triangle",
+        "development factor",
+        "rate filing",
+        "experience study",
+        "IBNR",
+        "the appointed actuary",
+        "client",
+        "the business unit"
+      ]
     }
   ],
   "$slots_note": "Slot values are bare singular nouns so they can be dropped into sentences like 'a {work_unit}' or 'your {customer}'. Articles come from the question text; fill_slots() corrects a/an automatically. Richer secondary terms live in also_called and are for your own preparation, not for substitution."

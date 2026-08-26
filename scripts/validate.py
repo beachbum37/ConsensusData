@@ -147,6 +147,19 @@ def main() -> int:
         if not q.get("lands_because"):
             warnings.append(f"{where}: no 'lands_because' - the note that tells you why to ask it")
 
+    # Profiles get read aloud in a prep sheet too, so they hold the same
+    # ASCII rule the questions do. A stray glyph here is silent otherwise.
+    for slug, prof in corpus.profiles.items():
+        fields = [prof.get("label", ""), prof.get("status_axis", ""), prof.get("earns_trust", "")]
+        fields += prof.get("landmines", []) + prof.get("also_called", [])
+        fields += list(prof.get("vocabulary", {}).values())
+        for value in fields:
+            stray = sorted({c for c in str(value) if not c.isascii()})
+            if stray:
+                warnings.append(
+                    f"profile '{slug}': non-ASCII {' '.join(map(repr, stray))} in {str(value)[:50]!r}"
+                )
+
     for slug in valid_industries:
         if slug != "universal" and slug not in profiled:
             errors.append(f"taxonomy lists industry '{slug}' with no profile in industries.json")

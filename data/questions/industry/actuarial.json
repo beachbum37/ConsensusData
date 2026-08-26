@@ -1,0 +1,120 @@
+{
+  "pack": "Actuarial Science",
+  "description": "Actuaries price a product whose real cost nobody knows for years, which makes the feedback delay the defining feature of the job and the source of everything interesting about it. The hard part is never the math - it is setting assumptions and then defending them to people who want a different number. Ask about assumptions, about the wait, and about the gap between the indicated rate and the filed one.",
+  "questions": [
+    {
+      "id": "act-01",
+      "text": "You price something today whose real cost nobody will know for years. How do you describe that job to someone at a party?",
+      "theme": "craft",
+      "arc": "opener",
+      "depth": "light",
+      "industries": ["actuarial"],
+      "lands_because": "The premise states the structural oddity of insurance up front, which does two things at once: it proves you understand the job, and it hands them the strangeness as material rather than something they have to explain first. The party framing invites the version with the joke in it, and most actuaries have a good one ready.",
+      "followups": [
+        "How long before you find out whether you were right?",
+        "What do people assume you do, before you correct them?"
+      ],
+      "tags": ["opener", "identity", "feedback-delay", "flagship", "high-yield"]
+    },
+    {
+      "id": "act-02",
+      "text": "Walk me through rate-making as a sequence. Where are the clean seams - the places one piece could be handed off without the next one breaking?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "Asks an actuary to decompose their own process, which is a thing they can do precisely and are almost never asked to do out loud. The seams are where an agent could take a step, so this produces the architecture answer without ever using the word agent.",
+      "followups": [
+        "What has to sit between those pieces to keep them coordinated?",
+        "Which seam is cleanest, and which one only looks clean?",
+        "Where would you want a person looking before the next step starts?"
+      ],
+      "tags": ["ai", "architecting-the-department", "decomposition", "flagship", "high-yield"]
+    },
+    {
+      "id": "act-03",
+      "text": "The math is the part people see. What is the part that actually decides the answer?",
+      "theme": "craft",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "Assumption-setting is where the judgment lives and where two competent actuaries diverge, and framing it against the visible math lets them correct the record rather than boast.",
+      "followups": [
+        "Which assumption do you argue about most?",
+        "How do you decide when the data is telling you something rather than being noisy?"
+      ],
+      "tags": ["assumptions", "judgment", "flagship"]
+    },
+    {
+      "id": "act-04",
+      "text": "How far apart can two competent actuaries land on the same book, and still both be defensible?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "Gets at the range of professional judgment in a way that is technical rather than accusatory, and the number they give is usually larger than an audience expects.",
+      "followups": [
+        "What explains the gap - method, or appetite?",
+        "Where in that range do you tend to sit, and do you know why?"
+      ],
+      "tags": ["judgment", "range", "high-yield"]
+    },
+    {
+      "id": "act-05",
+      "text": "What happens between the number you indicate and the rate that actually gets filed?",
+      "theme": "money",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "Names the gap between the actuary's answer and the business decision, which is the central professional tension and the thing outsiders assume does not exist.",
+      "followups": [
+        "Who is in that conversation?",
+        "What do you do when the filed rate is a long way from your indication?"
+      ],
+      "avoid_if": "The guest signs opinions for a named insurer and the honest answer would touch a live filing.",
+      "tags": ["pricing", "authority", "flagship", "high-yield"]
+    },
+    {
+      "id": "act-06",
+      "text": "You will not know for years whether today's estimate was right. How do you work with that hanging over you?",
+      "theme": "personal",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "The feedback delay as a lived experience rather than a technical fact. Almost no other profession waits this long to be graded, and being asked about it as a human condition is rare.",
+      "followups": [
+        "Has an old estimate of yours come back and been wrong?",
+        "Does it get easier, or do you just get used to it?"
+      ],
+      "tags": ["feedback-delay", "personal", "distinctive"]
+    },
+    {
+      "id": "act-07",
+      "text": "How much of your week is the modelling, and how much is getting the data into a state where you can model it?",
+      "theme": "invisible",
+      "arc": "core",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "Data preparation dominates the job and is invisible from outside. Naming it signals you know the work rather than the job description, and it opens directly onto what could be handed over.",
+      "followups": [
+        "Which of that would you hand over first?",
+        "What breaks when the data changes shape underneath you?"
+      ],
+      "tags": ["invisible", "data", "signals-homework"]
+    },
+    {
+      "id": "act-08",
+      "text": "What would go wrong if someone followed your documented method exactly, with no judgment applied?",
+      "theme": "judgment",
+      "arc": "deep",
+      "depth": "medium",
+      "industries": ["actuarial"],
+      "lands_because": "The actuarial version of the show's central question. Method is unusually well documented in this field, which makes the gap between the document and the practice sharper and easier to name.",
+      "followups": [
+        "So what is the unwritten part? Say it precisely.",
+        "How would you teach that to something that has never seen a book of business?"
+      ],
+      "tags": ["ai", "architecting-the-department", "spine", "flagship"]
+    }
+  ]
+}
