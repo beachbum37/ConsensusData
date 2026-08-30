@@ -1,4 +1,4 @@
-.PHONY: check validate test build brief clean
+.PHONY: check validate test build brief import clean
 
 # Everything is stdlib Python 3 - no venv, no install step.
 PY := python3
@@ -17,6 +17,10 @@ build:
 # make brief INDUSTRY=hospitality
 brief:
 	@$(PY) scripts/query.py brief $(or $(INDUSTRY),technology)
+
+# make import EXPORT=~/Downloads/claude-export.zip [NAME=kalodata]
+import:
+	@$(PY) scripts/import_chat_export.py $(EXPORT) --name $(or $(NAME),kalodata)
 
 clean:
 	rm -f docs/index.html docs/artifact.html
