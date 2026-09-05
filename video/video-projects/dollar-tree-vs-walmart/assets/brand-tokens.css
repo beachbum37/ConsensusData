@@ -1,0 +1,24 @@
+/* Dollar Tree vs Walmart — comparison palette.
+   Deliberately generic: "side A" green and "side B" blue are editorial colors
+   for a two-column comparison, not either retailer's brand system. No logos,
+   no trade dress. Swap the hexes here and every composition follows. */
+:root {
+  --bg:          #0a0e14;
+  --bg-panel:    #111823;
+  --hairline:    rgba(255, 255, 255, 0.08);
+
+  --side-a:      #22c55e; /* Dollar Tree column */
+  --side-a-dim:  rgba(34, 197, 94, 0.14);
+  --side-b:      #3b82f6; /* Walmart column */
+  --side-b-dim:  rgba(59, 130, 246, 0.14);
+
+  --accent:      #fbbf24; /* the delta / the payoff number */
+  --warn:        #f97316; /* SAMPLE DATA badge */
+
+  --text:        #ffffff;
+  --text-muted:  #94a3b8;
+  --text-dim:    #64748b;
+
+  --font-ui:     "Inter", system-ui, sans-serif;
+  --font-mono:   "JetBrains Mono", ui-monospace, monospace;
+}

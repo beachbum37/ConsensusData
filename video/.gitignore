@@ -1,0 +1,22 @@
+# Raw footage and everything derived from it. Video does not belong in git.
+footage/*
+!footage/.gitkeep
+
+# video-use writes all session output into <videos_dir>/edit/
+edit/
+**/edit/
+
+# Hyperframes render scratch
+**/renders/
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+
+# Secrets
+.env
+
+# Tooling
+node_modules/
+.warmup/

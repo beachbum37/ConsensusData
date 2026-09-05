@@ -1,0 +1,70 @@
+{
+  "_comment": [
+    "PLACEHOLDER DATA — every entry below has \"verified\": false.",
+    "The prices and sizes are plausible-shaped stand-ins so the pipeline renders",
+    "end to end. They are NOT researched prices and must not be published as fact.",
+    "Replace each entry with numbers off your own receipts, set \"verified\": true,",
+    "and fill in \"source\" (store number + date, or a product URL). While ANY item",
+    "is unverified, the build stamps a 'SAMPLE DATA' badge on every frame and the",
+    "renders are for preview only.",
+    "Sizes must be in the same unit within an item, or the unit-price math lies."
+  ],
+  "shoppingDate": "",
+  "storeNote": "",
+  "items": [
+    {
+      "name": "Dish Soap",
+      "category": "Cleaning",
+      "unit": "fl oz",
+      "dollarTree": { "price": 1.25, "size": 24, "label": "24 fl oz" },
+      "walmart":    { "price": 2.97, "size": 56, "label": "56 fl oz" },
+      "verified": false,
+      "source": ""
+    },
+    {
+      "name": "Aluminum Foil",
+      "category": "Kitchen",
+      "unit": "sq ft",
+      "dollarTree": { "price": 1.25, "size": 14, "label": "14 sq ft" },
+      "walmart":    { "price": 3.42, "size": 75, "label": "75 sq ft" },
+      "verified": false,
+      "source": ""
+    },
+    {
+      "name": "Greeting Cards",
+      "category": "Party",
+      "unit": "card",
+      "dollarTree": { "price": 1.25, "size": 1, "label": "1 card" },
+      "walmart":    { "price": 4.98, "size": 1, "label": "1 card" },
+      "verified": false,
+      "source": ""
+    },
+    {
+      "name": "Paper Towels",
+      "category": "Paper goods",
+      "unit": "100 sheets",
+      "dollarTree": { "price": 1.25, "size": 0.44, "label": "1 roll · 44 sheets" },
+      "walmart":    { "price": 6.94, "size": 3.6, "label": "6 rolls · 60 sheets ea" },
+      "verified": false,
+      "source": ""
+    },
+    {
+      "name": "Bar Soap",
+      "category": "Personal care",
+      "unit": "bar",
+      "dollarTree": { "price": 1.25, "size": 2, "label": "2 bars" },
+      "walmart":    { "price": 4.24, "size": 8, "label": "8 bars" },
+      "verified": false,
+      "source": ""
+    },
+    {
+      "name": "Gift Wrap",
+      "category": "Party",
+      "unit": "sq ft",
+      "dollarTree": { "price": 1.25, "size": 10, "label": "10 sq ft" },
+      "walmart":    { "price": 3.97, "size": 40, "label": "40 sq ft" },
+      "verified": false,
+      "source": ""
+    }
+  ]
+}

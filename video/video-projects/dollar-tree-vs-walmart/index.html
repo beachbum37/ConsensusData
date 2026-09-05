@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Dollar Tree vs Walmart — Unit Price Showdown</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=block"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: var(--bg);
+        font-family: var(--font-ui);
+        color: var(--text);
+      }
+      .scene-layer {
+        position: absolute;
+        top: 0; left: 0;
+        width: 1080px;
+        height: 1920px;
+      }
+      /* Perspective grid + vignette sit under every scene so cuts never land on
+         flat black. Cheap, static, and it gives the whip transitions something
+         to travel across. */
+      #bg-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 90px 90px;
+        z-index: 0;
+      }
+      #bg-vignette {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 55% at 50% 45%,
+          transparent 0%,
+          rgba(0, 0, 0, 0.72) 100%
+        );
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      TIMING IS GENERATED-ADJACENT. The three data-start/data-duration values
+      below are derived from data/items.json by scripts/build-video.mjs
+      (HOOK_DUR + items.length * ITEM_DUR + TALLY_DUR). The build script does not
+      rewrite this file — it verifies it and fails with the exact numbers to use.
+      Change the item count, run `npm run build`, then paste in what it prints.
+    -->
+    <div
+      id="root"
+      data-composition-id="dollar-tree-vs-walmart"
+      data-start="0"
+      data-duration="33.00"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="bg-grid"></div>
+      <div id="bg-vignette"></div>
+
+      <!-- HOOK — name the experiment and both stores before any number lands. -->
+      <div
+        id="scene-hook"
+        class="scene-layer"
+        data-composition-id="hook"
+        data-composition-src="compositions/01-hook.html"
+        data-start="0.00"
+        data-duration="3.00"
+        data-track-index="4"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <!-- ITEMS — generated. One card per entry in data/items.json. -->
+      <div
+        id="scene-items"
+        class="scene-layer"
+        data-composition-id="items"
+        data-composition-src="compositions/02-items.html"
+        data-start="3.00"
+        data-duration="24.00"
+        data-track-index="4"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <!-- TALLY — generated. Totals, per-unit win count, and the payoff number. -->
+      <div
+        id="scene-tally"
+        class="scene-layer"
+        data-composition-id="tally"
+        data-composition-src="compositions/03-tally.html"
+        data-start="27.00"
+        data-duration="6.00"
+        data-track-index="4"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const mainTl = gsap.timeline({ paused: true });
+
+      // The background drifts one grid cell over the full runtime — slow enough
+      // to read as parallax rather than motion, so the cards stay the subject.
+      mainTl.fromTo(
+        "#bg-grid",
+        { backgroundPosition: "0px 0px" },
+        { backgroundPosition: "0px 90px", duration: 33.0, ease: "none" },
+        0
+      );
+
+      // Duration anchor (Render Contract rule 7) — guarantees the master
+      // timeline is never shorter than data-duration.
+      mainTl.to({}, { duration: 33.0 }, 0);
+      window.__timelines["dollar-tree-vs-walmart"] = mainTl;
+    </script>
+  </body>
+</html>

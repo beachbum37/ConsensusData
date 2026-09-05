@@ -1,0 +1,382 @@
+<template id="items-template">
+  <div
+    data-composition-id="items"
+    data-start="0"
+    data-duration="24"
+    data-width="1080"
+    data-height="1920"
+  >
+    <div class="sample-badge">SAMPLE DATA · NOT REAL PRICES</div>
+    <div class="whip" id="items-whip"></div>
+
+      <div class="card" id="card-0">
+        <div class="card-top">
+          <span class="idx">01 / 06</span>
+          <span class="cat">CLEANING</span>
+        </div>
+        <div class="name" id="name-0">Dish Soap</div>
+
+        <div class="panel panel-a" id="pan-0-a">
+          <div class="store">DOLLAR TREE</div>
+          <div class="price" id="p-0-a">$0.00</div>
+          <div class="size">24 fl oz</div>
+          <div class="unit" id="u-0-a">$0.052<span> / fl oz</span></div>
+        </div>
+
+        <div class="vs" id="vs-0">VS</div>
+
+        <div class="panel panel-b" id="pan-0-b">
+          <div class="store">WALMART</div>
+          <div class="price" id="p-0-b">$0.00</div>
+          <div class="size">56 fl oz</div>
+          <div class="unit" id="u-0-b">$0.053<span> / fl oz</span></div>
+        </div>
+
+        <div class="verdict verdict-even" id="v-0">
+          <span class="v-who">ABOUT EVEN</span>
+          <span class="v-detail">within 5% per fl oz</span>
+        </div>
+      </div>
+
+      <div class="card" id="card-1">
+        <div class="card-top">
+          <span class="idx">02 / 06</span>
+          <span class="cat">KITCHEN</span>
+        </div>
+        <div class="name" id="name-1">Aluminum Foil</div>
+
+        <div class="panel panel-a" id="pan-1-a">
+          <div class="store">DOLLAR TREE</div>
+          <div class="price" id="p-1-a">$0.00</div>
+          <div class="size">14 sq ft</div>
+          <div class="unit" id="u-1-a">$0.089<span> / sq ft</span></div>
+        </div>
+
+        <div class="vs" id="vs-1">VS</div>
+
+        <div class="panel panel-b" id="pan-1-b">
+          <div class="store">WALMART</div>
+          <div class="price" id="p-1-b">$0.00</div>
+          <div class="size">75 sq ft</div>
+          <div class="unit" id="u-1-b">$0.046<span> / sq ft</span></div>
+        </div>
+
+        <div class="verdict verdict-b" id="v-1">
+          <span class="v-who">WALMART</span>
+          <span class="v-detail">2.0× cheaper per sq ft</span>
+        </div>
+      </div>
+
+      <div class="card" id="card-2">
+        <div class="card-top">
+          <span class="idx">03 / 06</span>
+          <span class="cat">PARTY</span>
+        </div>
+        <div class="name" id="name-2">Greeting Cards</div>
+
+        <div class="panel panel-a" id="pan-2-a">
+          <div class="store">DOLLAR TREE</div>
+          <div class="price" id="p-2-a">$0.00</div>
+          <div class="size">1 card</div>
+          <div class="unit" id="u-2-a">$1.25<span> / card</span></div>
+        </div>
+
+        <div class="vs" id="vs-2">VS</div>
+
+        <div class="panel panel-b" id="pan-2-b">
+          <div class="store">WALMART</div>
+          <div class="price" id="p-2-b">$0.00</div>
+          <div class="size">1 card</div>
+          <div class="unit" id="u-2-b">$4.98<span> / card</span></div>
+        </div>
+
+        <div class="verdict verdict-a" id="v-2">
+          <span class="v-who">DOLLAR TREE</span>
+          <span class="v-detail">4.0× cheaper per card</span>
+        </div>
+      </div>
+
+      <div class="card" id="card-3">
+        <div class="card-top">
+          <span class="idx">04 / 06</span>
+          <span class="cat">PAPER GOODS</span>
+        </div>
+        <div class="name" id="name-3">Paper Towels</div>
+
+        <div class="panel panel-a" id="pan-3-a">
+          <div class="store">DOLLAR TREE</div>
+          <div class="price" id="p-3-a">$0.00</div>
+          <div class="size">1 roll · 44 sheets</div>
+          <div class="unit" id="u-3-a">$2.84<span> / 100 sheets</span></div>
+        </div>
+
+        <div class="vs" id="vs-3">VS</div>
+
+        <div class="panel panel-b" id="pan-3-b">
+          <div class="store">WALMART</div>
+          <div class="price" id="p-3-b">$0.00</div>
+          <div class="size">6 rolls · 60 sheets ea</div>
+          <div class="unit" id="u-3-b">$1.93<span> / 100 sheets</span></div>
+        </div>
+
+        <div class="verdict verdict-b" id="v-3">
+          <span class="v-who">WALMART</span>
+          <span class="v-detail">1.5× cheaper per 100 sheets</span>
+        </div>
+      </div>
+
+      <div class="card" id="card-4">
+        <div class="card-top">
+          <span class="idx">05 / 06</span>
+          <span class="cat">PERSONAL CARE</span>
+        </div>
+        <div class="name" id="name-4">Bar Soap</div>
+
+        <div class="panel panel-a" id="pan-4-a">
+          <div class="store">DOLLAR TREE</div>
+          <div class="price" id="p-4-a">$0.00</div>
+          <div class="size">2 bars</div>
+          <div class="unit" id="u-4-a">$0.63<span> / bar</span></div>
+        </div>
+
+        <div class="vs" id="vs-4">VS</div>
+
+        <div class="panel panel-b" id="pan-4-b">
+          <div class="store">WALMART</div>
+          <div class="price" id="p-4-b">$0.00</div>
+          <div class="size">8 bars</div>
+          <div class="unit" id="u-4-b">$0.53<span> / bar</span></div>
+        </div>
+
+        <div class="verdict verdict-b" id="v-4">
+          <span class="v-who">WALMART</span>
+          <span class="v-detail">1.2× cheaper per bar</span>
+        </div>
+      </div>
+
+      <div class="card" id="card-5">
+        <div class="card-top">
+          <span class="idx">06 / 06</span>
+          <span class="cat">PARTY</span>
+        </div>
+        <div class="name" id="name-5">Gift Wrap</div>
+
+        <div class="panel panel-a" id="pan-5-a">
+          <div class="store">DOLLAR TREE</div>
+          <div class="price" id="p-5-a">$0.00</div>
+          <div class="size">10 sq ft</div>
+          <div class="unit" id="u-5-a">$0.13<span> / sq ft</span></div>
+        </div>
+
+        <div class="vs" id="vs-5">VS</div>
+
+        <div class="panel panel-b" id="pan-5-b">
+          <div class="store">WALMART</div>
+          <div class="price" id="p-5-b">$0.00</div>
+          <div class="size">40 sq ft</div>
+          <div class="unit" id="u-5-b">$0.099<span> / sq ft</span></div>
+        </div>
+
+        <div class="verdict verdict-b" id="v-5">
+          <span class="v-who">WALMART</span>
+          <span class="v-detail">1.3× cheaper per sq ft</span>
+        </div>
+      </div>
+
+    <style>
+    @import url("assets/brand-tokens.css");
+    .sample-badge {
+      position: absolute; top: 34px; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-mono); font-size: 20px; font-weight: 700;
+      letter-spacing: 0.22em; color: var(--warn);
+      border: 2px solid var(--warn); border-radius: 999px;
+      padding: 10px 26px; background: rgba(249, 115, 22, 0.1);
+      z-index: 200;
+    }
+      [data-composition-id="items"] {
+        position: absolute; inset: 0; overflow: hidden;
+        background: var(--bg); font-family: var(--font-ui); color: var(--text);
+      }
+      [data-composition-id="items"] .card {
+        position: absolute; inset: 0; opacity: 0;
+      }
+      [data-composition-id="items"] .card-top {
+        position: absolute; top: 150px; left: 0; right: 0;
+        display: flex; justify-content: center; gap: 22px;
+        font-family: var(--font-mono); font-size: 26px; font-weight: 600;
+        letter-spacing: 0.24em;
+      }
+      [data-composition-id="items"] .idx { color: var(--text-dim); }
+      [data-composition-id="items"] .cat { color: var(--accent); }
+      [data-composition-id="items"] .name {
+        position: absolute; top: 216px; left: 60px; right: 60px;
+        text-align: center; font-size: 96px; font-weight: 900;
+        letter-spacing: -0.03em; line-height: 1.02;
+        background: linear-gradient(180deg, #ffffff 0%, #c3ccd8 62%, #ffffff 100%);
+        -webkit-background-clip: text; background-clip: text; color: transparent;
+        text-shadow: 0 0 40px rgba(255, 255, 255, 0.22);
+      }
+      [data-composition-id="items"] .panel {
+        position: absolute; left: 70px; right: 70px; height: 460px;
+        border-radius: 40px; background: var(--bg-panel);
+        border: 2px solid var(--hairline);
+        padding: 40px 48px;
+        display: flex; flex-direction: column; justify-content: center;
+      }
+      [data-composition-id="items"] .panel-a {
+        top: 430px;
+        border-color: rgba(34, 197, 94, 0.45);
+        background: linear-gradient(180deg, var(--side-a-dim), var(--bg-panel) 70%);
+      }
+      [data-composition-id="items"] .panel-b {
+        top: 1010px;
+        border-color: rgba(59, 130, 246, 0.45);
+        background: linear-gradient(180deg, var(--side-b-dim), var(--bg-panel) 70%);
+      }
+      [data-composition-id="items"] .store {
+        font-family: var(--font-mono); font-size: 28px; font-weight: 700;
+        letter-spacing: 0.2em; margin-bottom: 10px;
+      }
+      [data-composition-id="items"] .panel-a .store { color: var(--side-a); }
+      [data-composition-id="items"] .panel-b .store { color: var(--side-b); }
+      [data-composition-id="items"] .price {
+        font-family: var(--font-mono); font-size: 138px; font-weight: 700;
+        letter-spacing: -0.04em; line-height: 1;
+      }
+      [data-composition-id="items"] .size {
+        font-size: 32px; color: var(--text-muted); margin-top: 6px;
+      }
+      [data-composition-id="items"] .unit {
+        position: absolute; right: 48px; bottom: 40px;
+        font-family: var(--font-mono); font-size: 46px; font-weight: 700;
+        text-align: right;
+      }
+      [data-composition-id="items"] .panel-a .unit { color: var(--side-a); }
+      [data-composition-id="items"] .panel-b .unit { color: var(--side-b); }
+      [data-composition-id="items"] .unit span {
+        font-size: 26px; font-weight: 500; color: var(--text-dim);
+      }
+      [data-composition-id="items"] .vs {
+        position: absolute; top: 906px; left: 50%; transform: translateX(-50%);
+        width: 108px; height: 108px; border-radius: 50%;
+        background: var(--bg); border: 2px solid var(--hairline);
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--font-mono); font-size: 34px; font-weight: 700;
+        color: var(--text-muted); z-index: 5;
+      }
+      [data-composition-id="items"] .verdict {
+        position: absolute; top: 1560px; left: 70px; right: 70px;
+        border-radius: 32px; padding: 30px 40px;
+        display: flex; flex-direction: column; align-items: center; gap: 8px;
+      }
+      [data-composition-id="items"] .verdict-a {
+        background: var(--side-a-dim); border: 2px solid var(--side-a);
+      }
+      [data-composition-id="items"] .verdict-b {
+        background: var(--side-b-dim); border: 2px solid var(--side-b);
+      }
+      [data-composition-id="items"] .verdict-even {
+        background: rgba(148, 163, 184, 0.12); border: 2px solid var(--text-dim);
+      }
+      [data-composition-id="items"] .v-who {
+        font-size: 58px; font-weight: 900; letter-spacing: -0.02em;
+      }
+      [data-composition-id="items"] .verdict-a .v-who { color: var(--side-a); }
+      [data-composition-id="items"] .verdict-b .v-who { color: var(--side-b); }
+      [data-composition-id="items"] .verdict-even .v-who { color: var(--text-muted); }
+      [data-composition-id="items"] .v-detail {
+        font-family: var(--font-mono); font-size: 30px; color: var(--text-muted);
+      }
+      [data-composition-id="items"] .whip {
+        position: absolute; top: 0; left: -40%; width: 60%; height: 100%;
+        background: linear-gradient(90deg, transparent,
+          rgba(255, 255, 255, 0.9), transparent);
+        filter: blur(30px); opacity: 0; z-index: 50;
+      }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        window.__timelines = window.__timelines || {};
+        const tl = gsap.timeline({ paused: true });
+        const root = "[data-composition-id='items']";
+        const q = (s) => document.querySelector(root + " " + s);
+
+        // Count a price up from 0. Driven purely by timeline progress, so it is
+        // deterministic under seek — the renderer scrubs rather than plays.
+        function countTo(sel, target, at, dur) {
+          const el = q(sel);
+          const proxy = { v: 0 };
+          tl.to(proxy, {
+            v: target, duration: dur, ease: "power2.out",
+            onUpdate: () => { el.textContent = "$" + proxy.v.toFixed(2); },
+          }, at);
+        }
+
+        // One card's beat map. Every offset below is relative to the card's
+        // own start, so retiming the sequence means changing ITEM_DUR only.
+        function card(i, t, priceA, priceB) {
+          const c = root + " #card-" + i;
+
+          tl.set(c, { opacity: 1 }, t);
+          tl.from(c, { y: 70, filter: "blur(16px)", duration: 0.42, ease: "power3.out" }, t);
+
+          // whip covers the cut into the card
+          tl.set(root + " #items-whip", { xPercent: 0, opacity: 0 }, t);
+          tl.to(root + " #items-whip",
+            { xPercent: 280, opacity: 1, duration: 0.26, ease: "power3.in" }, t);
+          tl.to(root + " #items-whip", { opacity: 0, duration: 0.14 }, t + 0.26);
+
+          tl.from(c + " .card-top",
+            { y: -20, opacity: 0, duration: 0.3, ease: "expo.out" }, t + 0.12);
+          tl.from(c + " .name",
+            { scale: 1.22, opacity: 0, filter: "blur(20px)", duration: 0.46, ease: "power4.out" },
+            t + 0.18);
+
+          // Panels arrive one at a time — the comparison only reads if the eye
+          // lands on side A before side B exists.
+          tl.from(c + " .panel-a",
+            { x: -70, opacity: 0, duration: 0.4, ease: "power3.out" }, t + 0.55);
+          countTo("#p-" + i + "-a", priceA, t + 0.62, 0.5);
+
+          tl.from(c + " .vs",
+            { scale: 0, opacity: 0, duration: 0.3, ease: "back.out(2.4)" }, t + 0.95);
+
+          tl.from(c + " .panel-b",
+            { x: 70, opacity: 0, duration: 0.4, ease: "power3.out" }, t + 1.05);
+          countTo("#p-" + i + "-b", priceB, t + 1.12, 0.5);
+
+          // Unit prices are the actual argument — hold them after both stickers.
+          tl.from(c + " .unit",
+            { y: 18, opacity: 0, duration: 0.34, stagger: 0.1, ease: "power2.out" }, t + 1.75);
+
+          // Verdict slams last, on the beat.
+          tl.from(c + " .verdict",
+            { scale: 0.82, opacity: 0, duration: 0.36, ease: "back.out(1.8)" }, t + 2.3);
+
+          // Out — leave the frame clean before the next card lands.
+          tl.to(c, { opacity: 0, scale: 0.97, filter: "blur(12px)", duration: 0.28,
+            ease: "power2.in" }, t + 4 - 0.3);
+        }
+
+        // ---- card 1: Dish Soap (local 0.00s) ----
+        card(0, 0, 1.25, 2.97);
+        // ---- card 2: Aluminum Foil (local 4.00s) ----
+        card(1, 4, 1.25, 3.42);
+        // ---- card 3: Greeting Cards (local 8.00s) ----
+        card(2, 8, 1.25, 4.98);
+        // ---- card 4: Paper Towels (local 12.00s) ----
+        card(3, 12, 1.25, 6.94);
+        // ---- card 5: Bar Soap (local 16.00s) ----
+        card(4, 16, 1.25, 4.24);
+        // ---- card 6: Gift Wrap (local 20.00s) ----
+        card(5, 20, 1.25, 3.97);
+
+        // Duration anchor (Render Contract rule 7).
+        tl.to({}, { duration: 24 }, 0);
+        window.__timelines["items"] = tl;
+      })();
+    </script>
+  </div>
+</template>
