@@ -104,15 +104,23 @@ else
 fi
 
 # --- 8. ElevenLabs key (optional; only for the video-use Scribe route) --------
+# The key lives in video/.env inside THIS repo and is linked into the video-use
+# repo root, so it survives re-cloning the tool repos. video/.env is gitignored.
 step "ElevenLabs API key (optional)"
+STUDIO_ENV="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/.env"
+if [ -f "$STUDIO_ENV" ] && [ ! -e "$VIDEOUSE_DIR/.env" ]; then
+  ln -sfn "$STUDIO_ENV" "$VIDEOUSE_DIR/.env" && ok "linked $VIDEOUSE_DIR/.env -> $STUDIO_ENV"
+fi
 if [ -n "${ELEVENLABS_API_KEY:-}" ]; then
   ok "found in environment"
+elif grep -q '^ELEVENLABS_API_KEY=..' "$STUDIO_ENV" 2>/dev/null; then
+  ok "found in $STUDIO_ENV"
 elif grep -q '^ELEVENLABS_API_KEY=..' "$VIDEOUSE_DIR/.env" 2>/dev/null; then
   ok "found in $VIDEOUSE_DIR/.env"
 else
   warn "not set. Only needed for the video-use/Scribe route (adds speaker"
   warn "diarization + audio-event tags). The local Whisper route works without it."
-  warn "To set:  printf 'ELEVENLABS_API_KEY=%s\\n' \"\$KEY\" > $VIDEOUSE_DIR/.env && chmod 600 $VIDEOUSE_DIR/.env"
+  warn "To set:  cp video/.env.example video/.env  then put your key in it"
 fi
 
 step "Done"

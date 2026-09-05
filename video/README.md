@@ -88,9 +88,13 @@ natively. Adds **speaker diarization** and **audio-event tags** (`(laughter)`,
 overkill for a single talking head.
 
 ```bash
-printf 'ELEVENLABS_API_KEY=%s\n' "$KEY" > ~/browser-use/video-use/.env
-chmod 600 ~/browser-use/video-use/.env
+cp video/.env.example video/.env
+$EDITOR video/.env          # put the key on the ELEVENLABS_API_KEY= line
 ```
+
+`video/.env` is gitignored, and `setup.sh` links it into the video-use repo
+root — so the key lives in this repo and survives re-cloning the tool repos.
+An exported `ELEVENLABS_API_KEY` overrides the file.
 
 Get a key at [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys).
 **Single speaker → local Whisper is fine, skip the key.** Multi-speaker → the key
