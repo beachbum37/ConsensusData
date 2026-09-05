@@ -9,8 +9,18 @@
 #
 set -uo pipefail
 
-HYPERFRAMES_DIR="${HYPERFRAMES_DIR:-$HOME/heygen-com/hyperframes}"
-VIDEOUSE_DIR="${VIDEOUSE_DIR:-$HOME/browser-use/video-use}"
+# Reuse a clone that already exists rather than making a second copy — $HOME
+# is not the same directory on every host this runs on (it is /root in the
+# Claude Code web container but the checkout may live under /home/user).
+find_clone() {  # <owner/repo> -> prints path if a git clone is already there
+  local sub="$1" base
+  for base in "$HOME" /home/user "$PWD"; do
+    [ -d "$base/$sub/.git" ] && { printf '%s\n' "$base/$sub"; return 0; }
+  done
+  return 1
+}
+HYPERFRAMES_DIR="${HYPERFRAMES_DIR:-$(find_clone heygen-com/hyperframes || echo "$HOME/heygen-com/hyperframes")}"
+VIDEOUSE_DIR="${VIDEOUSE_DIR:-$(find_clone browser-use/video-use || echo "$HOME/browser-use/video-use")}"
 SKILLS_DIR="${SKILLS_DIR:-$HOME/.claude/skills}"
 
 step() { printf '\n\033[1m==> %s\033[0m\n' "$1"; }

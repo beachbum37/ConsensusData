@@ -78,6 +78,10 @@ this machine. Good word timings, no cost, no network.
 npx hyperframes transcribe footage/raw.mp4 --model small.en --json
 ```
 
+The two toolchains disagree on transcript format, so the studio ships an
+adapter (see **Tools** below) — without it the local route silently produces no
+subtitles.
+
 **ElevenLabs Scribe (optional, needs a key, costs credits).** What video-use uses
 natively. Adds **speaker diarization** and **audio-event tags** (`(laughter)`,
 `(applause)`, `(sigh)`) — worth it for multi-speaker interviews and podcasts,
@@ -91,6 +95,41 @@ chmod 600 ~/browser-use/video-use/.env
 Get a key at [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys).
 **Single speaker → local Whisper is fine, skip the key.** Multi-speaker → the key
 pays for itself in not hand-labelling who said what.
+
+---
+
+## Tools
+
+Two small helpers in `video/tools/`, both written to close gaps found while
+wiring the two toolchains together.
+
+**`whisper_to_scribe.py`** — format adapter, and it is not optional on the local
+route. `hyperframes transcribe --json` emits a flat word array; video-use's
+`render.py` reads the ElevenLabs shape and filters on `type == "word"`. Hand it
+the flat array and every subtitle lookup returns empty — **no error, just no
+captions**. Already-Scribe-shaped input passes through unchanged.
+
+```bash
+python3 video/tools/whisper_to_scribe.py transcript.json -o edit/transcripts/take01.json
+```
+
+**`filler_scan.py`** — lists cut candidates: filler words, single-word false
+starts, and silences. It reports; it does not decide. `um` inside a deliberate
+pause and `um` mid-sentence are different edits.
+
+```bash
+python3 video/tools/filler_scan.py edit/transcripts/take01.json --audio footage/raw.mp4
+```
+
+**Always pass `--audio`.** whisper.cpp quantizes word boundaries — on a 23s test
+clip its largest inter-word gap was 0.13s, so real pauses do not appear as gaps
+at all and gap-based detection finds nothing. With `--audio` the silences come
+from ffmpeg `silencedetect` on the waveform. On that same clip the word-gap
+method found 0 pauses and the waveform found the 2 that were actually there.
+
+The filler list is deliberately conservative — `like`, `so`, `right` and `well`
+are **not** in it. They are load-bearing far more often than not, and cutting
+them mangles meaning. Add them per-project if a speaker genuinely overuses one.
 
 ---
 
@@ -175,3 +214,7 @@ is the cleanest minimal starting template.
   them covers them, and it fails silently.
 - **Don't re-transcribe.** Transcripts are cached per source; re-running burns
   time (and Scribe credits) for an identical result.
+- **Don't infer silence from whisper word gaps** — it quantizes them away. Use
+  `filler_scan.py --audio`, which measures the waveform.
+- **Adapt the transcript before rendering** on the local route, or you get a
+  video with no captions and no error explaining why.
