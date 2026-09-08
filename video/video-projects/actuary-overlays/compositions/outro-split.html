@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Outro Split</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-ui); }
+
+      /* LEFT HALF ONLY. The right 960px stays fully transparent so the vertical
+         crop of the speaker, positioned there by the compositing pass, shows
+         through untouched. Do not add anything past x=960. */
+      #panel {
+        position: absolute; left: 0; top: 0; width: 960px; height: 1080px;
+        background: #0b0f15;
+        display: flex; align-items: center; justify-content: center;
+      }
+      /* Faint vertical light at the seam so the join between panel and footage
+         reads as a deliberate edge rather than a hard butt. */
+      #seam {
+        position: absolute; right: 0; top: 0; width: 3px; height: 100%;
+        background: linear-gradient(180deg, transparent, rgba(240,160,42,0.55) 22%,
+                    rgba(240,160,42,0.55) 78%, transparent);
+      }
+      /* Very soft radial lift behind the mark so the flat panel has some depth. */
+      #glow {
+        position: absolute; left: 50%; top: 50%; width: 900px; height: 900px;
+        transform: translate(-50%, -50%);
+        background: radial-gradient(circle, rgba(240,160,42,0.10), transparent 62%);
+      }
+      #mark {
+        position: relative;
+        font-size: 168px; font-weight: 800; letter-spacing: -0.045em;
+        color: #ffffff; line-height: 1; white-space: nowrap;
+      }
+      #mark .b { color: var(--brand); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="outro-split" data-start="0" data-duration="5.00" data-width="1920" data-height="1080">
+      <div id="panel">
+        <div id="glow"></div>
+        <div id="mark">work<span class="b">&lt;Ai&gt;</span></div>
+        <div id="seam"></div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 5.0;
+      const tl = gsap.timeline({ paused: true });
+      // Initial states via gsap.set (immediate) — a zero-duration tl.set at 0
+      // does not apply while a paused playhead sits at 0, so frame 0 would
+      // flash the finished panel.
+      gsap.set("#panel", { xPercent: -100 });
+      gsap.set("#mark",  { opacity: 0, y: 26 });
+      gsap.set("#glow",  { opacity: 0 });
+
+      // Panel slides in from the left, then the mark settles — the frame splits
+      // first, the brand arrives second.
+      tl.to("#panel", { xPercent: 0, duration: 0.62, ease: "power4.out" }, 0);
+      tl.to("#glow",  { opacity: 1, duration: 0.9, ease: "power2.out" }, 0.35);
+      tl.to("#mark",  { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.42);
+      // No exit — this is the last shot, so it holds to the final frame.
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["outro-split"] = tl;
+    </script>
+  </body>
+</html>
