@@ -117,6 +117,26 @@ captions**. Already-Scribe-shaped input passes through unchanged.
 python3 video/tools/whisper_to_scribe.py transcript.json -o edit/transcripts/take01.json
 ```
 
+**`filler_pass.py`** — finds the filler words Whisper hides. Run this by
+default on any talking-head edit; `filler_scan.py` alone will under-report.
+
+```bash
+python3 video/tools/filler_pass.py footage/talk.mp4 --context edit/transcripts/talk.json
+```
+
+Whisper is trained to emit clean prose, so it deletes disfluencies before you
+see them. Measured on 90s of real narration: **the default pass found 0 fillers,
+the prompted pass found 10.** Seeding the decoder with "Um, uh, so, like, you
+know…" stops the normalization and the word timings come back cuttable.
+
+**Run two passes and use each for one job.** Prompting costs accuracy — in that
+same sample it turned *"kick off our build today"* into *"our bill today"*. The
+clean pass is for captions; this one is for filler timestamps only. Never
+caption from the prompted output.
+
+It prints a list for review rather than cutting, because an "uh" mid-phrase is
+sometimes load-bearing. `--json` emits cut ranges once you've picked.
+
 **`filler_scan.py`** — lists cut candidates: filler words, single-word false
 starts, and silences. It reports; it does not decide. `um` inside a deliberate
 pause and `um` mid-sentence are different edits.
@@ -220,5 +240,8 @@ is the cleanest minimal starting template.
   time (and Scribe credits) for an identical result.
 - **Don't infer silence from whisper word gaps** — it quantizes them away. Use
   `filler_scan.py --audio`, which measures the waveform.
+- **Don't trust a zero-filler transcript.** Whisper normalizes disfluencies out.
+  Zero "um"s across thousands of words of extemporaneous speech means the ASR
+  cleaned them, not that the speaker was clean — use `filler_pass.py`.
 - **Adapt the transcript before rendering** on the local route, or you get a
   video with no captions and no error explaining why.
