@@ -17,6 +17,13 @@ edit/
 # Secrets
 .env
 
+# Finished episodes are the exception to the no-video rule: they are the
+# deliverable, and a link that 404s is worse than a large blob. Keep them
+# under GitHub's 100MB limit (CRF 23 does that for screen-recorded content
+# without visible loss) and only commit a final cut, never working renders.
+!deliverables/
+!deliverables/*.mp4
+
 # Tooling
 node_modules/
 .warmup/
