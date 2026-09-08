@@ -42,6 +42,7 @@ files.
 | `lt-micah` | 4.5s | Micah's first substantive answer |
 | `title-card` | 5.0s | after the "true cost isn't known" line, so the hook lands before the branding |
 | `head2head` | 6.0s | opening of the head2head segment |
+| `agent-architecture` | 8.0s | 1:33 into scheduling — subagents vs agent teams |
 | `end-card` | 4.8s | over the sign-off, holds to the last frame |
 
 ## Two things that will bite you
@@ -57,6 +58,26 @@ inside a paused timeline doesn't apply while the playhead sits exactly at 0, so
 frame 0 flashes the finished card before it animates in. `hyperframes lint`
 catches this as `gsap_timeline_set_initial_hide` — it is a warning, but for an
 overlay it is a visible defect.
+
+## Liquid glass
+
+`agent-architecture` is a full-width frosted pane. The frost is **not** in the
+composition: `backdrop-filter` is a no-op in an alpha overlay because there is
+nothing behind it to sample. The card carries only what glass *adds* — a
+translucent tint, a bright top edge, an inner rim, a drop shadow — and the
+compositing pass blurs the footage inside the pane's rect first:
+
+```bash
+ffmpeg -i base.mp4 -i renders/agent-architecture.mov -filter_complex \
+  "[0:v]crop=1840:556:40:262,boxblur=18:2[bl]; \
+   [0:v][bl]overlay=40:262[base]; \
+   [base][1:v]overlay=0:0:enable='between(t,START,END)'" \
+  -c:a copy out.mp4
+```
+
+The crop rect must match `#pane`'s `left/top/width/height` in
+`compositions/agent-architecture.html` exactly. Change one, change the other —
+they are the same rectangle expressed twice, and nothing checks that for you.
 
 ## Placing them on the cut
 

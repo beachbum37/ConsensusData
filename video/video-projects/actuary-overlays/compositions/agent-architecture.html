@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Agent Architecture</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-ui); }
+
+      /* ---- Liquid glass pane ------------------------------------------------
+         The frosted blur is NOT done here — an alpha overlay has nothing behind
+         it to sample, so backdrop-filter would be a no-op. The compositing pass
+         blurs the footage inside this exact rect before laying the card on top.
+         What lives here is only what glass *adds*: a translucent tint, a bright
+         top edge where light catches, an inner rim, and a drop shadow. Keep the
+         geometry below in sync with PANE_* in the compositing script. */
+      #pane {
+        position: absolute; left: 40px; top: 262px; width: 1840px; height: 556px;
+        border-radius: 34px;
+        background: linear-gradient(160deg, rgba(255,255,255,0.13), rgba(12,16,22,0.34) 46%, rgba(12,16,22,0.46));
+        border: 1px solid rgba(255,255,255,0.26);
+        box-shadow:
+          0 40px 120px rgba(0,0,0,0.55),
+          inset 0 1px 0 rgba(255,255,255,0.55),
+          inset 0 -1px 0 rgba(255,255,255,0.10);
+        overflow: hidden;
+      }
+      /* Specular sweep along the top edge — the cue that reads as "glass". */
+      #pane::before {
+        content: ""; position: absolute; inset: 0 0 auto 0; height: 46%;
+        background: linear-gradient(180deg, rgba(255,255,255,0.16), transparent);
+        pointer-events: none;
+      }
+
+      #grid { position: absolute; inset: 30px 34px; display: flex; gap: 30px; }
+      .col { flex: 1; position: relative; display: flex; flex-direction: column; align-items: center;
+             border: 1px solid rgba(255,255,255,0.16); border-radius: 24px; padding: 46px 20px 22px; }
+      .tag { position: absolute; top: -21px; left: 50%; transform: translateX(-50%);
+             background: var(--ink); color: var(--paper); font-size: 27px; font-weight: 800;
+             letter-spacing: -0.01em; padding: 9px 30px; border-radius: 999px;
+             border: 1px solid rgba(255,255,255,0.22); white-space: nowrap; }
+
+      .bar { width: 100%; border-radius: 12px; padding: 13px 0; text-align: center;
+             color: #fff; font-size: 26px; font-weight: 800; letter-spacing: -0.01em;
+             border: 1px solid rgba(255,255,255,0.30); }
+      .bar.lead   { background: #a62b2b; }
+      .bar.shared { background: #1f78b4; }
+
+      .lbl { font-family: var(--font-mono); font-size: 15px; font-weight: 600;
+             letter-spacing: 0.06em; color: rgba(255,255,255,0.86); text-align: center;
+             line-height: 1.25; }
+
+      .row { width: 100%; display: flex; justify-content: space-around; align-items: flex-start; }
+      .node { width: 168px; border-radius: 11px; padding: 11px 0; text-align: center;
+              color: #fff; font-size: 21px; font-weight: 700;
+              border: 1px solid rgba(255,255,255,0.28); }
+      .node.sub  { background: #b5651d; }
+      .node.mate { background: #5b3fc4; }
+      .dot { width: 96px; height: 96px; border-radius: 50%; background: #232b36;
+             border: 2px dashed rgba(255,255,255,0.55); color: #fff; font-size: 19px;
+             font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+      /* Connectors are plain divs, not SVG — at this scale a 2px rule with a
+         chevron reads identically and costs nothing to reflow. */
+      .stem { width: 2px; background: rgba(255,255,255,0.65); position: relative; }
+      .stem::after { content: ""; position: absolute; left: 50%; bottom: -1px;
+        transform: translateX(-50%); border-left: 6px solid transparent;
+        border-right: 6px solid transparent; border-top: 9px solid rgba(255,255,255,0.8); }
+      .stem.up::after { bottom: auto; top: -1px; border-top: none; border-bottom: 9px solid rgba(255,255,255,0.8); }
+      .colstack { display: flex; flex-direction: column; align-items: center; gap: 7px; }
+      /* One arrow per node, on the same flex geometry as .row so each stem lands
+         under the node it belongs to rather than all of them under the middle. */
+      .arrows { width: 100%; display: flex; justify-content: space-around; }
+      .arrows > div { width: 168px; display: flex; justify-content: center; }
+      /* Return path: results feed back up to the main agent, drawn as a bracket
+         down the left edge rather than a box, which read as an empty container. */
+      #loop { position: absolute; left: 9px; top: 96px; bottom: 30px; width: 24px;
+              border: 2px solid rgba(255,255,255,0.5); border-right: none;
+              border-radius: 10px 0 0 10px; }
+      #loop::after { content: ""; position: absolute; right: -7px; top: -1px;
+        border-top: 6px solid transparent; border-bottom: 6px solid transparent;
+        border-left: 9px solid rgba(255,255,255,0.8); }
+      .peer { font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.05em;
+              color: rgba(255,255,255,0.8); }
+      .peerrow { width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; }
+      .peerline { flex: 1; height: 2px; background: rgba(255,255,255,0.5); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="agent-architecture" data-start="0" data-duration="8.00" data-width="1920" data-height="1080">
+      <div id="pane">
+        <div id="grid">
+
+          <!-- LEFT — subagents: fan out, return, main agent reassembles -->
+          <div class="col" id="cA">
+            <div class="tag">Subagents</div>
+            <div class="bar lead">Main Agent</div>
+            <div class="lbl" style="margin:14px 0 8px">Spawn Subagent</div>
+            <div class="arrows"><div><div class="stem" style="height:26px"></div></div><div><div class="stem" style="height:26px"></div></div><div><div class="stem" style="height:26px"></div></div></div>
+            <div class="row" style="margin-top:8px">
+              <div class="node sub">Subagent</div>
+              <div class="node sub">Subagent</div>
+              <div class="node sub">Subagent</div>
+            </div>
+            <div class="lbl" style="margin:14px 0 8px">Work</div>
+            <div class="arrows"><div><div class="stem" style="height:24px"></div></div><div><div class="stem" style="height:24px"></div></div><div><div class="stem" style="height:24px"></div></div></div>
+            <div class="row" style="margin-top:10px">
+              <div class="dot">Result</div><div class="dot">Result</div><div class="dot">Result</div>
+            </div>
+            <div id="loop"></div>
+          </div>
+
+          <!-- RIGHT — agent teams: shared task list, peers talk to each other -->
+          <div class="col" id="cB">
+            <div class="tag">Agent Teams</div>
+            <div class="bar lead">Main Agent (Team Lead)</div>
+            <div class="lbl" style="margin:14px 0 8px">Spawn Team &amp; Assign Tasks</div>
+            <div class="stem" style="height:24px"></div>
+            <div class="bar shared" style="margin-top:10px">Shared Task List</div>
+            <div class="lbl" style="margin:16px 0 8px">Communicate &amp; Claim Tasks</div>
+            <div class="arrows"><div><div class="stem" style="height:26px"></div></div><div><div class="stem" style="height:26px"></div></div><div><div class="stem" style="height:26px"></div></div></div>
+            <div class="row" style="margin-top:10px">
+              <div class="node mate">Teammate</div>
+              <div class="node mate">Teammate</div>
+              <div class="node mate">Teammate</div>
+            </div>
+            <div class="peerrow" style="margin-top:14px">
+              <div class="peerline"></div><div class="peer">COMMUNICATE</div><div class="peerline"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 8.0;
+      const tl = gsap.timeline({ paused: true });
+      // Initial states use gsap.set (immediate), not tl.set at 0 — a zero-duration
+      // set inside a paused timeline does not apply while the playhead sits at 0,
+      // so frame 0 would flash the finished card.
+      gsap.set("#pane", { opacity: 0, scale: 0.975, y: 18 });
+      gsap.set("#cA", { opacity: 0, x: -34 });
+      gsap.set("#cB", { opacity: 0, x: 34 });
+
+      // Pane settles first, then each side arrives — the comparison reads as two
+      // things being set beside each other, not one busy diagram appearing.
+      tl.to("#pane", { opacity: 1, scale: 1, y: 0, duration: 0.62, ease: "power4.out" }, 0);
+      tl.to("#cA",   { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.28);
+      tl.to("#cB",   { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 0.52);
+
+      const o = DUR - 0.7;
+      tl.to(["#cA", "#cB"], { opacity: 0, duration: 0.3, ease: "power2.in" }, o);
+      tl.to("#pane", { opacity: 0, scale: 0.985, duration: 0.45, ease: "power2.in" }, o + 0.15);
+
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["agent-architecture"] = tl;
+    </script>
+  </body>
+</html>

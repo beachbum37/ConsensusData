@@ -14,13 +14,13 @@
       /* Anchored bottom-left rather than centred: the speaker is centre-frame
          in this shot, and a centred card would sit on his face. */
       #card { position: absolute; left: 96px; bottom: 120px; }
-      #mark { font-size: 76px; font-weight: 800; letter-spacing: -0.03em; color: var(--paper);
-              text-shadow: 0 6px 34px rgba(0,0,0,0.75); line-height: 1; }
+      #mark { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; color: var(--paper);
+              text-shadow: 0 6px 34px rgba(0,0,0,0.75); line-height: 1; opacity: 0.92; }
       #mark .b { color: var(--brand); }
-      #rule { height: 4px; width: 0; background: var(--brand); margin: 20px 0 18px; }
-      #sub { font-family: var(--font-mono); font-size: 30px; font-weight: 500;
-             letter-spacing: 0.16em; color: var(--paper);
-             text-shadow: 0 4px 22px rgba(0,0,0,0.85); white-space: nowrap; }
+      #rule { height: 4px; width: 0; background: var(--brand); margin: 16px 0 18px; }
+      /* The episode title carries the card; the show mark above it is a kicker. */
+      #sub { font-size: 82px; font-weight: 800; letter-spacing: -0.03em; color: var(--paper);
+             text-shadow: 0 6px 30px rgba(0,0,0,0.85); white-space: nowrap; line-height: 1.02; }
       /* Soft scrim so white type survives a bright background without a plate. */
       #scrim { position: absolute; left: 0; bottom: 0; width: 1100px; height: 430px;
                background: linear-gradient(30deg, rgba(0,0,0,0.68), transparent 72%); }
@@ -32,7 +32,7 @@
       <div id="card">
         <div id="mark">work<span class="b">&lt;Ai&gt;</span></div>
         <div id="rule"></div>
-        <div id="sub">ACTUARIAL RATE MAKING WITH AI AGENTS</div>
+        <div id="sub">One Human Department</div>
       </div>
     </div>
     <script>
