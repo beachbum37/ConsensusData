@@ -1,7 +1,7 @@
 # Actuary podcast — overlay cards
 
 Five transparent cards that composite onto the cut episode. Not a video in
-itself: each composition renders independently to WebM with an alpha channel,
+itself: each composition renders independently to ProRes MOV with an alpha channel,
 and video-use's `render.py` lays them over the assembled cut.
 
 ## Build
@@ -11,9 +11,19 @@ cd video/video-projects/actuary-overlays
 node scripts-build.mjs          # regenerate the two lower thirds
 npx hyperframes lint            # must be 0 errors
 for c in lt-kimberly lt-micah title-card head2head end-card; do
-  npx hyperframes render -c compositions/$c.html --format webm \
-      --quality standard --output renders/$c.webm
+  npx hyperframes render -c compositions/$c.html --format mov \
+      --quality standard --output renders/$c.mov
 done
+```
+
+**Use `--format mov`, not `webm`.** The CLI advertises both as transparent, but
+WebM came out `yuv420p` here — no alpha, silently. Compositing that paints an
+opaque rectangle over the footage. MOV gives ProRes 4444 (`yuva444p12le`) and
+actually carries the alpha. Always check before compositing:
+
+```bash
+ffprobe -v error -select_streams v:0 -show_entries stream=pix_fmt \
+    -of csv=p=0 renders/lt-micah.mov     # must start with yuva
 ```
 
 `index.html` is an empty placeholder — the CLI requires one for the project to
@@ -38,6 +48,9 @@ files.
 
 **Never give `body` a background colour.** These render with alpha; a background
 makes the card an opaque rectangle covering the footage.
+
+**Verify the pixel format after every render.** A missing alpha channel produces
+no error at all — the card simply arrives opaque and covers the picture.
 
 **Initial states use `gsap.set`, not `tl.set(..., 0)`.** A zero-duration set
 inside a paused timeline doesn't apply while the playhead sits exactly at 0, so

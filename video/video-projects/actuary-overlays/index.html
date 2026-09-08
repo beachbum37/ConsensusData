@@ -15,10 +15,10 @@
       This project has no single "video" — it is a set of independent overlay
       cards, each rendered on its own with:
 
-        npx hyperframes render -c compositions/<name>.html --format webm \
-            --output renders/<name>.webm
+        npx hyperframes render -c compositions/<name>.html --format mov \
+            --output renders/<name>.mov
 
-      WebM carries the alpha channel; the cards are then composited onto the
+      ProRes 4444 carries the alpha channel (WebM renders opaque here — check pix_fmt); the cards are then composited onto the
       cut episode by video-use's render.py via the EDL's `overlays` list.
 
       The CLI requires an index.html for the project to be valid, so this is a
