@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Head to Head</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-ui); }
+
+      /* A band across the lower third rather than a full-screen card — the
+         screen recording underneath is the subject and must stay readable. */
+      #band { position: absolute; left: 0; right: 0; bottom: 96px; height: 260px;
+              background: linear-gradient(180deg, rgba(16,20,27,0.0), rgba(16,20,27,0.94) 22%, rgba(16,20,27,0.94) 78%, rgba(16,20,27,0.0));
+              display: flex; align-items: center; justify-content: center; gap: 64px; }
+      .side { width: 640px; }
+      .side .n { font-size: 62px; font-weight: 800; letter-spacing: -0.025em; color: var(--paper); line-height: 1.04; }
+      .side .d { margin-top: 8px; font-family: var(--font-mono); font-size: 26px;
+                 font-weight: 500; letter-spacing: 0.08em; color: var(--muted); }
+      #left  { text-align: right; }
+      #right { text-align: left; }
+      #vs { width: 96px; height: 96px; border-radius: 50%; flex: 0 0 auto;
+            border: 3px solid var(--brand); color: var(--brand);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-mono); font-size: 34px; font-weight: 700; }
+      /* His actual point — they are not competitors — sits under the matchup
+         so the graphic states the argument rather than staging a fight. */
+      #note { position: absolute; left: 0; right: 0; bottom: 62px; text-align: center;
+              font-family: var(--font-mono); font-size: 25px; letter-spacing: 0.14em;
+              color: var(--brand); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="head2head" data-start="0" data-duration="6.00" data-width="1920" data-height="1080">
+      <div id="band">
+        <div class="side" id="left">
+          <div class="n">Paperclip</div>
+          <div class="d">CONTROL PLANE · RUNS ZERO AI</div>
+        </div>
+        <div id="vs">VS</div>
+        <div class="side" id="right">
+          <div class="n">Claude Co-work</div>
+          <div class="d">AGENTS THAT DO THE WORK</div>
+        </div>
+      </div>
+      <div id="note">NOT COMPETITORS &mdash; DIFFERENT LAYERS</div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 6.0;
+      const tl = gsap.timeline({ paused: true });
+      // Initial states use gsap.set (immediate), not tl.set at 0: a zero-duration
+      // set inside a paused timeline does not apply while the playhead sits at 0,
+      // so frame 0 would flash the finished card before it animates in.
+
+      gsap.set("#band", { opacity: 0 });
+      gsap.set("#left", { opacity: 0, x: -70 });
+      gsap.set("#right", { opacity: 0, x:  70 });
+      gsap.set("#vs", { opacity: 0, scale: 0 });
+      gsap.set("#note", { opacity: 0, y: 14 });
+
+      tl.to("#band",  { opacity: 1, duration: 0.4, ease: "power2.out" }, 0);
+      // Sides arrive separately with the VS between them — the eye reads a
+      // comparison, not a paragraph.
+      tl.to("#left",  { opacity: 1, x: 0, duration: 0.45, ease: "power4.out" }, 0.18);
+      tl.to("#vs",    { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(2.4)" }, 0.5);
+      tl.to("#right", { opacity: 1, x: 0, duration: 0.45, ease: "power4.out" }, 0.66);
+      tl.to("#note",  { opacity: 1, y: 0, duration: 0.38, ease: "power2.out" }, 1.25);
+
+      const o = DUR - 0.6;
+      tl.to(["#left", "#right", "#vs", "#note"], { opacity: 0, duration: 0.3, ease: "power2.in" }, o);
+      tl.to("#band", { opacity: 0, duration: 0.4, ease: "power2.in" }, o + 0.12);
+
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["head2head"] = tl;
+    </script>
+  </body>
+</html>

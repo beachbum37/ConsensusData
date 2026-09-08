@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>End Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-ui); }
+
+      /* Full-frame wash on the sign-off: the picture has done its job, so the
+         mark can take the frame. */
+      #wash { position: absolute; inset: 0; background: rgba(16,20,27,0.9); }
+      #mid { position: absolute; inset: 0; display: flex; flex-direction: column;
+             align-items: center; justify-content: center; }
+      #mark { font-size: 140px; font-weight: 800; letter-spacing: -0.035em;
+              color: var(--paper); line-height: 1; }
+      #mark .b { color: var(--brand); }
+      #rule { height: 4px; width: 0; background: var(--brand); margin: 30px 0 22px; }
+      #tag { font-family: var(--font-mono); font-size: 32px; letter-spacing: 0.2em; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="end-card" data-start="0" data-duration="4.80" data-width="1920" data-height="1080">
+      <div id="wash"></div>
+      <div id="mid">
+        <div id="mark">work<span class="b">&lt;Ai&gt;</span></div>
+        <div id="rule"></div>
+        <div id="tag">WORK LESS &middot; AI MORE</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 4.8;
+      const tl = gsap.timeline({ paused: true });
+      // Initial states use gsap.set (immediate), not tl.set at 0: a zero-duration
+      // set inside a paused timeline does not apply while the playhead sits at 0,
+      // so frame 0 would flash the finished card before it animates in.
+      const tagW = document.getElementById("tag").getBoundingClientRect().width;
+
+      gsap.set("#wash", { opacity: 0 });
+      gsap.set("#mark", { opacity: 0, scale: 1.14, filter: "blur(16px)" });
+      gsap.set("#tag", { opacity: 0, y: 12 });
+
+      tl.to("#wash", { opacity: 1, duration: 0.6, ease: "power2.out" }, 0);
+      tl.to("#mark", { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, 0.25);
+      tl.to("#rule", { width: tagW, duration: 0.55, ease: "power3.inOut" }, 0.7);
+      tl.to("#tag",  { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 0.95);
+      // No exit — the episode ends under this card, so it holds to the last frame.
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["end-card"] = tl;
+    </script>
+  </body>
+</html>

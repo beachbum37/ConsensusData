@@ -1,0 +1,15 @@
+/* work<Ai> — palette taken from the logo card in the finale: orange mark on
+   white. Overlays sit on top of live footage, so everything here is built for
+   contrast against a busy, unpredictable background: solid plates rather than
+   translucent ones, and a hairline rule to separate card from picture. */
+:root {
+  --brand:        #f0a02a;   /* work<Ai> orange */
+  --ink:          #10141b;   /* near-black plate */
+  --ink-soft:     #1b212c;
+  --paper:        #ffffff;
+  --muted:        #9aa4b2;
+  --rule:         rgba(255, 255, 255, 0.14);
+
+  --font-ui:   "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}

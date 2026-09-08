@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Title Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-ui); }
+
+      /* Anchored bottom-left rather than centred: the speaker is centre-frame
+         in this shot, and a centred card would sit on his face. */
+      #card { position: absolute; left: 96px; bottom: 120px; }
+      #mark { font-size: 76px; font-weight: 800; letter-spacing: -0.03em; color: var(--paper);
+              text-shadow: 0 6px 34px rgba(0,0,0,0.75); line-height: 1; }
+      #mark .b { color: var(--brand); }
+      #rule { height: 4px; width: 0; background: var(--brand); margin: 20px 0 18px; }
+      #sub { font-family: var(--font-mono); font-size: 30px; font-weight: 500;
+             letter-spacing: 0.16em; color: var(--paper);
+             text-shadow: 0 4px 22px rgba(0,0,0,0.85); white-space: nowrap; }
+      /* Soft scrim so white type survives a bright background without a plate. */
+      #scrim { position: absolute; left: 0; bottom: 0; width: 1100px; height: 430px;
+               background: linear-gradient(30deg, rgba(0,0,0,0.68), transparent 72%); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="title-card" data-start="0" data-duration="5.00" data-width="1920" data-height="1080">
+      <div id="scrim"></div>
+      <div id="card">
+        <div id="mark">work<span class="b">&lt;Ai&gt;</span></div>
+        <div id="rule"></div>
+        <div id="sub">ACTUARIAL RATE MAKING WITH AI AGENTS</div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 5.0;
+      const tl = gsap.timeline({ paused: true });
+      // Initial states use gsap.set (immediate), not tl.set at 0: a zero-duration
+      // set inside a paused timeline does not apply while the playhead sits at 0,
+      // so frame 0 would flash the finished card before it animates in.
+      const subW = document.getElementById("sub").getBoundingClientRect().width;
+
+      gsap.set("#scrim", { opacity: 0 });
+      gsap.set("#mark", { opacity: 0, y: 26 });
+      gsap.set("#sub", { opacity: 0 });
+
+      tl.to("#scrim", { opacity: 1, duration: 0.45, ease: "power2.out" }, 0);
+      tl.to("#mark",  { opacity: 1, y: 0, duration: 0.55, ease: "power4.out" }, 0.12);
+      // Rule draws to the subtitle's measured width, so the lockup stays tight
+      // to the text however the wording changes.
+      tl.to("#rule",  { width: subW, duration: 0.5, ease: "power3.inOut" }, 0.45);
+      tl.to("#sub",   { opacity: 1, duration: 0.4, ease: "power2.out" }, 0.72);
+
+      const o = DUR - 0.6;
+      tl.to(["#mark", "#sub"], { opacity: 0, y: -12, duration: 0.32, ease: "power2.in" }, o);
+      tl.to("#rule",  { width: 0, duration: 0.3, ease: "power3.in" }, o + 0.08);
+      tl.to("#scrim", { opacity: 0, duration: 0.4, ease: "power2.in" }, o + 0.18);
+
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["title-card"] = tl;
+    </script>
+  </body>
+</html>
