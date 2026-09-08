@@ -35,8 +35,8 @@ footage/raw.mp4
    │
    ├─1─ ffprobe            duration / resolution / fps
    ├─2─ transcribe         word-level timestamps  ──┐
-   ├─3─ pack_transcripts   takes_packed.md          │ the LLM reads text,
-   │                                                │ not pixels
+   ├─3─ duplicate check    segments that repeat     │ the LLM reads text,
+   │                       each other               │ not pixels
    ├─4─ [you confirm the strategy] ─────────────────┘
    ├─5─ edl.json           cut decisions, snapped to word boundaries
    ├─6─ animations/        HyperFrames slots, rendered in parallel
@@ -116,6 +116,25 @@ captions**. Already-Scribe-shaped input passes through unchanged.
 ```bash
 python3 video/tools/whisper_to_scribe.py transcript.json -o edit/transcripts/take01.json
 ```
+
+**`find_duplicate_content.py`** — run this during inventory, before assembling
+anything.
+
+```bash
+python3 video/tools/find_duplicate_content.py edit/transcripts/*.json
+```
+
+A segment that re-records material from another segment looks completely
+healthy on every other measure — duration, silence ratio, speaker turns all
+normal — and nothing in the cut pipeline notices. It surfaces only when a
+viewer asks why they are watching the same explanation twice. This slid through
+on a real episode: one segment turned out to be **93.9% a re-recording** of
+another, including a 55-word verbatim run, and it was caught after the full
+assembly and overlay work was already done.
+
+It reports the overlapping spans in both segments and, when one is mostly
+duplicated, what is uniquely worth rescuing before dropping it. Exits non-zero
+when any pair exceeds the threshold, so it can gate a build.
 
 **`filler_pass.py`** — finds the filler words Whisper hides. Run this by
 default on any talking-head edit; `filler_scan.py` alone will under-report.
@@ -240,6 +259,9 @@ is the cleanest minimal starting template.
   time (and Scribe credits) for an identical result.
 - **Don't infer silence from whisper word gaps** — it quantizes them away. Use
   `filler_scan.py --audio`, which measures the waveform.
+- **Check segments against each other before assembling.** Nothing else in the
+  pipeline compares them, so a re-recorded take passes every check and reaches
+  the finished cut intact.
 - **Don't trust a zero-filler transcript.** Whisper normalizes disfluencies out.
   Zero "um"s across thousands of words of extemporaneous speech means the ASR
   cleaned them, not that the speaker was clean — use `filler_pass.py`.
