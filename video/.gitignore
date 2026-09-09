@@ -27,3 +27,17 @@ edit/
 # Tooling
 node_modules/
 .warmup/
+
+# WLAM clip cutter: code and reasoning only.
+# The b-roll library is 53.66GB full / 7.12GB as a distribution copy (broll.py
+# prune-src drops the re-bake cache). It travels out of band, never through git.
+skills/WLAM-clip-cutter/broll-library/
+skills/WLAM-clip-cutter/work/
+skills/WLAM-clip-cutter/**/__pycache__/
+skills/WLAM-clip-cutter/**/.vocabcheck/
+skills/WLAM-clip-cutter/**/.search-cache.json
+# Per-show state written into the CODE directory - the bug, not an artifact to keep.
+skills/WLAM-clip-cutter/scripts/posters.json
+skills/WLAM-clip-cutter/scripts/slate.json
+skills/WLAM-clip-cutter/scripts/cues.json
+skills/WLAM-clip-cutter/scripts/project.json

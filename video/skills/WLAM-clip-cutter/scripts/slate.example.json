@@ -1,0 +1,35 @@
+{
+ "clips": [
+  {
+   "rank": 1,
+   "slug": "never-tell-you-what-to-buy",
+   "start": 1946.6,
+   "end": 1983.7,
+   "mode": "head",
+   "head_crop": null,
+   "_head_crop_note": "only on a two-up master: [w,h,x,y] of the speaking half. analyze.py prints one per side. omit or null on single-camera. keep w/h at the panel aspect, 0.5625 - anything else is TRIMMED to fit, never stretched",
+   "broll": [],
+   "_broll_note": "cutaways, every mode, AT LEAST ONE per clip - preflight fails a clip without one. broll.py propose writes candidates with \"approved\": false and a broll/PREVIEW.png contact sheet; LOOK at the sheet, set pick to the cell index you want ([n] counts per term), flip approved, then broll.py fetch. Each is {at: SOURCE seconds, on: the spoken word the renderer re-snaps to, hold: 1.8-4.0, term: search query, said: what prompted it, pick: result index, approved: bool, asset: set by fetch}. Up to 8 per clip and 30% of the body",
+   "speed": null,
+   "_speed_note": "override the adaptive tempo for this clip. 1.0 leaves it alone, which is what you want on a slow deliberate line whose whole point is the pause",
+   "crop_x": null,
+   "_crop_x_note": "shift the default camera crop horizontally, for a speaker sitting off-centre. Ignored when head_crop is set",
+   "hard_out": null,
+   "_hard_out_note": "SOURCE seconds the out-point may never run past. The sentence rule is allowed to run on up to 4s, and on a live show the next sentence can be the one thing that must not ship",
+   "cap_colour": null,
+   "_cap_colour_note": "optional override for the caption colour, which is otherwise measured off the picture behind the caption zone. {\"key\": \"amber\"} or {\"key\": \"#ffc247\", \"base\": \"#fffdf9\"}. names: cyan, amber, lilac, ink-blue, burnt, plum. set \"adaptive_captions\": false in project.json to pin the house cyan for a whole set",
+   "hook": "I'll never tell you what to buy",
+   "speaker": {
+    "name": "Steven E. Orr",
+    "title": "Founder and CEO, Quasar Markets"
+   },
+   "_speaker_note": "WHO IS TALKING, on screen for 4s after the hook card leaves. Omit it and the show's `host` from project.json is used, which is what most clips want; set it per clip for a guest. A bare string is the name with no title. READ IT OFF THE MASTER: the show burns a lower third into the bottom-left of the source (x15..600, y850..1058 on 08.24) that the head crop throws away - but type the person's NAME, not the screen handle it shows.",
+   "quote": "This machine will never tell you what to buy or sell. If you've ever seen me on TV, I always tell people the same thing. I'll never tell you what to buy or sell. I just want to make you smarter. I want to make you in a place where you feel better about the decision and you understand it. I always say, it was one of my rules. Know what you're buying and understand what you're doing. How do you know? Sometimes you're buying a stock that's biotech. You don't understand biotech. I want a machine that if you want to learn biotech, it's inside of it. So you become a smarter person and you're not just buying any crypto out there. I don't like that. I want you to understand what you're actually investing in, and you'll be able to do that faster in your own language in terms that you understand.",
+   "why": "It is the inverse of every finance clip in the feed, so the refusal itself stops the scroll, and it is the safest cut in the set because it is an explicit disclaimer of advice in his own voice. Post it first to set the account's stance before anything else lands. Talking head, full frame. CAPTION FIX REQUIRED: whisper wrote 'what the buyers sell' twice at 1946.68 and 1951.32. The audio is 'what to buy or sell'. Hand-correct the burned-in captions. Do not overlay any raise, valuation or CTA card on this one or it stops reading as a disclaimer.",
+   "angle": "no-advice-stance",
+   "platform_caption": "Every finance account in your feed is screaming a ticker at you.\n\nSteven E. Orr built a machine that refuses to.\n\nNo signals. No calls. No telling you what to buy or sell.\n\nJust the part nobody sells you: understanding what you already own.\n\nQuasar Markets. The whole market in one place.",
+   "linkedin_caption": "A fintech founder saying his product will never give you a signal.\n\nThat is the whole clip. No calls, no alerts, no tickers.\n\nSteven E. Orr on why Quasar Markets is built to make you understand the decision instead of making it for you.\n\nNot investment advice.",
+   "hashtags": "#fintech #investing #AI #founders #buildinpublic"
+  }
+ ]
+}
