@@ -13,7 +13,7 @@ directory and stayed there until the next show overwrote them. Which is also why
 eight `slate.json.*-bak` files accumulated next to the live one - each is somebody
 protecting themselves from exactly this.
 
-There are two ways out and they are complementary. `QM_WORK` points the whole set
+There are two ways out and they are complementary. `WLAM_WORK` points the whole set
 at the show's own folder, so two jobs never share a directory in the first place;
 this is the other one, for a job that ran in the default place and is finished.
 
@@ -31,7 +31,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 import os
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 
 # The state that belongs to ONE video. Anything not on this list stays put.
 STATE = ("project.json", "slate.json", "sections.json", "cues.json",

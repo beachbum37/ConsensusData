@@ -69,18 +69,18 @@ import qmclip as q
 import semantic
 
 HERE = Path(__file__).resolve().parent
-# Per-show state follows QM_WORK; HERE stays the CODE directory.
+# Per-show state follows WLAM_WORK; HERE stays the CODE directory.
 # One owner for this lives in qmclip.WORK - repeated here because these
 # scripts must run without importing it (analyze.py in particular, which
 # would delete the transcripts it is writing).
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 # The library is SHARED across every show, not per working directory. An asset
 # that was searched, looked at and approved once - the Falcon 9, the guardrail,
 # the gold bars - is exactly the asset the next show should reach for first, and
 # per-project folders were throwing that judgment away. It lives at the skill
 # root, outside scripts/, so per-show workspaces all see it and the packaged
 # bundle does not carry it.
-LIB = Path(os.environ.get("WLAM_BROLL_LIB") or os.environ.get("QM_BROLL_LIB",
+LIB = Path(os.environ.get("WLAM_BROLL_LIB",
                           Path.home() / ".claude/skills/qm-clip-cutter/broll-library"))
 INDEX = LIB / "index.json"
 CACHE = LIB / ".search-cache.json"

@@ -6162,8 +6162,13 @@ naming a delivered clip, is the evidence it happened.
 `selftest.py` could never catch it: it set `os.environ["QM\_WORK"]` directly, so
 1141 checks exercised the mechanism and never the documented interface.
 
-Both names are now read, `WLAM\_` first, so no existing shell breaks. The same
-applies to `WLAM\_VOCAB` / `QM\_VOCAB` and `WLAM\_BROLL\_LIB` / `QM\_BROLL\_LIB`.
+**The variables are now named `WLAM\_` and the old `QM\_` names are gone** - not
+aliased, removed. `WLAM\_WORK`, `WLAM\_VOCAB`, `WLAM\_BROLL\_LIB` and
+`WLAM\_TDRZ\_MODEL` are the only names read. Nothing was relying on the old ones:
+the whole bug was that the documented name was the one being set, so a shell
+exporting `QM\_WORK` is the case that never existed in practice. If you have one
+anywhere - a saved terminal profile, a runner, a note - it is inert now and the
+symptom is per-show state landing back in `scripts/`.
 
 **Set up the show**
 

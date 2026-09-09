@@ -38,7 +38,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 # Per-show state follows WLAM_WORK; HERE stays the CODE directory.
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 
 OK, WARN, BAD = "ok  ", "warn", "FAIL"
 

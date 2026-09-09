@@ -21,7 +21,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-HERE = Path(os.environ.get("WLAM_VOCAB") or os.environ.get("QM_VOCAB") or Path(__file__).resolve().parent)
+HERE = Path(os.environ.get("WLAM_VOCAB") or Path(__file__).resolve().parent)
 TARGET = Path(__file__).resolve().parent / "broll.py"
 NAMES = ("EXPAND", "PEOPLE", "ABSTRACT", "NOT_A_PICTURE")
 

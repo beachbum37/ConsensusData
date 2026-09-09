@@ -39,7 +39,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 
 # Default assumes the skill lives inside the studio repo at
 # video/skills/WLAM-clip-cutter/scripts, which puts video/tools three levels up.

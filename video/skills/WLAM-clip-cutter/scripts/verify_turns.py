@@ -44,7 +44,7 @@ import qmclip as q
 import turns as _turns
 
 HERE = Path(__file__).resolve().parent
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 
 CELL_W = 260                # each face crop, px wide
 EDGE_GUARD = 1.0            # never sample this close to a turn boundary

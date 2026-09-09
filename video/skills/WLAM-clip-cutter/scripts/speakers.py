@@ -41,7 +41,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 
 # A turn shorter than this is an interjection the platform heard but that is not
 # worth cutting to - "Yeah.", "Right." - and cutting on it produces a flicker.

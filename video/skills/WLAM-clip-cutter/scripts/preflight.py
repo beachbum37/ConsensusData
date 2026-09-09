@@ -53,11 +53,11 @@ import pick
 import qmclip as q
 
 HERE = Path(__file__).resolve().parent
-# Per-show state follows QM_WORK; HERE stays the CODE directory.
+# Per-show state follows WLAM_WORK; HERE stays the CODE directory.
 # One owner for this lives in qmclip.WORK - repeated here because these
 # scripts must run without importing it (analyze.py in particular, which
 # would delete the transcripts it is writing).
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 OK, WARN, BAD = "ok  ", "warn", "FAIL"
 
 

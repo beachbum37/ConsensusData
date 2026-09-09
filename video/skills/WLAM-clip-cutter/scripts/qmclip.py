@@ -69,15 +69,15 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 # that disagreed with it, which is also why eight slate.json backups accumulated
 # next to the live one: each is somebody protecting themselves from exactly this.
 #
-# QM_WORK moves the whole set into the show's own folder. Unset, everything
+# WLAM_WORK moves the whole set into the show's own folder. Unset, everything
 # behaves as it always did, so this cannot break an existing job - it is opt-in
 # per show, and `newjob.py` is the other half (archive what is here, then clear
 # it) for anyone who keeps the default.
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or Path(__file__).resolve().parent)
-# The CODE directory, which is NOT the same thing and must never follow QM_WORK.
+WORK = Path(os.environ.get("WLAM_WORK") or Path(__file__).resolve().parent)
+# The CODE directory, which is NOT the same thing and must never follow WLAM_WORK.
 # Anything shipped WITH the skill - the brand fonts, the deep-filter binary, the
 # assets - lives here. Both of those were written as `WORK.parent` back when the
-# two were always the same directory, and the first job run with QM_WORK set died
+# two were always the same directory, and the first job run with WLAM_WORK set died
 # on `OSError: cannot open resource` looking for QMInter400.ttf next to the job.
 # A render is the only thing that catches this: every check passed first.
 HERE = Path(__file__).resolve().parent
@@ -7543,7 +7543,7 @@ def tempo_for(words: list[Word], dur: float, override) -> tuple[float, str]:
 # on one show is reusable on the next. A per-project broll/ is still honoured -
 # older show folders have one, and their archived slates must keep rendering.
 BROLL_LIB = Path(os.environ.get(
-    "QM_BROLL_LIB", Path.home() / ".claude/skills/qm-clip-cutter/broll-library"))
+    "WLAM_BROLL_LIB", Path.home() / ".claude/skills/qm-clip-cutter/broll-library"))
 
 
 def broll_asset(name: str) -> Path | None:

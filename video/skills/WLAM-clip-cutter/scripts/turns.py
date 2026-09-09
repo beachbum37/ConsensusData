@@ -60,9 +60,9 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-# Per-show state follows QM_WORK; HERE stays the CODE directory. One owner for
+# Per-show state follows WLAM_WORK; HERE stays the CODE directory. One owner for
 # this lives in qmclip.WORK - repeated for the reason whospeaks.py repeats it.
-WORK = Path(os.environ.get("WLAM_WORK") or os.environ.get("QM_WORK") or HERE)
+WORK = Path(os.environ.get("WLAM_WORK") or HERE)
 
 # THE WINDOW IS 1.0s AND THE HOP IS 0.5s. Shorter windows carry too few frames
 # for the loud/quiet split to mean anything (the ratio needs both populations
@@ -124,7 +124,7 @@ def _src() -> Path:
 # deliberately conservative - 5 marks on a 109s span where the old pass invented
 # 14 - and conservative is what this needs: few, long segments, each decided
 # well, beats many short ones each decided badly.
-TDRZ_MODEL_ENV = "QM_TDRZ_MODEL"
+TDRZ_MODEL_ENV = "WLAM_TDRZ_MODEL"
 TDRZ_DEFAULTS = (
     Path.home() / "tableflip-app" / "data" / "models" / "ggml-small.en-tdrz.bin",
     HERE.parent / "models" / "ggml-small.en-tdrz.bin",
@@ -736,7 +736,7 @@ def plan(start: float, end: float, tiles: dict[str, list[int]],
             "turns: tinydiarize unavailable (model missing, or whisper-cli "
             "failed) - falling back to the per-window pass, which is materially "
             "worse. Put ggml-small.en-tdrz.bin in data/models/ or set "
-            "QM_TDRZ_MODEL, and check whisper-cli runs.\n")
+            "WLAM_TDRZ_MODEL, and check whisper-cli runs.\n")
         return plan_windowed(start, end, tiles, min_turn)
 
     # Segment the span, dropping boundaries that would make a segment too short

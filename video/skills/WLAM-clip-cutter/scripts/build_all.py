@@ -31,9 +31,9 @@ if sys.version_info < (3, 12):
 
 import qmclip
 
-# The slate is PER-SHOW state, so it follows QM_WORK like everything else. This
+# The slate is PER-SHOW state, so it follows WLAM_WORK like everything else. This
 # script was the one missed when the rest moved, and the failure was quiet in the
-# worst way: with QM_WORK set it read the DEFAULT directory's slate and started
+# worst way: with WLAM_WORK set it read the DEFAULT directory's slate and started
 # re-rendering a DELIVERED clip, which is the one thing SKILL.md's first rule
 # forbids. qmclip already resolves it, so take it from there rather than keeping
 # a fourth copy of the same decision.
@@ -181,7 +181,7 @@ def main() -> None:
                   f"({type(e).__name__})", flush=True)
         srt = qmclip.CAPDIR / f"{name}.srt"
         dst = DELIVER / "captions" / f"{name}.srt"
-        # QM_WORK pointed at the show's own folder - the documented per-show
+        # WLAM_WORK pointed at the show's own folder - the documented per-show
         # setup - makes CAPDIR and DELIVER the same directory, and shutil.copy
         # raises SameFileError on a file onto itself. The caption is already
         # where it belongs in that case.
@@ -197,7 +197,7 @@ def main() -> None:
         # every clip republishes a copy read at t=0, across a 15-30 minute build:
         # anything a human typed into slate.json in the meantime - a caption, a
         # hashtag, a ticker - is silently reverted, and re-running build_all with
-        # QM_WORK pointed at a delivered _project/ would mutate an archived show's
+        # WLAM_WORK pointed at a delivered _project/ would mutate an archived show's
         # slate. The rest of this pipeline treats slate.json as a hand-edited
         # document that only the operator and broll.py's own CLI write to. Keep
         # it that way.

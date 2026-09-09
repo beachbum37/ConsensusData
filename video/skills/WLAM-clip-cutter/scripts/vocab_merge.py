@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import broll as b            # noqa: E402
 import qmclip as q           # noqa: E402
 
-HERE = Path(os.environ.get("WLAM_VOCAB") or os.environ.get("QM_VOCAB") or Path(__file__).resolve().parent)
+HERE = Path(os.environ.get("WLAM_VOCAB") or Path(__file__).resolve().parent)
 
 WORD_OK = re.compile(r"^[a-z0-9][a-z0-9'\- .]{1,40}$")  # a caliber ('155mm') or an account ('403b') legitimately starts with a digit
 TERM_OK = re.compile(r"^[A-Za-z0-9][A-Za-z0-9 '\-]{3,70}$")
