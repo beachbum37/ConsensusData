@@ -401,7 +401,23 @@ shows before truncating in search and the sidebar.
 
 
 `src/` is a re-bake cache — render only ever opens the baked `.mp4` beside the
-index. **A distribution copy is 7.12 GB, not 53.66.** `python3 broll.py prune-src` drops the originals after asking, and refuses if any indexed asset
+index. **A distribution copy is 7.12 GB, not 53.66** — but only for RENDERING A
+SLATE THAT IS ALREADY APPROVED.
+
+**A pruned library cannot be searched.** `search_library` skips any indexed asset
+whose `src/` original is missing, and that is correct rather than a bug: a
+library hit's `url` IS its local `src/` path, `fetch` re-bakes from it
+(`img = Path(h["url"])`) and the contact sheet pulls its thumbnail frame from it,
+so a row with no src is a hit nothing downstream can use. Measured on a
+one-asset library with the baked `.mp4` present: `search_library` returns 1 hit
+with `src/` there and **0 without it**.
+
+So the two numbers answer different questions. 7.12 GB renders a slate you
+already approved. **Proposing b-roll for a NEW show needs the 45.68 GB of
+originals**, or every `propose` falls through to live search and the curated
+library contributes nothing. `prune-src`'s "nothing is lost that cannot be
+re-fetched" is true of the bytes and understates the cost: what is lost is the
+library tier's reachability until they are back. `python3 broll.py prune-src` drops the originals after asking, and refuses if any indexed asset
 has no baked file (because then src/ is its only copy).
 
 ## Setup, once per video
