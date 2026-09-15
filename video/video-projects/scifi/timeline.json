@@ -1,0 +1,79 @@
+{
+  "segments": [
+    {
+      "slide": 2,
+      "t_in": 0.0,
+      "t_out": 34.41,
+      "src": "Note",
+      "src_in": 12.07,
+      "src_out": 46.48
+    },
+    {
+      "slide": 4,
+      "t_in": 35.01,
+      "t_out": 53.27,
+      "src": "Note_otter_ai (2)",
+      "src_in": 8.88,
+      "src_out": 27.14
+    },
+    {
+      "slide": 4,
+      "t_in": 53.57,
+      "t_out": 65.64,
+      "src": "Note_otter_ai (2)",
+      "src_in": 27.06,
+      "src_out": 39.13
+    },
+    {
+      "slide": 5,
+      "t_in": 66.24,
+      "t_out": 100.28,
+      "src": "Note_otter_ai (2)",
+      "src_in": 56.1,
+      "src_out": 90.14
+    },
+    {
+      "slide": 5,
+      "t_in": 100.58,
+      "t_out": 117.92,
+      "src": "Note_otter_ai (3)",
+      "src_in": 15.95,
+      "src_out": 33.29
+    },
+    {
+      "slide": 9,
+      "t_in": 118.52,
+      "t_out": 127.394,
+      "src": "Note_otter_ai (3)",
+      "src_in": 33.21,
+      "src_out": 42.084
+    }
+  ],
+  "slide_runs": [
+    {
+      "slide": 2,
+      "t_in": 0.0,
+      "t_out": 34.41,
+      "hold": 35.01
+    },
+    {
+      "slide": 4,
+      "t_in": 35.01,
+      "t_out": 65.64,
+      "hold": 31.229999999999997
+    },
+    {
+      "slide": 5,
+      "t_in": 66.24,
+      "t_out": 117.92,
+      "hold": 52.28
+    },
+    {
+      "slide": 9,
+      "t_in": 118.52,
+      "t_out": 127.394,
+      "hold": 8.873999999999981
+    }
+  ],
+  "total": 127.394
+}
