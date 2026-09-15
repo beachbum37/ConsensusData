@@ -143,3 +143,37 @@ half of the wrap-up. None has a slide in the original deck; the first is slide
 Result: 14:22, 15 audio spans, 12 slides, no silence over 1s, levels −19 dB mean.
 Every slide transition was frame-checked against the slide PNGs.
 `edit/scifi-cut-v5.mp4` is the 1080p master; `-preview.mp4` is the 720p copy.
+
+### v6 — less banter, two analogies shortened
+
+Same recording and mapping as v5, three changes:
+
+- **Interjections that add nothing are out.** Where a host only reacts
+  (*Exactly. Right. Yes. Ah, okay. Wow, yeah. Like a hobby. Hindsight is 20/20.
+  That's a really good point. I really love this analogy.*) or restates the
+  previous line, the comment is cut and the other host continues. Questions that
+  set up an answer (*"Isn't that exactly what the tech companies are selling?"*)
+  stay. Each cut is logged in `discards.md` with the words removed.
+- **The email joke is the short version:** bullet point → long email → colleague
+  summarises it back to a bullet point → "degradation of intent" → "that is
+  exactly why taste is the second critical skill". The follow-up exchange about
+  the breakdown of authentic communication is out.
+- **The intern analogy is the short version:** hire an intern, don't just say
+  "write our campaign" and walk away → you have to sit them down and explain the
+  core business → "AI requires that exact same onboarding". The panic /
+  guessing / past campaigns / budget lines are out.
+
+The cut count goes up (58 cuts in 12:40 — one every 13s) but every cut is a
+removed reply, so the pause it leaves is a turn-taking pause, not a stumble.
+Two builder changes made that safe:
+
+- **Cuts land in the dip between words, not on the timestamp.** DTW word times
+  are a few tens of ms off, and a reply that starts back-to-back with the
+  previous line has no pad to hide that. `trough_snap()` moves each edge
+  outward (into discarded audio only, never into a kept word) to the quietest
+  10ms within 100ms, if that dip is ≥6 dB below the boundary level. Typical
+  moves were 45–95ms; edges with no dip (continuous voicing) stay put.
+- Slide holds are encoded with `-tune stillimage -preset veryfast` — the
+  build is stills, so this is free quality-wise and halves the encode.
+
+Result: 12:40, 59 spans, 12 slides (slide 2 still has no narration).

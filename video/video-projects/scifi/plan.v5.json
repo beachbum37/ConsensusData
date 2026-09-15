@@ -1,0 +1,225 @@
+{
+  "gap": 0.4,
+  "slide_gap": 0.8,
+  "slides_dir": "/tmp/claude-0/-home-user-ConsensusData/124316ba-4bdc-53c6-81ed-77f5231474a4/scratchpad/scifi/hd",
+  "sources": {
+    "take2": "take2.mp3"
+  },
+  "discards": "auto",
+  "segments": [
+    {
+      "src": "take2",
+      "slide": 1,
+      "from": "The media often gets",
+      "to": "how technology drives human progress.",
+      "note": "framing: hype cycle vs the bigger picture of history; sets up the historical mechanism"
+    },
+    {
+      "src": "take2",
+      "slide": 3,
+      "from": "asking how powerful is this",
+      "to": "fundamentally restructure the economy.",
+      "note": "the great misdirection: bar exam / Model T in a vacuum; enterprise trap: engineers 10-20% faster"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "The velvet rope of specialized expertise.",
+      "to": "trapped behind that velvet rope.",
+      "note": "velvet rope defined; historical barriers"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "when that rope finally drops.",
+      "to": "fundamentally changes human psychology.",
+      "gap_before": 0.12,
+      "note": "domino effect — 'the sources lay out this five-step domino effect for what happens' trimmed out mid-sentence"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "Right, because the stakes are zero",
+      "to": "influx of diverse participants.",
+      "note": "Stradivarius line before this is out by request"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "Exactly, and that influx",
+      "to": "reshape society.",
+      "note": "experimentation -> new markets; printing press; automobile; Model T / VR luxury phase (musicians/garages Q&A before this is out with the violin)"
+    },
+    {
+      "src": "take2",
+      "slide": 5,
+      "from": "The only question that truly matters",
+      "to": "how do you actually use this?",
+      "note": "generic capability made accessible -> the individual builds their own; bridge to the skills"
+    },
+    {
+      "src": "take2",
+      "slide": 6,
+      "from": "We then translated that historical shift",
+      "to": "your own unemployment insurance.",
+      "note": "the six skills named in one breath — the OS overview (taken from the wrap-up)"
+    },
+    {
+      "src": "take2",
+      "slide": 7,
+      "from": "this does not mean going back to school",
+      "to": "without having to start from zero.",
+      "note": "relative expert: no CS degree, Friday update 3h -> 20min, document ROI, task force, default choice"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "But that brings us to skill number two",
+      "to": "the trap of good enough.",
+      "note": "taste & judgment intro"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "Yeah, it's the idea of an employee",
+      "to": "highly curated taste.",
+      "note": "email joke, algorithmic fingerprints / em dashes, your signature, personal library, feed corrections back ('The sources had a joke…' cut)"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "Here's where it gets really interesting though.",
+      "to": "Everyone talks about prompt engineering, but",
+      "note": "skill three: prompt vs context"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "that's actually a dying art.",
+      "to": "It doesn't know you.",
+      "gap_before": 0.08,
+      "note": "'the research suggests' trimmed mid-sentence; intern analogy, AIOS, amnesia"
+    },
+    {
+      "src": "take2",
+      "slide": 10,
+      "from": "Okay, but what does feeding it context",
+      "to": "practically step in and do your job.",
+      "note": "persistent context: your transcripts, emails, proprietary SOPs, walled garden of your files — the value is your business context"
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "That brings us to skill five.",
+      "to": "So how do you manage that risk?",
+      "note": "Jarvis / background workflows and the risk of removing the human"
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "It's about distinguishing between",
+      "to": "the right tool for the job.",
+      "note": "vending machine vs slot machine; Stripe->Slack; angry client; knowing when not to use AI ('The sources provide a brilliant mental model' cut)"
+    },
+    {
+      "src": "take2",
+      "slide": 12,
+      "from": "So we've got a context-rich",
+      "to": "the work of a five-person team.",
+      "note": "cloned output, five-person team"
+    },
+    {
+      "src": "take2",
+      "slide": 13,
+      "from": "It's a completely new paradigm",
+      "to": "we will catch you next time.",
+      "note": "closing: don't quit your job, look at your desk, drop the velvet rope on your own expertise; the provocative send-off"
+    }
+  ],
+  "discard_notes": [
+    {
+      "src": "take2",
+      "from_s": 0,
+      "to_s": 26.6,
+      "reason": "pre-roll: starts mid-sentence, hosts' mission statement ('listening to this deep dive')"
+    },
+    {
+      "src": "take2",
+      "from_s": 60.0,
+      "to_s": 66.8,
+      "reason": "'the research here leans heavily on…' — attribution line, removed"
+    },
+    {
+      "src": "take2",
+      "from_s": 92.7,
+      "to_s": 97.1,
+      "reason": "'the sources lay out this five-step domino effect for what happens' — attribution, trimmed mid-sentence"
+    },
+    {
+      "src": "take2",
+      "from_s": 112.0,
+      "to_s": 116.1,
+      "reason": "Stradivarius vs electric guitar — violin reference out by request"
+    },
+    {
+      "src": "take2",
+      "from_s": 123.5,
+      "to_s": 129.6,
+      "reason": "'elite, formally trained musicians / kids in garages' — continues the violin analogy, out with it"
+    },
+    {
+      "src": "take2",
+      "from_s": 232.1,
+      "to_s": 240.3,
+      "reason": "reactive glue ('That is a phenomenal comparison… What do you mean?') — bridge that no longer exists once slides 3 and 4 are reordered"
+    },
+    {
+      "src": "take2",
+      "from_s": 278.8,
+      "to_s": 279.8,
+      "reason": "'Okay, so what does?' — reply to a line that now ends slide 3"
+    },
+    {
+      "src": "take2",
+      "from_s": 317.7,
+      "to_s": 323.3,
+      "reason": "'The sources outline six specific skills…' — attribution line, removed"
+    },
+    {
+      "src": "take2",
+      "from_s": 392.9,
+      "to_s": 394.4,
+      "reason": "'That makes total sense.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 404.2,
+      "to_s": 410.4,
+      "reason": "'The sources had a joke about this…' / 'The email joke.' — attribution, removed"
+    },
+    {
+      "src": "take2",
+      "from_s": 568.1,
+      "to_s": 569.3,
+      "reason": "'the research suggests' — attribution, trimmed mid-sentence"
+    },
+    {
+      "src": "take2",
+      "from_s": 698.3,
+      "to_s": 805.5,
+      "reason": "skill four, iteration speed (chef tasting the soup, dictate, shortcuts, tie to a metric, scope creep) — no slide in the original deck covers it (it is slide 04 of the Personal AI OS deck)"
+    },
+    {
+      "src": "take2",
+      "from_s": 828.2,
+      "to_s": 832.3,
+      "reason": "'The sources provide a brilliant mental model…' — attribution, removed"
+    },
+    {
+      "src": "take2",
+      "from_s": 928.7,
+      "to_s": 1124.8,
+      "reason": "three unmapped stretches in one run: skill six, unemployment insurance / job stacking (15:29–17:12); building in public / AI discoverability (17:12–18:29); and the wrap-up's history recap (18:29–18:44). No slide in the original deck covers them. The six-skills half of that recap is kept, on slide 6"
+    }
+  ]
+}

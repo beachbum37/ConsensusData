@@ -11,129 +11,451 @@
       "src": "take2",
       "slide": 1,
       "from": "The media often gets",
+      "to": "the benchmark scores.",
+      "note": "hype cycle"
+    },
+    {
+      "src": "take2",
+      "slide": 1,
+      "from": "But by connecting today",
+      "to": "is actually moving.",
+      "note": "the bigger picture of history"
+    },
+    {
+      "src": "take2",
+      "slide": 1,
+      "from": "Because to understand what AI means",
       "to": "how technology drives human progress.",
-      "note": "framing: hype cycle vs the bigger picture of history; sets up the historical mechanism"
+      "note": "sets up the historical mechanism"
     },
     {
       "src": "take2",
       "slide": 3,
       "from": "asking how powerful is this",
+      "to": "the economic mechanism entirely.",
+      "note": "bar exam / Model T in a vacuum"
+    },
+    {
+      "src": "take2",
+      "slide": 3,
+      "from": "Isn't that exactly what the massive",
+      "to": "selling right now?",
+      "note": "the challenge"
+    },
+    {
+      "src": "take2",
+      "slide": 3,
+      "from": "Like, they are signing massive",
       "to": "fundamentally restructure the economy.",
-      "note": "the great misdirection: bar exam / Model T in a vacuum; enterprise trap: engineers 10-20% faster"
+      "note": "enterprise trap: 10-20% faster"
     },
     {
       "src": "take2",
       "slide": 4,
       "from": "The velvet rope of specialized expertise.",
+      "to": "The velvet rope of specialized expertise.",
+      "note": "names the concept"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "historically, if you wanted",
+      "to": "incredible barriers to entry.",
+      "note": "'Right, what does that mean' Q and 'Well,' out"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "You needed massive amounts of capital",
       "to": "trapped behind that velvet rope.",
-      "note": "velvet rope defined; historical barriers"
+      "note": "'couch / No, not at all' out"
     },
     {
       "src": "take2",
       "slide": 4,
       "from": "when that rope finally drops.",
       "to": "fundamentally changes human psychology.",
-      "gap_before": 0.12,
-      "note": "domino effect — 'the sources lay out this five-step domino effect for what happens' trimmed out mid-sentence"
+      "note": "domino effect; attribution trimmed",
+      "gap_before": 0.12
     },
     {
       "src": "take2",
       "slide": 4,
       "from": "Right, because the stakes are zero",
       "to": "influx of diverse participants.",
-      "note": "Stradivarius line before this is out by request"
+      "note": "Stradivarius out"
     },
     {
       "src": "take2",
       "slide": 4,
       "from": "Exactly, and that influx",
+      "to": "to foundational infrastructure.",
+      "note": "experimentation -> new markets -> infrastructure"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "We saw this with the printing press",
+      "to": "the scientific revolution.",
+      "note": "'That's the key transition' out; printing press"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "Because scientists could suddenly",
+      "to": "physical movement and the automobile.",
+      "note": "bridge to the automobile"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "It was a dangerous, totally impractical",
+      "to": "logistics and trucking industry.",
+      "note": "'perfect example' and 'Like a hobby' out"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "I always look at early cars",
+      "to": "the suburban straw coming.",
+      "note": "judging the past"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "but honestly, looking at a Model T",
+      "to": "$1,000 VR headsets today.",
+      "note": "'Hindsight is 20/20 / It is,' out"
+    },
+    {
+      "src": "take2",
+      "slide": 4,
+      "from": "You put one on, you get dizzy",
       "to": "reshape society.",
-      "note": "experimentation -> new markets; printing press; automobile; Model T / VR luxury phase (musicians/garages Q&A before this is out with the violin)"
+      "note": "'That's a really good point' out; luxury phase"
     },
     {
       "src": "take2",
       "slide": 5,
       "from": "The only question that truly matters",
-      "to": "how do you actually use this?",
-      "note": "generic capability made accessible -> the individual builds their own; bridge to the skills"
+      "to": "accessible to ordinary workers?",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 5,
+      "from": "The real disruption isn't",
+      "to": "That is the velvet rope dropping.",
+      "note": "kitchen-table builder"
+    },
+    {
+      "src": "take2",
+      "slide": 5,
+      "from": "Which brings this right down",
+      "to": "become indispensable at work?",
+      "note": "bridge to the skills"
     },
     {
       "src": "take2",
       "slide": 6,
       "from": "We then translated that historical shift",
       "to": "your own unemployment insurance.",
-      "note": "the six skills named in one breath — the OS overview (taken from the wrap-up)"
+      "note": "six skills overview"
     },
     {
       "src": "take2",
       "slide": 7,
       "from": "this does not mean going back to school",
+      "to": "you already do.",
+      "note": "relative expert; pick one tool, one tedious workflow"
+    },
+    {
+      "src": "take2",
+      "slide": 7,
+      "from": "Maybe it's pulling data from three",
+      "to": "three miserable hours.",
+      "note": "Friday update"
+    },
+    {
+      "src": "take2",
+      "slide": 7,
+      "from": "Right, so you spend a weekend",
+      "to": "that return on investment.",
+      "note": "3h -> 20min; document ROI"
+    },
+    {
+      "src": "take2",
+      "slide": 7,
+      "from": "You actually go to your team",
+      "to": "how much time it saved",
+      "note": "show the prompt and the saving"
+    },
+    {
+      "src": "take2",
+      "slide": 7,
+      "from": "Because eventually, leadership",
       "to": "without having to start from zero.",
-      "note": "relative expert: no CS degree, Friday update 3h -> 20min, document ROI, task force, default choice"
+      "note": "task force; default choice"
     },
     {
       "src": "take2",
       "slide": 8,
       "from": "But that brings us to skill number two",
-      "to": "the trap of good enough.",
-      "note": "taste & judgment intro"
+      "to": "taste and judgment.",
+      "note": "skill two"
     },
     {
       "src": "take2",
       "slide": 8,
-      "from": "Yeah, it's the idea of an employee",
+      "from": "it's the idea of an employee",
+      "to": "multi-paragraph email.",
+      "note": "email joke, short version"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "They send it to a colleague.",
+      "to": "into a single bullet point.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "It isn't humorous, but it points",
+      "to": "degradation of intent.",
+      "note": "punchline"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "that is exactly why taste",
+      "to": "leave algorithmic fingerprints.",
+      "note": "'valid concern' Q&A out; bridge"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "It defaults to certain structures",
+      "to": "overuse M dashes.",
+      "note": "'What kind of fingerprints?' out"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "If you are someone who never uses",
+      "to": "on the line.",
+      "note": "'Those long dashes… Yes.' out"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "Because at the end of the day",
+      "to": "the strategy is brilliant.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "AI can generate the volume of work",
+      "to": "deserves your signature.",
+      "note": "'volume / sign off / Exactly' duplicate out"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "How does someone systemically develop",
+      "to": "you can find.",
+      "note": "personal library"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "You deconstruct why they are good.",
+      "to": "back to the AI.",
+      "note": "'You really break them down' out"
+    },
+    {
+      "src": "take2",
+      "slide": 8,
+      "from": "You tell it, I changed this paragraph",
       "to": "highly curated taste.",
-      "note": "email joke, algorithmic fingerprints / em dashes, your signature, personal library, feed corrections back ('The sources had a joke…' cut)"
+      "note": "'Oh, you train it. Yes.' out"
     },
     {
       "src": "take2",
       "slide": 9,
-      "from": "Here's where it gets really interesting though.",
+      "from": "If I'm spending all this time",
+      "to": "from the jump?",
+      "note": "'Here's where it gets interesting' out"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "skill number three.",
       "to": "Everyone talks about prompt engineering, but",
-      "note": "skill three: prompt vs context"
+      "note": "'Yes, which leads… / Right,' out"
     },
     {
       "src": "take2",
       "slide": 9,
       "from": "that's actually a dying art.",
+      "to": "weren't very smart.",
+      "note": "attribution trimmed",
+      "gap_before": 0.08
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "As the underlying models get",
+      "to": "is context engineering.",
+      "note": "'Oh, really? Yeah.' out"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "Prompts are how you ask a question.",
+      "to": "and then walk away.",
+      "note": "'Let's define… confuse the two' out; intern, short version"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "you have to sit them down.",
+      "to": "the core business.",
+      "note": "'They panic… unmoored' out"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "And AI requires that exact same onboarding.",
+      "to": "every time they have a problem.",
+      "note": "'campaigns / budget / background' out; AIOS"
+    },
+    {
+      "src": "take2",
+      "slide": 9,
+      "from": "When you do that, the AI has amnesia.",
       "to": "It doesn't know you.",
-      "gap_before": 0.08,
-      "note": "'the research suggests' trimmed mid-sentence; intern analogy, AIOS, amnesia"
+      "note": "'starting from scratch' restatement out"
     },
     {
       "src": "take2",
       "slide": 10,
       "from": "Okay, but what does feeding it context",
+      "to": "or a custom GPT.",
+      "note": "persistent context"
+    },
+    {
+      "src": "take2",
+      "slide": 10,
+      "from": "These are essentially private digital",
+      "to": "your quarterly goals.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 10,
+      "from": "you create a secure walled garden",
       "to": "practically step in and do your job.",
-      "note": "persistent context: your transcripts, emails, proprietary SOPs, walled garden of your files — the value is your business context"
+      "note": ""
     },
     {
       "src": "take2",
       "slide": 11,
       "from": "That brings us to skill five.",
-      "to": "So how do you manage that risk?",
-      "note": "Jarvis / background workflows and the risk of removing the human"
+      "to": "has to be airtight.",
+      "note": "Jarvis; the risk"
     },
     {
       "src": "take2",
       "slide": 11,
       "from": "It's about distinguishing between",
+      "to": "a slot machine.",
+      "note": "attribution line before this out"
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "A vending machine is completely deterministic.",
+      "to": "highly variable outputs.",
+      "note": "vending vs slot"
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "Sometimes it hits the jackpot",
+      "to": "knowing when not to use AI.",
+      "note": "angry client; hallucination; when not to"
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "In a corporate environment where everyone",
+      "to": "cheaper and safer.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "That person signals they actually",
+      "to": "not just tech hype.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 11,
+      "from": "It's about using the right tool",
       "to": "the right tool for the job.",
-      "note": "vending machine vs slot machine; Stripe->Slack; angry client; knowing when not to use AI ('The sources provide a brilliant mental model' cut)"
+      "note": "closer"
     },
     {
       "src": "take2",
       "slide": 12,
       "from": "So we've got a context-rich",
+      "to": "So we've got a context-rich AI-less.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 12,
+      "from": "We've built smart background workflows",
+      "to": "cloned your output.",
+      "note": ""
+    },
+    {
+      "src": "take2",
+      "slide": 12,
+      "from": "You are easily doing the work",
       "to": "the work of a five-person team.",
-      "note": "cloned output, five-person team"
+      "note": ""
     },
     {
       "src": "take2",
       "slide": 13,
-      "from": "It's a completely new paradigm",
+      "from": "the most empowering takeaway",
+      "to": "to mull over on your own.",
+      "note": "don't quit your job; your desk; the provocative thought"
+    },
+    {
+      "src": "take2",
+      "slide": 13,
+      "from": "We talked about history.",
+      "to": "is that gonna create?",
+      "note": "printing press, automobile, AI"
+    },
+    {
+      "src": "take2",
+      "slide": 13,
+      "from": "20 years from now, will the traditional",
+      "to": "will even look like.",
+      "note": "'I mean,' and 'million dollar question' out"
+    },
+    {
+      "src": "take2",
+      "slide": 13,
+      "from": "Thank you so much for joining us",
       "to": "we will catch you next time.",
-      "note": "closing: don't quit your job, look at your desk, drop the velvet rope on your own expertise; the provocative send-off"
+      "note": "sign-off"
     }
   ],
   "discard_notes": [
@@ -187,12 +509,6 @@
     },
     {
       "src": "take2",
-      "from_s": 392.9,
-      "to_s": 394.4,
-      "reason": "'That makes total sense.' — glue"
-    },
-    {
-      "src": "take2",
       "from_s": 404.2,
       "to_s": 410.4,
       "reason": "'The sources had a joke about this…' / 'The email joke.' — attribution, removed"
@@ -220,6 +536,300 @@
       "from_s": 928.7,
       "to_s": 1124.8,
       "reason": "three unmapped stretches in one run: skill six, unemployment insurance / job stacking (15:29–17:12); building in public / AI discoverability (17:12–18:29); and the wrap-up's history recap (18:29–18:44). No slide in the original deck covers them. The six-skills half of that recap is kept, on slide 6"
+    },
+    {
+      "src": "take2",
+      "from_s": 33.0,
+      "to_s": 34.8,
+      "reason": "'Shiny new toy. - Exactly.' — reactive glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 48.4,
+      "to_s": 50.0,
+      "reason": "'Okay, let's unpack this.' — segue only"
+    },
+    {
+      "src": "take2",
+      "from_s": 253.4,
+      "to_s": 254.9,
+      "reason": "'Wait, let's challenge that a bit.' — segue only"
+    },
+    {
+      "src": "take2",
+      "from_s": 258.0,
+      "to_s": 258.9,
+      "reason": "'Oh, so?' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 69.6,
+      "to_s": 71.9,
+      "reason": "'Right, what does that actually mean in this context? - Well,' — question adds nothing"
+    },
+    {
+      "src": "take2",
+      "from_s": 82.4,
+      "to_s": 84.6,
+      "reason": "'You could just do it from your couch. - No, not at all.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 142.6,
+      "to_s": 143.9,
+      "reason": "'That's the key transition.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 174.7,
+      "to_s": 177.0,
+      "reason": "'Oh, the early automobile is a perfect example.' — restates the previous line"
+    },
+    {
+      "src": "take2",
+      "from_s": 183.3,
+      "to_s": 184.2,
+      "reason": "'Like a hobby.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 208.7,
+      "to_s": 210.9,
+      "reason": "'Hindsight is 20/20. - It is,' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 218.4,
+      "to_s": 219.7,
+      "reason": "'That's a really good point.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 289.8,
+      "to_s": 290.8,
+      "reason": "'Ah, okay.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 304.0,
+      "to_s": 304.9,
+      "reason": "'Wow, yeah.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 315.7,
+      "to_s": 317.8,
+      "reason": "'Right, how do you actually use this?' — repeats the question just asked"
+    },
+    {
+      "src": "take2",
+      "from_s": 347.9,
+      "to_s": 348.8,
+      "reason": "'Like what?' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 357.6,
+      "to_s": 358.7,
+      "reason": "'Ah, the worst.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 366.3,
+      "to_s": 368.5,
+      "reason": "'You actually show your work. - Yes. - Yeah.' — restatement and glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 375.7,
+      "to_s": 376.7,
+      "reason": "'I see.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 392.9,
+      "to_s": 394.4,
+      "reason": "'That makes total sense.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 401.0,
+      "to_s": 410.9,
+      "reason": "'Ah, yes, the trap of good enough.' (glue) and 'The sources had a joke… The email joke. Yeah,' (attribution)"
+    },
+    {
+      "src": "take2",
+      "from_s": 421.6,
+      "to_s": 422.6,
+      "reason": "'Right.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 434.9,
+      "to_s": 454.4,
+      "reason": "email joke abbreviated: the 'breakdown of authentic communication / human connection' exchange and 'It's a completely valid concern' — cut by request"
+    },
+    {
+      "src": "take2",
+      "from_s": 460.8,
+      "to_s": 461.8,
+      "reason": "'What kind of fingerprints?' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 469.0,
+      "to_s": 473.0,
+      "reason": "'Those long dashes used to separate thoughts? - Yes.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 497.2,
+      "to_s": 502.1,
+      "reason": "'The AI can generate the volume, but you have to sign off on it. - Exactly.' — the next line says the same thing"
+    },
+    {
+      "src": "take2",
+      "from_s": 521.4,
+      "to_s": 522.8,
+      "reason": "'You really break them down.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 532.2,
+      "to_s": 534.4,
+      "reason": "'Oh, you train it. - Yes.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 547.8,
+      "to_s": 549.8,
+      "reason": "'Here's where it gets really interesting though.' — segue only"
+    },
+    {
+      "src": "take2",
+      "from_s": 559.1,
+      "to_s": 561.4,
+      "reason": "'Yes, which leads to the next step. - Right,' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 575.2,
+      "to_s": 576.9,
+      "reason": "'Oh, really? - Yeah.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 587.0,
+      "to_s": 590.3,
+      "reason": "'Let's define the mechanical difference there. 'Cause I think a lot of people confuse the two.' — segue only"
+    },
+    {
+      "src": "take2",
+      "from_s": 606.6,
+      "to_s": 619.0,
+      "reason": "intern analogy abbreviated: 'They panic… guess… unmoored from your company' and 'Right,' — cut by request"
+    },
+    {
+      "src": "take2",
+      "from_s": 622.4,
+      "to_s": 629.8,
+      "reason": "intern analogy abbreviated: past campaigns, budget, brand guidelines — cut by request"
+    },
+    {
+      "src": "take2",
+      "from_s": 632.4,
+      "to_s": 633.6,
+      "reason": "'You have to give it the background.' — restatement"
+    },
+    {
+      "src": "take2",
+      "from_s": 647.3,
+      "to_s": 649.5,
+      "reason": "'It's like starting from scratch every single time.' — restatement"
+    },
+    {
+      "src": "take2",
+      "from_s": 669.5,
+      "to_s": 670.4,
+      "reason": "'Okay, what are those?' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 682.2,
+      "to_s": 683.9,
+      "reason": "'So it remembers everything. - Yes,' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 826.7,
+      "to_s": 832.3,
+      "reason": "'So how do you manage that risk?' (glue) and 'The sources provide a brilliant mental model…' (attribution)"
+    },
+    {
+      "src": "take2",
+      "from_s": 835.7,
+      "to_s": 837.3,
+      "reason": "'I really love this analogy.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 867.1,
+      "to_s": 869.0,
+      "reason": "'You don't know what you're gonna get. - Exactly.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 889.5,
+      "to_s": 890.4,
+      "reason": "'Yes.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 903.1,
+      "to_s": 904.0,
+      "reason": "'Right.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 907.3,
+      "to_s": 908.2,
+      "reason": "'Precisely.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 913.2,
+      "to_s": 916.0,
+      "reason": "'We are iterating like a chef in the kitchen.' — refers to the cut iteration section"
+    },
+    {
+      "src": "take2",
+      "from_s": 925.7,
+      "to_s": 926.5,
+      "reason": "'Exactly.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 1151.2,
+      "to_s": 1155.7,
+      "reason": "'It's a completely new paradigm for managing a career. - It really is. - And' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 1173.5,
+      "to_s": 1174.4,
+      "reason": "'Let's hear it.' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 1205.9,
+      "to_s": 1208.7,
+      "reason": "'That is the million dollar question. - I mean,' — glue"
+    },
+    {
+      "src": "take2",
+      "from_s": 1226.8,
+      "to_s": 1227.9,
+      "reason": "'It certainly does.' — glue"
     }
   ]
 }

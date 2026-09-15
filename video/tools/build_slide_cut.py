@@ -53,6 +53,31 @@ def slide_image(plan, sid):
     if str(sid) in files: return Path(files[str(sid)])
     return Path(plan["slides_dir"]) / f"slide{int(sid):02d}.png"
 
+def load_wave(f, sr=16000):
+    import numpy as np
+    raw = subprocess.run(["ffmpeg","-nostdin","-loglevel","error","-i",f,"-vn","-ac","1","-ar",str(sr),"-f","f32le","-"],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, dtype=np.float32)
+
+def trough_snap(x, t, direction, reach=0.10, win=0.01, sr=16000):
+    """Move a cut edge *outward* (into discarded audio) to the quietest 10ms within `reach`,
+    if that trough is >= 6 dB below the level at the transcript boundary. Word timestamps
+    land a few tens of ms off; a human editor cuts in the dip between words, not on the
+    timestamp. direction=+1 for a span end (search later), -1 for a span start (search earlier)."""
+    import numpy as np
+    n = int(win*sr)
+    def lvl(a):
+        seg = x[max(0,int(a*sr)):max(0,int(a*sr))+n]
+        return 20*np.log10(np.sqrt((seg**2).mean())+1e-9) if len(seg) else -99
+    base = lvl(t - win if direction > 0 else t)
+    best_t, best = t, base
+    k = 0.0
+    while k <= reach:
+        tt = t + direction*k; v = lvl(tt - win if direction > 0 else tt)
+        if v < best: best, best_t = v, tt
+        k += win/2
+    return round(best_t, 3) if best <= base - 6 else t
+
 def voiced_bounds(f, a, b, thr=-40, mind=0.25):
     """Trim [a,b] to the first and last voiced audio inside it. Word timestamps
     from DTW can smear a short sentence across a long gap; the waveform cannot."""
@@ -75,6 +100,7 @@ def main():
     plan = json.loads(Path(a.plan).read_text()); W = Path(a.work); W.mkdir(parents=True, exist_ok=True)
     words = {n: load_words(f"edit/transcripts/{n}.json") for n in plan["sources"]}
     dur = {n: float(subprocess.run(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",f],capture_output=True,text=True).stdout) for n,f in plan["sources"].items()}
+    waves = {n: load_wave(f) for n, f in plan["sources"].items()}
 
     # ---- resolve segments ------------------------------------------------
     segs, cursor = [], {n: 0 for n in words}
@@ -85,6 +111,10 @@ def main():
         # pad outward but never into a neighbouring kept word
         st = max(0.0, st - a.pad_in, w[i0-1]["end"] if i0 > 0 else 0.0)
         en = min(dur[s["src"]], en + a.pad_out, w[i1+1]["start"] if i1+1 < len(w) else dur[s["src"]])
+        # cut in the dip between words, not on the timestamp (never inward past the kept word)
+        x = waves[s["src"]]
+        if i0 > 0: st = min(st, trough_snap(x, w[i0]["start"], -1))
+        if i1+1 < len(w): en = max(en, trough_snap(x, w[i1]["end"], +1))
         # snap to the waveform, then re-apply a small pad inside the voiced region
         va, vb, dead = voiced_bounds(plan["sources"][s["src"]], st, en)
         st2 = max(st, va - 0.05); en2 = min(en, vb + 0.10)
@@ -183,7 +213,7 @@ def main():
     for i, r in enumerate(runs):
         p = W / f"v{i:02d}.mp4"; img = slide_image(plan, r["slide"])
         run(["ffmpeg","-y","-nostdin","-loop","1","-framerate","30","-i",str(img),"-t",f"{r['hold']:.3f}",
-             "-vf","scale=1920:1080,format=yuv420p","-c:v","libx264","-preset","fast","-crf","18","-r","30",str(p)])
+             "-vf","scale=1920:1080,format=yuv420p","-c:v","libx264","-preset","veryfast","-tune","stillimage","-crf","18","-r","30",str(p)])
         vparts.append(p)
     vl = W / "video.txt"; vl.write_text("".join(f"file '{p.resolve()}'\n" for p in vparts))
     run(["ffmpeg","-y","-nostdin","-f","concat","-safe","0","-i",str(vl),"-i",str(audio),
