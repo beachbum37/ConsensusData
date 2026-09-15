@@ -83,3 +83,63 @@ so a second deck does not need to be renumbered into the first.
 and **1 of the 5 Personal-AI-OS slides** (03, which is old slide 9 redesigned).
 Original slides 1, 7, 8, 11, 12, 13 and OS slides 01, 02, 04, 05 have nothing in
 the recordings that serves them. 98.3s kept, 127.5s discarded — see the log.
+
+### v5 — the second recording (`take2.mp3`), original deck only
+
+A new 20.6-minute recording (`take2.mp3`, the Audiomass export) walks the whole
+deck in order: history → velvet rope → six skills → wrap-up. v5 is built from
+this recording alone, against the 13 original slides, in slide order.
+
+**Pipeline for a new recording** (all from `video/footage/scifi/`):
+
+```
+whisper-cli -m ggml-small.en.bin -f take2.wav --dtw small.en -ml 1 -oj -of take2.dtw
+python3 ../../tools/dtw_to_words.py take2.dtw.json -o edit/transcripts/take2.json
+python3 ../../tools/sentence_table.py edit/transcripts/take2.json take2.mp3 --src take2 -o edit/sentences.json --append
+python3 ../../tools/filler_pass.py take2.mp3 --context edit/transcripts/take2.json   # 1 filler: a deliberate "Ah" — kept
+python3 ../../tools/build_slide_cut.py edit/plan.json -o edit/scifi-cut-v5.mp4
+```
+
+**Mapping.** The recording's running order differs from the deck's in two places,
+so the plan reorders: the "wrong questions" passage (bar exam, Model T in a
+vacuum, engineers 10% faster) is spoken *after* the velvet-rope history but sits
+on slide 3, *before* it; and the six-skills recap from the wrap-up is used as the
+overview on slide 6, ahead of the skills themselves. Everything else runs in
+source order. 12 of 13 slides have narration:
+
+| Slide | Source | What |
+|---|---|---|
+| 1 | 0:26–1:00 | hype cycle vs the bigger picture of history |
+| 3 | 4:00–4:38 | bar exam / Model T in a vacuum; the enterprise trap |
+| 4 | 1:06–3:52 | velvet rope, domino effect, printing press, automobile, luxury phase |
+| 5 | 4:39–5:17 | expertise made accessible; the kitchen-table builder |
+| 6 | 18:44–19:11 | the six skills named in one breath |
+| 7 | 5:23–6:33 | relative expert, Friday update, ROI, task force |
+| 8 | 6:34–9:07 | taste: email joke, em dashes, signature, library |
+| 9 | 9:07–10:54 | prompt vs context, the intern, AIOS, amnesia |
+| 10 | 10:54–11:38 | persistent context: your transcripts, SOPs, walled garden |
+| 11 | 13:25–15:10 | Jarvis; vending machine vs slot machine |
+| 12 | 15:10–15:28 | cloned output, five-person team |
+| 13 | 19:11–20:35 | don't quit your job; the provocative send-off |
+
+**Slide 2 (The Plumber's Hedge) has no narration in this recording** — nothing
+mentions trades, plumbers or a hedge. The only take that serves it is the old
+`Note.mp3` opener used in v1–v4.
+
+**Attribution lines removed** (the brief: no "the sources" / "the research"):
+six occurrences. Three were whole sentences and are cut at sentence boundaries;
+three were trimmed *inside* a sentence with a tight join — `"gap_before"` on a
+segment overrides the default pause, so "…prompt engineering, but [the research
+suggests] that's actually a dying art" plays with a 0.08s join instead of a
+0.4s pause. Also out: the Stradivarius line and its musicians/garages follow-up
+(violin, by request), and the hosts' bridges that only made sense in the
+original order.
+
+**Unmapped and logged** (`discards.md`): skill four *iteration speed* (1:47),
+skill six *job stacking* (1:43), *building in public* (1:00), and the history
+half of the wrap-up. None has a slide in the original deck; the first is slide
+04 of the Personal AI OS deck.
+
+Result: 14:22, 15 audio spans, 12 slides, no silence over 1s, levels −19 dB mean.
+Every slide transition was frame-checked against the slide PNGs.
+`edit/scifi-cut-v5.mp4` is the 1080p master; `-preview.mp4` is the 720p copy.

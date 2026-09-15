@@ -141,7 +141,7 @@ def main():
             sp = spans[-1]; sp["end"] = max(sp["end"], s["end"])
             sp["cues"].append({"slide": s["slide"], "at": s["start"]}); sp["text"] += " " + s["text"]
         else:
-            spans.append({"src": s["src"], "start": s["start"], "end": s["end"],
+            spans.append({"src": s["src"], "start": s["start"], "end": s["end"], "gap_before": s.get("gap_before"),
                           "cues": [{"slide": s["slide"], "at": s["start"]}], "text": s["text"]})
 
     # ---- audio: per-span extract with fades, gaps between spans only ------
@@ -160,7 +160,10 @@ def main():
         for e_, en_ in zip(timeline[-len(sp["cues"]):], ends): e_["t_out"] = round(en_,3); e_["src_out"] = round(sp["start"] + (en_ - t),3)
         gap = 0.0
         if k+1 < len(spans):
+            # a segment may set "gap_before" (seconds) — used for a word-level trim inside a
+            # sentence ("but [the research suggests] that's…"), where the default pause would read as a stumble
             gap = plan["slide_gap"] if spans[k+1]["cues"][0]["slide"] != sp["cues"][-1]["slide"] else plan["gap"]
+            if spans[k+1].get("gap_before") is not None: gap = float(spans[k+1]["gap_before"])
             g = W / f"g{k:02d}.wav"; run(["ffmpeg","-y","-nostdin","-f","lavfi","-i",f"anullsrc=r=48000:cl=mono","-t",f"{gap:.3f}",str(g)]); parts.append(g)
         t += L + gap
     lst = W / "audio.txt"; lst.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))

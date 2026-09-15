@@ -1,0 +1,126 @@
+{
+  "gap": 0.4,
+  "slide_gap": 0.8,
+  "slides_dir": "/tmp/claude-0/-home-user-ConsensusData/124316ba-4bdc-53c6-81ed-77f5231474a4/scratchpad/scifi/hd",
+  "sources": {
+    "Note": "Note.mp3",
+    "Note_otter_ai (2)": "Note_otter_ai (2).mp3",
+    "Note_otter_ai (3)": "Note_otter_ai (3).mp3"
+  },
+  "segments": [
+    {
+      "src": "Note",
+      "slide": 2,
+      "from": "Many people assume",
+      "to": "safe harbor left.",
+      "note": "opener: a claim, not a reaction"
+    },
+    {
+      "src": "Note",
+      "slide": 2,
+      "from": "It's the ultimate hedge",
+      "to": "more valuable.",
+      "note": "one continuous 23s take, glue left in"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 3,
+      "from": "What is fascinating here is that the newest",
+      "to": "right now.",
+      "note": "continuous; fancy engine + shiny box"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 4,
+      "from": "It's exactly where the velvet rope",
+      "to": "plummet first.",
+      "note": "continuous 14s: rope drops → personal weapons → six skills → cost plummets; opens and closes on slide 4's own idea"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 5,
+      "from": "But the real shift happens",
+      "to": "that Johnson model.",
+      "note": "continuous 14s"
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "slide": 5,
+      "from": "It perfectly captures",
+      "to": "individual infrastructure."
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "slide": 6,
+      "from": "Exactly, it's not just",
+      "to": "your own projects.",
+      "note": "contiguous with the previous — slide cue, no cut; take ends here, the intern line moves to the OS chapter"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 10,
+      "from": "The Johnson model or the Kevin model",
+      "to": "your context.",
+      "note": "continuous 12s; the slide's own comparison header"
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "slide": "os03",
+      "from": "Like the summer intern",
+      "to": "these AI.",
+      "note": "THE PERSONAL AI OS chapter, slide 03 (prompt engineering → contextual AI OS): the intern/context take, moved from old slide 9"
+    }
+  ],
+  "discards": "auto",
+  "discard_notes": [
+    {
+      "src": "Note",
+      "from_s": 0,
+      "to_s": 12.15,
+      "reason": "pre-roll: 'That is such a classic take' smeared over a 6s gap; reacts to something not in the recording"
+    },
+    {
+      "src": "Note",
+      "from_s": 35.02,
+      "to_s": 70.64,
+      "reason": "35.6s UNMAPPED: 'Let's unpack how we get there using history as our guide' (12 words smeared across 11s of near-silence), then the listener interjection 'You're doubling down on the plumber idea…', the 'did someone just break the fourth wall' reaction, and the hosts' re-cover of the plumber point — its first line is kept as slide 2's opener, the rest repeats slide 2"
+    },
+    {
+      "src": "Note",
+      "from_s": 73.76,
+      "to_s": 78.23,
+      "reason": "second telling of the sink-pipe line (first is kept), then 'True, but even a…' which the recording cuts off"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from_s": 0,
+      "to_s": 13.0,
+      "reason": "'Oh, hey there' greeting, blank, then 'Oh, I absolutely love that. The James Johnson model. It is such a brilliant way to frame where we are headed' — a reaction to the listener"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from_s": 27.0,
+      "to_s": 56.38,
+      "reason": "29.4s — THE VIOLIN, first telling (per your note, not used), the unfinished 'fear of breaking something valuable just completely…', the listener interjection 'You are looking at the rope', and the praise echo"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from_s": 90.0,
+      "to_s": 100.6,
+      "reason": "10.6s — THE VIOLIN, second telling, 'Okay, let's unpack this with that analogy…' to the cut-off end"
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "from_s": 0,
+      "to_s": 21.25,
+      "reason": "21.3s: blank audio to 15.3s, the 'Hey there' greeting, then 'I love that the Johnson model or the cabinet model' — a reaction"
+    }
+  ],
+  "slide_files": {
+    "os01": "../../video-projects/scifi/personal-ai-os/os01.png",
+    "os02": "../../video-projects/scifi/personal-ai-os/os02.png",
+    "os03": "../../video-projects/scifi/personal-ai-os/os03.png",
+    "os04": "../../video-projects/scifi/personal-ai-os/os04.png",
+    "os05": "../../video-projects/scifi/personal-ai-os/os05.png"
+  }
+}
