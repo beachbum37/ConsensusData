@@ -3,49 +3,49 @@
     {
       "slide": 2,
       "t_in": 0.0,
-      "t_out": 34.41,
       "src": "Note",
-      "src_in": 12.07,
+      "src_in": 12.15,
+      "t_out": 34.33,
       "src_out": 46.48
     },
     {
       "slide": 4,
-      "t_in": 35.01,
-      "t_out": 53.27,
+      "t_in": 34.93,
       "src": "Note_otter_ai (2)",
-      "src_in": 8.88,
-      "src_out": 27.14
+      "src_in": 8.96,
+      "t_out": 52.97,
+      "src_out": 27.0
     },
     {
       "slide": 4,
-      "t_in": 53.57,
-      "t_out": 65.64,
+      "t_in": 52.97,
       "src": "Note_otter_ai (2)",
-      "src_in": 27.06,
-      "src_out": 39.13
+      "src_in": 27.0,
+      "t_out": 64.97,
+      "src_out": 39.0
     },
     {
       "slide": 5,
-      "t_in": 66.24,
-      "t_out": 100.28,
+      "t_in": 65.57,
       "src": "Note_otter_ai (2)",
-      "src_in": 56.1,
-      "src_out": 90.14
+      "src_in": 56.17,
+      "t_out": 99.4,
+      "src_out": 90.0
     },
     {
       "slide": 5,
-      "t_in": 100.58,
-      "t_out": 117.92,
+      "t_in": 99.7,
       "src": "Note_otter_ai (3)",
-      "src_in": 15.95,
-      "src_out": 33.29
+      "src_in": 19.17,
+      "t_out": 113.94,
+      "src_out": 33.41
     },
     {
       "slide": 9,
-      "t_in": 118.52,
-      "t_out": 127.394,
+      "t_in": 113.94,
       "src": "Note_otter_ai (3)",
-      "src_in": 33.21,
+      "src_in": 33.41,
+      "t_out": 122.614,
       "src_out": 42.084
     }
   ],
@@ -53,27 +53,27 @@
     {
       "slide": 2,
       "t_in": 0.0,
-      "t_out": 34.41,
-      "hold": 35.01
+      "t_out": 34.33,
+      "hold": 34.93
     },
     {
       "slide": 4,
-      "t_in": 35.01,
-      "t_out": 65.64,
-      "hold": 31.229999999999997
+      "t_in": 34.93,
+      "t_out": 64.97,
+      "hold": 30.639999999999993
     },
     {
       "slide": 5,
-      "t_in": 66.24,
-      "t_out": 117.92,
-      "hold": 52.28
+      "t_in": 65.57,
+      "t_out": 113.94,
+      "hold": 48.370000000000005
     },
     {
       "slide": 9,
-      "t_in": 118.52,
-      "t_out": 127.394,
-      "hold": 8.873999999999981
+      "t_in": 113.94,
+      "t_out": 122.614,
+      "hold": 8.673999999999992
     }
   ],
-  "total": 127.394
+  "total": 122.614
 }

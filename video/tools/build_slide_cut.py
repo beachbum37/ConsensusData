@@ -73,18 +73,37 @@ def main():
         disc.append({**d, "start": round(st,3), "end": round(en,3), "seconds": round(en-st,2),
                      "text": " ".join(x["text"] for x in w[i0:i1+1])})
 
-    # ---- audio: per-segment extract with fades, gaps between --------------
+    # ---- merge segments that are contiguous in the source ------------------
+    # Two kept segments with nothing discarded between them are one continuous
+    # piece of speech; cutting them apart and inserting a pause would put an
+    # artificial gap and a double fade mid-sentence. They become one span, and
+    # a slide change inside it is a cue on the timeline, not an audio edit.
+    spans = []
+    for s in segs:
+        if spans and spans[-1]["src"] == s["src"] and s["start"] <= spans[-1]["end"] + 0.25:
+            sp = spans[-1]; sp["end"] = max(sp["end"], s["end"])
+            sp["cues"].append({"slide": s["slide"], "at": s["start"]}); sp["text"] += " " + s["text"]
+        else:
+            spans.append({"src": s["src"], "start": s["start"], "end": s["end"],
+                          "cues": [{"slide": s["slide"], "at": s["start"]}], "text": s["text"]})
+
+    # ---- audio: per-span extract with fades, gaps between spans only ------
     parts, timeline, t = [], [], 0.0
-    for k, s in enumerate(segs):
-        L = s["end"] - s["start"]; p = W / f"a{k:02d}.wav"
-        run(["ffmpeg","-y","-nostdin","-ss",str(s["start"]),"-t",f"{L:.3f}","-i",plan["sources"][s["src"]],
+    for k, sp in enumerate(spans):
+        L = sp["end"] - sp["start"]; p = W / f"a{k:02d}.wav"
+        run(["ffmpeg","-y","-nostdin","-ss",str(sp["start"]),"-t",f"{L:.3f}","-i",plan["sources"][sp["src"]],
              "-af",f"afade=t=in:st=0:d=0.03,afade=t=out:st={L-0.03:.3f}:d=0.03","-ar","48000","-ac","1",str(p)])
         parts.append(p)
+        for c in sp["cues"]:   # one timeline entry per slide cue inside the span
+            c_in = t + (c["at"] - sp["start"])
+            timeline.append({"slide": c["slide"], "t_in": round(c_in,3), "src": sp["src"], "src_in": round(c["at"],3)})
+        # close every cue's t_out at the next cue or the span end
+        ends = [t + (c["at"] - sp["start"]) for c in sp["cues"][1:]] + [t + L]
+        for e_, en_ in zip(timeline[-len(sp["cues"]):], ends): e_["t_out"] = round(en_,3); e_["src_out"] = round(sp["start"] + (en_ - t),3)
         gap = 0.0
-        if k+1 < len(segs):
-            gap = plan["slide_gap"] if segs[k+1]["slide"] != s["slide"] else plan["gap"]
+        if k+1 < len(spans):
+            gap = plan["slide_gap"] if spans[k+1]["cues"][0]["slide"] != sp["cues"][-1]["slide"] else plan["gap"]
             g = W / f"g{k:02d}.wav"; run(["ffmpeg","-y","-nostdin","-f","lavfi","-i",f"anullsrc=r=48000:cl=mono","-t",f"{gap:.3f}",str(g)]); parts.append(g)
-        timeline.append({"slide": s["slide"], "t_in": round(t,3), "t_out": round(t+L,3), "src": s["src"], "src_in": s["start"], "src_out": s["end"]})
         t += L + gap
     lst = W / "audio.txt"; lst.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
     audio = W / "audio.wav"; run(["ffmpeg","-y","-nostdin","-f","concat","-safe","0","-i",str(lst),"-c","copy",str(audio)])
@@ -119,6 +138,6 @@ def main():
     print(f"{'#':>2} {'slide':>5} {'out':>14}  {'src':<18} {'src range':>14}  text")
     for k, e in enumerate(timeline):
         print(f"{k:>2} {e['slide']:>5} {e['t_in']:6.2f}-{e['t_out']:6.2f}  {e['src']:<18} {e['src_in']:6.2f}-{e['src_out']:6.2f}  {segs[k]['text'][:58]}…")
-    print(f"\nslides used: {[r['slide'] for r in runs]}   total {total:.1f}s   discarded {sum(d['seconds'] for d in disc):.1f}s → edit/discards.md")
+    print(f"\n{len(spans)} audio span(s) from {len(segs)} segments; slides used: {[r['slide'] for r in runs]}   total {total:.1f}s   discarded {sum(d['seconds'] for d in disc):.1f}s → edit/discards.md")
 
 if __name__ == "__main__": main()

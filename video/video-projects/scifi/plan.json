@@ -1,33 +1,98 @@
 {
-  "gap": 0.30, "slide_gap": 0.60,
+  "gap": 0.3,
+  "slide_gap": 0.6,
   "slides_dir": "/tmp/claude-0/-home-user-ConsensusData/124316ba-4bdc-53c6-81ed-77f5231474a4/scratchpad/scifi/hd",
-  "sources": {"Note": "Note.mp3", "Note_otter_ai (2)": "Note_otter_ai (2).mp3", "Note_otter_ai (3)": "Note_otter_ai (3).mp3"},
+  "sources": {
+    "Note": "Note.mp3",
+    "Note_otter_ai (2)": "Note_otter_ai (2).mp3",
+    "Note_otter_ai (3)": "Note_otter_ai (3).mp3"
+  },
   "segments": [
-    {"src": "Note", "slide": 2, "from": "It's the ultimate hedge", "to": "as our guide",
-     "note": "complete first take of the plumber point; ends on a handoff to history (slide 4)"},
-    {"src": "Note_otter_ai (2)", "slide": 4, "from": "The James Johnson model", "to": "has to plummet first",
-     "note": "velvet rope starting to drop; cost has to plummet"},
-    {"src": "Note_otter_ai (2)", "slide": 4, "from": "Which brings me back", "to": "not going to experiment with it",
-     "note": "Stradivarius: fear of the expensive tool = the luxury phase, before the rope drops"},
-    {"src": "Note_otter_ai (2)", "slide": 5, "from": "The Johnson model, or the Kevin model", "to": "create that Johnson model",
-     "note": "personal model beats Opus/Fable; generic intelligence is a commodity engine; build your own"},
-    {"src": "Note_otter_ai (3)", "slide": 5, "from": "I love that the Johnson model", "to": "your own projects",
-     "note": "institutional luxury to individual infrastructure; personal, tailored"},
-    {"src": "Note_otter_ai (3)", "slide": 9, "from": "like the summer intern analogy", "to": null,
-     "note": "the new intern needs your business context; continuous with previous segment, slide changes under it"}
+    {
+      "src": "Note",
+      "slide": 2,
+      "from": "It's the ultimate hedge",
+      "to": "as our guide",
+      "note": "complete first take of the plumber point; ends on a handoff to history (slide 4)"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 4,
+      "from": "The James Johnson model",
+      "to": "has to plummet first",
+      "note": "velvet rope starting to drop; cost has to plummet"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 4,
+      "from": "Which brings me back",
+      "to": "not going to experiment with it",
+      "note": "Stradivarius: fear of the expensive tool = the luxury phase, before the rope drops"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "slide": 5,
+      "from": "The Johnson model, or the Kevin model",
+      "to": "create that Johnson model",
+      "note": "personal model beats Opus/Fable; generic intelligence is a commodity engine; build your own"
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "slide": 5,
+      "from": "I love that the Johnson model",
+      "to": "your own projects",
+      "note": "institutional luxury to individual infrastructure; personal, tailored"
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "slide": 9,
+      "from": "like the summer intern analogy",
+      "to": null,
+      "note": "the new intern needs your business context; continuous with previous segment, slide changes under it"
+    }
   ],
   "discards": [
-    {"src": "Note", "from": "is such a classic take", "to": "classic take",
-     "reason": "recording opens mid-sentence; the clean cold open is 'It's the ultimate hedge, right?'"},
-    {"src": "Note", "from": "You're doubling down", "to": null,
-     "reason": "listener interjection + 'did someone just break the fourth wall' meta-moment, then a paraphrased re-cover of the sink-pipe point that trails off unfinished; the first take is kept"},
-    {"src": "Note_otter_ai (2)", "from": "that. The James", "to": "that.",
-     "reason": "fragment before the sentence starts"},
-    {"src": "Note_otter_ai (2)", "from": "No, the fear of breaking", "to": "It really is",
-     "reason": "unfinished sentence, then a listener interjection ('You are looking at the rope') and a praise echo that repeats 'such a brilliant way to frame it' from 10s earlier"},
-    {"src": "Note_otter_ai (2)", "from": "Okay, let's unpack this", "to": null,
-     "reason": "second telling of the Stradivarius violin, truncated; first telling is kept on slide 4"},
-    {"src": "Note_otter_ai (3)", "from": "oh hey there", "to": "hey there",
-     "reason": "interactive-mode greeting, not content"}
+    {
+      "src": "Note",
+      "from": null,
+      "to": "take",
+      "reason": "pre-roll: recording opens mid-sentence with a 6s gap inside the phrase; the clean cold open is 'It's the ultimate hedge, right?'"
+    },
+    {
+      "src": "Note",
+      "from": "You're doubling down",
+      "to": null,
+      "reason": "listener interjection + 'did someone just break the fourth wall' meta-moment, then a paraphrased re-cover of the sink-pipe point that trails off unfinished; the first take is kept"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from": "Oh,",
+      "to": "there.",
+      "reason": "interactive-mode greeting at the head of the file, not content (missed by the first transcript pass; caught by DTW)"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from": "that. The James",
+      "to": "that.",
+      "reason": "fragment before the sentence starts"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from": "No, the fear of breaking",
+      "to": "It really is",
+      "reason": "unfinished sentence, then a listener interjection ('You are looking at the rope') and a praise echo that repeats 'such a brilliant way to frame it' from 10s earlier"
+    },
+    {
+      "src": "Note_otter_ai (2)",
+      "from": "Okay, let's unpack this",
+      "to": null,
+      "reason": "second telling of the Stradivarius violin, truncated; first telling is kept on slide 4"
+    },
+    {
+      "src": "Note_otter_ai (3)",
+      "from": "Hey",
+      "to": "there.",
+      "reason": "interactive-mode greeting at 15.3s, not content; 0\u201315s is blank audio"
+    }
   ]
 }
