@@ -46,6 +46,19 @@ def span(words, frm, to, cursor):
 
 def run(cmd): subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
 
+def voiced_bounds(f, a, b, thr=-40, mind=0.25):
+    """Trim [a,b] to the first and last voiced audio inside it. Word timestamps
+    from DTW can smear a short sentence across a long gap; the waveform cannot."""
+    r = subprocess.run(["ffmpeg","-nostdin","-ss",f"{a:.3f}","-t",f"{max(0.05,b-a):.3f}","-i",f,
+                        "-af",f"silencedetect=noise={thr}dB:d={mind}","-f","null","-"],capture_output=True,text=True).stderr
+    sil = [(a+float(x), a+float(y)) for x,y in re.findall(r"silence_start: ([\d.]+)\n.*?silence_end: ([\d.]+)", r, re.S)]
+    lead = next((e for s_,e in sil if s_ <= a+0.06), None)
+    tail = next((s_ for s_,e in reversed(sil) if e >= b-0.06), None)
+    na = lead if lead and lead < b else a
+    nb = tail if tail and tail > na else b
+    longest = max((e-s_ for s_,e in sil if s_>=na and e<=nb), default=0.0)
+    return na, nb, longest
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("plan"); ap.add_argument("-o", "--out", required=True)
@@ -59,15 +72,48 @@ def main():
     # ---- resolve segments ------------------------------------------------
     segs, cursor = [], {n: 0 for n in words}
     for s in plan["segments"]:
-        w = words[s["src"]]; st, en, i0, i1 = span(w, s.get("from"), s.get("to"), cursor[s["src"]])
+        # Anchors resolve from the start of the file every time: slide order is
+        # the spine, so plan order need not follow source order.
+        w = words[s["src"]]; st, en, i0, i1 = span(w, s.get("from"), s.get("to"), 0)
         # pad outward but never into a neighbouring kept word
         st = max(0.0, st - a.pad_in, w[i0-1]["end"] if i0 > 0 else 0.0)
         en = min(dur[s["src"]], en + a.pad_out, w[i1+1]["start"] if i1+1 < len(w) else dur[s["src"]])
-        cursor[s["src"]] = i1 + 1
-        segs.append({**s, "start": round(st,3), "end": round(en,3), "text": " ".join(x["text"] for x in w[i0:i1+1])})
+        # snap to the waveform, then re-apply a small pad inside the voiced region
+        va, vb, dead = voiced_bounds(plan["sources"][s["src"]], st, en)
+        st2 = max(st, va - 0.05); en2 = min(en, vb + 0.10)
+        if dead >= 1.5:
+            print(f"  ⚠ {s['src']} {st2:.2f}-{en2:.2f} has {dead:.1f}s of dead air inside — check the anchors", file=sys.stderr)
+        segs.append({**s, "start": round(st2,3), "end": round(en2,3), "dead": round(dead,2),
+                     "text": " ".join(x["text"] for x in w[i0:i1+1])})
 
     # ---- resolve discards (the record the brief asks for) ----------------
     disc = []
+    if plan.get("discards") == "auto":
+        # Everything not kept, per source, labelled from the sentence table when
+        # one exists. This is the complete record — nothing is dropped unlogged.
+        sent = json.loads(Path("edit/sentences.json").read_text()) if Path("edit/sentences.json").exists() else []
+        for n, f in plan["sources"].items():
+            kept = sorted((x["start"], x["end"]) for x in segs if x["src"] == n)
+            t, gaps = 0.0, []
+            for a_, b_ in kept:
+                if a_ > t + 0.3: gaps.append((t, a_))
+                t = max(t, b_)
+            if dur[n] > t + 0.3: gaps.append((t, dur[n]))
+            for a_, b_ in gaps:
+                ss = [x for x in sent if x["src"] == n and x["end"] > a_ + 0.05 and x["start"] < b_ - 0.05]
+                kinds = {x["kind"] for x in ss}; quiet = any(x["mean"] < -45 for x in ss)
+                if not ss: why = "no speech (blank audio)"
+                elif kinds == {"banter"}: why = "host banter / reactive glue"
+                elif quiet: why = "too quiet to use (below -45 dB)"
+                else: why = "no slide this serves, a repeat of a point already kept, or an interjection"
+                # a human-written note for this range wins over the category label
+                for note in plan.get("discard_notes", []):
+                    if note["src"] == n and note["from_s"] < b_ and note["to_s"] > a_ and \
+                       min(b_, note["to_s"]) - max(a_, note["from_s"]) >= 0.5 * (b_ - a_):
+                        why = note["reason"]
+                disc.append({"src": n, "start": round(a_,3), "end": round(b_,3), "seconds": round(b_-a_,2),
+                             "reason": why, "text": " ".join(x["text"] for x in ss) or "—"})
+        plan["discards"] = []
     for d in plan["discards"]:
         w = words[d["src"]]; st, en, i0, i1 = span(w, d.get("from"), d.get("to"), 0)
         disc.append({**d, "start": round(st,3), "end": round(en,3), "seconds": round(en-st,2),
@@ -80,7 +126,9 @@ def main():
     # a slide change inside it is a cue on the timeline, not an audio edit.
     spans = []
     for s in segs:
-        if spans and spans[-1]["src"] == s["src"] and s["start"] <= spans[-1]["end"] + 0.25:
+        # adjacency means the new segment begins where the span ends — not merely
+        # somewhere before it, which a reordered plan makes common
+        if spans and spans[-1]["src"] == s["src"] and spans[-1]["end"] - 0.05 <= s["start"] <= spans[-1]["end"] + 0.25:
             sp = spans[-1]; sp["end"] = max(sp["end"], s["end"])
             sp["cues"].append({"slide": s["slide"], "at": s["start"]}); sp["text"] += " " + s["text"]
         else:
@@ -92,7 +140,8 @@ def main():
     for k, sp in enumerate(spans):
         L = sp["end"] - sp["start"]; p = W / f"a{k:02d}.wav"
         run(["ffmpeg","-y","-nostdin","-ss",str(sp["start"]),"-t",f"{L:.3f}","-i",plan["sources"][sp["src"]],
-             "-af",f"afade=t=in:st=0:d=0.03,afade=t=out:st={L-0.03:.3f}:d=0.03","-ar","48000","-ac","1",str(p)])
+             "-af",f"loudnorm=I=-16:TP=-1.5:LRA=11,afade=t=in:st=0:d=0.03,afade=t=out:st={L-0.03:.3f}:d=0.03",
+             "-ar","48000","-ac","1",str(p)])
         parts.append(p)
         for c in sp["cues"]:   # one timeline entry per slide cue inside the span
             c_in = t + (c["at"] - sp["start"])
@@ -116,6 +165,8 @@ def main():
     total = t
     for i, r in enumerate(runs):   # each run holds until the next run starts (covers the gap)
         r["hold"] = (runs[i+1]["t_in"] if i+1 < len(runs) else total) - r["t_in"]
+    if any(r["hold"] <= 0 for r in runs) or any(b["t_in"] < a["t_in"] for a, b in zip(timeline, timeline[1:])):
+        sys.exit("timeline is not monotonic — a span merged segments that are not adjacent")
     vparts = []
     for i, r in enumerate(runs):
         p = W / f"v{i:02d}.mp4"; img = Path(plan["slides_dir"]) / f"slide{r['slide']:02d}.png"
