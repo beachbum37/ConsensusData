@@ -46,4 +46,4 @@ or are interjections / fourth-wall moments rather than content. Source timestamp
 > Hey there. I love that the Johnson model or the cabinet model. It perfectly captures the shift from institutional luxury to individual infrastructure.
 
 
-Total discarded: 127.5s of 220.9s source. Kept: 97.4s.
+Total discarded: 127.5s of 220.9s source. Kept: 98.3s.

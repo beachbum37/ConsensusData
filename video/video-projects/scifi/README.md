@@ -58,8 +58,28 @@ the audio runs unbroken and the slide changes underneath — the tail of `(3)`
 plays 21s straight across slides 5, 6 and 9. The Stradivarius passage is out
 in both tellings by request; the "six skills" line stays.
 
+### v4 — the "Personal AI OS" chapter appended
+
+A second deck, `The_Personal_AI_OS.pptx` (five image-only slides, kept in
+`personal-ai-os/`), re-issues the OS chapter: 01 Relative Expert, 02 Curate your
+taste, 03 Prompt engineering is dying → Contextual AI OS, 04 The Chef's Loop,
+05 Build your Jarvis (vending vs slot machine). 01/02/03/05 are redesigns of the
+original slides 7/8/9/11; 04 is new.
+
+Every transcript variant was searched for the five slides' material (degree,
+Friday update, workflow, taste, em-dash, dictate, metric, vending, slot machine,
+deterministic, Jarvis, prompt, context, intern…). Only slide 03 has narration:
+the summer-intern / business-context take in `(3)` 33.4–42.1s. It now closes the
+video under the new slide 03 instead of sitting under old slide 9 mid-run; the
+`(3)` take therefore ends on slide 6 ("…your own projects.") and the cut lands in
+the 130ms gap before "Like the summer intern" — no word is clipped. Slides 01,
+02, 04 and 05 have **no audio anywhere in the three recordings** and are not in
+the cut. The build takes them through `plan["slide_files"]`, a name → PNG map,
+so a second deck does not need to be renumbered into the first.
+
 ## What the audio covers
 
-3.7 min of source narrates **7 of the 13 slides**: 2, 3, 4, 5, 6, 9, 10. Slides
-1, 7, 8, 11, 12, 13 have nothing in the recordings that serves them. 95.6s kept,
-135.3s discarded — see the log.
+3.7 min of source narrates **7 of the 13 original slides** (2, 3, 4, 5, 6, 9, 10)
+and **1 of the 5 Personal-AI-OS slides** (03, which is old slide 9 redesigned).
+Original slides 1, 7, 8, 11, 12, 13 and OS slides 01, 02, 04, 05 have nothing in
+the recordings that serves them. 98.3s kept, 127.5s discarded — see the log.

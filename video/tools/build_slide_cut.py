@@ -8,7 +8,8 @@ Segments not mapped to a slide are logged, never silently dropped.
 
 Plan format (JSON):
   {"gap": 0.30, "slide_gap": 0.60,
-   "slides_dir": "...", "sources": {"name": "file.mp3", ...},
+   "slides_dir": "...", "slide_files": {"os03": "/path/os03.png"},   # optional: named slides from another deck
+  "sources": {"name": "file.mp3", ...},
    "segments": [
      {"src": "Note", "slide": 2, "from": "It's the ultimate hedge",
       "to": "as our guide", "note": "why this maps"},
@@ -45,6 +46,12 @@ def span(words, frm, to, cursor):
     return words[i0]["start"], words[i1]["end"], i0, i1
 
 def run(cmd): subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+
+def slide_image(plan, sid):
+    """Slide ids are ints -> <slides_dir>/slideNN.png, or any key of plan["slide_files"] -> that path."""
+    files = plan.get("slide_files", {})
+    if str(sid) in files: return Path(files[str(sid)])
+    return Path(plan["slides_dir"]) / f"slide{int(sid):02d}.png"
 
 def voiced_bounds(f, a, b, thr=-40, mind=0.25):
     """Trim [a,b] to the first and last voiced audio inside it. Word timestamps
@@ -171,7 +178,7 @@ def main():
         sys.exit("timeline is not monotonic — a span merged segments that are not adjacent")
     vparts = []
     for i, r in enumerate(runs):
-        p = W / f"v{i:02d}.mp4"; img = Path(plan["slides_dir"]) / f"slide{r['slide']:02d}.png"
+        p = W / f"v{i:02d}.mp4"; img = slide_image(plan, r["slide"])
         run(["ffmpeg","-y","-nostdin","-loop","1","-framerate","30","-i",str(img),"-t",f"{r['hold']:.3f}",
              "-vf","scale=1920:1080,format=yuv420p","-c:v","libx264","-preset","fast","-crf","18","-r","30",str(p)])
         vparts.append(p)
