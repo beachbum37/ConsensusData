@@ -34,3 +34,7 @@ edit/
 # Tooling
 node_modules/
 .warmup/
+
+# Derived scratch from the transcribe step; the aligned DTW transcripts the
+# plan anchors against are tracked under video-projects/scifi/transcripts/.
+footage/scifi/*.transcript.json
