@@ -128,7 +128,9 @@ def main():
     for s in segs:
         # adjacency means the new segment begins where the span ends — not merely
         # somewhere before it, which a reordered plan makes common
-        if spans and spans[-1]["src"] == s["src"] and spans[-1]["end"] - 0.05 <= s["start"] <= spans[-1]["end"] + 0.25:
+        # lower tolerance must exceed pad_in, or a padded segment that starts a hair
+        # before the previous one ends is treated as a separate take
+        if spans and spans[-1]["src"] == s["src"] and spans[-1]["end"] - 0.20 <= s["start"] <= spans[-1]["end"] + 0.25:
             sp = spans[-1]; sp["end"] = max(sp["end"], s["end"])
             sp["cues"].append({"slide": s["slide"], "at": s["start"]}); sp["text"] += " " + s["text"]
         else:

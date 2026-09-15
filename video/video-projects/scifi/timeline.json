@@ -10,218 +10,66 @@
     },
     {
       "slide": 2,
-      "t_in": 3.47,
+      "t_in": 3.52,
       "src": "Note",
       "src_in": 12.15,
-      "t_out": 4.82,
-      "src_out": 13.5
-    },
-    {
-      "slide": 2,
-      "t_in": 5.17,
-      "src": "Note",
-      "src_in": 14.0,
-      "t_out": 7.95,
-      "src_out": 16.78
-    },
-    {
-      "slide": 2,
-      "t_in": 7.95,
-      "src": "Note",
-      "src_in": 16.78,
-      "t_out": 9.31,
-      "src_out": 18.14
-    },
-    {
-      "slide": 2,
-      "t_in": 9.66,
-      "src": "Note",
-      "src_in": 20.66,
-      "t_out": 12.414,
-      "src_out": 23.414
-    },
-    {
-      "slide": 2,
-      "t_in": 12.764,
-      "src": "Note",
-      "src_in": 23.92,
-      "t_out": 16.788,
-      "src_out": 27.944
-    },
-    {
-      "slide": 2,
-      "t_in": 17.138,
-      "src": "Note",
-      "src_in": 28.62,
-      "t_out": 20.098,
-      "src_out": 31.58
-    },
-    {
-      "slide": 2,
-      "t_in": 20.448,
-      "src": "Note",
-      "src_in": 32.21,
-      "t_out": 23.26,
+      "t_out": 26.392,
       "src_out": 35.022
     },
     {
       "slide": 3,
-      "t_in": 23.96,
+      "t_in": 27.192,
       "src": "Note_otter_ai (2)",
-      "src_in": 69.89,
-      "t_out": 27.07,
-      "src_out": 73.0
-    },
-    {
-      "slide": 3,
-      "t_in": 27.42,
-      "src": "Note_otter_ai (2)",
-      "src_in": 73.96,
-      "t_out": 29.46,
+      "src_in": 68.0,
+      "t_out": 35.192,
       "src_out": 76.0
     },
     {
       "slide": 4,
-      "t_in": 30.16,
+      "t_in": 35.992,
       "src": "Note_otter_ai (2)",
       "src_in": 13.0,
-      "t_out": 32.16,
-      "src_out": 15.0
-    },
-    {
-      "slide": 4,
-      "t_in": 32.51,
-      "src": "Note_otter_ai (2)",
-      "src_in": 22.0,
-      "t_out": 36.735,
+      "t_out": 49.217,
       "src_out": 26.225
     },
     {
-      "slide": 4,
-      "t_in": 37.085,
-      "src": "Note_otter_ai (2)",
-      "src_in": 93.0,
-      "t_out": 41.085,
-      "src_out": 97.0
-    },
-    {
-      "slide": 4,
-      "t_in": 41.085,
-      "src": "Note_otter_ai (2)",
-      "src_in": 97.0,
-      "t_out": 43.085,
-      "src_out": 99.0
-    },
-    {
-      "slide": 4,
-      "t_in": 43.435,
-      "src": "Note_otter_ai (2)",
-      "src_in": 35.96,
-      "t_out": 44.475,
-      "src_out": 37.0
-    },
-    {
-      "slide": 4,
-      "t_in": 44.475,
-      "src": "Note_otter_ai (2)",
-      "src_in": 37.0,
-      "t_out": 46.475,
-      "src_out": 39.0
-    },
-    {
-      "slide": 4,
-      "t_in": 46.825,
-      "src": "Note_otter_ai (3)",
-      "src_in": 21.487,
-      "t_out": 51.428,
-      "src_out": 26.09
-    },
-    {
       "slide": 5,
-      "t_in": 52.128,
+      "t_in": 50.017,
       "src": "Note_otter_ai (2)",
       "src_in": 76.0,
-      "t_out": 57.128,
-      "src_out": 81.0
-    },
-    {
-      "slide": 5,
-      "t_in": 57.478,
-      "src": "Note_otter_ai (2)",
-      "src_in": 82.004,
-      "t_out": 59.614,
-      "src_out": 84.14
-    },
-    {
-      "slide": 5,
-      "t_in": 59.964,
-      "src": "Note_otter_ai (2)",
-      "src_in": 84.96,
-      "t_out": 65.004,
+      "t_out": 64.017,
       "src_out": 90.0
     },
     {
       "slide": 5,
-      "t_in": 65.354,
+      "t_in": 64.417,
       "src": "Note_otter_ai (3)",
-      "src_in": 29.26,
-      "t_out": 69.584,
-      "src_out": 33.49
+      "src_in": 21.487,
+      "t_out": 68.94,
+      "src_out": 26.01
     },
     {
       "slide": 6,
-      "t_in": 70.284,
-      "src": "Note_otter_ai (2)",
-      "src_in": 15.0,
-      "t_out": 74.284,
-      "src_out": 19.0
-    },
-    {
-      "slide": 6,
-      "t_in": 74.634,
+      "t_in": 68.94,
       "src": "Note_otter_ai (3)",
-      "src_in": 26.48,
-      "t_out": 77.182,
-      "src_out": 29.028
+      "src_in": 26.01,
+      "t_out": 76.34,
+      "src_out": 33.41
     },
     {
       "slide": 9,
-      "t_in": 77.882,
+      "t_in": 76.34,
       "src": "Note_otter_ai (3)",
-      "src_in": 36.88,
-      "t_out": 81.732,
-      "src_out": 40.73
-    },
-    {
-      "slide": 9,
-      "t_in": 82.082,
-      "src": "Note_otter_ai (3)",
-      "src_in": 40.65,
-      "t_out": 83.516,
+      "src_in": 33.41,
+      "t_out": 85.014,
       "src_out": 42.084
     },
     {
       "slide": 10,
-      "t_in": 84.216,
+      "t_in": 85.814,
       "src": "Note_otter_ai (2)",
       "src_in": 56.375,
-      "t_out": 88.841,
-      "src_out": 61.0
-    },
-    {
-      "slide": 10,
-      "t_in": 88.841,
-      "src": "Note_otter_ai (2)",
-      "src_in": 61.0,
-      "t_out": 91.614,
-      "src_out": 63.773
-    },
-    {
-      "slide": 10,
-      "t_in": 91.964,
-      "src": "Note_otter_ai (2)",
-      "src_in": 64.394,
-      "t_out": 95.57,
+      "t_out": 97.439,
       "src_out": 68.0
     }
   ],
@@ -229,45 +77,45 @@
     {
       "slide": 2,
       "t_in": 0.0,
-      "t_out": 23.26,
-      "hold": 23.96
+      "t_out": 26.392,
+      "hold": 27.192
     },
     {
       "slide": 3,
-      "t_in": 23.96,
-      "t_out": 29.46,
-      "hold": 6.199999999999999
+      "t_in": 27.192,
+      "t_out": 35.192,
+      "hold": 8.799999999999997
     },
     {
       "slide": 4,
-      "t_in": 30.16,
-      "t_out": 51.428,
-      "hold": 21.968
+      "t_in": 35.992,
+      "t_out": 49.217,
+      "hold": 14.025000000000006
     },
     {
       "slide": 5,
-      "t_in": 52.128,
-      "t_out": 69.584,
-      "hold": 18.156000000000006
+      "t_in": 50.017,
+      "t_out": 68.94,
+      "hold": 18.922999999999995
     },
     {
       "slide": 6,
-      "t_in": 70.284,
-      "t_out": 77.182,
-      "hold": 7.597999999999999
+      "t_in": 68.94,
+      "t_out": 76.34,
+      "hold": 7.400000000000006
     },
     {
       "slide": 9,
-      "t_in": 77.882,
-      "t_out": 83.516,
-      "hold": 6.333999999999989
+      "t_in": 76.34,
+      "t_out": 85.014,
+      "hold": 9.47399999999999
     },
     {
       "slide": 10,
-      "t_in": 84.216,
-      "t_out": 95.57,
-      "hold": 11.354000000000013
+      "t_in": 85.814,
+      "t_out": 97.439,
+      "hold": 11.625000000000028
     }
   ],
-  "total": 95.57
+  "total": 97.439
 }

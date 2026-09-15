@@ -48,6 +48,16 @@ by host banter. v2 works a sentence at a time:
 5. **The discard log is the complement of what is kept**, tiled against each
    source to 100%, so nothing is removed unlogged.
 
+### v3 — fewer, longer takes
+
+v2 cut on every sentence (23 cuts in 96s) and read as choppy. v3 keeps the light
+conversational glue (*Exactly. Totally. Not yet, anyway.*) inside long runs and
+cuts only at slide boundaries and around genuinely off-content material:
+7 continuous takes, 6 cuts. Where consecutive takes are adjacent in the source,
+the audio runs unbroken and the slide changes underneath — the tail of `(3)`
+plays 21s straight across slides 5, 6 and 9. The Stradivarius passage is out
+in both tellings by request; the "six skills" line stays.
+
 ## What the audio covers
 
 3.7 min of source narrates **7 of the 13 slides**: 2, 3, 4, 5, 6, 9, 10. Slides

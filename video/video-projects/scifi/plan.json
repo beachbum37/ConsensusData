@@ -1,262 +1,30 @@
 {
-  "gap": 0.35,
-  "slide_gap": 0.7,
+  "gap": 0.40, "slide_gap": 0.80,
   "slides_dir": "/tmp/claude-0/-home-user-ConsensusData/124316ba-4bdc-53c6-81ed-77f5231474a4/scratchpad/scifi/hd",
-  "sources": {
-    "Note": "Note.mp3",
-    "Note_otter_ai (2)": "Note_otter_ai (2).mp3",
-    "Note_otter_ai (3)": "Note_otter_ai (3).mp3"
-  },
+  "sources": {"Note": "Note.mp3", "Note_otter_ai (2)": "Note_otter_ai (2).mp3", "Note_otter_ai (3)": "Note_otter_ai (3).mp3"},
   "segments": [
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "Many people assume",
-      "to": "safe harbor left.",
-      "note": "opener \u2014 a claim, not a reaction"
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "It's the ultimate hedge",
-      "to": "hedge, right?"
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "AI can't crawl",
-      "to": "leaky pipe."
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "Not yet, anyway.",
-      "to": "anyway."
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "You don't necessarily",
-      "to": "to be safe."
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "The goal isn't",
-      "to": "version of yours."
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "Even a plover",
-      "to": "or scheduling."
-    },
-    {
-      "src": "Note",
-      "slide": 2,
-      "from": "It's about leveraging",
-      "to": "more valuable."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 3,
-      "from": "the newest corporate model",
-      "to": "fancy engine.",
-      "note": "prefix 'What is fascinating here is' trimmed at word level"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 3,
-      "from": "It is a shiny box",
-      "to": "right now."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 4,
-      "from": "It's exactly where the velvet rope",
-      "to": "starting to drop."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 4,
-      "from": "But to get to your own personal model",
-      "to": "plummet first."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 4,
-      "from": "Think about handing a teenager",
-      "to": "Stradivarius violin.",
-      "note": "second telling \u2014 the standalone one"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 4,
-      "from": "Oh, they would be absolutely terrified",
-      "to": "even touch it."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 4,
-      "from": "They wouldn't even want to breathe",
-      "to": "breathe on it."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 4,
-      "from": "They are definitely not going",
-      "to": "experiment with it."
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "slide": 4,
-      "from": "It perfectly captures",
-      "to": "individual infrastructure.",
-      "note": "slide 4's own footer language"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 5,
-      "from": "But the real shift happens",
-      "to": "your own version."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 5,
-      "from": "So it is less about the model",
-      "to": "personal access."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 5,
-      "from": "It is about how quickly",
-      "to": "that Johnson model."
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "slide": 5,
-      "from": "It becomes something personal",
-      "to": "your own projects."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 6,
-      "from": "We are moving from using generic tools",
-      "to": "personal weapons."
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "slide": 6,
-      "from": "it's not just some distant",
-      "to": "lab anymore.",
-      "note": "'Exactly,' trimmed"
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "slide": 9,
-      "from": "and intern doesn't help",
-      "to": "business context.",
-      "note": "audio says 'an intern'; DTW heard 'and'"
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "slide": 9,
-      "from": "And the same goes",
-      "to": "these AI."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 10,
-      "from": "The Johnson model or the Kevin model",
-      "to": "Opus or Fable.",
-      "note": "the slide's own comparison header"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 10,
-      "from": "Because generic intelligence",
-      "to": "everywhere now."
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "slide": 10,
-      "from": "But the Kevin model has",
-      "to": "your context."
-    }
+    {"src":"Note","slide":2,"from":"Many people assume","to":"safe harbor left.","note":"opener: a claim, not a reaction"},
+    {"src":"Note","slide":2,"from":"It's the ultimate hedge","to":"more valuable.","note":"one continuous 23s take, glue left in"},
+
+    {"src":"Note_otter_ai (2)","slide":3,"from":"What is fascinating here is that the newest","to":"right now.","note":"continuous; fancy engine + shiny box"},
+
+    {"src":"Note_otter_ai (2)","slide":4,"from":"It's exactly where the velvet rope","to":"plummet first.","note":"continuous 14s: rope drops → personal weapons → six skills → cost plummets; opens and closes on slide 4's own idea"},
+
+    {"src":"Note_otter_ai (2)","slide":5,"from":"But the real shift happens","to":"that Johnson model.","note":"continuous 14s"},
+    {"src":"Note_otter_ai (3)","slide":5,"from":"It perfectly captures","to":"individual infrastructure."},
+    {"src":"Note_otter_ai (3)","slide":6,"from":"Exactly, it's not just","to":"your own projects.","note":"contiguous with the previous — slide cue, no cut"},
+    {"src":"Note_otter_ai (3)","slide":9,"from":"Like the summer intern","to":"these AI.","note":"contiguous — slide cue, no cut; the spoken bridge is kept"},
+
+    {"src":"Note_otter_ai (2)","slide":10,"from":"The Johnson model or the Kevin model","to":"your context.","note":"continuous 12s; the slide's own comparison header"}
   ],
   "discards": "auto",
   "discard_notes": [
-    {
-      "src": "Note",
-      "from_s": 0,
-      "to_s": 12.15,
-      "reason": "pre-roll: 'That is such a classic take' smeared over a 6s gap; reacts to something not in the recording"
-    },
-    {
-      "src": "Note",
-      "from_s": 18.14,
-      "to_s": 20.66,
-      "reason": "'But what's fascinating here is the bigger picture' \u2014 connective glue, no claim"
-    },
-    {
-      "src": "Note",
-      "from_s": 35.02,
-      "to_s": 70.64,
-      "reason": "35.6s UNMAPPED: 'Let's unpack how we get there using history as our guide' is 12 words smeared across 11s of near-silence (the inaudible stretch in v1); then the listener interjection ('You're doubling down on the plumber idea\u2026'), the 'did someone just break the fourth wall' reaction, and the hosts' re-cover of the plumber point. The re-cover's first line is kept as slide 2's opener; the rest repeats what is already on slide 2"
-    },
-    {
-      "src": "Note",
-      "from_s": 73.76,
-      "to_s": 78.23,
-      "reason": "second telling of the sink-pipe line (first is kept), then 'True, but even a\u2026' which the recording cuts off"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "from_s": 0,
-      "to_s": 13.0,
-      "reason": "'Oh, hey there' greeting, blank, 'Oh, I absolutely love that. The James Johnson model. It is such a brilliant way to frame where we are headed' \u2014 reaction to the listener, not a claim (the 'banter' v1 opened slide 4 with)"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "from_s": 19.0,
-      "to_s": 22.0,
-      "reason": "'the ultimate goal of the six skills we are covering' \u2014 the deck shows five; left out rather than narrate a number the slide contradicts"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "from_s": 26.23,
-      "to_s": 35.96,
-      "reason": "first telling of the Stradivarius violin ('Which brings me back to that teenager\u2026') \u2014 refers back to something unheard; the second, standalone telling at 93s is kept on slide 4"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "from_s": 39.0,
-      "to_s": 56.38,
-      "reason": "17.4s UNMAPPED: 'No, the fear of breaking something valuable just completely\u2026' (unfinished), the listener interjection 'You are looking at the rope', and the praise echo 'Oh, that is such a brilliant way to frame it. You hit the nail on the head. It really is'"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "from_s": 90.0,
-      "to_s": 93.0,
-      "reason": "'Okay, let's unpack this with that analogy we were just chatting about' \u2014 refers to the earlier conversation"
-    },
-    {
-      "src": "Note_otter_ai (2)",
-      "from_s": 99.0,
-      "to_s": 100.6,
-      "reason": "'They wouldn't even\u2026' \u2014 recording ends mid-sentence"
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "from_s": 0,
-      "to_s": 21.49,
-      "reason": "21.5s: blank audio to 15.3s, then the 'Hey there' greeting, then 'I love that the Johnson model or the cabinet model' \u2014 a reaction, and the slide-4 sentence that follows it is kept"
-    },
-    {
-      "src": "Note_otter_ai (3)",
-      "from_s": 33.49,
-      "to_s": 36.88,
-      "reason": "'Like the summer intern analogy we were talking about earlier' \u2014 refers back to the earlier conversation, and at \u221245 dB it is the quietest sentence in the set"
-    }
+    {"src":"Note","from_s":0,"to_s":12.15,"reason":"pre-roll: 'That is such a classic take' smeared over a 6s gap; reacts to something not in the recording"},
+    {"src":"Note","from_s":35.02,"to_s":70.64,"reason":"35.6s UNMAPPED: 'Let's unpack how we get there using history as our guide' (12 words smeared across 11s of near-silence), then the listener interjection 'You're doubling down on the plumber idea…', the 'did someone just break the fourth wall' reaction, and the hosts' re-cover of the plumber point — its first line is kept as slide 2's opener, the rest repeats slide 2"},
+    {"src":"Note","from_s":73.76,"to_s":78.23,"reason":"second telling of the sink-pipe line (first is kept), then 'True, but even a…' which the recording cuts off"},
+    {"src":"Note_otter_ai (2)","from_s":0,"to_s":13.0,"reason":"'Oh, hey there' greeting, blank, then 'Oh, I absolutely love that. The James Johnson model. It is such a brilliant way to frame where we are headed' — a reaction to the listener"},
+    {"src":"Note_otter_ai (2)","from_s":27.0,"to_s":56.38,"reason":"29.4s — THE VIOLIN, first telling (per your note, not used), the unfinished 'fear of breaking something valuable just completely…', the listener interjection 'You are looking at the rope', and the praise echo"},
+    {"src":"Note_otter_ai (2)","from_s":90.0,"to_s":100.6,"reason":"10.6s — THE VIOLIN, second telling, 'Okay, let's unpack this with that analogy…' to the cut-off end"},
+    {"src":"Note_otter_ai (3)","from_s":0,"to_s":21.25,"reason":"21.3s: blank audio to 15.3s, the 'Hey there' greeting, then 'I love that the Johnson model or the cabinet model' — a reaction"}
   ]
 }
