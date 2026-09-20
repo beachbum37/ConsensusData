@@ -17,7 +17,7 @@ layout and matches `actuary-overlays`; render each card explicitly with `-c`.
 
 | Card | Duration | Where it goes |
 |---|---|---|
-| `money-tree.html` | 2.80s | transition sting. The tree springs up, bills pop out of the canopy and flutter down, then it retracts. Bills are densest at 1.2–1.7s, so **put the hard cut 1.45s into the sting** and the join is hidden. |
+| `money-tree.html` | 3.60s | transition sting. Bare branches spring up, leaf out **in dollar bills**, then shed them — the canopy empties from the crown down and the tree is left bare but for three bills still clinging, holds and sways for a beat, then retracts. Bills are densest at 1.3–1.9s, so **put the hard cut 1.6s into the sting**. |
 | `title-card.html` | 3.20s | start of a product test. Gold `$1` badge, `PRODUCT TEST #n` kicker, product name. Anchored bottom-left — both subjects sit centre and centre-right in the living-room half, so a centred card lands on a face. |
 
 To make a second title card, copy the file and change the `#name` and `#kicker`
@@ -36,6 +36,10 @@ stream). That blocks the parts of the brief that depend on content:
 
 So the placeholder card reads "Glue That Actually Sticks?" — invented, not from
 the footage. Re-export with audio and the rest follows quickly.
+
+The green wash behind the tree is deliberately weak (0.22 alpha) and clears at
+1.95s, before the bare beat — the bare tree is the payoff, so it plays against
+clean picture rather than through a tint.
 
 ## Also worth fixing
 

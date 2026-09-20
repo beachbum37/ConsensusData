@@ -11,45 +11,63 @@
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-fun); }
 
-      /* The sting is densest in the middle of its run — that is where the hard
-         cut between scenes is meant to sit, so the join is hidden by bills. */
       #glow { position: absolute; inset: 0;
-              background: radial-gradient(ellipse 900px 700px at 50% 46%, rgba(46,158,91,0.42), transparent 68%); }
+              background: radial-gradient(ellipse 820px 640px at 50% 46%, rgba(46,158,91,0.22), transparent 70%); }
 
+      /* SVG is 1:1 with its box, so SVG (x,y) maps to page (580 + x, 200 + y).
+         The bill layout below depends on that, so don't resize one without the
+         other. */
       #tree { position: absolute; left: 50%; bottom: 0; width: 760px; height: 880px;
               margin-left: -380px; transform-origin: 50% 100%; }
 
-      /* Bills are DOM rather than SVG so each one can carry its own transform
-         stack (fall, spin, sway) without fighting the tree's group transform. */
-      .bill { position: absolute; width: 84px; height: 42px; border-radius: 7px;
+      /* The bills ARE the leaves: the canopy is built out of them, the green
+         behind is only a hint of foliage, and both clear as the bills fall so
+         the branches are left bare. */
+      .bill { position: absolute; width: 80px; height: 40px; border-radius: 7px;
               background: linear-gradient(160deg, var(--bill-light), var(--bill) 58%, var(--bill-deep));
               border: 2px solid rgba(255,255,255,0.62);
               box-shadow: 0 8px 22px rgba(0,0,0,0.42);
               display: flex; align-items: center; justify-content: center;
-              color: rgba(255,255,255,0.96); font-size: 22px; font-weight: 700;
+              color: rgba(255,255,255,0.96); font-size: 21px; font-weight: 700;
               letter-spacing: 0.02em; will-change: transform; }
-      /* Faint inner oval, the way a banknote portrait frame reads at a glance. */
       .bill::before { content: ""; position: absolute; inset: 6px 10px; border-radius: 50%;
                       border: 1.5px solid rgba(255,255,255,0.3); }
       .bill span { position: relative; z-index: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="money-tree" data-start="0" data-duration="2.80" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="money-tree" data-start="0" data-duration="3.60" data-width="1920" data-height="1080">
       <div id="glow"></div>
       <svg id="tree" viewBox="0 0 760 880" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Canopy blobs sit behind the trunk so the fork reads through them. -->
+        <!-- Foliage hint only. These fade out as the bills leave, so what's left
+             at the end is the branch structure and nothing else. -->
         <g id="canopy">
-          <circle cx="380" cy="300" r="215" fill="var(--leaf)"/>
-          <circle cx="222" cy="372" r="150" fill="var(--leaf)"/>
-          <circle cx="538" cy="372" r="150" fill="var(--leaf)"/>
-          <circle cx="300" cy="212" r="128" fill="var(--bill-light)" opacity="0.5"/>
-          <circle cx="470" cy="236" r="104" fill="var(--bill-light)" opacity="0.38"/>
+          <circle class="foliage" cx="380" cy="300" r="205" fill="var(--leaf)" opacity="0.55"/>
+          <circle class="foliage" cx="228" cy="368" r="142" fill="var(--leaf)" opacity="0.5"/>
+          <circle class="foliage" cx="532" cy="368" r="142" fill="var(--leaf)" opacity="0.5"/>
+          <circle class="foliage" cx="308" cy="216" r="118" fill="var(--bill-light)" opacity="0.32"/>
+          <circle class="foliage" cx="462" cy="238" r="98"  fill="var(--bill-light)" opacity="0.28"/>
         </g>
-        <g id="trunk">
-          <path d="M344 880 L344 470 Q344 430 380 430 Q416 430 416 470 L416 880 Z" fill="var(--bark)"/>
-          <path d="M366 486 L250 372" stroke="var(--bark)" stroke-width="34" stroke-linecap="round"/>
-          <path d="M394 470 L512 366" stroke="var(--bark)" stroke-width="34" stroke-linecap="round"/>
+        <!-- Branches carry the bare state, so there is enough structure here to
+             look like a tree with nothing on it, not a stick. -->
+        <g id="trunk" stroke="var(--bark)" fill="none" stroke-linecap="round">
+          <path d="M340 880 L352 486 Q356 452 380 452 Q404 452 408 486 L420 880 Z"
+                fill="var(--bark)" stroke="none"/>
+          <path d="M366 496 L248 372" stroke-width="32"/>
+          <path d="M394 488 L514 370" stroke-width="32"/>
+          <path d="M380 470 L380 300" stroke-width="26"/>
+          <path d="M248 372 L186 296" stroke-width="17"/>
+          <path d="M256 384 L268 268" stroke-width="16"/>
+          <path d="M514 370 L578 300" stroke-width="17"/>
+          <path d="M506 382 L492 262" stroke-width="16"/>
+          <path d="M380 322 L322 232" stroke-width="15"/>
+          <path d="M380 330 L440 238" stroke-width="15"/>
+          <path d="M186 296 L150 250" stroke-width="10"/>
+          <path d="M268 268 L252 206" stroke-width="10"/>
+          <path d="M578 300 L616 256" stroke-width="10"/>
+          <path d="M492 262 L508 204" stroke-width="10"/>
+          <path d="M322 232 L292 182" stroke-width="9"/>
+          <path d="M440 238 L470 190" stroke-width="9"/>
         </g>
       </svg>
       <div id="bills"></div>
@@ -57,76 +75,108 @@
 
     <script>
       window.__timelines = window.__timelines || {};
-      const DUR = 2.8;
+      const DUR = 3.6;
 
-      // Seeded PRNG: the render seeks this page frame by frame, so every value
-      // that shapes the layout has to be identical on every seek. Math.random()
-      // would still be stable here (it runs once at load) but a fixed seed also
-      // makes the sting reproducible across rebuilds, which matters when the
-      // cut is re-rendered later.
+      // Seeded PRNG so the layout is identical on every seek and every rebuild.
       let seed = 20260920;
       const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
       const between = (a, b) => a + rnd() * (b - a);
 
-      const N = 34;
+      // Canopy lobes in page coordinates (SVG offset by +580, +200).
+      const LOBES = [
+        { x: 960, y: 500, r: 196, w: 0.46 },
+        { x: 808, y: 568, r: 134, w: 0.20 },
+        { x: 1112, y: 568, r: 134, w: 0.20 },
+        { x: 888, y: 416, r: 110, w: 0.08 },
+        { x: 1042, y: 438, r: 92,  w: 0.06 }
+      ];
+      function inCanopy() {
+        let p = rnd(), acc = 0, lobe = LOBES[0];
+        for (const l of LOBES) { acc += l.w; if (p <= acc) { lobe = l; break; } }
+        const a = rnd() * Math.PI * 2, d = Math.sqrt(rnd()) * lobe.r;
+        return { x: lobe.x + Math.cos(a) * d, y: lobe.y + Math.sin(a) * d };
+      }
+
+      const N = 46;          // dense enough that the bills read as the foliage
+      const KEEP = 3;        // "almost bare" — a few stay clinging at the end
       const host = document.getElementById("bills");
       const bills = [];
       for (let i = 0; i < N; i++) {
+        const p = inCanopy();
         const el = document.createElement("div");
         el.className = "bill";
         el.innerHTML = "<span>$1</span>";
-        // Start inside the canopy footprint, which is centred at 960 and spans
-        // roughly 540px; bills emerge from the leaves rather than from a point.
-        const x0 = 960 + between(-300, 300);
-        const y0 = 1080 - between(430, 760);
-        el.style.left = (x0 - 42) + "px";
-        el.style.top  = (y0 - 21) + "px";
+        el.style.left = (p.x - 40) + "px";
+        el.style.top  = (p.y - 20) + "px";
         host.appendChild(el);
         bills.push({
           el,
-          pop:   between(0.00, 0.30),           // stagger into the canopy
-          drop:  between(0.00, 0.85),           // stagger of the fall itself
-          fall:  1080 - y0 + between(140, 320), // clear the bottom edge
-          spin:  between(-420, 420),
-          sway:  between(60, 190) * (rnd() < 0.5 ? -1 : 1),
-          scale: between(0.7, 1.25),
-          dur:   between(1.05, 1.55)
+          pop:   between(0.00, 0.34),
+          // Fall order runs roughly top-down so the canopy empties from the
+          // crown, the way a tree actually sheds.
+          drop:  ((p.y - 300) / 420) * 0.34 + between(0.00, 0.62),
+          fall:  1080 - p.y + between(150, 330),
+          spin:  between(-430, 430),
+          sway:  between(70, 200) * (rnd() < 0.5 ? -1 : 1),
+          scale: between(0.72, 1.2),
+          dur:   between(1.05, 1.5),
+          tilt:  between(-25, 25)
         });
       }
+      // The keepers are picked from the lowest bills, where a real leaf would
+      // hang on longest, and they never get a fall tween.
+      const keepers = bills.slice().sort((a, b) => b.el.offsetTop - a.el.offsetTop).slice(0, KEEP);
+      const keep = new Set(keepers);
 
       const tl = gsap.timeline({ paused: true });
 
-      // Initial states go through gsap.set, not tl.set at time 0: a zero-duration
-      // set inside a paused timeline does not apply while the playhead sits at 0,
-      // so frame 0 would flash the finished state.
+      // Initial state via gsap.set (immediate): a zero-duration set inside a
+      // paused timeline does not apply at playhead 0, so frame 0 would flash
+      // the finished state.
       gsap.set("#glow",   { opacity: 0 });
       gsap.set("#tree",   { scaleY: 0, scaleX: 0.72, opacity: 0 });
       gsap.set("#canopy", { transformOrigin: "50% 78%", scale: 0.4, opacity: 0 });
-      bills.forEach(b => gsap.set(b.el, { opacity: 0, scale: 0, rotation: between(-25, 25) }));
+      bills.forEach(b => gsap.set(b.el, { opacity: 0, scale: 0, rotation: b.tilt }));
 
-      // 1. Tree springs up from the bottom edge.
-      tl.to("#glow", { opacity: 1, duration: 0.40, ease: "power2.out" }, 0);
-      tl.to("#tree", { scaleY: 1, scaleX: 1, opacity: 1, duration: 0.62, ease: "back.out(1.6)" }, 0.04);
+      // 1. Tree springs up, foliage and bills fill the canopy.
+      tl.to("#glow",   { opacity: 1, duration: 0.40, ease: "power2.out" }, 0);
+      // The wash exists to mask the cut while bills are falling. It clears
+      // before the bare tree holds, so the payoff reads against clean picture.
+      tl.to("#glow",   { opacity: 0, duration: 0.55, ease: "power2.inOut" }, 1.95);
+      tl.to("#tree",   { scaleY: 1, scaleX: 1, opacity: 1, duration: 0.62, ease: "back.out(1.6)" }, 0.04);
       tl.to("#canopy", { scale: 1, opacity: 1, duration: 0.52, ease: "back.out(2.2)" }, 0.24);
 
-      // 2. Bills pop out of the leaves, then detach and flutter down. The two
-      //    staggers overlap so the screen is busiest around 1.2-1.7s, which is
-      //    where the underlying scene cut belongs.
+      // 2. Bills detach and flutter down. Busiest around 1.3-1.9s — that is
+      //    where the hard cut between scenes belongs.
       bills.forEach(b => {
         tl.to(b.el, { opacity: 1, scale: b.scale, duration: 0.26, ease: "back.out(2.6)" }, 0.34 + b.pop);
-        const t = 0.72 + b.drop;
+        if (keep.has(b)) {
+          // Keepers just twitch as their neighbours leave, then hang on.
+          tl.to(b.el, { rotation: b.tilt + 16, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 1 }, 1.25);
+          return;
+        }
+        const t = 0.82 + b.drop;
         tl.to(b.el, { y: b.fall, duration: b.dur, ease: "sine.in" }, t);
         tl.to(b.el, { rotation: "+=" + b.spin, duration: b.dur, ease: "none" }, t);
-        // Sway is a separate axis so it reads as flutter rather than an arc.
         tl.to(b.el, { x: b.sway, duration: b.dur / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t);
-        // Fade only at the very end of each bill's own fall.
         tl.to(b.el, { opacity: 0, duration: 0.3, ease: "power1.in" }, t + b.dur - 0.28);
       });
 
-      // 3. Tree retracts and the wash clears, revealing the new scene.
-      tl.to("#canopy", { scale: 0.34, opacity: 0, duration: 0.40, ease: "back.in(1.8)" }, DUR - 0.72);
-      tl.to("#tree",   { scaleY: 0, opacity: 0, duration: 0.44, ease: "power3.in" }, DUR - 0.58);
-      tl.to("#glow",   { opacity: 0, duration: 0.46, ease: "power2.in" }, DUR - 0.50);
+      // 3. The green thins out in step with the bills, so by ~2.5s the branches
+      //    are bare. Each lobe fades on its own beat rather than all at once.
+      document.querySelectorAll(".foliage").forEach((f, i) => {
+        tl.to(f, { opacity: 0, duration: 0.5, ease: "power2.in" }, 1.05 + i * 0.17);
+      });
+
+      // 4. A beat of bare tree — this is the payoff, so it holds before the
+      //    retract. A slow sway keeps it alive instead of frozen.
+      tl.to("#tree", { rotation: -1.6, transformOrigin: "50% 100%", duration: 0.46, ease: "sine.inOut" }, 2.46);
+      tl.to("#tree", { rotation: 0.8, duration: 0.5, ease: "sine.inOut" }, 2.92);
+
+      // 5. Bare tree retracts, wash clears, new scene is revealed.
+      keepers.forEach((b, i) =>
+        tl.to(b.el, { opacity: 0, scale: 0, duration: 0.3, ease: "back.in(2)" }, DUR - 0.62 + i * 0.05));
+      tl.to("#tree", { scaleY: 0, opacity: 0, duration: 0.46, ease: "power3.in" }, DUR - 0.50);
 
       tl.to({}, { duration: DUR }, 0);
       window.__timelines["money-tree"] = tl;
