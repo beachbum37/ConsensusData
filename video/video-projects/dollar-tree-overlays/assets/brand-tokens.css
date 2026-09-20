@@ -1,0 +1,26 @@
+/* Dollar Tree product-test overlays — a family-viewer palette.
+
+   Deliberately different from the work<Ai> podcast tokens: this is a dad-and-son
+   bit, so the cards are bright, rounded and high-contrast rather than the dark
+   editorial plates used on the interview show. Everything still has to survive a
+   busy, dim living-room background, hence the heavy drop shadows and the solid
+   bill-green plates instead of translucent ones. */
+:root {
+  --bill:        #1e7a46;   /* dollar-bill green, the primary plate */
+  --bill-deep:   #14562f;
+  --bill-light:  #4caf7d;
+  --leaf:        #2e9e5b;   /* canopy green, one step brighter than the plate */
+  --bark:        #6b4a2f;
+  --gold:        #ffc93c;   /* price badge / accent, reads at a glance */
+  --gold-deep:   #e8a800;
+  --paper:       #ffffff;
+  --ink:         #14231a;
+
+  --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.55);
+  --shadow-text: 0 6px 26px rgba(0, 0, 0, 0.8);
+
+  /* Rounded, friendly, still legible small. Fredoka carries the playful tone;
+     Inter does the numerals and small caps where Fredoka gets mushy. */
+  --font-fun: "Fredoka", "Baloo 2", system-ui, sans-serif;
+  --font-ui:  "Inter", system-ui, -apple-system, sans-serif;
+}

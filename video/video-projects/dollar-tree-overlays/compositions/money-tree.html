@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Money Tree Transition</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-fun); }
+
+      /* The sting is densest in the middle of its run — that is where the hard
+         cut between scenes is meant to sit, so the join is hidden by bills. */
+      #glow { position: absolute; inset: 0;
+              background: radial-gradient(ellipse 900px 700px at 50% 46%, rgba(46,158,91,0.42), transparent 68%); }
+
+      #tree { position: absolute; left: 50%; bottom: 0; width: 760px; height: 880px;
+              margin-left: -380px; transform-origin: 50% 100%; }
+
+      /* Bills are DOM rather than SVG so each one can carry its own transform
+         stack (fall, spin, sway) without fighting the tree's group transform. */
+      .bill { position: absolute; width: 84px; height: 42px; border-radius: 7px;
+              background: linear-gradient(160deg, var(--bill-light), var(--bill) 58%, var(--bill-deep));
+              border: 2px solid rgba(255,255,255,0.62);
+              box-shadow: 0 8px 22px rgba(0,0,0,0.42);
+              display: flex; align-items: center; justify-content: center;
+              color: rgba(255,255,255,0.96); font-size: 22px; font-weight: 700;
+              letter-spacing: 0.02em; will-change: transform; }
+      /* Faint inner oval, the way a banknote portrait frame reads at a glance. */
+      .bill::before { content: ""; position: absolute; inset: 6px 10px; border-radius: 50%;
+                      border: 1.5px solid rgba(255,255,255,0.3); }
+      .bill span { position: relative; z-index: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="money-tree" data-start="0" data-duration="2.80" data-width="1920" data-height="1080">
+      <div id="glow"></div>
+      <svg id="tree" viewBox="0 0 760 880" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Canopy blobs sit behind the trunk so the fork reads through them. -->
+        <g id="canopy">
+          <circle cx="380" cy="300" r="215" fill="var(--leaf)"/>
+          <circle cx="222" cy="372" r="150" fill="var(--leaf)"/>
+          <circle cx="538" cy="372" r="150" fill="var(--leaf)"/>
+          <circle cx="300" cy="212" r="128" fill="var(--bill-light)" opacity="0.5"/>
+          <circle cx="470" cy="236" r="104" fill="var(--bill-light)" opacity="0.38"/>
+        </g>
+        <g id="trunk">
+          <path d="M344 880 L344 470 Q344 430 380 430 Q416 430 416 470 L416 880 Z" fill="var(--bark)"/>
+          <path d="M366 486 L250 372" stroke="var(--bark)" stroke-width="34" stroke-linecap="round"/>
+          <path d="M394 470 L512 366" stroke="var(--bark)" stroke-width="34" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div id="bills"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 2.8;
+
+      // Seeded PRNG: the render seeks this page frame by frame, so every value
+      // that shapes the layout has to be identical on every seek. Math.random()
+      // would still be stable here (it runs once at load) but a fixed seed also
+      // makes the sting reproducible across rebuilds, which matters when the
+      // cut is re-rendered later.
+      let seed = 20260920;
+      const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
+      const between = (a, b) => a + rnd() * (b - a);
+
+      const N = 34;
+      const host = document.getElementById("bills");
+      const bills = [];
+      for (let i = 0; i < N; i++) {
+        const el = document.createElement("div");
+        el.className = "bill";
+        el.innerHTML = "<span>$1</span>";
+        // Start inside the canopy footprint, which is centred at 960 and spans
+        // roughly 540px; bills emerge from the leaves rather than from a point.
+        const x0 = 960 + between(-300, 300);
+        const y0 = 1080 - between(430, 760);
+        el.style.left = (x0 - 42) + "px";
+        el.style.top  = (y0 - 21) + "px";
+        host.appendChild(el);
+        bills.push({
+          el,
+          pop:   between(0.00, 0.30),           // stagger into the canopy
+          drop:  between(0.00, 0.85),           // stagger of the fall itself
+          fall:  1080 - y0 + between(140, 320), // clear the bottom edge
+          spin:  between(-420, 420),
+          sway:  between(60, 190) * (rnd() < 0.5 ? -1 : 1),
+          scale: between(0.7, 1.25),
+          dur:   between(1.05, 1.55)
+        });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+
+      // Initial states go through gsap.set, not tl.set at time 0: a zero-duration
+      // set inside a paused timeline does not apply while the playhead sits at 0,
+      // so frame 0 would flash the finished state.
+      gsap.set("#glow",   { opacity: 0 });
+      gsap.set("#tree",   { scaleY: 0, scaleX: 0.72, opacity: 0 });
+      gsap.set("#canopy", { transformOrigin: "50% 78%", scale: 0.4, opacity: 0 });
+      bills.forEach(b => gsap.set(b.el, { opacity: 0, scale: 0, rotation: between(-25, 25) }));
+
+      // 1. Tree springs up from the bottom edge.
+      tl.to("#glow", { opacity: 1, duration: 0.40, ease: "power2.out" }, 0);
+      tl.to("#tree", { scaleY: 1, scaleX: 1, opacity: 1, duration: 0.62, ease: "back.out(1.6)" }, 0.04);
+      tl.to("#canopy", { scale: 1, opacity: 1, duration: 0.52, ease: "back.out(2.2)" }, 0.24);
+
+      // 2. Bills pop out of the leaves, then detach and flutter down. The two
+      //    staggers overlap so the screen is busiest around 1.2-1.7s, which is
+      //    where the underlying scene cut belongs.
+      bills.forEach(b => {
+        tl.to(b.el, { opacity: 1, scale: b.scale, duration: 0.26, ease: "back.out(2.6)" }, 0.34 + b.pop);
+        const t = 0.72 + b.drop;
+        tl.to(b.el, { y: b.fall, duration: b.dur, ease: "sine.in" }, t);
+        tl.to(b.el, { rotation: "+=" + b.spin, duration: b.dur, ease: "none" }, t);
+        // Sway is a separate axis so it reads as flutter rather than an arc.
+        tl.to(b.el, { x: b.sway, duration: b.dur / 2, ease: "sine.inOut", yoyo: true, repeat: 1 }, t);
+        // Fade only at the very end of each bill's own fall.
+        tl.to(b.el, { opacity: 0, duration: 0.3, ease: "power1.in" }, t + b.dur - 0.28);
+      });
+
+      // 3. Tree retracts and the wash clears, revealing the new scene.
+      tl.to("#canopy", { scale: 0.34, opacity: 0, duration: 0.40, ease: "back.in(1.8)" }, DUR - 0.72);
+      tl.to("#tree",   { scaleY: 0, opacity: 0, duration: 0.44, ease: "power3.in" }, DUR - 0.58);
+      tl.to("#glow",   { opacity: 0, duration: 0.46, ease: "power2.in" }, DUR - 0.50);
+
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["money-tree"] = tl;
+    </script>
+  </body>
+</html>
