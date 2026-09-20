@@ -1,6 +1,7 @@
 # Raw footage and everything derived from it. Video does not belong in git.
 footage/*
 !footage/.gitkeep
+!footage/README.md
 
 # video-use writes all session output into <videos_dir>/edit/
 edit/
@@ -17,12 +18,32 @@ edit/
 # Secrets
 .env
 
-# Source audio for a slide-driven episode is small enough to carry in git,
-# and it is the only way footage on a contributor's machine reaches a cloud
-# session. Video stays ignored; this exception is audio + the deck only.
-!footage/scifi/
-!footage/scifi/*.mp3
-!footage/scifi/*.pptx
+# Handing source material to a cloud session: make footage/<project>/ and commit
+# it. Committing is the ONLY way files on your machine reach a cloud session, so
+# the small source types below are un-ignored inside any project folder.
+!footage/*/
+!footage/*/*.mp3
+!footage/*/*.wav
+!footage/*/*.m4a
+!footage/*/*.pptx
+!footage/*/*.pdf
+!footage/*/*.docx
+!footage/*/*.txt
+!footage/*/*.md
+!footage/*/*.srt
+!footage/*/*.vtt
+!footage/*/*.png
+!footage/*/*.jpg
+
+# Video is still ignored by default — it is large and GitHub rejects >100MB.
+# To hand over a clip anyway: `git add -f footage/<project>/clip.mp4`, after
+# checking it is under 100MB (see footage/README.md for the shrink command).
+
+# ...but the working directories inside a project are scratch, never committed.
+footage/*/edit/
+footage/*/renders/
+footage/*/slidecut/
+footage/edit/
 
 # Finished episodes are the exception to the no-video rule: they are the
 # deliverable, and a link that 404s is worse than a large blob. Keep them
