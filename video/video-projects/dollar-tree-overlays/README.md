@@ -31,12 +31,16 @@ Source is three 55.8s clips at 1280x720/30 with stereo audio: `dtree1.mp4`
 
 | Overlay | At | Why there |
 |---|---|---|
-| `money-tree` | 0:27.2 | **the product reveal** — "who looked at toothpaste and thought…" at 31.2s. The tree is reserved for a genuinely new product, and this video has exactly one. |
-| `card-product` | 0:31.0 | names it: Ice Cream Toothpaste |
-| `bill-wipe` | 0:55.2 | join 1 at 55.77s — same product, so the light wipe, not the tree. Peaks at 0.55s, so the sting starts 0.55s before the cut. |
+| `card-product` | 0:31.0 | names the product, after he has set the box down — the reveal itself is left clear |
+| `bill-wipe` | 0:55.2 | join 1 at 55.77s. Peaks at 0.55s, so it starts 0.55s before the cut |
 | `card-smell` | 0:56.8 | clip 2 opens "What does it smell like?" |
-| `bill-wipe` | 1:51.0 | join 2 at 111.58s, same reasoning |
-| `card-taste` | 1:52.6 | clip 3 is the tasting |
+| `card-taste` | 1:44.3 | **the bathroom cut**, which is at 48.4s inside clip 2 (1:44.17 in the cut), not at a clip join — the location changes mid-clip |
+| `bill-wipe` | 1:51.0 | join 2 at 111.58s, bathroom to bathroom |
+
+`money-tree.html` is **not used in this cut**. It is reserved for a genuinely
+new product; this video tests one product, and placing it on the reveal covered
+the toothpaste box on the table. It stays in the project for the next episode,
+where a second product would earn it.
 
 **Transition grammar.** Two weights, and which one fires carries meaning:
 the money tree (3.6s, full frame, tree sheds its bills) means *a new product
