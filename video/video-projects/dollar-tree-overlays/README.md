@@ -31,11 +31,36 @@ Source is three 55.8s clips at 1280x720/30 with stereo audio: `dtree1.mp4`
 
 | Overlay | At | Why there |
 |---|---|---|
-| `card-product` | 0:30.5 | "who looked at toothpaste and thought…" — the product reveal, at 31.2s |
-| `money-tree` | 0:54.2 | join 1 at 55.77s, sting starts 1.6s earlier so the cut lands in the bill fall |
-| `card-smell` | 0:58.0 | after the sting retracts; dtree2 opens "What does it smell like?" |
-| `money-tree` | 1:49.9 | join 2 at 111.58s, same 1.6s lead |
-| `card-taste` | 1:53.8 | after the sting retracts |
+| `money-tree` | 0:27.2 | **the product reveal** — "who looked at toothpaste and thought…" at 31.2s. The tree is reserved for a genuinely new product, and this video has exactly one. |
+| `card-product` | 0:31.0 | names it: Ice Cream Toothpaste |
+| `bill-wipe` | 0:55.2 | join 1 at 55.77s — same product, so the light wipe, not the tree. Peaks at 0.55s, so the sting starts 0.55s before the cut. |
+| `card-smell` | 0:56.8 | clip 2 opens "What does it smell like?" |
+| `bill-wipe` | 1:51.0 | join 2 at 111.58s, same reasoning |
+| `card-taste` | 1:52.6 | clip 3 is the tasting |
+
+**Transition grammar.** Two weights, and which one fires carries meaning:
+the money tree (3.6s, full frame, tree sheds its bills) means *a new product
+starts here*; the bill wipe (1.3s, a flurry sweeping across, no tree) means
+*same product, new segment*. Don't spend the tree on an ordinary cut — it
+stops meaning anything.
+
+## Grade
+
+The living room runs across **clips 1 and 2**, not just clip 1 — clip 3 is the
+only bathroom footage. Both living-room clips are lifted so the room doesn't
+step in brightness at the join:
+
+| Clip | Room | Ungraded luma | Grade | After |
+|---|---|---|---|---|
+| dtree1 | living room | 63–85 | `eq=gamma=1.45:saturation=1.06` | 95–117 |
+| dtree2 | living room | 73–88 | `eq=gamma=1.35:saturation=1.05` | 97–112 |
+| dtree3 | bathroom | 107–127 | none | unchanged |
+
+Gamma rather than a curve or a brightness offset: it lifts shadows and mids
+while leaving the white point alone, and the window behind them is already
+blown. Clipped-white pixels go from 6,006 to 6,863 out of 2.7M, so the window
+is no worse. Measured across the finished cut, luma now holds 100–115
+throughout.
 
 Build (one pass, no intermediate encode):
 

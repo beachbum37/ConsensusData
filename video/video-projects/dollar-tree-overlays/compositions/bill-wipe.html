@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Bill Wipe</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-fun); }
+
+      /* The light transition. The money tree is reserved for a genuinely new
+         product; this is for a cut inside the same product — a quick flurry of
+         bills across frame, no tree, no wash, a third of the tree's length. */
+      .bill { position: absolute; width: 78px; height: 39px; border-radius: 7px;
+              background: linear-gradient(160deg, var(--bill-light), var(--bill) 58%, var(--bill-deep));
+              border: 2px solid rgba(255,255,255,0.62);
+              box-shadow: 0 8px 22px rgba(0,0,0,0.42);
+              display: flex; align-items: center; justify-content: center;
+              color: rgba(255,255,255,0.96); font-size: 21px; font-weight: 700;
+              will-change: transform; }
+      .bill::before { content: ""; position: absolute; inset: 6px 10px; border-radius: 50%;
+                      border: 1.5px solid rgba(255,255,255,0.3); }
+      .bill span { position: relative; z-index: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.45); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="bill-wipe" data-start="0" data-duration="1.30" data-width="1920" data-height="1080">
+      <div id="bills"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 1.3;
+
+      // Seeded so the flurry is identical on every seek and rebuild.
+      let seed = 77310419;
+      const rnd = () => (seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296;
+      const between = (a, b) => a + rnd() * (b - a);
+
+      const N = 22;
+      const host = document.getElementById("bills");
+      const bills = [];
+      for (let i = 0; i < N; i++) {
+        const el = document.createElement("div");
+        el.className = "bill";
+        el.innerHTML = "<span>$1</span>";
+        // Start off the left edge, spread down the full height, and travel
+        // right and slightly down — a sweep rather than a fall, so it reads as
+        // a wipe and clears frame fast.
+        const y0 = between(-140, 1120);
+        el.style.left = "-140px";
+        el.style.top = y0 + "px";
+        host.appendChild(el);
+        bills.push({
+          el, y0,
+          lead:  between(0, 0.30),                 // stagger across the sweep
+          travel: 2180 + between(0, 260),
+          drift:  between(60, 260),                // slight downward drift
+          spin:   between(-300, 300),
+          scale:  between(0.66, 1.15),
+          tilt:   between(-22, 22),
+          dur:    between(0.62, 0.86)
+        });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+
+      // Initial state via gsap.set: a zero-duration set inside a paused
+      // timeline does not apply at playhead 0.
+      bills.forEach(b => gsap.set(b.el, { opacity: 0, scale: b.scale, rotation: b.tilt, x: 0, y: 0 }));
+
+      // Coverage peaks around 0.55s — put the hard cut there.
+      bills.forEach(b => {
+        const t = b.lead;
+        tl.to(b.el, { opacity: 1, duration: 0.12, ease: "power1.out" }, t);
+        tl.to(b.el, { x: b.travel, duration: b.dur, ease: "power1.in" }, t);
+        tl.to(b.el, { y: b.drift, duration: b.dur, ease: "sine.in" }, t);
+        tl.to(b.el, { rotation: b.tilt + b.spin, duration: b.dur, ease: "none" }, t);
+        tl.to(b.el, { opacity: 0, duration: 0.16, ease: "power1.in" }, t + b.dur - 0.16);
+      });
+
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["bill-wipe"] = tl;
+    </script>
+  </body>
+</html>
