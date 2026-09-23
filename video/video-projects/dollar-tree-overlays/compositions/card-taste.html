@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Product Test Title Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@600;700;800&display=block" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/brand-tokens.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent; font-family: var(--font-fun); }
+
+      /* Anchored bottom-left. Both subjects sit centre and centre-right through
+         the living-room half of the footage, so a centred card would land on a
+         face; the lower-left corner is the one reliably empty region. */
+      #wrap { position: absolute; left: 110px; bottom: 132px; display: flex; align-items: center; gap: 34px; }
+
+      #badge { width: 168px; height: 168px; border-radius: 50%; flex: none;
+               background: radial-gradient(circle at 34% 28%, var(--gold), var(--gold-deep));
+               border: 6px solid var(--paper); box-shadow: var(--shadow-card);
+               display: flex; align-items: center; justify-content: center;
+               color: var(--ink); font-size: 62px; font-weight: 700; line-height: 1; }
+
+      #plate { background: linear-gradient(150deg, var(--bill-light), var(--bill) 46%, var(--bill-deep));
+               border: 5px solid var(--paper); border-radius: 30px; padding: 26px 46px 30px;
+               box-shadow: var(--shadow-card); overflow: hidden; }
+
+      #kicker { font-family: var(--font-ui); font-size: 27px; font-weight: 800;
+                letter-spacing: 0.22em; color: rgba(255,255,255,0.88); margin-bottom: 10px; }
+      #name { font-size: 78px; font-weight: 700; color: var(--paper);
+              letter-spacing: -0.01em; line-height: 1.04; white-space: nowrap;
+              text-shadow: var(--shadow-text); }
+      /* Sheen wipes across the plate once, on the beat the name lands. */
+      #sheen { position: absolute; top: -40%; left: -60%; width: 46%; height: 180%;
+               background: linear-gradient(100deg, transparent, rgba(255,255,255,0.4), transparent);
+               transform: skewX(-18deg); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="card-taste" data-start="0" data-duration="3.20" data-width="1920" data-height="1080">
+      <div id="wrap">
+        <div id="badge">$1</div>
+        <div id="plate">
+          <div id="sheen"></div>
+          <div id="kicker">TEST 2</div>
+          <!-- Swap this line per card; everything else is measured from it. -->
+          <div id="name">The Taste Test</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const DUR = 3.2;
+      const tl = gsap.timeline({ paused: true });
+
+      // Initial states via gsap.set (immediate) rather than tl.set at 0, so the
+      // first rendered frame is the pre-animation state and not a flash of the
+      // finished card.
+      gsap.set("#badge", { opacity: 0, scale: 0.2, rotation: -150 });
+      gsap.set("#plate", { opacity: 0, scaleX: 0.12, transformOrigin: "0% 50%" });
+      gsap.set(["#kicker", "#name"], { opacity: 0, y: 22 });
+      gsap.set("#sheen", { xPercent: 0 });
+
+      // Plate unrolls from the badge, so the two read as one lockup.
+      tl.to("#plate",  { opacity: 1, scaleX: 1, duration: 0.52, ease: "back.out(1.5)" }, 0.10);
+      tl.to("#badge",  { opacity: 1, scale: 1, rotation: 0, duration: 0.62, ease: "back.out(2.4)" }, 0);
+      tl.to("#kicker", { opacity: 1, y: 0, duration: 0.34, ease: "power3.out" }, 0.44);
+      tl.to("#name",   { opacity: 1, y: 0, duration: 0.42, ease: "power4.out" }, 0.58);
+      tl.to("#sheen",  { xPercent: 520, duration: 0.72, ease: "power2.inOut" }, 0.72);
+      // Small settle bounce on the badge once the name has landed.
+      tl.to("#badge",  { scale: 1.08, duration: 0.16, ease: "power2.out" }, 0.92);
+      tl.to("#badge",  { scale: 1.00, duration: 0.26, ease: "elastic.out(1, 0.55)" }, 1.08);
+
+      const o = DUR - 0.52;
+      tl.to(["#name", "#kicker"], { opacity: 0, y: -14, duration: 0.26, ease: "power2.in" }, o);
+      tl.to("#plate", { opacity: 0, scaleX: 0.12, duration: 0.34, ease: "back.in(1.4)" }, o + 0.08);
+      tl.to("#badge", { opacity: 0, scale: 0.2, rotation: 140, duration: 0.38, ease: "back.in(2.0)" }, o + 0.12);
+
+      tl.to({}, { duration: DUR }, 0);
+      window.__timelines["card-taste"] = tl;
+    </script>
+  </body>
+</html>

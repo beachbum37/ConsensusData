@@ -23,7 +23,39 @@ layout and matches `actuary-overlays`; render each card explicitly with `-c`.
 To make a second title card, copy the file and change the `#name` and `#kicker`
 lines. Everything else is measured from the text, so length changes are safe.
 
-## Status — blocked on audio
+## The cut
+
+Source is three 55.8s clips at 1280x720/30 with stereo audio: `dtree1.mp4`
+(intro + the format + the toothpaste reveal), `dtree2.mp4` (smell test),
+`dtree3.mp4` (taste test). They join end to end for 2:47.
+
+| Overlay | At | Why there |
+|---|---|---|
+| `card-product` | 0:30.5 | "who looked at toothpaste and thought…" — the product reveal, at 31.2s |
+| `money-tree` | 0:54.2 | join 1 at 55.77s, sting starts 1.6s earlier so the cut lands in the bill fall |
+| `card-smell` | 0:58.0 | after the sting retracts; dtree2 opens "What does it smell like?" |
+| `money-tree` | 1:49.9 | join 2 at 111.58s, same 1.6s lead |
+| `card-taste` | 1:53.8 | after the sting retracts |
+
+Build (one pass, no intermediate encode):
+
+```
+ffmpeg -i dtree1.mp4 -i dtree2.mp4 -i dtree3.mp4 \
+       -i money-tree.mov -i card-product.mov -i card-smell.mov -i card-taste.mov \
+       -filter_complex "…concat=n=3:v=1:a=1… scale=1280:720 … setpts+offset … overlay" \
+       -c:v libx264 -crf 20 -c:a aac -b:a 192k out.mp4
+```
+
+Overlays render at 1920x1080 and are scaled to 1280x720 in the composite, so
+the compositions stay resolution-independent. The full command is in the
+session notes; `edit/dollar-tree-cut.mp4` is the working master and
+`video/deliverables/dollar-tree-ice-cream-toothpaste-720p.mp4` the tracked copy.
+
+The earlier 4-minute upload was unusable: it held only **7 unique frames**
+across 3:53 and carried no audio track — a broken export, not a real recording.
+These three clips replaced it.
+
+## Also worth fixing
 
 **The uploaded file has no audio track at all** (`nb_streams=1`, no audio
 stream). That blocks the parts of the brief that depend on content:
@@ -43,12 +75,8 @@ clean picture rather than through a tint.
 
 ## Also worth fixing
 
-The living-room half (0–170s) is underexposed: mean luma 70/255 where 110–128
-is normal. The bathroom half (170–233s) is fine at 116/255. A lift on the first
-half would match them and would help a lot on phone screens, which is where
-family viewers will watch it.
-
-## Demo
-
-`renders/demo-transition.mp4` (rebuild: see the ffmpeg command in the session
-notes) shows both cards over the real footage across the 169.8s cut.
+The living-room footage is underexposed: mean luma 81/255 at 0:30 and 0:60,
+where 110–128 is normal. The bathroom footage is fine at 115/255. Lifting the
+first 56 seconds would match the two and would help a lot on phone screens,
+which is where family viewers will watch. Not applied — the cut ships ungraded
+until asked.
