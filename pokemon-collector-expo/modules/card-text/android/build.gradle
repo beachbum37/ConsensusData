@@ -1,0 +1,23 @@
+plugins {
+  id 'com.android.library'
+  id 'expo-module-gradle-plugin'
+}
+
+group = 'expo.modules.cardtext'
+version = '0.1.0'
+
+android {
+  namespace "expo.modules.cardtext"
+  defaultConfig {
+    versionCode 1
+    versionName "0.1.0"
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+dependencies {
+  // Latin-script text model, bundled in the APK so scanning works offline from first launch.
+  implementation 'com.google.mlkit:text-recognition:16.0.1'
+}
