@@ -6,7 +6,6 @@
     "orientation": "portrait",
     "scheme": "pokecollector",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "android": {
       "package": "com.pokecollector.app",
       "adaptiveIcon": {
