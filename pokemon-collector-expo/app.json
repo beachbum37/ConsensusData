@@ -35,6 +35,17 @@
     ],
     "experiments": {
       "typedRoutes": false
-    }
+    },
+    "extra": {
+      "router": {
+        "asyncRoutes": {
+          "web": true
+        }
+      },
+      "eas": {
+        "projectId": "f0da0164-5db2-415e-90e7-23bec3fb6442"
+      }
+    },
+    "owner": "digital-glovebox"
   }
 }
