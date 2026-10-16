@@ -1,0 +1,28 @@
+{
+  "order": [
+    "A",
+    "B1",
+    "B2"
+  ],
+  "breath_s": 0.3,
+  "lufs": -16,
+  "removed": [
+    {
+      "segment": "A",
+      "from_s": 33.92,
+      "to_s": 35.02,
+      "seconds": 1.1,
+      "reason": "'from our source material' \u2014 attribution, trimmed mid-sentence; leaves 'But I absolutely love this analogy, because it hits the nail right on the head.'"
+    }
+  ],
+  "picture_patches": [
+    {
+      "segment": "B1",
+      "from_s": 65.5,
+      "to_s": 70.5,
+      "seconds": 5.0,
+      "held_frame_s": 70.6,
+      "reason": "slide transition renders as a blank white frame for 5.0s while 'Information as trapped luxury' is spoken; hold the incoming 'Information as Luxury' slide across it"
+    }
+  ]
+}
